@@ -1,0 +1,61 @@
+.top-bar {
+  @include SetUpBG("../../image/bg/bg-title_bar.png");
+  background-color: transparent;
+  text-align: center;
+
+  .top-bar-title {
+    float:left;
+  }
+  img,span {
+    margin-left: 0.7em;
+    width: 4em;
+  }
+
+  .top-bar-left {
+    display: inline-block;
+    float: none;
+  ul {
+    font-size: 0;
+    li {
+      font-size: 17px;
+      padding: 0 0.5em;
+      font-weight: 700;
+    }
+  }
+    a {
+      font-family: 'NorePethMedium';
+      color :white;
+
+      &:hover {
+        color :$blue;
+      }
+    }
+
+  }
+}
+.off-canvas-wrapper {
+    background-color: $titlebar_color;
+    .off-canvas-wrapper-inner {
+    .off-canvas {
+      background-color: $titlebar_color;
+      ul {
+        background-color: transparent;
+
+        list-style: none;
+        li {
+          margin: 0.5em 0em;
+        }
+        a {
+          font-family: 'NorePethMedium';
+          font-size: 1.5em;
+          color : white;
+        }
+        label {
+          font-family: 'NorePethMedium';
+          font-size: 2em;
+          color : white;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,16 @@
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
+var elixir = require('laravel-elixir');
 
-  gulp.task('connect', function() {
-    connect.server({
-      root: 'web',
-      livereload: true
-    });
-  });
-gulp.task('default', ['connect']);
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
+
+elixir(function(mix) {
+    mix.sass('app.scss');
+});
