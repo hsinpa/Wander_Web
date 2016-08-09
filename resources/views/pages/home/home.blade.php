@@ -4,8 +4,9 @@
     @include('pages.home.headBoard')
     @include('pages.home.gameIntro')
     @include('pages.home.introPortal')
+    @include('pages.home.quote')
     @include('pages.home.contact')
-
+    @include('layouts.footer')
   </div>
   <script>
   //Video Popup
@@ -54,5 +55,12 @@
 
     //Set front page equal to your screen size
     utilityModule.SetToScreenHeight($("#wrainbo-home-headboard"));
+
+    //Intro panel
+    if ($(window).width() < 640) {
+      utilityModule.SwapDomElement($('.homeDetailPanel-2 .row'));
+    }
+    </script>
+
   </script>
 @stop

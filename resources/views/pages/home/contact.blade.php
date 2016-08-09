@@ -1,20 +1,17 @@
 <div id="wrainbo-home-contactus">
   <div class="row">
-    <img src="image/icon/wrainbo_icon.png" />
       <div class="large-12 columns">
-        <h1>BETA SIGN-UP</h1>
-        <div class="breakline"></div>
-        <div class="row">
-
-                <p>Magitech will roll out private beta soon.<br/>
-                  Please sign up if you are interested in playing the beta version.</p>
-        </div>
+        <h5>Get into the world of business while have fun</h5>
         <form>
-          <input type="email"  placeholder="Email"></input>
+          <img class="contactus-goblin" src="image/home/goblin.png" />
+          <input name="name" type="text"  placeholder="Name"></input>
+          <input name="email" type="email"  placeholder="Email"></input>
+          <br />
           <input type="submit" value="SUBMIT"/>
-        </form>
-        </div>
-        @include('layouts.footer')
+          <img class="contactus-alvina" src="image/home/alvina.png" />
 
+        </form>
+
+        </div>
   </div>
 </div>

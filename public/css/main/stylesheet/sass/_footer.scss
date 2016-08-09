@@ -1,7 +1,19 @@
 .footer {
-  background-color: transparent;
-  p {
-    text-align: center;
-    color: #7f8c8d;
+  background-color: white;
+  position: relative;
+  // height: 3em;
+  .logo {
+    width: 8em;
+  }
+  section {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    a {
+      margin: 0;
+      img {
+        width: 2em;
+      }
+    }
   }
 }

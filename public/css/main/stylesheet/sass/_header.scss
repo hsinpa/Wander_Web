@@ -1,8 +1,12 @@
 .top-bar {
-  @include SetUpBG($imageBasePath+"bg/bg-title_bar.png");
+  // @include SetUpBG($imageBasePath+"bg/bg-title_bar.png");
   background-color: transparent;
   text-align: center;
-
+  position: absolute;
+  top:0em;
+  left:0em;
+  width:100%;
+  z-index: 3;
   .top-bar-title {
     float:left;
   }
@@ -18,7 +22,7 @@
     font-size: 0;
     li {
       font-size: 17px;
-      padding: 0 0.5em;
+      padding: 0 1.2em;
       font-weight: 700;
     }
   }
@@ -27,7 +31,7 @@
       color :white;
 
       &:hover {
-        color :$blue;
+        color :$yellow;
       }
     }
 

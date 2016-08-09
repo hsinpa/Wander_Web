@@ -12,6 +12,7 @@
   </div>
 
   @include('pages.aboutus.aboutus_detail')
+  @include('pages.aboutus.aboutus_priceTable')
   @include('pages.aboutus.aboutus_contact')
 
 </article>

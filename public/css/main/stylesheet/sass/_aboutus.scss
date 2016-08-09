@@ -52,6 +52,28 @@
     }
   }
 
+  #wrainbo-aboutus-pricetable {
+      text-align: center;
+      margin: 0 auto;
+    table {
+      td,th {
+        text-align: center;
+        vertical-align: middle;
+
+        button {
+          @include SetUpButton($yellow, black );
+        }
+      }
+
+      td img {
+        max-width:2em;
+
+      }
+      th img {
+          max-width:8em;
+        }
+    }
+  }
   #wrainbo-aboutus-contact {
     //@include SetUpBG("../../image/aboutus/bg-aboutus-contact.jpg");
     background-color: #c9c9c9;
