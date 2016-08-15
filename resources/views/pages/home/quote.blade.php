@@ -3,33 +3,33 @@
     <p>70+ corporate customers and -85% of alpha users have signed up for beata testing!! </p>
 
   <section class="row quote-panel" data-equalizer data-equalize-on="medium">
-    <h5>Feature Quote</h5>
+    <h5>Featured Quotes</h5>
     <div class="medium-4 columns" data-equalizer-watch>
       <div class="quote">
         <p>
-          SOME ONE SAY SOMETHING
+          “This is my biggest learning at the conference- a mobile game that could help my team learn business analytics!!!”
         </p>
-        <h6>----HR Executive</h6>
+        <h6>──HR Executive</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          "SOME ONE SAY SOMETHING"
+          “This is what the millennial generation needs- an engaging way to level up their business acumen skills”
         </p>
-        <h6>----HR Executive</h6>
+        <h6>──Corporate Learning Exec</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          "SOME ONE SAY SOMETHING"
+          “I was impressed with Magitech…the game appears fully equipped to deliver on its premises to educate players on core business concepts.”
         </p>
-        <h6>----HR Executive</h6>
+        <h6>──Video game media</h6>
       </div>
     </div>
   </section>
-<br />
+<!-- <br />
   <hr />
   <div class="main_quote">
     <p>
@@ -37,8 +37,8 @@
         SOME ONE SAY SOMETHING
       <span class="lower">&#8221;</span>
     </p>
-    <h6>----HR Executive</h6>
+    <h6>HR Executive</h6>
   </div>
-  <hr />
+  <hr /> -->
   <br />
 </div>

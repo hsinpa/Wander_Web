@@ -6,16 +6,39 @@
   -o-background-size: cover;
   background-size: cover;
 }
+@mixin SetUpBGColor($color) {
+  background-color: $color;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 @mixin SetUpButton($bgColor, $textColor) {
   display: inline-block;
   border-radius: 10px;
-  padding: 1em 2.5em;
+  padding: 1em 3em;
   color : $textColor;
   background: $bgColor;
+  position: relative;
+  font-family: 'NorePethDemiBold';
+  //text-align: left;
   //  &:hover {
   //    background: $hover;
   //    color : $color;
   //  }
+  img {
+    // margin: 0em 0em;
+    // padding: 0em;
+    // position: absolute;
+    // top :1em;
+    // right : 0.6em;
+    // z-index: 1;
+    width :1.5em;
+    position: relative;
+    left : 0.7em;
+    // height: 1.5em;
+  }
 }
 
 //Prefab
@@ -44,6 +67,12 @@ $titlebar_color : #342d12;
 $imageBasePath: '../../../../image/';
 
 //Bold title / button
+@font-face {
+    font-family: NorePethBold;
+    src: url('../../font/The Northern Block - Norpeth Bold.otf');
+}
+
+//semi title / menubar
 @font-face {
     font-family: NorePethDemiBold;
     src: url('../../font/The Northern Block - Norpeth DemiBold.otf');

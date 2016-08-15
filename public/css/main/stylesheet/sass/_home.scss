@@ -29,26 +29,27 @@
       position: relative;
       top:7em;
       left:3em;
+
       margin: 0em 0em 0em 1em;
       @media (max-width:500px) {
         text-align: center;
         left:0em;
-        top:1em;
+        top:2.2em;
       }
 
       @media screen and (min-width: 64em) {
         top:7em;
       }
 
-      img {
+      .logo {
         max-width: 18em;
         margin : 0em 0 0em -0.9em;
-        @media screen and (min-width: 64em) {
-          max-width: 25vw;
+        @media screen and (min-width: 40em) {
+          max-width: 18em;
         }
 
         @media (max-width:500px) {
-          max-width: 14em;
+          max-width: 11em;
           margin : 0em;
         }
       }
@@ -60,25 +61,19 @@
             @include SetUpButton(black, $yellow );
           }
           a {
-            padding: 0.5em 0em;
             position: relative;
-            font-size: 1.2em;
-            font-weight: 700;
-            display: inline-block;
             margin-right: 2.7vw;
-            width:12.5em;
+            width:16em;
             text-align: center;
-            font-family: 'NorePethDemiBold';
             box-shadow: 6px 6px 30px 3px rgba(0,0,0,.5);
 
             @media screen and (min-width: 64em) {
-              font-size: 1.55vw;
+              //font-size: 1.55vw;
             }
 
             @media (max-width:500px) {
-              margin-right: 0em;
-              margin-bottom: 0.7em;
-
+              margin-bottom: 0em;
+              font-size: 0.8em;
             }
 
 
@@ -88,17 +83,6 @@
             // }
             span {
               position: relative;
-            }
-
-            img {
-              margin: 0em 0em;
-              padding: 0em;
-              position: absolute;
-              top :0.9em;
-              right : 0.6em;
-              z-index: 1;
-              width :1.5em;
-              height: 1.5em;
             }
 
              video {
@@ -121,43 +105,49 @@
         }
 
         h1 {
-          color: white;
-          text-shadow: black 1px 1px 20px;
+          color: black;
+          font-family: 'NorePethBold';
+          // text-shadow: black 1px 1px 20px;
           @media (max-width:500px) {
-            font-size: 1.3em
+            font-size: 1.1em
           }
 
-          @media screen and (min-width: 64em) {
-            font-size: 3.2vw;
+          @media screen and (min-width: 40em) {
+            font-size: 2em;
           }
         }
         p {
           color: white;
           text-shadow: black 1px 1px 20px;
+          @media screen and (max-width: 39.9375em) { display: none;}
+
         }
         h5 {
-          font-family: 'NorePethMedium';
+          font-family: 'NorePethDemiBold';
         }
       }
     }
   }
 
   #wrainbo-home-productIntro {
-    @include SetUpBG($imageBasePath+"bg/bg-product-intro.jpg");
     text-align: center;
 
     .intro_text {
-
       max-width: 50em;
       margin: 0 auto;
       padding-bottom:1em;
-
       .spotlight{
         font-weight: bold;
       }
     }
     h1 {
-      padding-top: 1.5em;
+      padding-top: 0.7em;
+      padding-bottom: 0;
+      margin-bottom: -0.6em;
+      font-size: 1.3em;
+    }
+    .rslides_container {
+      margin-bottom: 1.5em;
     }
   }
 
@@ -165,12 +155,32 @@
     .intro-panel {
       background-color: $white;
       border: 1px solid $gray;
-      box-shadow: 1px 1px 3px black;
+      box-shadow: 0px 10px 30px 1px #b0b0b0;
+
+      h3 {
+        text-align: center;
+        margin-top: 1em;
+      }
+
       p {
         padding: 1em 0em;
-
         text-align: center;
         max-width: 40em;
+      }
+    }
+
+    .homeDetailPanel-1 {
+      @include SetUpBGColor(#eeeeee);
+    }
+
+    .homeDetailPanel-3 {
+      img {
+        max-width: 22em;
+      }
+      @media screen and (min-width: 64em) {
+        .detailRow {
+          padding-top: 2em;
+        }
       }
     }
 
@@ -195,14 +205,33 @@
     .columns .quote {
       max-width: 23em;
       border: 1px solid $dark_blue;
-      box-shadow: 0px 0px 15px 5px #888888;
+      border-radius: 5px;
+      box-shadow: 0px 0px 40px 0px #8e8e8e;
+      margin: 0 auto;
+      p {
+        padding: 0 0.5em;
+        height: 8em;
+      }
+      @media (max-width:700px) {
+        margin-top:1em;
+      }
+    }
+    h5 {
+      margin-left: 1em;
+    }
+
+    h4 {
+      padding-top: 1em;
+    }
+    p {
+      margin-top: 1em;
     }
     h4, p {
       text-align: center;
     }
     h6 {
       text-align: right;
-      margin: 0 0;
+      margin: 1em 1em;
     }
     .main_quote {
       span {
@@ -215,44 +244,54 @@
       max-width: 40em;
       margin: 0 auto;
       position: relative;
+
     }
   }
+}
 
-  #wrainbo-home-contactus {
-    @include SetUpBG($imageBasePath+"bg/bg_bottom.jpg");
-    position: relative;
-    text-align: center;
-    color :white;
-    h5 { margin: 1em 0;}
-    form {
-      margin: 0 auto;
-      input[type="email"], input[type="text"]{
-        width: 17em;
-        margin: 0 1em;
-        display: inline-block;
-      }
-
-      input[type="submit"] {
-        @include SetUpButton($yellow ,black );
-        margin: 1em 0em;
-        border: none;
+#wrainbo-home-contactus {
+  @include SetUpBG($imageBasePath+"bg/bg_bottom.jpg");
+  position: relative;
+  text-align: center;
+  color :white;
+  h5 { margin: 1em 0;}
+  form {
+    margin: 0 auto;
+    input[type="email"], input[type="text"]{
+      width: 17em;
+      display: inline-block;
+      @media screen and (max-width: 39.9375em) {
+        margin: 0 auto;
+        display: block;
+        margin-top: 0.3em;
       }
     }
-    img {
-      display: inline;
-      margin: 0;
-      width : 7em;
-      z-index: 4;
-      position: absolute;
-      // bottom: 0;
-      bottom:0;
-    }
-    .contactus-goblin {
-      left:0;
-    }
-    .contactus-alvina {
-      right:0;
-    }
 
+    input[type="submit"] {
+      @include SetUpButton($yellow ,black );
+      margin: 1em 0em;
+      border: none;
+    }
   }
+  img {
+    display: inline;
+    margin: 0;
+    z-index: 4;
+    position: absolute;
+    // bottom: 0;
+    bottom:0;
+
+    @media (max-width:1000px) {
+      display: none;
+    }
+  }
+  .contactus-goblin {
+    left:0;
+    width : 18em;
+  }
+  .contactus-alvina {
+    right:0;
+    width : 18em;
+  }
+
 }

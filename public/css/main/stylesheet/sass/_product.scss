@@ -1,0 +1,52 @@
+#wrainbo-product-main {
+    @include SetUpBG($imageBasePath+ "pricing/bg-pricing.jpg");
+    text-align: center;
+
+    h4 {
+      padding-top: 4em;
+      padding-bottom : 0.5em;
+    }
+    p {
+      padding-bottom: 10em;
+    }
+    h4,p {
+      color:white;
+    }
+}
+
+#wrainbo-product-pricetable {
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    max-width: 65em;
+    margin-top: -6em;
+  table {
+    td,th {
+      text-align: center;
+
+      button {
+        @include SetUpButton($yellow, black );
+        font-size: 0.7em;
+        @media screen and (max-width: 39.9375em) {
+          max-width: 5em;
+          padding: 1em 0.3em;
+
+        }
+      }
+    }
+    tr > td:first-child {
+      text-align: left;
+    }
+
+    td img {
+      max-width:2em;
+
+    }
+    th img {
+        max-width:8em;
+        @media screen and (max-width: 39.9375em) {
+          display: none;
+        }
+      }
+  }
+}

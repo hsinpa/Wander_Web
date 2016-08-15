@@ -1,13 +1,20 @@
 $(document).ready(function(){
-  var mChartType = "line", mFilterData = [];
+  var mChartType = "line", mFilterData = [],
+      axisSelect =  {
+        "y" : "coin",
+         "x" :"level"
+      };
+
   //Init
   $.get( "http://wrainbo.com/analytics/allUserID", function( data ) {
       data = JSON.parse( data);
       var optionString = "";
+
       for (var key in data){
         optionString += "<option value='"+data[key].guid+"'>"+data[key].guid+"</option>";
       }
-      $("form select").append(optionString);
+
+      $(".userSelecter").append(optionString);
   });
 
   //Select Panel Click
@@ -18,19 +25,30 @@ $(document).ready(function(){
       }
   });
 
+  //Select xy Axsi Click
+  $(".AxisSelect").change(function(){
+      if ($(this).val() != "") {
+          //Click Event
+          axisSelect[ $(this).attr("axis") ] = $(this).val();
+          PlotChart();
+          //Setup( $(this).val() );
+      }
+  });
+
+
   //Change Chart Type
   $( "button" ).click(function() {
     mChartType = $(this).val();
-    DisplayChart(mChartType);
+    PlotChart();
   });
 
-  function DisplayChart(p_chart) {
+  function PlotChart() {
     //Clear svg content
     $("svg").html("");
 
     switch (mChartType) {
       case "bar":
-        BarChart.Plot(mFilterData);
+        BarChart.Plot(mFilterData, axisSelect);
 
       break;
       case "line":
@@ -44,6 +62,10 @@ $(document).ready(function(){
   function Setup(p_guid) {
     $.get( "http://wrainbo.com/analytics/score/"+p_guid, function( data ) {
       var jsonData = JSON.parse(data);
+
+      if (jsonData.length <= 0) return;
+      var axisString = "<option value=''>Pick One</option>",
+          keyList = Object.keys( jsonData[0]);
       //console.log( JSON.parse(data) );
       mFilterData = [];
 
@@ -57,10 +79,15 @@ $(document).ready(function(){
             })
           );
         });
-
       console.log(mFilterData);
-      DisplayChart( mChartType );
+      PlotChart( );
+
+      //Set Axis Select
+      for (var i in keyList){
+        axisString += "<option value='"+keyList[i]+"'>"+keyList[i]+"</option>";
+      }
+      $(".AxisSelect").html("");
+      $(".AxisSelect").append(axisString);
     });
   }
-
 });

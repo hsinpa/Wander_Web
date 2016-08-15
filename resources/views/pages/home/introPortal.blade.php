@@ -1,68 +1,59 @@
 <div id="wrainbo-intro-detail" class="home-detail">
   <div class="intro-panel">
-      <h4>Why Magitech?</h4>
+      <h3>Why Magitech?</h3>
       <p>
-        Wrain is devleoping a platform that ocmbne immerseive gameplay,
-         oricatlenar and ata back assessment and configuration
+        Magitech provides practical learning via engaging gameplay, data-driven assessment,
+         and cost-effective solutions for companies of all sizes.
       </p>
   </div>
 
-  <div class="homeDetailPanel-1">
-    <section class="row">
-      <div class="medium-6 columns">
-        <img src="image/gameplay/demo-production.jpg" />
-      </div>
-      <div class="medium-6 columns">
-        <img class="breakline" src="image/icon/breakline.png"></img>
-        <h1>Engaging gameplay</h1>
-        <img class="breakline" src="image/icon/breakline.png"></img>
-
-        <p>
-          Players could produce different types and quantity of clothing products.
-          Things that need to consider include cost, capacity, shelf life, and defect rate
-        </p>
-        <a href="">LEARN MORE</a>
-      </div>
-    </section>
-  </div>
   <div class="homeDetailPanel-2">
-
     <section class="row">
-      <div class="medium-6 columns">
-        <img class="breakline" src="image/icon/breakline.png"></img>
-        <h1>Practical learning</h1>
-        <img class="breakline" src="image/icon/breakline.png"></img>
+      <div class="detailRow medium-6 columns">
+        <h1>Learning by playing</h1>
 
         <p>
-          Magitech features "business spells" that represent real world management techniques.
-           Examples include promoting products, borrowing money, and improving quality.
-        </p>
-        <a href="">LEARN MORE</a>
+          Wrainbo’s Magitech is pioneering an innovative way to help organization build business acumen through immersive mobile gameplay. By engaging in bite-sized levels, players can play the game anytime and anywhere to develop cross-functional management skills and practice using data to make strategic decisions.        </p>
+        <a href="gameplay">LEARN MORE</a>
       </div>
-
       <div class="medium-6 columns">
-        <img src="image/gameplay/demo-spellsystem.jpg" />
+        <img src="image/home/img-iphone.png" />
       </div>
-
     </section>
   </div>
+
   <div class="homeDetailPanel-1">
 
     <section class="row">
       <div class="medium-6 columns">
-        <img src="image/gameplay/demo-mainUI.jpg" />
+        <img src="image/home/img-chart.png" />
       </div>
-      <div class="medium-6 columns">
-        <img class="breakline" src="image/icon/breakline.png"></img>
+      <div class="detailRow medium-6 columns">
         <h1>Data-driven assessment</h1>
-        <img class="breakline" src="image/icon/breakline.png"></img>
 
         <p>
-          Player's goal is to compete with competitors to trade with customers.
-           Which customer segments to target?
-          How much price to set? True heroes will triumph by making tough decisions to maximize profits!
+          Wrainbo’s Magitech captures multiple layers of gameplay data and turn them into insights on a learner’s core strengths and weaknesses.
+           Using the analytics dashboard, organizations could better understand the talent profiles and use those valuable data to make better training investment.
+
         </p>
-        <a href="">LEARN MORE</a>
+        <a href="accessment">LEARN MORE</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="homeDetailPanel-3">
+
+    <section class="row">
+      <div class="detailRow medium-6 columns">
+        <h1>Cost-effective solutions</h1>
+
+        <p>
+          Magitech comes at a fraction of the price for a standard training session or simulation. Not only is Magitech more engaging, but it also provides personalized analytics. In addition to budget control, players could play the game anytime and anywhere, saving travel time and making it more flexible to suit modern lifestyle.
+        </p>
+        <a href="learning">LEARN MORE</a>
+      </div>
+      <div class="medium-6 columns">
+        <img src="image/home/img-data.png" />
       </div>
     </section>
   </div>

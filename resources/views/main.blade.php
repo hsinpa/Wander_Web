@@ -30,9 +30,11 @@
           <ul class="off-canvas-list">
               <li><label>Menu</label></li>
               <li><a href="/">Home</a></li>
-              <li><a href="gameplay">Magitech Gameplay</a></li>
-              <li><a href="learning">Magitech Learning</a></li>
-              <li><a href="aboutUs">About Wrainbo</a></li>
+              <li><a href="gameplay">GAMEPLAY</a></li>
+              <li><a href="learning">LEARNING</a></li>
+              <li><a href="accessment">ACCESSMENT</a></li>
+              <li><a href="package">PACKAGES</a></li>
+              <li><a href="aboutUs">ABOUT US</a></li>
           </ul>
 
         </div>

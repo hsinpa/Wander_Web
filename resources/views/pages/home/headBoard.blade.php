@@ -4,16 +4,16 @@
       <div class="large-12 columns">
 
         <div class="titleGroup">
-          <h1>PLAY mobile game, Build business acumen.</h1>
-          <p>
-            Magitech links gameplya to business concept  and real world case,<br />
-             mastering economics, statica and accounting.
-          </p>
+          <h1>Develop and measure business acumen <br />by playing mobile game</h1>
+          <!-- <p>
+            Magitech combines immersive gameplay and data-driven assessment<br />
+            to help develop business acumen and data-driven decision making
+          </p> -->
         </div>
         <div class="breakline"></div>
 
             <a class="various fancybox.iframe theme_black" href="https://www.youtube.com/embed/g6oLxcCAAcE?autoplay=1">
-              WATCH TRAILER<img src="image/icon/bt_play.png" />
+                WATCH TRAILER<img src="image/icon/bt_play.png" />
             </a>
             <div class="breakline"></div>
             <a href="#wrainbo-home-contactus" class="theme_yellow">

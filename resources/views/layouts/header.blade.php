@@ -2,18 +2,33 @@
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
-      <a href="/" ><span class="title-bar-title">HOME</span></a>
+      <a href="/" ><img src="image/icon/logo.png" /></a>
     </span>
   </div>
 
 
+  <div class="top-bar-title show-for-medium">
+    <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <span class="menu-icon dark" data-toggle></span>
+    </span> -->
+    <a href="/" ><img src="image/icon/logo.png" /></a>
+  </div>
+
     <div id="responsive-menu">
-      <div class="top-bar-left show-for-medium">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li><a href="/"><img src="image/icon/logo.png" /></a></li>
+
+
+      <div class="top-bar-right show-for-medium">
+        <ul >
+          <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
           <li><a href="/">HOME</a></li>
-          <li><a href="gameplay">FEATURE</a></li>
-          <li><a href="learning">PRODUCT</a></li>
+          <li><a href="gameplay">FEATURES</a>
+            <ul>
+            <li class="nav3"><a href="gameplay">Gameplay</a></li>
+            <li class="nav3"><a href="learning">Practical Learning</a></li>
+            <li class="nav3"><a href="accessment">Data Driven Assessment</a></li>
+            </ul>
+          </li>
+          <li><a href="package">PACKAGES</a></li>
           <li><a href="aboutUs" >ABOUT US</a></li>
         </ul>
       </div>

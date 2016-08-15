@@ -1,20 +1,18 @@
-<div id="wrainbo-intro-detail" class="gameplay-detail">
+<div id="wrainbo-intro-detail" class="learning-detail">
         <div class="gameplayDetailPanel-1">
 
           <section class="row">
-            <div class="medium-6 columns">
-              <img src="image/gameplay/demo-production.jpg" />
-            </div>
-            <div class="medium-6 columns">
-              <img class="breakline" src="image/icon/breakline.png"></img>
-              <h1>PRODUCE PRODUCTS</h1>
-              <img class="breakline" src="image/icon/breakline.png"></img>
-
+            <div class="detailRow medium-6 columns">
+              <h1>Fantasy meets business</h1>
               <p>
-                Players could produce different types and quantity of clothing products.
-                Things that need to consider include cost, capacity, shelf life, and defect rate
+                Magitech is the world’s first mobile fantasy game that helps people build business acumen. Using magic heroes and spells that represent business management techniques, players will compete with robots and trade with fantasy characters to maximize profits.
               </p>
             </div>
+
+            <div class="medium-6 columns">
+              <img src="image/gameplay/GAMEPLAY1.png" />
+            </div>
+
           </section>
         </div>
 
@@ -22,42 +20,33 @@
 
           <section class="row">
             <div class="medium-6 columns">
-              <img class="breakline" src="image/icon/breakline.png"></img>
-              <h1>CAST BUSINESS SPELLS</h1>
-              <img class="breakline" src="image/icon/breakline.png"></img>
+              <img src="image/gameplay/GAMEPLAY2.png" />
+            </div>
+
+            <div class="detailRow medium-6 columns">
+                <h1>Bite-sized mobile learning</h1>
 
               <p>
-                Magitech features "business spells" that represent real world management techniques.
-                 Examples include promoting products, borrowing money, and improving quality.
+                Magitech is designed for mobile to be played anytime and anywhere. Its single-player mode features bite-sized levels of 5-10 minutes, and each level features a concrete business concept- such as demand driven pricing and product quality control- to learn and practice.
               </p>
             </div>
-
-            <div class="medium-6 columns">
-              <img src="image/gameplay/demo-spellsystem.jpg" />
-            </div>
-
           </section>
         </div>
 
-        <div class="gameplayDetailPanel-1">
+        <div class="gameplayDetailPanel-3">
 
           <section class="row">
-            <div class="medium-6 columns">
-              <img src="image/gameplay/demo-mainUI.jpg" />
-            </div>
-            <div class="medium-6 columns">
-              <img class="breakline" src="image/icon/breakline.png"></img>
-              <h1>TRADE WITH CUSTOMERS</h1>
-              <img class="breakline" src="image/icon/breakline.png"></img>
+            <div class="detailRow medium-6 columns">
+                <h1>Social gameplay</h1>
 
               <p>
-                Player's goal is to compete with competitors to trade with customers.
-                 Which customer segments to target?
-                How much price to set? True heroes will triumph by making tough decisions to maximize profits!
+                Embedded in Magitech is a library that cover all the core concepts introduced in the game. In addition to high-level concepts, the library also provides real world cases to help link the gameplay to business practices.
               </p>
             </div>
+            <div class="medium-6 columns">
+              <img src="image/gameplay/GAMEPLAY3.jpg" />
+            </div>
+
           </section>
         </div>
-
-
 </div>

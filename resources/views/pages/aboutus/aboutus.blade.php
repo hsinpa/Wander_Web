@@ -4,19 +4,21 @@
   <div id="wrainbo-aboutus-main">
 
   <img class="aboutUsMainIcon" src="image/aboutus/ic-wrainbo.png"></img>
-  <h5>「 Intelligence Learning Studio 」</h5>
-  <h1>MAKE LEARNING ENGAGING AND EFFECTIVE</h1>
-      <a href="#wrainbo-aboutus-detail">
+  <h2>Game platform for practical job skills</h2>
+      <!-- <a href="#wrainbo-aboutus-detail">
           <img src="image/aboutus/bt-seehow.png"></img>
-        </a>
+        </a> -->
   </div>
 
   @include('pages.aboutus.aboutus_detail')
-  @include('pages.aboutus.aboutus_priceTable')
   @include('pages.aboutus.aboutus_contact')
 
 </article>
   <script>
-    utilityModule.SetToScreenHeight( $("#wrainbo-aboutus-main"));
+    utilityModule.SetToHalfScreenHeight( $("#wrainbo-aboutus-main"));
+    if ($(window).width() < 640) {
+      //utilityModule.SwapDomElement($('#wrainbo-aboutus-contact .row'));
+    }
+
   </script>
 @stop

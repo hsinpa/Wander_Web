@@ -2,13 +2,14 @@
 @import './components/_utility';
 
 h1,h2 { font-family: 'NorePethDemiBold', Verdana, Geneva, sans-serif; }
-h3,h4 { font-family: 'NorePethMedium', Verdana, Geneva, sans-serif; }
-p {  font-family: 'NorePethBook', Verdana, Geneva, sans-serif; }
+h3,h4,h5,h6 { font-family: 'NorePethMedium', Verdana, Geneva, sans-serif; }
+p {  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; }
 
 //Page
 @import '_home';
 @import '_gameplay';
 @import '_aboutus';
+@import '_product';
 
 //Layout
 @import '_header';

@@ -1,25 +1,32 @@
 #wrainbo-aboutus {
   #wrainbo-aboutus-main {
-    @include SetUpBG("../../image/aboutus/bg-aboutus.png");
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a8a8a8+0,e8e8e8+24,ffffff+100 */
+    background: #a8a8a8; /* Old browsers */
+    background: -moz-linear-gradient(top,  #a8a8a8 0%, #e8e8e8 24%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #a8a8a8 0%,#e8e8e8 24%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #a8a8a8 0%,#e8e8e8 24%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
     position: relative;
     text-align: center;
 
     .aboutUsMainIcon {
-        max-width:20em;
+        max-width:15em;
         padding-top: 4em;
         @media (max-width:500px) {
-          max-width:15em;
+          max-width:10em;
 
         }
     }
 
-    h1 {
+    h2 {
       vertical-align: middle;
-      margin: 2em 0em 1.5em 0em;
+
+      margin: 1.3em 0em 1.5em 0em;
     }
 
     h5 {
-      color :#7f8c8d;
+      color : black;
     }
     a {
 
@@ -33,59 +40,45 @@
   #wrainbo-aboutus-detail {
     //@include SetUpBG("../../image/aboutus/bg-aboutus-detail.png");
     background-color: #eeeeee;
+    h4 {
+      padding-top: 0.5em;
+    }
     .row {
       padding-bottom: 1em;
       .wrainbo-aboutus-detail-text {
 
-        margin: 10em 0em 7em 0em;
+        margin: 0em 0em 1em 0em;
         @media screen and (max-width: 39.9375em) {
           margin-top: 1em;
         }
-
+        h5 {
+          //font-weight: 600;
+        }
       }
       img {
         margin: 0 auto;
-
+        margin-top: 0.5em;
         display: block;
-        width:20em;
+        width:30em;
       }
     }
   }
 
-  #wrainbo-aboutus-pricetable {
-      text-align: center;
-      margin: 0 auto;
-    table {
-      td,th {
-        text-align: center;
-        vertical-align: middle;
-
-        button {
-          @include SetUpButton($yellow, black );
-        }
-      }
-
-      td img {
-        max-width:2em;
-
-      }
-      th img {
-          max-width:8em;
-        }
-    }
-  }
   #wrainbo-aboutus-contact {
     //@include SetUpBG("../../image/aboutus/bg-aboutus-contact.jpg");
     background-color: #c9c9c9;
     .worker-avatar {
         margin-bottom: 0em;
         max-width: 60%;
+        @media screen and (max-width: 40em) {
+          //display: none;
+        }
     }
 
     .row {
-      padding-top: 1em;
-      h3 {
-        margin-top: 3em;
+      padding-top: 0.5em;
+      div:nth-child(2) {
+          margin-top: 2em;
       }
 
       section {

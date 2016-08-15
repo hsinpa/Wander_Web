@@ -13,7 +13,17 @@
 
 Route::get('/', function () {
   return view('pages.home.home',
-    ['title' => 'Wrainbo: Business learning analytics game']);
+    ['title' => 'Wrainbo: Mobile game platform for business learning']);
+});
+
+Route::get('feature', function () {
+    return view('pages.feature.feature',
+      ['title' => 'Feature | Wrainbo']);
+});
+
+Route::get('package', function () {
+    return view('pages.product.product',
+      ['title' => 'Package | Wrainbo']);
 });
 
 Route::get('gameplay', function () {
@@ -23,7 +33,12 @@ Route::get('gameplay', function () {
 
 Route::get('learning', function () {
     return view('pages.learning.learning',
-      ['title' => 'Leaning | Wrainbo']);
+      ['title' => 'Practical Learning | Wrainbo']);
+});
+
+Route::get('accessment', function () {
+    return view('pages.accessment.accessment',
+      ['title' => 'Data-Driven Accessment | Wrainbo']);
 });
 
 Route::get('aboutUs', function () {
@@ -35,6 +50,11 @@ Route::get('aboutUs', function () {
 Route::group(['prefix' => 'analytics'], function () {
     header("Access-Control-Allow-Origin: *");
     header('Content-Type: text/html; charset=UTF-8');
+    
+    Route::get('/', function () {
+        return view('analytics',
+          ['title' => 'Analytics Demo']);
+    });
 
     Route::post('save', "Analytics\UserCtrl@SaveGameRecord");
     Route::post('import', "Analytics\UserCtrl@ImportUnityAnalyticsData");

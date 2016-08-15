@@ -5,8 +5,9 @@
   .learning-bg {
     @include SetUpBG($imageBasePath+ "learning/bg_learning.jpg");
   }
-
-
+  .accessment-bg {
+    @include SetUpBG($imageBasePath+ "accessment/bg-accessment.jpg");
+  }
   #wrainbo-intro-main {
     text-align: center;
     color :white;
@@ -15,19 +16,19 @@
     h4 {
       padding-top: 5em;
       margin: 0em 0em 1em 0em;
+      font-family: 'NorePethDemiBold', Verdana, Geneva, sans-serif;
     }
     h1 {
+      color : $yellow;
       @media screen and (max-width: 39.9375em) {
-        font-size: 3em;
+        font-size: 2.5em;
       }
       @media screen and (min-width: 40em) {
-        font-size : 8em;
+        font-size : 3em;
       }
-
-      margin-bottom : 0.5em;
     }
     p {
-      margin: 0 auto;
+      margin-bottom : 1.5em;
     }
 
     .breakline {
@@ -47,36 +48,107 @@
         color:#f1c40f;
       }
     }
-  }
 
-
-
-  .gameplayDetailPanel-1 {
-    @include SetUpBG($imageBasePath+ "gameplay/bg-panel-3.png");
-  }
-  .gameplayDetailPanel-2 {
-      @include SetUpBG($imageBasePath+ "gameplay/bg-panel-3.png");
-  }
-  .learningDetailPanel-1 {
-    @include SetUpBG($imageBasePath+ "gameplay/bg-panel-3.png");
-    p,h3 {
-      margin-left: 5%;
-      text-align: left;
+    a {
+      @include SetUpButton($yellow, black );
+      margin-bottom: 1.5em;
     }
   }
+
+
+  .accessDetailPanel-1 {
+    @media screen and (min-width: 64em) {
+      .detailRow {
+        padding-top: 7em;
+      }
+    }
+  }
+
+
+  .accessDetailPanel-2 {
+    position: relative;
+    background-color: #f3f3f3;
+    img {
+      box-shadow: 0 0 60px 1px #b0b0b0;
+    }
+    @media screen and (min-width: 64em) {
+      .detailRow {
+        padding-top: 7em;
+      }
+    }
+  }
+
+  .gameplayDetailPanel-1 {
+    @include SetUpBG($imageBasePath+ "gameplay/bg-panel-1.jpg");
+    @media screen and (min-width: 64em) {
+      .detailRow {
+        padding-top: 6em;
+      }
+    }
+
+  }
+  .gameplayDetailPanel-2 {
+      @include SetUpBGColor(#f3f3f3);
+      @media screen and (min-width: 64em) {
+        .detailRow {
+          padding-top: 6em;
+        }
+      }
+
+  }
+
+  .gameplayDetailPanel-3 {
+    @include SetUpBGColor(#e6e6e6);
+    position: relative;
+    @media screen and (min-width: 64em) {
+      .detailRow {
+        padding-top: 6em;
+      }
+    }
+
+    img {
+      box-shadow: 0px 0px 40px 2px #b0b0b0;
+    }
+  }
+
+
+
+  .learningDetailPanel-1 {
+    @include SetUpBG($imageBasePath+ "learning/bg-learning1.jpg");
+    p,h3 {
+      text-align: left;
+    }
+    .learning1-img {
+      max-width: 20em;
+    }
+    @media screen and (min-width: 64em) {
+      .detailRow {
+        padding-top: 6em;
+      }
+    }
+
+  }
   .learningDetailPanel-2 {
-      @include SetUpBG($imageBasePath+ "gameplay/bg-panel-3.png");
+      @include SetUpBG($imageBasePath+ "learning/bg-learning2.jpg");
       p,h3 {
-        margin-left: 5%;
         text-align: left;
+      }
+      @media screen and (min-width: 64em) {
+        .detailRow {
+          padding-top: 6em;
+        }
       }
 
   }
   .learningDetailPanel-3 {
-      @include SetUpBG($imageBasePath+ "gameplay/bg-panel-3.png");
+    @include SetUpBGColor(#f3f3f3);
       p,h3 {
-        margin-left: 5%;
         text-align: left;
+      }
+      @media screen and (min-width: 64em) {
+        .detailRow {
+          padding-top: 6em;
+        }
       }
   }
 }
@@ -92,26 +164,37 @@ section {
     display: inline;
   }
 
-  img {
-    box-shadow: 10px 10px 16px #6a6a6a;
-  }
-
-  h1 {
-    display: inline;
-    padding: 0em 0.5em;
-
+  .detailRow {
     position: relative;
-    top: 0.1em;
-    color : $dark;
-    font-size: 1em;
+    padding-top: 3em;
+    padding-bottom: 1em;
 
-
+    //margin: 0 auto;
+    // top: -50%;
+    // transform: perspective(1px) translateY(25%);
+    a {
+      margin-bottom: 1em;
+    }
   }
+
+  img {
+    //box-shadow: 10px 10px 16px #6a6a6a;
+  //  max-width: 30em;
+  }
+
+    h1 {
+      position: relative;
+      top: -0.7em;
+      color : $dark;
+      font-size: 1.3em;
+      text-align: left;
+
+    }
 
   }
   p {
-    max-width: 25em;
-    letter-spacing : 1.5px;
+    // max-width: 25em;
+    letter-spacing : 0.5px;
     color : black;
     margin: 0 auto;
     text-align: left;
