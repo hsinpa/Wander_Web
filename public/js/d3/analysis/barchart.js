@@ -30,7 +30,7 @@ var BarChart = (function () {
         .data(jsonData)
         .enter()
         .append("rect")
-        .attr("width", 13)
+        .attr("width", 20)
         .attr("height", function(d) { return (sHeight -space - 10)- yScale(d[axisSelect.y]);})
         .attr("x", function(d,i) {return (xScale(d[axisSelect.x]) ) + space  ;})
         .attr("y", function(d) {  return  yScale(d[axisSelect.y]); } );
@@ -67,9 +67,6 @@ var BarChart = (function () {
         .attr("y", space)
         .attr("dy", ".71em")
         .text("Coin");
-
-
-
     },
   }
 })();

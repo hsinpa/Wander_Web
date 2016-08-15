@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var mChartType = "line", mFilterData = [],
+  var mChartType = "halfDonut", mFilterData = [],
       axisSelect =  {
         "y" : "coin",
          "x" :"level"
@@ -11,10 +11,15 @@ $(document).ready(function(){
       var optionString = "";
 
       for (var key in data){
-        optionString += "<option value='"+data[key].guid+"'>"+data[key].guid+"</option>";
+        optionString += "<option value='"+data[key].guid+"'>"+data[key].name+"</option>";
       }
 
       $(".userSelecter").append(optionString);
+
+      //Set SVG Size
+      $("#vizcontainer svg").width($(document).width() /1.3);
+      $("#vizcontainer svg").height($(document).height() /1.5);
+
   });
 
   //Select Panel Click
@@ -37,7 +42,9 @@ $(document).ready(function(){
 
 
   //Change Chart Type
-  $( "button" ).click(function() {
+  $( "button" ).click(function(event) {
+    event.preventDefault();
+
     mChartType = $(this).val();
     PlotChart();
   });
@@ -45,6 +52,7 @@ $(document).ready(function(){
   function PlotChart() {
     //Clear svg content
     $("svg").html("");
+    $("#vizcontainer .textGroup").css("display", "none");
 
     switch (mChartType) {
       case "bar":
@@ -53,6 +61,11 @@ $(document).ready(function(){
       break;
       case "line":
         LineChart.Plot(mFilterData);
+
+      break;
+      case "halfDonut":
+        $("#vizcontainer .textGroup").css("display", "block");
+        HalfDonutChart.Plot(mFilterData);
 
       break;
     }
@@ -82,12 +95,6 @@ $(document).ready(function(){
       console.log(mFilterData);
       PlotChart( );
 
-      //Set Axis Select
-      for (var i in keyList){
-        axisString += "<option value='"+keyList[i]+"'>"+keyList[i]+"</option>";
-      }
-      $(".AxisSelect").html("");
-      $(".AxisSelect").append(axisString);
     });
   }
 });

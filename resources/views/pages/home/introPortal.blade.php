@@ -36,7 +36,7 @@
            Using the analytics dashboard, organizations could better understand the talent profiles and use those valuable data to make better training investment.
 
         </p>
-        <a href="accessment">LEARN MORE</a>
+        <a href="http://wrainbo.com/assessment">LEARN MORE</a>
       </div>
     </section>
   </div>
@@ -50,7 +50,7 @@
         <p>
           Magitech comes at a fraction of the price for a standard training session or simulation. Not only is Magitech more engaging, but it also provides personalized analytics. In addition to budget control, players could play the game anytime and anywhere, saving travel time and making it more flexible to suit modern lifestyle.
         </p>
-        <a href="learning">LEARN MORE</a>
+        <a href="http://wrainbo.com/learning">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
         <img src="image/home/img-data.png" />

@@ -5,7 +5,10 @@
     <title>{{$title}}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Wrainbo develops games that teach practical job skills. Our first game, Magitech, is a mobile fantasy game that helps players learn business analytics.">
+
+    <meta name="description" content="Wrainbo is a mobile game platform that enables developing mobile games that teach practical job skills.
+     Its first game, Magitech, is a mobile fantasy game that helps in business learning.">
+
     <link rel="stylesheet" href="css/foundation/foundation.css" />
     <link rel="stylesheet" href="css/foundation/motion-ui.min.css" />
     <link rel="stylesheet" href="css/imgSlide.css">
@@ -22,6 +25,8 @@
     <script src="lib/motion-ui.min.js"></script>
     <script src="lib/responsiveslides.min.js"></script>
     <script src="lib/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="lib/d3.min.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
 
 
     <div class="off-canvas-wrapper">
@@ -29,12 +34,12 @@
         <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
           <ul class="off-canvas-list">
               <li><label>Menu</label></li>
-              <li><a href="/">Home</a></li>
-              <li><a href="gameplay">GAMEPLAY</a></li>
-              <li><a href="learning">LEARNING</a></li>
-              <li><a href="accessment">ACCESSMENT</a></li>
-              <li><a href="package">PACKAGES</a></li>
-              <li><a href="aboutUs">ABOUT US</a></li>
+              <li><a href="http://wrainbo.com/">Home</a></li>
+              <li><a href="http://wrainbo.com/gameplay">GAMEPLAY</a></li>
+              <li><a href="http://wrainbo.com/learning">LEARNING</a></li>
+              <li><a href="http://wrainbo.com/assessment">ASSESSMENT</a></li>
+              <li><a href="http://wrainbo.com/package">PACKAGES</a></li>
+              <li><a href="http://wrainbo.com/aboutUs">ABOUT US</a></li>
           </ul>
 
         </div>

@@ -2,7 +2,7 @@
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
-      <a href="/" ><img src="image/icon/logo.png" /></a>
+      <a href="http://wrainbo.com/" ><img src="image/icon/logo.png" /></a>
     </span>
   </div>
 
@@ -11,7 +11,7 @@
     <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <span class="menu-icon dark" data-toggle></span>
     </span> -->
-    <a href="/" ><img src="image/icon/logo.png" /></a>
+    <a href="http://wrainbo.com/" ><img src="image/icon/logo.png" /></a>
   </div>
 
     <div id="responsive-menu">
@@ -20,16 +20,16 @@
       <div class="top-bar-right show-for-medium">
         <ul >
           <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
-          <li><a href="/">HOME</a></li>
-          <li><a href="gameplay">FEATURES</a>
+          <li><a href="http://wrainbo.com/">HOME</a></li>
+          <li><a href="http://wrainbo.com/gameplay">FEATURES</a>
             <ul>
-            <li class="nav3"><a href="gameplay">Gameplay</a></li>
-            <li class="nav3"><a href="learning">Practical Learning</a></li>
-            <li class="nav3"><a href="accessment">Data Driven Assessment</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/gameplay">Gameplay</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/learning">Practical Learning</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/assessment">Data Driven Assessment</a></li>
             </ul>
           </li>
-          <li><a href="package">PACKAGES</a></li>
-          <li><a href="aboutUs" >ABOUT US</a></li>
+          <li><a href="http://wrainbo.com/package">PACKAGES</a></li>
+          <li><a href="http://wrainbo.com/aboutUs" >ABOUT US</a></li>
         </ul>
       </div>
     </div>

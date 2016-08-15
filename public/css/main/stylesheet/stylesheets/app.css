@@ -878,6 +878,58 @@ p {
   }
 }
 
+/* line 2, ../sass/_analytics.scss */
+#wrainbo-analytics #vizcontainer {
+  text-align: center;
+  margin-top: 1em;
+}
+/* line 6, ../sass/_analytics.scss */
+#wrainbo-analytics #vizcontainer svg {
+  overflow: hidden;
+}
+/* line 10, ../sass/_analytics.scss */
+#wrainbo-analytics #vizcontainer .textGroup {
+  position: relative;
+  margin-top: -12em;
+  display: none;
+}
+/* line 14, ../sass/_analytics.scss */
+#wrainbo-analytics #vizcontainer .textGroup h3 {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+/* line 22, ../sass/_analytics.scss */
+#wrainbo-analytics form .functionGroup {
+  float: right;
+}
+
+/* line 28, ../sass/_analytics.scss */
+.chart rect {
+  fill: steelblue;
+}
+
+/* line 32, ../sass/_analytics.scss */
+.chart rect:hover {
+  fill: brown;
+}
+
+/* line 36, ../sass/_analytics.scss */
+.axis {
+  font: 10px sans-serif;
+}
+
+/* line 41, ../sass/_analytics.scss */
+.chart line {
+  fill: none;
+  stroke: steelblue;
+  shape-rendering: crispEdges;
+}
+
+/* line 47, ../sass/_analytics.scss */
+.x.axis path {
+  display: none;
+}
+
 /* line 1, ../sass/_header.scss */
 .top-bar > ul {
   display: inline-block;
@@ -1061,7 +1113,7 @@ p {
   width: 2.5em;
 }
 
-/* line 19, ../sass/app.scss */
+/* line 20, ../sass/app.scss */
 .breakline {
   margin: 1em 0em;
   box-shadow: none !important;

@@ -36,9 +36,9 @@ Route::get('learning', function () {
       ['title' => 'Practical Learning | Wrainbo']);
 });
 
-Route::get('accessment', function () {
+Route::get('assessment', function () {
     return view('pages.accessment.accessment',
-      ['title' => 'Data-Driven Accessment | Wrainbo']);
+      ['title' => 'Data-Driven Assessment | Wrainbo']);
 });
 
 Route::get('aboutUs', function () {
@@ -50,7 +50,7 @@ Route::get('aboutUs', function () {
 Route::group(['prefix' => 'analytics'], function () {
     header("Access-Control-Allow-Origin: *");
     header('Content-Type: text/html; charset=UTF-8');
-    
+
     Route::get('/', function () {
         return view('analytics',
           ['title' => 'Analytics Demo']);

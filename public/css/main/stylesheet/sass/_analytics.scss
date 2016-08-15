@@ -1,0 +1,49 @@
+#wrainbo-analytics {
+  #vizcontainer {
+    text-align: center;
+    margin-top: 1em;
+
+    svg {
+      overflow: hidden;
+    }
+
+    .textGroup {
+      position:relative;
+      margin-top: -12em;
+      display:none;
+      h3 {
+        font-size: 2.5em;
+        font-weight: 700;
+      }
+    }
+  }
+
+  form {
+    .functionGroup {
+      float:right;
+    }
+  }
+}
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart rect:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+// .chart path,
+.chart line {
+  fill: none;
+  stroke: steelblue;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
