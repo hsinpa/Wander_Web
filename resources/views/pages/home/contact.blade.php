@@ -32,7 +32,7 @@
           dataType: "xml"})
           .done(function() {
          });
-         alert("Success");
+         alert("Thank you for your interest. We will be in touch shortly");
          email.val("");
       }
   });

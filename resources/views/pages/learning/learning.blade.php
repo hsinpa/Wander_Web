@@ -2,11 +2,9 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="learning-bg">
-          <h4>MAGITECH</h4>
-
           <h1>Practical Learning</h1>
 
-          <p>Using Magitech, players develop business acumen<br /> 
+          <p>Using Magitech, players develop business acumen<br />
             and
             data-driven problem solving through simulation and embedded library.</p>
 

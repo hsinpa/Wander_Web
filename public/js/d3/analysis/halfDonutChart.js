@@ -2,26 +2,22 @@ var HalfDonutChart = (function () {
 
 
   return {
-    Plot : function(jsonData) {
+    Plot : function(jsonData, data) {
 
       var w = 500,                        //width
       h = 500,                            //height
-      r = 400,                            //radius
-      ir = 350,
+      r = 300,                            //radius
+      ir = 275,
       pi = Math.PI,
       color = d3.scaleOrdinal(d3.schemeCategory20c),
       maxLevel = 10;
 
-      console.log(jsonData);
-      data = [{"label":"ewe", "value":jsonData.length},
-              {"label":"two", "value": 10 - jsonData.length }];
-
       var vis = d3.select("svg")
                   .data([data])
                   .attr("width", w)
-                  .attr("height", h)
+                  .attr("height", h )
                   .append("svg:g")
-                  .attr("transform", "translate(" +(w - 25) + "," + h + ")")
+                  .attr("transform", "translate(" +(r +50) + "," + (r) + ")")
 
       var arc = d3.arc()
                   .outerRadius(r)
@@ -44,7 +40,7 @@ var HalfDonutChart = (function () {
 
 
           //Main Score
-          $("#vizcontainer .textGroup h3").html((jsonData.length/maxLevel ) *100 );
+          $("#vizcontainer .textGroup h3").html("Score " +(data[0].value) );
           //Average Score
           // $("#vizcontainer .textGroup h5").html("Average" + 10);
           //Current level

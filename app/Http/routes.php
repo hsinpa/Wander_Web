@@ -16,9 +16,9 @@ Route::get('/', function () {
     ['title' => 'Wrainbo: Mobile game platform for business learning']);
 });
 
-Route::get('feature', function () {
-    return view('pages.feature.feature',
-      ['title' => 'Feature | Wrainbo']);
+Route::get('platform', function () {
+    return view('pages.platform.platform',
+      ['title' => 'Platform | Wrainbo']);
 });
 
 Route::get('package', function () {
@@ -46,6 +46,40 @@ Route::get('aboutUs', function () {
       ['title' => 'About Us | Wrainbo']);
 });
 
+Route::group(['prefix' => 'cms', 'middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return view('cms.login');
+    });
+    Route::post('login', "CMS\CMSUserCtrl@login");
+    Route::post('register', "CMS\CMSUserCtrl@register");
+
+      //Only Login
+      //if (session()->has('cms.token')) {
+        Route::get('spell', function () {
+            return view('cms.spell.spell');
+        });
+
+        //================== LEVEL ==================
+        Route::get('level', "CMS\CMSLevelCtrl@LoadLevel");
+
+        Route::get("level.template", function () {
+            return view('cms.level.levelTemplate');
+        });
+
+        Route::get('level.event', function () {
+            return view('cms.level.eventTemplate');
+        });
+        Route::get('level.preset', function () {
+            return view('cms.level.presetTemplate');
+        });
+
+        Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
+        Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");
+
+      //}
+});
+
+
 
 Route::group(['prefix' => 'analytics'], function () {
     header("Access-Control-Allow-Origin: *");
@@ -55,10 +89,13 @@ Route::group(['prefix' => 'analytics'], function () {
         return view('analytics',
           ['title' => 'Analytics Demo']);
     });
+    //For Unity
+    Route::get("level/{user_id}", "CMS\CMSLevelCtrl@GetLevel");
+    Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
 
+    //For Assessment
     Route::post('save', "Analytics\UserCtrl@SaveGameRecord");
     Route::post('import', "Analytics\UserCtrl@ImportUnityAnalyticsData");
-    Route::get("ranking/{level}", "Analytics\UserCtrl@GetRanking");
 
     Route::get("spell_level/{guid}", "Analytics\WebAnaCtrl@GetSpellLevelAnalysis");
     Route::get("score/{guid}", "Analytics\WebAnaCtrl@GetAllDataByGUID");

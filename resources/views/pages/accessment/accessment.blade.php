@@ -2,8 +2,6 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="accessment-bg">
-          <h4>MAGITECH</h4>
-
           <h1>Data-Driven Accessment</h1>
 
           <p>Gameplay results could be analyzed via web dashboard to provide<br />

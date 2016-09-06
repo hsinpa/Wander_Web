@@ -8,6 +8,9 @@
   .accessment-bg {
     @include SetUpBG($imageBasePath+ "accessment/bg-accessment.jpg");
   }
+  .platform-bg {
+    @include SetUpBG($imageBasePath+ "platform/bg-platform.jpg");
+  }
   #wrainbo-intro-main {
     text-align: center;
     color :white;
@@ -16,9 +19,10 @@
     h4 {
       padding-top: 5em;
       margin: 0em 0em 1em 0em;
-      font-family: 'NorePethDemiBold', Verdana, Geneva, sans-serif;
+      font-family: 'LatoWebBold', Verdana, Geneva, sans-serif;
     }
     h1 {
+      padding-top: 2em;
       color : $yellow;
       @media screen and (max-width: 39.9375em) {
         font-size: 2.5em;
@@ -42,7 +46,7 @@
       @extend .AlignBottomDom;
 
       span {
-        font-family: 'NorePethMedium';
+        font-family: 'LatoWebMedium';
         position: relative;
         top:-4em;
         color:#f1c40f;
@@ -166,7 +170,7 @@ section {
 
   .detailRow {
     position: relative;
-    padding-top: 3em;
+    padding-top: 1em;
     padding-bottom: 1em;
 
     //margin: 0 auto;

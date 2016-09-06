@@ -2,7 +2,7 @@
   position: relative;
   list-style: none;
   overflow: hidden;
-  width: 100%;
+  /*width: 100%;*/
   padding: 0;
   margin: 0;
   }
@@ -33,5 +33,5 @@
 
   .rslides_container {
     margin: 0 auto;
-    width:80%;
+    /*width:80%;*/
     }

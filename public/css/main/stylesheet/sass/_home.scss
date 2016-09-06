@@ -5,7 +5,7 @@
   padding: 1em 2em;
   color : #f1c40f;
   background: transparent;
-  font-family: 'NorePethDemiBold';
+  font-family: 'LatoWebBold';
 
    &:hover {
      background: #f1c40f;
@@ -106,14 +106,14 @@
 
         h1 {
           color: black;
-          font-family: 'NorePethBold';
+          font-family: 'LatoWebLight';
           // text-shadow: black 1px 1px 20px;
           @media (max-width:500px) {
             font-size: 1.1em
           }
 
           @media screen and (min-width: 40em) {
-            font-size: 2em;
+            font-size: 1.8em;
           }
         }
         p {
@@ -123,7 +123,7 @@
 
         }
         h5 {
-          font-family: 'NorePethDemiBold';
+          font-family: 'LatoWebLight';
         }
       }
     }
@@ -159,7 +159,7 @@
 
       h3 {
         text-align: center;
-        margin-top: 1em;
+        margin-top: 0em;
       }
 
       p {
@@ -175,7 +175,7 @@
 
     .homeDetailPanel-3 {
       img {
-        max-width: 22em;
+        //max-width: 22em;
       }
       @media screen and (min-width: 64em) {
         .detailRow {

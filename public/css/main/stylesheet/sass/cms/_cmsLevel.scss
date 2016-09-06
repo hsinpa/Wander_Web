@@ -1,0 +1,54 @@
+#wrainbo-cms-level {
+  #wrainbo-switch-tabs{
+    img {
+      width: 1.3em;
+      margin-top: 1em;
+    }
+  }
+
+  .level-shortConfig {
+      label,input,select {
+        width: 9em;
+        display: inline;
+      }
+      label {
+        margin-left: 0.5em;
+      }
+  }
+
+
+    .level-numGroup {
+        label,input {
+          width: 7em;
+          display: inline;
+        }
+        label {
+          margin-left: 0.5em;
+        }
+
+    }
+
+    .level-multiSelect{
+      .level-multiSelect-item {
+        img {
+          width:1.5em;
+        }
+        select,input {
+          width: 10em;
+          display: inline;
+
+        }
+      }
+    }
+
+    .unlockTemplate {
+      .unlockGroup {
+        width: 12em;
+        display: inline-block;
+        margin-right: 1em;
+        select {
+          height: 10em;
+        }
+      }
+    }
+}

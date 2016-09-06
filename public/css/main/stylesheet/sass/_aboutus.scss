@@ -1,11 +1,6 @@
 #wrainbo-aboutus {
   #wrainbo-aboutus-main {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a8a8a8+0,e8e8e8+24,ffffff+100 */
-    background: #a8a8a8; /* Old browsers */
-    background: -moz-linear-gradient(top,  #a8a8a8 0%, #e8e8e8 24%, #ffffff 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #a8a8a8 0%,#e8e8e8 24%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #a8a8a8 0%,#e8e8e8 24%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    @include SetUpBG($imageBasePath+ "aboutus/bg-aboutus.jpg");
 
     position: relative;
     text-align: center;
@@ -20,19 +15,19 @@
     }
 
     h2 {
-      vertical-align: middle;
+      padding-top: 3em;
 
-      margin: 1.3em 0em 1.5em 0em;
-    }
+      @media (max-width:630px) {
+        padding-top: 7em;
 
-    h5 {
-      color : black;
-    }
-    a {
-
-      img {
-        max-width:8em;
       }
+      color:white;
+    }
+
+    a {
+      @include SetUpButton($yellow, black );
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
     }
 
   }
@@ -51,18 +46,82 @@
         @media screen and (max-width: 39.9375em) {
           margin-top: 1em;
         }
-        h5 {
+        h4 {
+          margin-top: 3em;
+          @media (max-width:830px) {
+            margin-top: 0.5em;
+          }
           //font-weight: 600;
         }
       }
       img {
         margin: 0 auto;
-        margin-top: 0.5em;
+        padding: 1em 0em 0.3em 0em;
         display: block;
-        width:30em;
+        max-width:24em;
       }
     }
   }
+
+  #wrainbo-aboutus-recognition {
+      text-align: center;
+      h4 {
+        padding-top: 1em;
+      }
+      @include SetUpBG($imageBasePath+ "aboutus/bg-recognition.jpg");
+      .row {
+        padding: 2em 0em 4em 0em;
+        p {
+          position: relative;
+          top:1.2em;
+          display:inline-block;
+          font-size: 1em;
+          max-width: 14em;
+        }
+        img {
+          max-width: 3em;
+          @media (max-width:830px) and (min-width: 39.9375em) {
+            display: none;
+          }
+        }
+      }
+
+  }
+
+  #wrainbo-aboutus-media {
+    background-color: #eeeeee;
+
+      text-align: center;
+      padding-bottom: 0.8em;
+      h4 {
+        padding-top: 1em;
+      }
+
+      section {
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        max-width: 20em;
+        display: inline-block;
+        margin: 1.3em 1em;
+        padding: 1em 0em;
+        border-radius: 5px;
+        p {
+          padding: 1em;
+          text-align: left;
+        }
+        h6 {
+          text-align: right;
+          margin-right: 1.2em;
+        }
+      }
+      section:hover {
+        background-color: #5078c8;
+        p,h6 {
+          color : white;
+        }
+      }
+
+
+    }
 
   #wrainbo-aboutus-contact {
     //@include SetUpBG("../../image/aboutus/bg-aboutus-contact.jpg");

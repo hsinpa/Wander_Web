@@ -1,0 +1,64 @@
+.platform-detail {
+  .detailRow {
+
+    h5 {
+        text-align: left;
+      img {
+        margin-right: 0.5em;
+      }
+    }
+    div {
+      margin-top: 1em;
+    }
+  }
+  .platformDetailPanel-1 {
+    .detailRow {
+      @media screen and (min-width: 64em) {
+          margin-top: 5em;
+       }
+    }
+  }
+  .platformDetailPanel-2 {
+    background-color: #f3f3f3;
+  }
+
+    .rslides_container {
+      position:relative;
+      margin-bottom: 0.5em;
+      span {
+        color :$gray;
+      }
+      .rslide_desc{
+          position: relative;
+          border: 4px solid $gray;
+          border-radius: 5px;
+          padding: 1em;
+          max-width:75%;
+          margin: 0 auto;
+          margin-top: 0.2em;
+          height: 13.5em;
+          @media screen and (max-width: 40em) {
+            height: 20em;
+           }
+      }
+      .rslide_arrow_l {
+        position: absolute;
+        left: 0;
+        bottom:5em;
+        width: 3.5em;
+        @media screen and (max-width: 50em) {
+          display: none;
+         }
+      }
+      .rslide_arrow_r {
+        position: absolute;
+        right: 0;
+        bottom:5em;
+        width: 3.5em;
+        @media screen and (max-width: 50em) {
+          display: none;
+         }
+      }
+    }
+
+}

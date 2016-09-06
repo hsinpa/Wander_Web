@@ -6,8 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="Wrainbo is a mobile game platform that enables developing mobile games that teach practical job skills.
-     Its first game, Magitech, is a mobile fantasy game that helps in business learning.">
+    <meta name="description" content="Wrainbo is a learning platform that combines mobile gaming and big data assessment. We help organizations improve learning engagement and retention in critical subjects, ranging from business analytics to leadership.">
 
     <link rel="stylesheet" href="css/foundation/foundation.css" />
     <link rel="stylesheet" href="css/foundation/motion-ui.min.css" />

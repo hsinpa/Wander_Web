@@ -2,8 +2,6 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="gameplay-bg">
-          <h4>MAGITECH</h4>
-
           <h1>Immersive Gameplay</h1>
 
           <p>In Magitech, fantasy mobile gameplay is seamlessly blended with<br />

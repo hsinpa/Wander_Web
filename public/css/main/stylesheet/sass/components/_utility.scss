@@ -17,11 +17,12 @@
 @mixin SetUpButton($bgColor, $textColor) {
   display: inline-block;
   border-radius: 10px;
+  box-shadow: 6px 6px 30px 3px rgba(0,0,0,.5);
   padding: 1em 3em;
   color : $textColor;
   background: $bgColor;
   position: relative;
-  font-family: 'NorePethDemiBold';
+  font-family: 'LatoWebSemibold';
   //text-align: left;
   //  &:hover {
   //    background: $hover;
