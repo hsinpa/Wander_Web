@@ -3,12 +3,12 @@
       <div class="large-12 columns">
         <h5>Get a demo of Magitech</h5>
         <form>
-          <img class="contactus-goblin" src="image/home/edmond.png" />
+          <img class="contactus-goblin" src="{{ url('image/home/edmond.png')}}" />
           <input name="name" type="text"  placeholder="Name"></input>
           <input name="email" type="email"  placeholder="Email"></input>
           <br />
           <input type="submit" value="SUBMIT"/>
-          <img class="contactus-alvina" src="image/home/alvina.png" />
+          <img class="contactus-alvina" src="{{ url('image/home/alvina.png')}}" />
         </form>
         </div>
   </div>

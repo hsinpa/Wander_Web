@@ -30,13 +30,16 @@ class CMSLevelCtrl extends Controller {
   //Return with actual html
   public function LoadLevel() {
     $user_id = $this->_user->GetUserID(session('cms.token'));
+    if (!$user_id) return redirect('cms/logout');
+
     $rawLevelData = $this->_level->LoadLevelByUser($user_id);
-    return view('cms.level.level', ["raw" => $rawLevelData ]);
+    return view('cms.level.level', ["raw" => $rawLevelData, "user_id" => $user_id ]);
   }
 
   public function SaveLevel(Request $post) {
     $all = $post->all();
     $user_id = $this->_user->GetUserID($all["cms_token"]);
+    if (!$user_id) return redirect('cms/logout');
 
     //Formating Event style
     $event = $this->ParseRawData($all["event"]);

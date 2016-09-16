@@ -26,7 +26,8 @@ class CMSUserModel extends Eloquent {
     $q = "SELECT _id FROM $this->table
           WHERE token = ?";
     $r = DB::select($q, array($token));
-    return $r[0]->_id;
+
+    return  (count($r) <= 0 ) ?  false : $r[0]->_id;
   }
 
   public function CheckUserExist($name, $password) {

@@ -8,24 +8,27 @@
 
     <meta name="description" content="Wrainbo is a learning platform that combines mobile gaming and big data assessment. We help organizations improve learning engagement and retention in critical subjects, ranging from business analytics to leadership.">
 
-    <link rel="stylesheet" href="css/foundation/foundation.css" />
-    <link rel="stylesheet" href="css/foundation/motion-ui.min.css" />
-    <link rel="stylesheet" href="css/imgSlide.css">
-    <link rel="stylesheet" href="css/imgSlide_theme.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
-    <link rel="stylesheet" href="css/main/stylesheet/stylesheets/app.css">
+    <link rel="stylesheet" href="{{ url('css/foundation/foundation.css') }}" />
+    <link rel="stylesheet" href="{{ url('css/foundation/motion-ui.min.css') }}" />
+    <link rel="stylesheet" href="{{ url('css/imgSlide.css') }}">
+    <link rel="stylesheet" href="{{ url('css/imgSlide_theme.css') }}">
+    <link rel="stylesheet" href="{{ url('css/jquery.fancybox.css') }}">
+    <link rel="stylesheet" href="{{ url('css/tipped/tipped.css')}}" />
+
+    <link rel="stylesheet" href="{{ url('css/main/stylesheet/stylesheets/app.css') }}">
   </head>
 
   <body>
-    <script src="js/utility.js"></script>
-    <script src="lib/jquery.min.js"></script>
-    <script src="lib/what-input.min.js"></script>
-    <script src="lib/foundation.min.js"></script>
-    <script src="lib/motion-ui.min.js"></script>
-    <script src="lib/responsiveslides.min.js"></script>
-    <script src="lib/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="lib/d3.min.js"></script>
-    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script src="{{ url('js/utility.js') }}"></script>
+    <script src="{{ url('lib/jquery.min.js') }}"></script>
+    <script src="{{ url('lib/what-input.min.js') }}"></script>
+    <script src="{{ url('lib/foundation.min.js') }}"></script>
+    <script src="{{ url('lib/motion-ui.min.js') }}"></script>
+    <script src="{{ url('lib/responsiveslides.min.js') }}"></script>
+    <script src="{{ url('lib/jquery.fancybox.pack.js') }}"></script>
+    <script src="{{ url('lib/tipped.js') }}"></script>
+    <script type="text/javascript" src="{{ url('lib/d3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('lib/underscore-min.js') }}"></script>
 
 
     <div class="off-canvas-wrapper">

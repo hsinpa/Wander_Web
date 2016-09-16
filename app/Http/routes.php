@@ -46,11 +46,13 @@ Route::get('aboutUs', function () {
       ['title' => 'About Us | Wrainbo']);
 });
 
-Route::group(['prefix' => 'cms', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'cms'], function () {
     Route::get('/', function () {
-        return view('cms.login');
+        return view('cms.login',
+              ['title' => 'Console | Wrainbo']);
     });
     Route::post('login', "CMS\CMSUserCtrl@login");
+    Route::get('logout', "CMS\CMSUserCtrl@logout");
     Route::post('register', "CMS\CMSUserCtrl@register");
 
       //Only Login
@@ -71,6 +73,11 @@ Route::group(['prefix' => 'cms', 'middleware' => ['web']], function () {
         });
         Route::get('level.preset', function () {
             return view('cms.level.presetTemplate');
+        });
+
+        Route::get('assessment', function () {
+            return view('cms.assessment.assessment',
+              ['title' => 'Analytics Demo']);
         });
 
         Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");

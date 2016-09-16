@@ -61,7 +61,7 @@
         <tr>
           <td>Minimum number of licenses</td>
           <td>1</td>
-          <td>5</td>
+          <td>10</td>
           <td>100</td>
         </tr>
       </tbody>

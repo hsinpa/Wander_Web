@@ -1,13 +1,42 @@
 #wrainbo-cms-login {
-    max-width:30em;
-    margin: 0 auto;
-    margin-top: 2em;
-    padding: 2em;
+    background-color: #95a5a6;
+    padding: 5em 0em;
+
+    form {
+      padding: 1em 2em;
+      max-width:50em;
+      margin: 0 auto;
+      background-color: #ecf0f1;
+
+      h2 { text-align: center; }
+      .wrainbo-cms-login-submitHolder {
+          max-width:8em;
+          margin: 0 auto;
+          input[type="submit"] {
+            border-radius: 2px;
+            width: 10em;
+          }
+      }
+
+      label {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
 }
 
 #wrainbo-cms-menu {
+  margin-top: 1em;
+  img {
+    width: 5em;
+  }
+
   ul {
+    margin-top: 1em;
+    margin-left: 0em;
     list-style-type: none;
-    
+    li {
+      margin-top: 0.5em;
+    }
   }
 }

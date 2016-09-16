@@ -21,6 +21,11 @@ class CMSUserCtrl extends Controller {
     $this->_level->BuildDefaultLevel($userID);
   }
 
+  function logout () {
+    session()->flush();
+    return redirect('cms');
+  }
+
   function login (Request $data) {
     $all = $data->all();
     if ($this->_user->Login($all["username"], $all["password"])) {

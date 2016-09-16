@@ -2,7 +2,7 @@
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
-      <a href="http://wrainbo.com/" ><img src="image/icon/logo.png" /></a>
+      <a href="http://wrainbo.com/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
     </span>
   </div>
 
@@ -11,7 +11,7 @@
     <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <span class="menu-icon dark" data-toggle></span>
     </span> -->
-    <a href="http://wrainbo.com/" ><img src="image/icon/logo.png" /></a>
+    <a href="http://wrainbo.com/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
   </div>
 
     <div id="responsive-menu">

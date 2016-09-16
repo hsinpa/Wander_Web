@@ -10,17 +10,17 @@ class LevelModel extends Eloquent {
 
   //============================ Retrieve ==========================
 
-  public function GetAllByLevel(int $level) {
+  public function GetAllByLevel($level) {
     $q = "SELECT max(coin) as coin, name, level, hero, guid, star
           FROM $this->table
           LEFT JOIN User ON User._id = Level.user_id
           WHERE level = ?
-          GROUP BY name
+          GROUP BY guid
           ORDER BY coin DESC";
     return DB::select($q, array($level));
   }
 
-  public function GetAllByGUID (string $guid) {
+  public function GetAllByGUID ($guid) {
     $q = "SELECT name, device_id, guid, star, hero, coin, level, carry_spell_set
           FROM $this->table
           LEFT JOIN User ON User._id = Level.user_id
@@ -28,7 +28,7 @@ class LevelModel extends Eloquent {
     return DB::select($q, array ($guid) );
   }
 
-  public function GetByGUID(string $guid, int $level) {
+  public function GetByGUID($guid, $level) {
     $q = "SELECT name, device_id, guid, hero, star, coin, level
           FROM $this->table
           LEFT JOIN User ON User._id = Level.user_id
