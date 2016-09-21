@@ -3,17 +3,15 @@
   <div id="wrainbo-cms-login">
     <form action="/cms/login" method="post">
 
-      <h2>LOGIN TO WRAINBO CONSOLE</h2>
+      <h2>Log In</h2>
       <hr />
-      <label>Username
-      <input type="text" name="username"/></label>
+      <input type="text" placeholder="Username" name="username"/>
 
-      <label>Password
-      <input type="password" name="password"/></label>
+      <input type="password" placeholder="Password" name="password"/>
 
       <div class="wrainbo-cms-login-submitHolder">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <input type="submit" value="LOGIN" class="button" />
+        <input type="submit" value="LOGIN" class="button expand radius" />
       </div>
 
     </form>

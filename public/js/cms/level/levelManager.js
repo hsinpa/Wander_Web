@@ -1,7 +1,10 @@
 $(document).ready(function(){
+
   var selectedUnlock = [];
   Init();
   function Init() {
+    console.log($( document ).height());
+
     //Unlock item that is alread been selected;
     for (var rIndex in rawLevelData) {
       // var uJson = $.parseJSON(rawLevelData[rIndex]["unlock"]);
@@ -79,6 +82,7 @@ $(document).ready(function(){
   //Load
   $( "#wrainbo-switch-tabs" ).on('click', '.tabs-title a', function(e) {
     var _self = $(this);
+    console.log($( document ).height());
 
     $( ".tabs-panel" ).each(function( index ) {
       if (_self.attr("data-index") == index) {

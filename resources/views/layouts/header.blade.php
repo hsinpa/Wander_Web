@@ -1,4 +1,4 @@
-<header class="top-bar">
+<header class="top-bar web-topbar">
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
@@ -31,6 +31,8 @@
           <li><a href="http://wrainbo.com/platform">PLATFORM</a></li>
           <li><a href="http://wrainbo.com/package">PACKAGES</a></li>
           <li><a href="http://wrainbo.com/aboutUs" >ABOUT US</a></li>
+          <li><a href="http://wrainbo.com/cms">LOGIN</a></li>
+
         </ul>
       </div>
     </div>

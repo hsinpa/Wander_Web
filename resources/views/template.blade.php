@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ url('css/foundation/motion-ui.min.css') }}" />
     <link rel="stylesheet" href="{{ url('css/hint.min.css') }}" />
     <link rel="stylesheet" href="{{ url('css/tipped/tipped.css')}}" />
-    <link rel="stylesheet" href="{{ url('css/main/stylesheet/stylesheets/app.css')}}">
+    <link rel="stylesheet" href="{{ url('css/main/stylesheets/app.css')}}">
   </head>
   <body>
     <script src="{{ url('js/utility.js') }}"></script>
@@ -30,6 +30,7 @@
   <script type="text/javascript" src="{{ url('js/d3/analysis/barchart.js')}}"></script>
   <script type="text/javascript" src="{{ url('js/d3/analysis/halfDonutChart.js')}}"></script>
   <script type="text/javascript" src="{{ url('js/d3/analysis/AnalyticsManager.js')}}"></script>
+
   <!-- <script type="text/javascript" src="script/analysis/SpellManager.js"></script> -->
   <script lang="text/javascript">
     $(document).foundation();

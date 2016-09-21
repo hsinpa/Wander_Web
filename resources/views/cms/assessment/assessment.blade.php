@@ -1,14 +1,15 @@
 @extends('template')
 @section('content')
+@include('cms.header')
 
-<div class="row">
+<div id="wrainbo-analytics" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
   </div>
 
   <div class="medium-10 columns">
-    <div id="wrainbo-analytics">
-      <h2>Magitech Capability Assessment</h2>
+    <div class="wrainbo-analytics-main">
+      <h2 class="wrainbo-cms-title">Magitech Capability Assessment</h2>
       <form class="row">
         <select class="menuSelecter">
           <option value="overall">Overall</option>

@@ -13,9 +13,9 @@ var BarChart = (function () {
           chart = d3.select("svg.chart");
 
         if ( isNaN (parseInt(jsonData[0][axisSelect.x]) )) {
-          xScale  = d3.scaleOrdinal().range([0, sWidth - space - 40]);
+          xScale  = d3.scaleOrdinal().range([0, sWidth - space - 80]);
         } else {
-          xScale = d3.scaleLinear().domain([0, xMax[axisSelect.x]]).range([0, sWidth - space - 40]);
+          xScale = d3.scaleLinear().domain([0, xMax[axisSelect.x]]).range([0, sWidth - space - 80]);
         }
 
         if ( isNaN(parseInt(jsonData[0][axisSelect.y]) )) {

@@ -17,7 +17,7 @@ var HalfDonutChart = (function () {
                   .attr("width", w)
                   .attr("height", h )
                   .append("svg:g")
-                  .attr("transform", "translate(" +(r +50) + "," + (r) + ")")
+                  .attr("transform", "translate(" +(r +30) + "," + (r) + ")")
 
       var arc = d3.arc()
                   .outerRadius(r)

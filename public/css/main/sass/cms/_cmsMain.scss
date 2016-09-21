@@ -1,0 +1,110 @@
+.wrainbo-cms-globalSetting {
+  background-color: $white;
+
+  .wrainbo-cms-title {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em 0em;
+    font-family: 'LatoWebLight', Calibri, Geneva, sans-serif; color: $textColor;
+  }
+
+  .columns {
+    padding: 0px;
+  }
+}
+
+#wrainbo-cms-login {
+    background-color: #95a5a6;
+    padding: 5em 0em;
+
+    form {
+      padding: 1em 2em;
+      max-width:30em;
+      margin: 0 auto;
+      background-color: #ecf0f1;
+
+      h2 { text-align: center;
+      }
+      .wrainbo-cms-login-submitHolder {
+          max-width:8em;
+          margin: 0 auto;
+          input[type="submit"] {
+            border-radius: 2px;
+            width: 10em;
+          }
+      }
+
+      label {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+}
+
+#wrainbo-cms-header {
+  box-shadow: 1px 1px 5px 1px $whiteLine;
+  background-color: white;
+  .top-bar-title {
+    img{
+      width: 4em;
+      margin: 0.8em 0 0.2em 1em;
+    }
+    display: inline;
+  }
+
+  .top-bar-right {
+    ul {
+      list-style-type: none;
+      font-size: 0;
+      li {
+        font-size: 17px;
+        padding: 0 0em;
+        font-weight: 700;
+        display: inline;
+        margin-right: 1em;
+        position: relative;
+        top:0.8em;
+      }
+    }
+
+    a {
+      color : $textColor;
+      &:hover {
+        color :$yellow;
+      }
+    }
+  }
+}
+
+#wrainbo-cms-menu {
+  height:100vh;
+  background: $textColor;
+  img {
+    width: 5em;
+  }
+
+  ul {
+    margin-left: 0em;
+    padding-top: 1em;
+    list-style-type: none;
+    li {
+      color: $white;
+      padding: 0.6em 1em;
+    }
+
+    li:hover {
+      // background-color:
+      background-color: $white;
+      border-left: 5px solid $purple;
+      color: $blue;
+    }
+
+    .menu-hightlight {
+      background-color: $white;
+      border-left: 5px solid $orange;
+      color: $blue;
+    }
+  }
+
+
+}

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ url('css/jquery.fancybox.css') }}">
     <link rel="stylesheet" href="{{ url('css/tipped/tipped.css')}}" />
 
-    <link rel="stylesheet" href="{{ url('css/main/stylesheet/stylesheets/app.css') }}">
+    <link rel="stylesheet" href="{{ url('css/main/stylesheets/app.css') }}">
   </head>
 
   <body>

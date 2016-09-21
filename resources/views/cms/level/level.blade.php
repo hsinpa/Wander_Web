@@ -1,13 +1,15 @@
 @extends('template')
 @section('content')
 
-<div class="row" id="wrainbo-cms-level">
+@include('cms.header')
+
+<div id="wrainbo-cms-level" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
   </div>
 
   <div class="medium-10 columns">
-    <h2>Level Editor ({{$user_id}})</h2>
+    <h2 class="wrainbo-cms-title">Level Editor ({{$user_id}})</h2>
     <ul class="tabs" data-tabs id="wrainbo-switch-tabs">
       @for ($i = 0; $i < count($raw); $i++)
         <li class="tabs-title">

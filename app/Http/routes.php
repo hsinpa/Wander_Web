@@ -74,11 +74,8 @@ Route::group(['prefix' => 'cms'], function () {
         Route::get('level.preset', function () {
             return view('cms.level.presetTemplate');
         });
-
-        Route::get('assessment', function () {
-            return view('cms.assessment.assessment',
-              ['title' => 'Analytics Demo']);
-        });
+        Route::get('assessment', "CMS\CMSAssessmentCtrl@LoadPage");
+        Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
 
         Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
         Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");

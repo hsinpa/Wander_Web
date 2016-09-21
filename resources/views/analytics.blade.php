@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../css/foundation/foundation.css" />
     <link rel="stylesheet" href="../css/foundation/motion-ui.min.css" />
     <link rel="stylesheet" href="../css/tipped/tipped.css" />
-    <link rel="stylesheet" href="../css/main/stylesheet/stylesheets/app.css">
+    <link rel="stylesheet" href="../css/main/stylesheets/app.css">
   </head>
   <body>
 

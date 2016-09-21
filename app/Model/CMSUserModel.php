@@ -30,6 +30,14 @@ class CMSUserModel extends Eloquent {
     return  (count($r) <= 0 ) ?  false : $r[0]->_id;
   }
 
+  public function GetUserData($token) {
+    $q = "SELECT * FROM $this->table
+          WHERE token = ?";
+    $r = DB::select($q, array($token));
+
+    return  $r[0];
+  }
+
   public function CheckUserExist($name, $password) {
     $q = "SELECT name FROM $this->table
           WHERE name = ?";

@@ -1,0 +1,95 @@
+//Function
+@mixin SetUpBG($bg_path) {
+  background: url($bg_path) no-repeat center center ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@mixin SetUpBGColor($color) {
+  background-color: $color;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin SetUpButton($bgColor, $textColor) {
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 6px 6px 30px 3px rgba(0,0,0,.5);
+  padding: 1em 3em;
+  color : $textColor;
+  background: $bgColor;
+  position: relative;
+  font-family: 'LatoWebSemibold';
+  //text-align: left;
+  //  &:hover {
+  //    background: $hover;
+  //    color : $color;
+  //  }
+  img {
+    // margin: 0em 0em;
+    // padding: 0em;
+    // position: absolute;
+    // top :1em;
+    // right : 0.6em;
+    // z-index: 1;
+    width :1.5em;
+    position: relative;
+    left : 0.7em;
+    // height: 1.5em;
+  }
+}
+
+//Prefab
+.AlignBottomDom {
+  position : absolute;
+  bottom : 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Color
+$yellow: rgb(255, 225, 50);
+$blue : #2a8bde;
+$dark_blue : #202938;
+$purple : #9b59b6;
+$orange : #e29336;
+$red : #e74c3c;
+$whiteLine: #cbcbcb;
+$white : #f3f3f3;
+$dark : #444444;
+$gray : #a6a9af;
+$textColor : #444444;
+
+$titlebar_color : #342d12;
+
+//Image path
+$imageBasePath: '../../../../image/';
+
+//Bold title / button
+@font-face {
+    font-family: NorePethBold;
+    src: url('../../font/The Northern Block - Norpeth Bold.otf');
+}
+
+//semi title / menubar
+@font-face {
+    font-family: NorePethDemiBold;
+    src: url('../../font/The Northern Block - Norpeth DemiBold.otf');
+}
+
+//semi title / menubar
+@font-face {
+    font-family: NorePethMedium;
+    src: url('../../font/The Northern Block - Norpeth Medium.otf');
+}
+
+//Text
+@font-face {
+    font-family: NorePethBook;
+    src: url('../../font/The Northern Block - Norpeth Book.otf');
+}
