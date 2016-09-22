@@ -1,5 +1,5 @@
 <div class="footer">
-<img class="logo" src="{{url('image/aboutus/ic-wrainbo.png')}}" />
+<img class="logo" src="{{url('image/icon/logo.png')}}" />
   <section>
     <a href="https://www.facebook.com/MagitechGame"><img src="{{url('image/home/ic-facebook.jpg')}}" /></a>
     <a href="https://twitter.com/Wrainbo_Game"><img src="{{url('image/home/ic-twitter.jpg')}}" /></a>

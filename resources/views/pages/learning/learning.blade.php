@@ -8,7 +8,7 @@
             and
             data-driven problem solving through simulation and embedded library.</p>
 
-          <a href="/#wrainbo-home-contactus" class="theme_yellow">
+          <a href="demo" class="theme_yellow">
               GET DEMO<img src="image/icon/ic-arrow.png" />
           </a>
     </div>

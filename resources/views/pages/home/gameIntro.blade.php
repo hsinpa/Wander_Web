@@ -20,3 +20,16 @@
     </div>
   </div>
 </div>
+
+<script>
+//Image gallery
+$(".rslides").responsiveSlides({
+  auto: true,
+  pager: true,
+  nav: true,
+  speed: 500,
+  timeout: 4000,
+  maxwidth: 650,
+  namespace: "transparent-btns"
+});
+</script>

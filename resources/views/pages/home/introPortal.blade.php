@@ -1,20 +1,20 @@
 <div id="wrainbo-intro-detail" class="home-detail">
   <div class="intro-panel">
-      <h3>Why Magitech?</h3>
+      <h3>Why Wrainbo?</h3>
       <p>
-        Magitech provides practical learning via engaging gameplay, data-driven assessment,
-         and cost-effective solutions for companies of all sizes.
+        Wrainbo is a customizable platform that marries immersive mobile game design with practical learning. It also incorporates big data assessment based on gameplay data to provide personalized coaching.
       </p>
   </div>
 
   <div class="homeDetailPanel-2">
     <section class="row">
       <div class="detailRow medium-6 columns">
-        <h1>Learning by playing</h1>
+        <h1>Immersive Gameplay</h1>
 
         <p>
-          Wrainbo’s Magitech is pioneering an innovative way to help organization build business acumen through immersive mobile gameplay. By engaging in bite-sized levels, players can play the game anytime and anywhere to develop cross-functional management skills and practice using data to make strategic decisions.        </p>
-        <a href="gameplay">LEARN MORE</a>
+          Wrainbo is partnering with leading professors and corporate trainers to embed practical knowledge into our games. Through hands-on simulation and dynamic library content, players would naturally learn and retain the relevant concepts and skills.
+        </p>
+        <a href="overview">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
         <img src="image/home/img-iphone.png" />
@@ -23,20 +23,17 @@
   </div>
 
   <div class="homeDetailPanel-1">
-
     <section class="row">
       <div class="medium-6 columns">
-        <img src="image/home/img-chart.png" />
+        <img src="image/home/img-learning.png" />
       </div>
       <div class="detailRow medium-6 columns">
-        <h1>Data-driven assessment</h1>
+        <h1>Practical Learning</h1>
 
-        <p>
-          Wrainbo’s Magitech captures multiple layers of gameplay data and turn them into insights on a learner’s core strengths and weaknesses.
-           Using the analytics dashboard, organizations could better understand the talent profiles and use those valuable data to make better training investment.
+        <p>Wrainbo helps organization better engage their learners through immersive mobile gameplay. Players can play the game anytime and anywhere via bite-sized single player levels and live multiplayer sessions.
 
         </p>
-        <a href="http://wrainbo.com/assessment">LEARN MORE</a>
+        <a href="http://wrainbo.com/learning">LEARN MORE</a>
       </div>
     </section>
   </div>
@@ -45,16 +42,32 @@
 
     <section class="row">
       <div class="detailRow medium-6 columns">
-        <h1>Cost-effective solutions</h1>
+        <h1>Data-driven assessment</h1>
 
         <p>
-          Magitech comes at a fraction of the price for a standard training session or simulation. Not only is Magitech more engaging, but it also provides personalized analytics. In addition to budget control, players could play the game anytime and anywhere, saving travel time and making it more flexible to suit modern lifestyle.
+          Wrainbo transforms gameplay data into performance management insights. Using our cloud-based analytics, organizations could track training progress, provide personalized coaching, and better allocate training spend to drive ROI.
         </p>
-        <a href="http://wrainbo.com/learning">LEARN MORE</a>
+        <a href="http://wrainbo.com/assessment">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
-        <img src="image/home/img-data.png" />
+        <img src="image/home/img-data_driven.png" />
       </div>
     </section>
   </div>
+
+  <div class="homeDetailPanel-1">
+    <section class="row">
+      <div class="medium-6 columns">
+        <img src="image/home/img-data.png" />
+      </div>
+      <div class="detailRow medium-6 columns">
+        <h1>Customizable platform</h1>
+
+        <p>
+          Wrainbo's platform is dynamically programmed to enable fast and cost-effective development of varied learning paradigms, from leadership, sales skill training, to learning beyond business domain such as medical diagnostics.
+        </p>        <a href="http://wrainbo.com/platform">LEARN MORE</a>
+      </div>
+    </section>
+  </div>
+
 </div>

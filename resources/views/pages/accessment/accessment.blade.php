@@ -7,7 +7,7 @@
           <p>Gameplay results could be analyzed via web dashboard to provide<br />
             data-driven assessment and coaching.</p>
 
-          <a href="/#wrainbo-home-contactus" class="theme_yellow">
+          <a href="demo" class="theme_yellow">
               GET DEMO<img src="image/icon/ic-arrow.png" />
           </a>
     </div>

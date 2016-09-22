@@ -19,15 +19,15 @@
         <ul >
           <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
           <li><a href="/">HOME</a></li>
-          <li><a href="gameplay">FEATURES</a>
+          <li><a href="gameplay">MAGITECH</a>
             <ul>
-            <li class="nav3"><a href="http://wrainbo.com/gameplay">Gameplay</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/overview">Overview</a></li>
             <li class="nav3"><a href="http://wrainbo.com/learning">Practical Learning</a></li>
             <li class="nav3"><a href="http://wrainbo.com/assessment">Data Driven Assessment</a></li>
-            <li class="nav3"><a href="http://wrainbo.com/platform">Platform</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/package">Package</a></li>
             </ul>
           </li>
-          <li><a href="http://wrainbo.com/magitech">MAGITECH</a></li>
+          <li><a href="http://wrainbo.com/platform">PLATFORM</a></li>
           <li><a href="http://wrainbo.com/aboutUs" >ABOUT US</a></li>
           <li><a class="demo-button" href="http://wrainbo.com/demo" >GET DEMO</a></li>
           <li class="web-topbar-seperateLine"> | </li>

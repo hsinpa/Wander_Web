@@ -21,14 +21,14 @@ Route::get('platform', function () {
       ['title' => 'Platform | Wrainbo']);
 });
 
-Route::get('magitech', function () {
+Route::get('package', function () {
     return view('pages.product.product',
-      ['title' => 'Magitech | Wrainbo']);
+      ['title' => 'Package | Wrainbo']);
 });
 
-Route::get('gameplay', function () {
+Route::get('overview', function () {
     return view('pages.gameplay.gameplay',
-      ['title' => 'Gameplay | Wrainbo']);
+      ['title' => 'Overview | Wrainbo']);
 });
 
 Route::get('learning', function () {

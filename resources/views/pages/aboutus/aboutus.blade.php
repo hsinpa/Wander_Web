@@ -3,7 +3,7 @@
 <article id="wrainbo-aboutus">
   <div id="wrainbo-aboutus-main">
     <h2>Learning and assessment platform <br />that combines mobile gaming and big data</h2>
-    <a href="/#wrainbo-home-contactus" class="theme_yellow">
+    <a href="demo" class="theme_yellow">
         GET DEMO<img src="image/icon/ic-arrow.png" />
     </a>
   </div>
