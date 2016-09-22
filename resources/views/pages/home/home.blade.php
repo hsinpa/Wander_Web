@@ -5,7 +5,6 @@
     @include('pages.home.gameIntro')
     @include('pages.home.introPortal')
     @include('pages.home.quote')
-    @include('pages.home.contact')
     @include('layouts.footer')
   </div>
   <script>

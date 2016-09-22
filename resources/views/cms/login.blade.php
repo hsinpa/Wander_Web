@@ -16,5 +16,9 @@
 
     </form>
   </div>
-  @include('pages.home.contact')
+  <!-- @include('layouts.footer') -->
+
+  <script>
+    utilityModule.SetToScreenHeight($("#wrainbo-cms-login"));
+  </script>
 @stop

@@ -6,7 +6,6 @@
           <p>Magitech comes in three packages that fit different needs</p>
     </div>
     @include('pages.product.product_detail')
-    @include('pages.home.contact')
   </article>
 
   <script>

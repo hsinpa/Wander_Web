@@ -15,8 +15,6 @@
   </div>
 
     <div id="responsive-menu">
-
-
       <div class="top-bar-right show-for-medium">
         <ul >
           <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
@@ -26,13 +24,14 @@
             <li class="nav3"><a href="http://wrainbo.com/gameplay">Gameplay</a></li>
             <li class="nav3"><a href="http://wrainbo.com/learning">Practical Learning</a></li>
             <li class="nav3"><a href="http://wrainbo.com/assessment">Data Driven Assessment</a></li>
+            <li class="nav3"><a href="http://wrainbo.com/platform">Platform</a></li>
             </ul>
           </li>
-          <li><a href="http://wrainbo.com/platform">PLATFORM</a></li>
-          <li><a href="http://wrainbo.com/package">PACKAGES</a></li>
+          <li><a href="http://wrainbo.com/magitech">MAGITECH</a></li>
           <li><a href="http://wrainbo.com/aboutUs" >ABOUT US</a></li>
+          <li><a class="demo-button" href="http://wrainbo.com/demo" >GET DEMO</a></li>
+          <li class="web-topbar-seperateLine"> | </li>
           <li><a href="http://wrainbo.com/cms">LOGIN</a></li>
-
         </ul>
       </div>
     </div>

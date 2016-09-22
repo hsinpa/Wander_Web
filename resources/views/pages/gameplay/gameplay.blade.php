@@ -22,7 +22,6 @@
 
     </div>
     @include('pages.gameplay.gameplay_detail')
-    @include('pages.home.contact')
   </article>
 
   <script>

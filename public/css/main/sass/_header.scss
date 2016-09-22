@@ -26,9 +26,16 @@
     display: inline-block;
     //float: none;
     ul {
+      .web-topbar-seperateLine {
+        font-size: 30px;
+        weight:500;
+        position: relative;
+        top:-0.3em;
+      }
+
       font-size: 0;
       li {
-        font-size: 17px;
+        font-size: 14px;
         padding: 0 0em;
         font-weight: 700;
       }
@@ -42,7 +49,7 @@
       }
     }
 
-    li:hover > a { border:0; }
+    //li:hover > a { border:0; }
 
     li:last-child  {border-bottom-right-radius:10px;}
     li:first-child  {border-top-left-radius:10px;}
@@ -86,6 +93,7 @@
       border-bottom-right-radius:10px;
     }
     li {
+          color:white;
     			float:left;
     			list-style-type:none;
     			position:relative;}
@@ -107,6 +115,11 @@
     position: absolute;
     right: 15px;
     top:5px;
+  }
+
+  .demo-button {
+    border: 2px solid white;
+    border-radius: 10px;
   }
 }
 .off-canvas-wrapper {

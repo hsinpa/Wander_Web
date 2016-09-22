@@ -13,7 +13,6 @@
           </a>
     </div>
     @include('pages.learning.learning_detail')
-    @include('pages.home.contact')
 
   </article>
 

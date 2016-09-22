@@ -1,9 +1,11 @@
-<div id="wrainbo-home-contactus">
+@extends('main')
+@section('content')
+<div id="wrainbo-demo">
   <div class="row">
       <div class="large-12 columns">
-        <h5>Get a demo of Magitech</h5>
+        <h5>Get a demo of Wrainbo Platform</h5>
         <form>
-          <img class="contactus-goblin" src="{{ url('image/home/edmond.png')}}" />
+          <img class="contactus-goblin" src="{{ url('image/home/img-magitech_theme.png')}}" />
 
           <input name="organization" type="text"  placeholder="Organization"></input>
           <input name="job" type="text"  placeholder="Job Position"></input>
@@ -12,21 +14,29 @@
           <input name="phone" type="number"  placeholder="Phone"></input>
 
           <br />
-          <input type="submit" value="SUBMIT"/>
-          <img class="contactus-alvina" src="{{ url('image/home/alvina.png')}}" />
+          <input type="submit" value="Get Demo"/>
+          <p>
+            Already have an account? <a href="{{ url('cms') }}">Click here to Log in</a>
+          </p>
+
+          <img class="contactus-alvina" src="{{ url('image/home/img-modern_theme.png')}}" />
         </form>
         </div>
   </div>
 </div>
 
+@include('layouts.footer')
+
 <script>
-  $( "#wrainbo-home-contactus form" ).submit(function( event ) {
+  utilityModule.SetToScreenHeight($("#wrainbo-demo"));
+
+  $( "#wrainbo-demo form" ).submit(function( event ) {
     event.preventDefault();
-    var email = $("#wrainbo-home-contactus form input[name='email']"),
-        name = $("#wrainbo-home-contactus form input[name='name']"),
-        job = $("#wrainbo-home-contactus form input[name='job']")
-        organization = $("#wrainbo-home-contactus form input[name='organization']"),
-        phone = $("#wrainbo-home-contactus form input[name='phone']");
+    var email = $("#wrainbo-demo form input[name='email']"),
+        name = $("#wrainbo-demo form input[name='name']"),
+        job = $("#wrainbo-demo form input[name='job']")
+        organization = $("#wrainbo-demo form input[name='organization']"),
+        phone = $("#wrainbo-demo form input[name='phone']");
 
 
     if (email.val() == "" || name.val() == "" ||
@@ -56,3 +66,4 @@
 
   });
 </script>
+@stop

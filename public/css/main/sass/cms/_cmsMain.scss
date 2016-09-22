@@ -18,19 +18,23 @@
     padding: 5em 0em;
 
     form {
+      position: relative;
+      top:4em;
+
       padding: 1em 2em;
       max-width:30em;
       margin: 0 auto;
-      background-color: #ecf0f1;
 
       h2 { text-align: center;
+          color : $white;
       }
       .wrainbo-cms-login-submitHolder {
-          max-width:8em;
+          max-width:100%;
           margin: 0 auto;
+          margin-top: 2em;
           input[type="submit"] {
             border-radius: 2px;
-            width: 10em;
+            width: 100%;
           }
       }
 

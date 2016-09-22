@@ -1,10 +1,11 @@
 <div id="wrainbo-home-headboard">
   <section class="row">
-    <img class="logo" src="image/icon/wrainbo_icon.png" />
+    <!-- <img class="logo" src="image/icon/wrainbo_icon.png" /> -->
       <div class="large-12 columns">
 
         <div class="titleGroup">
-          <h1>Develop and measure business acumen <br />by playing mobile game</h1>
+          <h1>An intelligent platform for </br>
+            game-based learning</h1>
           <!-- <p>
             Magitech combines immersive gameplay and data-driven assessment<br />
             to help develop business acumen and data-driven decision making

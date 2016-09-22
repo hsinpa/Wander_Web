@@ -40,7 +40,7 @@
               <li><a href="http://wrainbo.com/gameplay">GAMEPLAY</a></li>
               <li><a href="http://wrainbo.com/learning">LEARNING</a></li>
               <li><a href="http://wrainbo.com/assessment">ASSESSMENT</a></li>
-              <li><a href="http://wrainbo.com/package">PACKAGES</a></li>
+              <li><a href="http://wrainbo.com/magitech">MAGITECH</a></li>
               <li><a href="http://wrainbo.com/aboutUs">ABOUT US</a></li>
           </ul>
 

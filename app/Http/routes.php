@@ -21,9 +21,9 @@ Route::get('platform', function () {
       ['title' => 'Platform | Wrainbo']);
 });
 
-Route::get('package', function () {
+Route::get('magitech', function () {
     return view('pages.product.product',
-      ['title' => 'Package | Wrainbo']);
+      ['title' => 'Magitech | Wrainbo']);
 });
 
 Route::get('gameplay', function () {
@@ -34,6 +34,11 @@ Route::get('gameplay', function () {
 Route::get('learning', function () {
     return view('pages.learning.learning',
       ['title' => 'Practical Learning | Wrainbo']);
+});
+
+Route::get('demo', function () {
+    return view('pages.home.demo',
+      ['title' => 'Get Demo | Wrainbo']);
 });
 
 Route::get('assessment', function () {

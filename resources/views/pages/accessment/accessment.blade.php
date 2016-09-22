@@ -12,7 +12,6 @@
           </a>
     </div>
     @include('pages.accessment.accessment_detail')
-    @include('pages.home.contact')
   </article>
 
   <script>

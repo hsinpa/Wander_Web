@@ -22,7 +22,6 @@
 
     </div>
     @include('pages.platform.platform_detail')
-    @include('pages.home.contact')
   </article>
 
   <script>

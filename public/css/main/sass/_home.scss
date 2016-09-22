@@ -27,8 +27,8 @@
 
     section  {
       position: relative;
-      top:7em;
-      left:3em;
+      left:5em;
+      top:8em;
 
       margin: 0em 0em 0em 1em;
       @media (max-width:500px) {
@@ -38,7 +38,7 @@
       }
 
       @media screen and (min-width: 64em) {
-        top:7em;
+        top:9em;
       }
 
       .logo {
@@ -62,8 +62,8 @@
           }
           a {
             position: relative;
-            margin-right: 2.7vw;
-            width:16em;
+            width:12.4em;
+            padding: 1em 1em !important;
             text-align: center;
             box-shadow: 6px 6px 30px 3px rgba(0,0,0,.5);
 
@@ -109,11 +109,12 @@
           font-family: 'LatoWebLight';
           // text-shadow: black 1px 1px 20px;
           @media (max-width:500px) {
-            font-size: 1.1em
+            font-size: 1.5em;
+            margin-top : 2em;
           }
 
           @media screen and (min-width: 40em) {
-            font-size: 1.8em;
+            font-size: 2em;
           }
         }
         p {
@@ -249,18 +250,21 @@
   }
 }
 
-#wrainbo-home-contactus {
-  @include SetUpBG($imageBasePath+"bg/bg_bottom.jpg");
+#wrainbo-demo {
+  @include SetUpBG($imageBasePath+"bg/bg-demo.jpg");
+
   position: relative;
   text-align: center;
   color :white;
-  h5 { margin: 1em 0;
+  h5 {
+      font-size: 1.5em;
+      margin: 4em 0em 1em 0em;
       color :white;
     }
   form {
     margin: 0 auto;
     input[type="email"], input[type="text"], input[type="number"]{
-      max-width: 20em;
+      max-width: 30em;
       margin: 0 auto;
       border-radius: 4px;
       margin-top: 0.5em;
@@ -272,9 +276,16 @@
     }
 
     input[type="submit"] {
-      @include SetUpButton($yellow ,black );
+      @include SetUpButton($blue ,white );
       margin: 1em 0em;
       border: none;
+    }
+    p {
+      color: white;
+    }
+    a {
+      color: white;
+      text-decoration: underline;
     }
   }
   img {
@@ -291,11 +302,10 @@
   }
   .contactus-goblin {
     left:0;
-    width : 18em;
+    width : 28em;
   }
   .contactus-alvina {
     right:0;
-    width : 18em;
+    width : 20em;
   }
-
 }
