@@ -4,8 +4,8 @@
     @include('pages.home.headBoard')
     @include('pages.home.gameIntro')
     @include('pages.home.introPortal')
-    @include('pages.home.contact')
-
+    @include('pages.home.quote')
+    @include('layouts.footer')
   </div>
   <script>
   //Video Popup
@@ -28,31 +28,17 @@
     nav: true,
     speed: 500,
     timeout: 4000,
-    maxwidth: 800,
+    maxwidth: 650,
     namespace: "transparent-btns"
-  });
-
-  $( "#wrainbo-home-contactus form" ).submit(function( event ) {
-    event.preventDefault();
-    var email = $("#wrainbo-home-contactus form input[type='email']");
-
-    if (email.val() == "") {
-        alert("No Empty");
-      } else {
-        var googleFormID="1BkZ-z9URb8hloY3O4ATzfqaDDoBUkn2hTH3hbtaXe2E";
-        $.ajax({
-          url: "https://docs.google.com/forms/d/"+googleFormID+"/formResponse",
-          data: {"entry.1505027198": email.val() },
-          type: "POST",
-          dataType: "xml"})
-          .done(function() {
-         });
-         alert("Success");
-         email.val("");
-      }
   });
 
     //Set front page equal to your screen size
     utilityModule.SetToScreenHeight($("#wrainbo-home-headboard"));
+
+    //Intro panel
+    if ($(window).width() < 640) {
+      utilityModule.SwapDomElement($('.homeDetailPanel-2 .row'));
+      utilityModule.SwapDomElement($('.homeDetailPanel-3 .row'));
+    }
   </script>
 @stop

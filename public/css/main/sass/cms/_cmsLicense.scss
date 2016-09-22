@@ -1,0 +1,116 @@
+#wrainbo-cms-license {
+  background-color: $white;
+
+  .license-holder {
+    padding: 0em 1em;
+    .columns {
+      text-align: center;
+      .license-holder-box {
+        margin: 0em 0.5em;
+        height:32em;
+
+        background-color: white;
+        border: solid 1px $gray;
+        border-radius: 3px;
+        position: relative;
+
+        h2 {
+          color: $gray;
+          font-family: 'LatoWebLight', Calibri, Geneva, sans-serif;
+          padding: 0.5em 0em;
+          font-size: 1.6em;
+
+        }
+
+        div {
+          padding: 0em 0.5em;
+        }
+
+        .wrainbo-cms-license-overview {
+          .chart-holder {
+            position: relative;
+            p {
+              position: absolute;
+              top:24%; left:34%;
+
+              span { display: block;
+                    padding: 0em 0em;
+                    margin:-0.3em 0em;}
+              .licenseDonutChart-title{
+                color: $blue;
+              }
+              .licenseDonutChart-remaining{
+                font-size: 5em;
+                color: $blue;
+              }
+              .licenseDonutChart-total{
+                color: $whiteLine;
+
+              }
+            }
+          }
+
+          table {
+            border: none;
+            tbody{border: none;}
+            tr {
+              background-color: white;
+              td {text-align: left;
+                  font-size: 0.7em;}
+
+            }
+          }
+        }
+
+        .wrainbo-cms-license-purchase {
+          .wrainbo-cms-license-purchase-package {
+            button {
+              display: block;
+              margin: 0 auto;
+              width:100%;
+              margin-top: 0.5em;
+              border-radius: 10px;
+            }
+            .tip {
+              font-size: 0.8em;
+              color: $orange;
+            }
+          }
+
+          .wrainbo-cms-license-purchase-payment {
+              width: 10em;
+              margin: 0 auto;
+              label { text-align: left; color :$gray; font-weight: 500;}
+              p { color :$blue; font-size: 2em; font-weight: 700;}
+              input {margin:0;}
+              section {
+                img {
+                  display: inline;
+                  width:2.5em;
+                }
+              }
+          }
+        }
+
+        .wrainbo-cms-license-register {
+          .wrainbo-cms-license-register-submitZone{
+            position: absolute;
+            bottom: 0;
+            .tip {
+              font-size: 0.8em;
+            }
+          }
+        }
+
+
+
+
+      }
+    }
+
+    .submitButton {
+      border-radius: 5px;
+      width:10em;
+    }
+  }
+}

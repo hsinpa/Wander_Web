@@ -13,7 +13,17 @@
 
 Route::get('/', function () {
   return view('pages.home.home',
-    ['title' => 'Wrainbo: Business learning analytics game']);
+    ['title' => 'Wrainbo: Mobile game platform for business learning']);
+});
+
+Route::get('platform', function () {
+    return view('pages.platform.platform',
+      ['title' => 'Platform | Wrainbo']);
+});
+
+Route::get('magitech', function () {
+    return view('pages.product.product',
+      ['title' => 'Magitech | Wrainbo']);
 });
 
 Route::get('gameplay', function () {
@@ -23,7 +33,17 @@ Route::get('gameplay', function () {
 
 Route::get('learning', function () {
     return view('pages.learning.learning',
-      ['title' => 'Leaning | Wrainbo']);
+      ['title' => 'Practical Learning | Wrainbo']);
+});
+
+Route::get('demo', function () {
+    return view('pages.home.demo',
+      ['title' => 'Get Demo | Wrainbo']);
+});
+
+Route::get('assessment', function () {
+    return view('pages.accessment.accessment',
+      ['title' => 'Data-Driven Assessment | Wrainbo']);
 });
 
 Route::get('aboutUs', function () {
@@ -31,14 +51,60 @@ Route::get('aboutUs', function () {
       ['title' => 'About Us | Wrainbo']);
 });
 
+Route::group(['prefix' => 'cms'], function () {
+    Route::get('/', function () {
+        return view('cms.login',
+              ['title' => 'Console | Wrainbo']);
+    });
+    Route::post('login', "CMS\CMSUserCtrl@login");
+    Route::get('logout', "CMS\CMSUserCtrl@logout");
+    Route::post('register', "CMS\CMSUserCtrl@register");
+
+      //Only Login
+      //if (session()->has('cms.token')) {
+        Route::get('spell', function () {
+            return view('cms.spell.spell');
+        });
+
+        //================== LEVEL ==================
+        Route::get('level', "CMS\CMSLevelCtrl@LoadLevel");
+
+        Route::get("level.template", function () {
+            return view('cms.level.levelTemplate');
+        });
+
+        Route::get('level.event', function () {
+            return view('cms.level.eventTemplate');
+        });
+        Route::get('level.preset', function () {
+            return view('cms.level.presetTemplate');
+        });
+        Route::get('assessment', "CMS\CMSAssessmentCtrl@LoadPage");
+        Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
+
+        Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
+        Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");
+
+      //}
+});
+
+
 
 Route::group(['prefix' => 'analytics'], function () {
     header("Access-Control-Allow-Origin: *");
     header('Content-Type: text/html; charset=UTF-8');
 
+    Route::get('/', function () {
+        return view('analytics',
+          ['title' => 'Analytics Demo']);
+    });
+    //For Unity
+    Route::get("level/{user_id}", "CMS\CMSLevelCtrl@GetLevel");
+    Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
+
+    //For Assessment
     Route::post('save', "Analytics\UserCtrl@SaveGameRecord");
     Route::post('import', "Analytics\UserCtrl@ImportUnityAnalyticsData");
-    Route::get("ranking/{level}", "Analytics\UserCtrl@GetRanking");
 
     Route::get("spell_level/{guid}", "Analytics\WebAnaCtrl@GetSpellLevelAnalysis");
     Route::get("score/{guid}", "Analytics\WebAnaCtrl@GetAllDataByGUID");

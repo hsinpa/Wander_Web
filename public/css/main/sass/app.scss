@@ -1,0 +1,32 @@
+//Utility
+@import './components/_utility';
+@import './_latofonts';
+
+h1,h2 { font-family: 'LatoWebBold', Calibri, Geneva, sans-serif; color: $textColor;}
+h3,h4,h5,h6 { font-family: 'LatoWebSemibold', Calibri, Geneva, sans-serif; color: $textColor;}
+p,span, li {  font-family: 'LatoWebLight', Calibri, Candara, Optima, Arial, sans-serif; color: $textColor;}
+body { background-color: $white; }
+//Page
+@import '_home';
+@import '_gameplay';
+@import '_aboutus';
+@import '_product';
+@import '_analytics';
+@import '_platform';
+
+//Layout
+@import '_header';
+@import '_footer';
+
+//CMS
+@import './cms/_cmsMain';
+@import './cms/_cmsSpell';
+@import './cms/_cmsLevel';
+@import './cms/_cmsLicense';
+
+//General
+.breakline {
+  margin: 1em 0em;
+  box-shadow: none !important;
+
+}

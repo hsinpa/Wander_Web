@@ -2,27 +2,30 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="gameplay-bg">
-        <h4>MAGITECH</h4>
+          <h1>Immersive Gameplay</h1>
 
-        <h1>GAMEPLAY</h1>
+          <p>In Magitech, fantasy mobile gameplay is seamlessly blended with<br />
+            practical business learning in bite-sized levels.</p>
 
-        <p>Analyze, produce, and trade</p>
-        <p>in a world where magic meets technology</p>
-        <img class="breakline" src="image/icon/breakline_yellow.png"></img>
-          <div class="detail-bt">
-            <a href="#wrainbo-intro-detail">
+          <!-- <img class="breakline" src="image/icon/breakline_yellow.png"></img> -->
+            <!-- <div class="detail-bt">
+              <a href="#wrainbo-intro-detail">
 
-            <img src="image/icon/icon-detail.png"></img>
-            <span>Detail</span>
+              <img src="image/icon/icon-detail.png"></img>
+              <span>Detail</span>
+            </a>
+
+            </div> -->
+          <a href="/#wrainbo-home-contactus" class="theme_yellow">
+              GET DEMO<img src="image/icon/ic-arrow.png" />
           </a>
 
-          </div>
     </div>
     @include('pages.gameplay.gameplay_detail')
   </article>
 
   <script>
-    utilityModule.SetToScreenHeight( $("#wrainbo-intro-main"));
+    utilityModule.SetToHalfScreenHeight( $("#wrainbo-intro-main"));
     if ($(window).width() < 640) {
       utilityModule.SwapDomElement($('.gameplayDetailPanel-2 .row'));
     }

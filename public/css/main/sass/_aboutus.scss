@@ -1,0 +1,159 @@
+#wrainbo-aboutus {
+  #wrainbo-aboutus-main {
+    @include SetUpBG($imageBasePath+ "aboutus/bg-aboutus.jpg");
+
+    position: relative;
+    text-align: center;
+
+    .aboutUsMainIcon {
+        max-width:15em;
+        padding-top: 4em;
+        @media (max-width:500px) {
+          max-width:10em;
+
+        }
+    }
+
+    h2 {
+      padding-top: 3em;
+
+      @media (max-width:630px) {
+        padding-top: 7em;
+
+      }
+      color:white;
+    }
+
+    a {
+      @include SetUpButton($yellow, black );
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+    }
+
+  }
+
+  #wrainbo-aboutus-detail {
+    //@include SetUpBG("../../image/aboutus/bg-aboutus-detail.png");
+    background-color: #eeeeee;
+    h4 {
+      padding-top: 0.5em;
+    }
+    .row {
+      padding-bottom: 1em;
+      .wrainbo-aboutus-detail-text {
+
+        margin: 0em 0em 1em 0em;
+        @media screen and (max-width: 39.9375em) {
+          margin-top: 1em;
+        }
+        h4 {
+          margin-top: 3em;
+          @media (max-width:830px) {
+            margin-top: 0.5em;
+          }
+          //font-weight: 600;
+        }
+      }
+      img {
+        margin: 0 auto;
+        padding: 1em 0em 0.3em 0em;
+        display: block;
+        max-width:24em;
+      }
+    }
+  }
+
+  #wrainbo-aboutus-recognition {
+      text-align: center;
+      h4 {
+        padding-top: 1em;
+      }
+      @include SetUpBG($imageBasePath+ "aboutus/bg-recognition.jpg");
+      .row {
+        padding: 2em 0em 4em 0em;
+        p {
+          position: relative;
+          top:1.2em;
+          display:inline-block;
+          font-size: 1em;
+          max-width: 14em;
+        }
+        img {
+          max-width: 3em;
+          @media (max-width:830px) and (min-width: 39.9375em) {
+            display: none;
+          }
+        }
+      }
+
+  }
+
+  #wrainbo-aboutus-media {
+    background-color: #eeeeee;
+
+      text-align: center;
+      padding-bottom: 0.8em;
+      h4 {
+        padding-top: 1em;
+      }
+
+      section {
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+        max-width: 20em;
+        display: inline-block;
+        margin: 1.3em 1em;
+        padding: 1em 0em;
+        border-radius: 5px;
+        p {
+          padding: 1em;
+          text-align: left;
+        }
+        h6 {
+          text-align: right;
+          margin-right: 1.2em;
+        }
+      }
+      section:hover {
+        background-color: #5078c8;
+        p,h6 {
+          color : white;
+        }
+      }
+
+
+    }
+
+  #wrainbo-aboutus-contact {
+    //@include SetUpBG("../../image/aboutus/bg-aboutus-contact.jpg");
+    background-color: #c9c9c9;
+    .worker-avatar {
+        margin-bottom: 0em;
+        max-width: 60%;
+        @media screen and (max-width: 40em) {
+          //display: none;
+        }
+    }
+
+    .row {
+      padding-top: 0.5em;
+      div:nth-child(2) {
+          margin-top: 2em;
+      }
+
+      section {
+        margin-bottom: 1em;
+        img {
+          width: 1.3em;
+        }
+        a {
+          margin-left: 1em;
+          -moz-text-decoration-style: wavy; /* Code for Firefox */
+          text-decoration: underline;
+          color: black;
+        }
+      }
+
+    }
+
+  }
+}
