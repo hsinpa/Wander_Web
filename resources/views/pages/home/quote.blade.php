@@ -1,5 +1,5 @@
 <div id="wrainbo-home-quote">
-    <h4>What are people saying about Magitech?</h4>
+    <h4>What are people saying about Wrainbo?</h4>
     <p>70+ corporate customers and -85% of alpha users have signed up for beata testing!! </p>
 
   <section class="row quote-panel" data-equalizer data-equalize-on="medium">

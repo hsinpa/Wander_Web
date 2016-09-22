@@ -2,7 +2,6 @@
 @section('content')
   <div id="wrainbo-home">
     @include('pages.home.headBoard')
-    @include('pages.home.gameIntro')
     @include('pages.home.introPortal')
     @include('pages.home.quote')
     @include('layouts.footer')
@@ -19,17 +18,6 @@
     closeClick	: false,
     openEffect	: 'none',
     closeEffect	: 'none'
-  });
-
-  //Image gallery
-  $(".rslides").responsiveSlides({
-    auto: true,
-    pager: true,
-    nav: true,
-    speed: 500,
-    timeout: 4000,
-    maxwidth: 650,
-    namespace: "transparent-btns"
   });
 
     //Set front page equal to your screen size

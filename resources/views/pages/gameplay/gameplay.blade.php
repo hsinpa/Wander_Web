@@ -2,7 +2,7 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="gameplay-bg">
-          <h1>Immersive Gameplay</h1>
+          <h1>Magitech Overview</h1>
 
           <p>In Magitech, fantasy mobile gameplay is seamlessly blended with<br />
             practical business learning in bite-sized levels.</p>
@@ -16,11 +16,12 @@
             </a>
 
             </div> -->
-          <a href="/#wrainbo-home-contactus" class="theme_yellow">
+          <a href="demo" class="theme_yellow">
               GET DEMO<img src="image/icon/ic-arrow.png" />
           </a>
 
     </div>
+    @include('pages.home.gameIntro')
     @include('pages.gameplay.gameplay_detail')
   </article>
 

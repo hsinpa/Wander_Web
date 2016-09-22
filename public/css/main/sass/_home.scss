@@ -130,28 +130,6 @@
     }
   }
 
-  #wrainbo-home-productIntro {
-    text-align: center;
-
-    .intro_text {
-      max-width: 50em;
-      margin: 0 auto;
-      padding-bottom:1em;
-      .spotlight{
-        font-weight: bold;
-      }
-    }
-    h1 {
-      padding-top: 0.7em;
-      padding-bottom: 0;
-      margin-bottom: -0.6em;
-      font-size: 1.3em;
-    }
-    .rslides_container {
-      margin-bottom: 1.5em;
-    }
-  }
-
   .home-detail {
     .intro-panel {
       background-color: $white;
@@ -161,10 +139,11 @@
       h3 {
         text-align: center;
         margin-top: 0em;
+        padding: 1em 0em;
       }
 
       p {
-        padding: 1em 0em;
+        padding: 0em 0em 1.5em 0em;
         text-align: center;
         max-width: 40em;
       }
@@ -198,7 +177,7 @@
   }
 
   #wrainbo-home-quote {
-    background-color: $white;
+    background-color: white;
     hr {
       width: 80%;
       margin: 0 auto;
@@ -307,5 +286,27 @@
   .contactus-alvina {
     right:0;
     width : 20em;
+  }
+}
+
+#wrainbo-home-productIntro {
+  text-align: center;
+
+  .intro_text {
+    max-width: 50em;
+    margin: 0 auto;
+    padding-bottom:1em;
+    .spotlight{
+      font-weight: bold;
+    }
+  }
+  h1 {
+    padding-top: 0.7em;
+    padding-bottom: 0;
+    margin-bottom: -0.6em;
+    font-size: 1.3em;
+  }
+  .rslides_container {
+    margin-bottom: 1.5em;
   }
 }

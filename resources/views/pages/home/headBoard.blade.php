@@ -17,7 +17,7 @@
                 WATCH TRAILER<img src="image/icon/bt_play.png" />
             </a>
             <div class="breakline"></div>
-            <a href="#wrainbo-home-contactus" class="theme_yellow">
+            <a href="demo" class="theme_yellow">
               GET DEMO<img src="image/icon/ic-arrow.png" />
           </a>
       </div>
