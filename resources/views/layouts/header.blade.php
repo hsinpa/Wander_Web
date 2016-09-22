@@ -19,7 +19,7 @@
         <ul >
           <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
           <li><a href="/">HOME</a></li>
-          <li><a href="gameplay">MAGITECH</a>
+          <li><a href="overview">MAGITECH</a>
             <ul>
             <li class="nav3"><a href="http://wrainbo.com/overview">Overview</a></li>
             <li class="nav3"><a href="http://wrainbo.com/learning">Practical Learning</a></li>
