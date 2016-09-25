@@ -1,10 +1,10 @@
-<?php namespace Wrainbo\Http\Controllers\CMS;
-use Wrainbo\Http\Controllers\Controller;
-use Wrainbo\Model\CMSUserModel;
-use Wrainbo\Model\CMSLicenseModel;
+<?php namespace App\Http\Controllers\CMS;
+use App\Http\Controllers\Controller;
+use App\Model\CMSUserModel;
+use App\Model\CMSLicenseModel;
 
 
-use Wrainbo\Model\Utility;
+use App\Model\Utility;
 use Illuminate\Http\Request;
 
 class CMSLicenseCtrl extends Controller {
