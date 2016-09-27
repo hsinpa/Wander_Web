@@ -2,7 +2,7 @@
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
-      <a href="http://wrainbo.com/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
+      <a href="/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
     </span>
   </div>
 
@@ -11,7 +11,7 @@
     <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <span class="menu-icon dark" data-toggle></span>
     </span> -->
-    <a href="http://wrainbo.com/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
+    <a href="/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
   </div>
 
     <div id="responsive-menu">
@@ -21,17 +21,17 @@
           <li><a href="/">HOME</a></li>
           <li><a href="overview">MAGITECH</a>
             <ul>
-            <li class="nav3"><a href="http://wrainbo.com/overview">Overview</a></li>
-            <li class="nav3"><a href="http://wrainbo.com/learning">Practical Learning</a></li>
-            <li class="nav3"><a href="http://wrainbo.com/assessment">Data Driven Assessment</a></li>
-            <li class="nav3"><a href="http://wrainbo.com/package">Package</a></li>
+            <li class="nav3"><a href="/overview">Overview</a></li>
+            <li class="nav3"><a href="/learning">Practical Learning</a></li>
+            <li class="nav3"><a href="/assessment">Data Driven Assessment</a></li>
+            <li class="nav3"><a href="/package">Package</a></li>
             </ul>
           </li>
-          <li><a href="http://wrainbo.com/platform">PLATFORM</a></li>
-          <li><a href="http://wrainbo.com/aboutUs" >ABOUT US</a></li>
-          <li><a class="demo-button" href="http://wrainbo.com/demo" >GET DEMO</a></li>
+          <li><a href="/platform">PLATFORM</a></li>
+          <li><a href="/aboutUs" >ABOUT US</a></li>
+          <li><a class="demo-button" href="/demo" >GET DEMO</a></li>
           <li class="web-topbar-seperateLine"> | </li>
-          <li><a href="http://wrainbo.com/cms">LOGIN</a></li>
+          <li><a href="/cms">LOGIN</a></li>
         </ul>
       </div>
     </div>

@@ -6,8 +6,8 @@
     </div>
     <p>
       <span class="licenseDonutChart-title">Available</span>
-      <span class="licenseDonutChart-remaining">88</span>
-      <span class="licenseDonutChart-total">412/500</span>
+      <span class="licenseDonutChart-remaining">{{$available_licenses}}</span>
+      <span class="licenseDonutChart-total">{{$active_licenses}}/{{$total_licenses}} Active</span>
     </p>
   </div>
   <br />
@@ -16,10 +16,10 @@
       <table>
         <tr>
           <td>
-            Total licenses : 
+            Total licenses :
           </td>
           <td>
-            500
+            {{$total_licenses}}
           </td>
         </tr>
         <tr>
@@ -27,7 +27,7 @@
             Number of Licensed Used :
           </td>
           <td>
-            412
+            {{$active_licenses}}
           </td>
         </tr>
         <tr>
@@ -35,7 +35,7 @@
             Number of Licenses Available :
           </td>
           <td>
-            88
+            {{$available_licenses}}
           </td>
         </tr>
       </table>

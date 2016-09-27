@@ -1,11 +1,12 @@
 <div class="wrainbo-cms-license-register">
   <h2>Register</h2>
 
-  <form>
+  <form action="registerEmail" method="post">
     <div>
-      <input type="email"  placeholder="Email"/>
-
-      <input type="text"  placeholder="Department"/>
+      <input type="email" name="email" placeholder="Email"/>
+      <input type="text"  name="department" placeholder="Department"/>
+      <input type="hidden" name="cms_token" value="<?php echo session('cms.token'); ?>">
+      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     </div>
 
     <div class="wrainbo-cms-license-register-submitZone">

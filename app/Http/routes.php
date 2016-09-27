@@ -80,10 +80,16 @@ Route::group(['prefix' => 'cms'], function () {
             return view('cms.level.presetTemplate');
         });
         Route::get('assessment', "CMS\CMSAssessmentCtrl@LoadPage");
-        Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
 
         Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
         Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");
+
+      //================== LICENSE ==================
+
+        Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
+
+        Route::post('registerEmail', "CMS\CMSLicenseCtrl@RegisterEmail");
+        Route::post('deleteLevel', "CMS\CMSLicenseCtrl@DeleteLevel");
 
       //}
 });
