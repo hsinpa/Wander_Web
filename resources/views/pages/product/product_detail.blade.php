@@ -11,13 +11,13 @@
       </thead>
       <tbody>
         <tr>
-          <td>Intro levels (1-5)</td>
+          <td>Intro levels</td>
           <td><img src="image/icon/ic-check.png" /></td>
           <td><img src="image/icon/ic-check.png" /></td>
           <td><img src="image/icon/ic-check.png" /></td>
         </tr>
         <tr>
-          <td>Main levels (6-20)</td>
+          <td>Main levels</td>
           <td>With upgrade fees</td>
           <td><img src="image/icon/ic-check.png" /></td>
           <td><img src="image/icon/ic-check.png" /></td>
