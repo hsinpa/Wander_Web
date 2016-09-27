@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'wrb2.clvj47rxadzc.us-west-2.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3307'),
             'database' => env('DB_NAME', 'wrainbo'),
-            'username' => env('DB_USER', 'user'),
-            'password' => 'test',
+            'username' => env('DB_USER', 'wrainbo_admin'),
+            'password' => 'VgbIJDZoZw4xYHT9Emxu',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

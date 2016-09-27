@@ -6,8 +6,8 @@
     </div>
     <p>
       <span class="licenseDonutChart-title">Available</span>
-      <span class="licenseDonutChart-remaining">88</span>
-      <span class="licenseDonutChart-total">412/500</span>
+      <span class="licenseDonutChart-remaining">{{$available_licenses}}</span>
+      <span class="licenseDonutChart-total">{{$active_licenses}}/{{$total_licenses}} Active</span>
     </p>
   </div>
   <br />
