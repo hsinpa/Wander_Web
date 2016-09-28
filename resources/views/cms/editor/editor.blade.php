@@ -152,10 +152,10 @@
         jQuery('.tactic').css('opacity', '0');
       } else if (subject==="Leadership" && $change=="modern") {
         $('.background').css('background-image', 'url(../image/editor/leadership_background.jpg)');
-        $('.tools').css('background-image', 'url(../image/editor/magitech_tools.png)');
-        $('.competitor').css('background-image', 'url(../image/editor/magitech_competitor.png)');
-        $('.problems').css('background-image', 'url(../image/editor/magitech_problems.png)');
-        $('.tactic').css('background-image', 'url(../image/editor/magitech_analyze_tool.png)');
+        $('.tools').css('background-image', 'url(../image/editor/modern_tools.png)');
+        $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
+        $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
+        $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
         $("#object").val([]);
         jQuery('.problems').css('opacity', '0');
         jQuery('.tools').css('opacity', '0');
