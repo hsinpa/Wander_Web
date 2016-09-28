@@ -21,7 +21,7 @@ class CMSEditorCtrl extends Controller {
     $user_data = $this->_user->GetUserData(session('cms.token'));
 
     return view('cms.editor.editor',
-      ['title' => 'Wrainbo | CMS | Game Editor',
+      ['title' => 'Game Editor',
         "page"=>"editor",
         "user_name" => $user_data->name,
         "user_id" => $user_data->_id]);
