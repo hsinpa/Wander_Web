@@ -106,7 +106,7 @@ $(document).ready(function(){
 
   function SetScoreInfo(p_acumen) {
       //if (mFilterData.length <= 0) return;
-
+      $(" #vizcontainer section:nth-child(2) img").css("visibility", "visible");
       $(".positive_element div").html(GetScoreInfo(currentAcumen.positive));
       $(".negative_element div").html(GetScoreInfo(currentAcumen.negative));
       Tipped.create('.hint-attr',function(element) {
