@@ -89,7 +89,6 @@ Route::group(['prefix' => 'cms'], function () {
         Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
 
         Route::post('registerEmail', "CMS\CMSLicenseCtrl@RegisterEmail");
-        Route::post('deleteLevel', "CMS\CMSLicenseCtrl@DeleteLevel");
 
       //================== LICENSE ==================
 

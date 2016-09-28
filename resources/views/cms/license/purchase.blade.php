@@ -1,10 +1,22 @@
 <div class="wrainbo-cms-license-purchase">
   <h2>Purchase</h2>
 
+  <script lang="text/javascript">
+    $(function() {
+      $( "#purchase" ).change(function() {
+        $purchase = $(this).val();
+        $purchase = $purchase*30
+        var total = "$" + $purchase
+        console.log(total);
+        document.getElementById("amount").textContent = total;
+      });
+    });
+  </script>
+
   <form>
     <div>
-      <label>Purcahse Additional Licenses</label>
-      <input type="number"  value="0"/>
+      <label>Purchase Additional Licenses</label>
+      <input type="number" id="purchase" value="0"/>
     </div>
 
     <div class="wrainbo-cms-license-purchase-package">
@@ -17,7 +29,7 @@
     <div class="wrainbo-cms-license-purchase-payment">
 
         <label>Amount Due</label>
-        <p>$2130</p>
+        <p id="amount">$2130</p>
         <input type="submit" class="button submitButton" value="CHECK OUT"/>
 
         <section>

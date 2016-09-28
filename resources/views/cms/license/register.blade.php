@@ -9,7 +9,7 @@
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     </div>
 
-    <div class="wrainbo-cms-license-register-submitZone">
+    <div class="wrainbo-cms-license-register-submitZone medium-centered columns">
       <input type="submit" value="SUBMIT" class="button submitButton"/><br />
       <span class="tip">*Use plus button to apply multiple users at once</span>
     </div>
