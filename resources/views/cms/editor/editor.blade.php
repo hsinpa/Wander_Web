@@ -90,16 +90,49 @@
         $("#fantasy").removeAttr('disabled');
         $("#modern").removeAttr('disabled');
         $("#object").removeAttr('disabled');
+        $("#object").val([]);
+        jQuery('.problems').css('opacity', '0');
+        jQuery('.tools').css('opacity', '0');
+        jQuery('.competitor').css('opacity', '0');
+        jQuery('.tactic').css('opacity', '0');
+        $('.background').css('background-image', 'none');
+        $('.tools').css('background-image', 'none');
+        $('.competitor').css('background-image', 'none');
+        $('.problems').css('background-image', 'none');
+        $('.tactic').css('background-image', 'none');
+        $('#theme').prop('selectedIndex', 0);
       } else if ($change1 == "procurement") {
           $("#theme").removeAttr('disabled');
           $("#fantasy").prop('disabled', true);
           $("#modern").removeAttr('disabled');
           $("#object").removeAttr('disabled');
+          $("#object").val([]);
+          jQuery('.problems').css('opacity', '0');
+          jQuery('.tools').css('opacity', '0');
+          jQuery('.competitor').css('opacity', '0');
+          jQuery('.tactic').css('opacity', '0');
+          $('.background').css('background-image', 'none');
+          $('.tools').css('background-image', 'none');
+          $('.competitor').css('background-image', 'none');
+          $('.problems').css('background-image', 'none');
+          $('.tactic').css('background-image', 'none');
+          $('#theme').prop('selectedIndex', 0);
       } else if ($change1 == "leadership") {
           $("#theme").removeAttr('disabled');
           $("#fantasy").prop('disabled', true);
           $("#modern").removeAttr('disabled');
           $("#object").removeAttr('disabled');
+          $("#object").val([]);
+          jQuery('.problems').css('opacity', '0');
+          jQuery('.tools').css('opacity', '0');
+          jQuery('.competitor').css('opacity', '0');
+          jQuery('.tactic').css('opacity', '0');
+          $('.background').css('background-image', 'none');
+          $('.tools').css('background-image', 'none');
+          $('.competitor').css('background-image', 'none');
+          $('.problems').css('background-image', 'none');
+          $('.tactic').css('background-image', 'none');
+          $('#theme').prop('selectedIndex', 0);
       }
     });
     $( "#theme" ).change(function($subject) {
@@ -112,24 +145,44 @@
         $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
         $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
         $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
+        $("#object").val([]);
+        jQuery('.problems').css('opacity', '0');
+        jQuery('.tools').css('opacity', '0');
+        jQuery('.competitor').css('opacity', '0');
+        jQuery('.tactic').css('opacity', '0');
       } else if (subject==="Leadership" && $change=="modern") {
         $('.background').css('background-image', 'url(../image/editor/leadership_background.jpg)');
         $('.tools').css('background-image', 'url(../image/editor/magitech_tools.png)');
         $('.competitor').css('background-image', 'url(../image/editor/magitech_competitor.png)');
         $('.problems').css('background-image', 'url(../image/editor/magitech_problems.png)');
         $('.tactic').css('background-image', 'url(../image/editor/magitech_analyze_tool.png)');
+        $("#object").val([]);
+        jQuery('.problems').css('opacity', '0');
+        jQuery('.tools').css('opacity', '0');
+        jQuery('.competitor').css('opacity', '0');
+        jQuery('.tactic').css('opacity', '0');
       } else if ($change == "fantasy") {
         $('.background').css('background-image', 'url(../image/editor/magitech_background.png)');
         $('.tools').css('background-image', 'url(../image/editor/magitech_tools.png)');
         $('.competitor').css('background-image', 'url(../image/editor/magitech_competitor.png)');
         $('.problems').css('background-image', 'url(../image/editor/magitech_problems.png)');
         $('.tactic').css('background-image', 'url(../image/editor/magitech_analyze_tool.png)');
+        $("#object").val([]);
+        jQuery('.problems').css('opacity', '0');
+        jQuery('.tools').css('opacity', '0');
+        jQuery('.competitor').css('opacity', '0');
+        jQuery('.tactic').css('opacity', '0');
       } else if ($change == "modern") {
         $('.background').css('background-image', 'url(../image/editor/modern_background.png)');
         $('.tools').css('background-image', 'url(../image/editor/modern_tools.png)');
         $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
         $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
         $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
+        $("#object").val([]);
+        jQuery('.problems').css('opacity', '0');
+        jQuery('.tools').css('opacity', '0');
+        jQuery('.competitor').css('opacity', '0');
+        jQuery('.tactic').css('opacity', '0');
       }
     });
 
