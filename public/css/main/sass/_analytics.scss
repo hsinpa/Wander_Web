@@ -32,6 +32,9 @@
       }
       section:nth-child(2) {
           width: 30%;
+          .assessment_panel_icon {
+            //display: none;
+          }
           .positive_element{
             margin-left: 1em;
             margin-top: 3em;
@@ -66,6 +69,7 @@
             }
           }
           img {
+            visibility: hidden;
           }
       }
     }
