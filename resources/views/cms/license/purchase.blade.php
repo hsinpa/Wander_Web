@@ -5,13 +5,21 @@
     $(function() {
       $( "#purchase" ).change(function() {
         $purchase = $(this).val();
-        $purchase = $purchase*30
-        var total = "$" + $purchase
-        console.log(total);
+        $purchase = $purchase*30;
+        var total = "$" + $purchase;
         document.getElementById("amount").textContent = total;
       });
     });
   </script>
+
+  <style>
+  .pro {
+    background-color: #3392c1;
+  }
+  .pro:hover {
+    background-color: #2d85b1;
+  }
+  </style>
 
   <form>
     <div>
@@ -20,8 +28,8 @@
     </div>
 
     <div class="wrainbo-cms-license-purchase-package">
-      <button class="button disabled">Basic</button>
-      <button class="button secondary">*Pro</button>
+      <button class="button secondary">Basic</button>
+      <button class="button pro">*Pro</button>
       <button class="button">Pro+</button>
       <span class="tip">*Current License</span>
     </div>
@@ -29,7 +37,7 @@
     <div class="wrainbo-cms-license-purchase-payment">
 
         <label>Amount Due</label>
-        <p id="amount">$2130</p>
+        <p id="amount">$0</p>
         <input type="submit" class="button submitButton" value="CHECK OUT"/>
 
         <section>

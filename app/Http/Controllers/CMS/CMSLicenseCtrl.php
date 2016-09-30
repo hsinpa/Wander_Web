@@ -19,20 +19,22 @@ class CMSLicenseCtrl extends Controller {
   public function RegisterEmail(Request $post) {
     $all = $post->all();
     $user_id = $this->_user->GetUserID($all["cms_token"]);
-    $post1 = $post->input('email');
+    $post1 = Input::get('email');
     $post2 = $post->input('department');
+
 
     $validator = Validator::make($post->all(), [
         'email' => 'Required|Min:3|Max:200|Email',
         'department' => 'Min:1|Max:200|Alpha'
       ]);
-
     if ($validator->fails()) {
       return redirect ('cms/license')
         ->withErrors($validator)
         ->withInput();
     } else {
-      $this->_license->RegisterEmail($user_id,$post1,$post2);
+      foreach ($post1 as $email) {
+        $this->_license->RegisterEmail($user_id,$email,$post2);
+      }
       return redirect ('cms/license');
     }
   }

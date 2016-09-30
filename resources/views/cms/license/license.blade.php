@@ -9,6 +9,13 @@
   </div>
 
   <div class="medium-10 columns">
+    @if (count($errors) > 0)
+      <div data-alert class="alert alert-box panel callout">
+              @foreach ($errors->all() as $error)
+                  {{ $error }}
+              @endforeach
+      </div>
+    @endif
     <h2 class="wrainbo-cms-title">Manage License</h2>
 
     <div class="row license-holder" >
