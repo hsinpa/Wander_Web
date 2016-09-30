@@ -50,11 +50,13 @@ class Handler extends ExceptionHandler
           	switch ($e->getStatusCode()) {
           		// not found
           		case 404:
-  					return \Response::view('welcome',array(),404);
+  					return \Response::view('pages.home.home',
+            ['title' => 'Wrainbo: Mobile game platform for business learning'],404);
           		break;
           		// internal error
           		case '500':
-  				    return \Response::view('welcome',array(),500);
+  				    return \Response::view('pages.home.home',
+              ['title' => 'Wrainbo: Mobile game platform for business learning'],500);
           		break;
 
           		default:

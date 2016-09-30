@@ -51,51 +51,53 @@ Route::get('aboutUs', function () {
       ['title' => 'About Us | Wrainbo']);
 });
 
+
+// ======================= CMS PANEL ======================
 Route::group(['prefix' => 'cms'], function () {
     Route::get('/', function () {
         return view('cms.login',
               ['title' => 'Console | Wrainbo']);
     });
+
     Route::post('login', "CMS\CMSUserCtrl@login");
     Route::get('logout', "CMS\CMSUserCtrl@logout");
     Route::post('register', "CMS\CMSUserCtrl@register");
 
-      //Only Login
-      //if (session()->has('cms.token')) {
-        Route::get('spell', function () {
-            return view('cms.spell.spell');
-        });
+      //Access once user is login
+      Route::group(['middleware' => 'session'], function () {
+           Route::get('spell', function () {
+              return view('cms.spell.spell');
+          });
 
-        //================== LEVEL ==================
-        Route::get('level', "CMS\CMSLevelCtrl@LoadLevel");
+          //================== LEVEL ==================
+          Route::get('level', "CMS\CMSLevelCtrl@LoadLevel");
 
-        Route::get("level.template", function () {
-            return view('cms.level.levelTemplate');
-        });
+          Route::get("level.template", function () {
+              return view('cms.level.levelTemplate');
+          });
 
-        Route::get('level.event', function () {
-            return view('cms.level.eventTemplate');
-        });
-        Route::get('level.preset', function () {
-            return view('cms.level.presetTemplate');
-        });
-        Route::get('assessment', "CMS\CMSAssessmentCtrl@LoadPage");
+          Route::get('level.event', function () {
+              return view('cms.level.eventTemplate');
+          });
+          Route::get('level.preset', function () {
+              return view('cms.level.presetTemplate');
+          });
+          Route::get('assessment', "CMS\CMSAssessmentCtrl@LoadPage");
 
-        Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
-        Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");
+          Route::post('saveLevel', "CMS\CMSLevelCtrl@SaveLevel");
+          Route::post('deleteLevel', "CMS\CMSLevelCtrl@DeleteLevel");
 
-      //================== LICENSE ==================
+        //================== LICENSE ==================
 
-        Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
+          Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
 
-        Route::post('registerEmail', "CMS\CMSLicenseCtrl@RegisterEmail");
-        Route::post('deleteLevel', "CMS\CMSLicenseCtrl@DeleteLevel");
+          Route::post('registerEmail', "CMS\CMSLicenseCtrl@RegisterEmail");
+          Route::post('deleteLevel', "CMS\CMSLicenseCtrl@DeleteLevel");
 
-      //================== LICENSE ==================
+        //================== LICENSE ==================
 
-      Route::get('editor', "CMS\CMSEditorCtrl@LoadPage");
-
-      //}
+        Route::get('editor', "CMS\CMSEditorCtrl@LoadPage");
+      });
 });
 
 
