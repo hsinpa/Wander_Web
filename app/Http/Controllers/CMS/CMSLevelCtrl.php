@@ -23,16 +23,17 @@ class CMSLevelCtrl extends Controller {
   }
 
   public function GetLevel($user_id) {
+
       $result = $this->_level->LoadLevelByUser($user_id);
       return  json_encode($result);
   }
 
   //Return with actual html
   public function LoadLevel() {
+
     $user_id = $this->_user->GetUserID(session('cms.token'));
     $user_data = $this->_user->GetUserData(session('cms.token'));
 
-    if (!$user_id) return redirect('cms/logout');
 
     $rawLevelData = $this->_level->LoadLevelByUser($user_id);
     return view('cms.level.level',
