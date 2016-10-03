@@ -14,6 +14,13 @@
     <script type="text/javascript" src="{{ url('lib/underscore-min.js')}}"></script>
     <script src="{{ url('lib/foundation.min.js')}}"></script>
 
+    <!--  D3 Chart Module -->
+    <script type="text/javascript" src="{{ url('js/d3/LineChart.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/d3/LineDateChart.js')}}"></script>
+    <script type="text/javascript" src="{{ url('js/d3/Barchart.js')}}"></script>
+    <script type="text/javascript" src="{{ url('js/d3/analysis/halfDonutChart.js')}}"></script>
+
+
     <div>
       @yield('content')
     </div>
@@ -25,10 +32,9 @@
   <script src="{{ url('lib/jquery.fancybox.pack.js')}}"></script>
   <script src="{{ url('lib/tipped.js') }}"></script>
 
-  <!-- <script type="text/javascript" src="script/ch2-1.js"></script> -->
-  <script type="text/javascript" src="{{ url('js/d3/analysis/linechart.js') }}"></script>
-  <script type="text/javascript" src="{{ url('js/d3/analysis/barchart.js')}}"></script>
-  <script type="text/javascript" src="{{ url('js/d3/analysis/halfDonutChart.js')}}"></script>
+  <!-- D3 Chart module -->
+
+
   <script type="text/javascript" src="{{ url('js/d3/analysis/AnalyticsManager.js')}}"></script>
 
   <!-- <script type="text/javascript" src="script/analysis/SpellManager.js"></script> -->

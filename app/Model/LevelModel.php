@@ -9,6 +9,33 @@ class LevelModel extends Eloquent {
   protected $table = 'Level';
 
   //============================ Retrieve ==========================
+  public function GetTotalTime() {
+    $q = "SELECT SUM(PR.roundTime) as time, CAST(Level.create_time AS DATE) as date
+          FROM Level
+          LEFT JOIN PrepareRecord AS PR ON PR.level_id = Level._id
+          LEFT JOIN Sale ON Sale.level_id = Level._id
+          WHERE PR.roundTime IS NOT NULL
+          GROUP BY DATE(Level.create_time)
+          ORDER BY Level.create_time";
+    return DB::select($q);
+  }
+
+  public function GetTotalLevel() {
+    $q = "SELECT COUNT(Level.level) as levels, DATE(Level.create_time) as create_time
+          FROM Level
+      		GROUP BY  DATE(Level.create_time)
+          ORDER BY Level.create_time";
+    return DB::select($q);
+  }
+
+  public function GetUserByLevel() {
+    $q = "SELECT MAX(Level.level) as MaxLevel, User.name
+          FROM Level
+          LEFT JOIN User ON Level.user_id = User._id
+          GROUP BY Level.user_id";
+    return DB::select($q);
+  }
+
 
   public function GetAllByLevel($level) {
     $q = "SELECT max(coin) as coin, name, level, hero, guid, star

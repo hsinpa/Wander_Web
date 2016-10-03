@@ -1,6 +1,7 @@
 //Utility
 @import './components/_utility';
 @import './_latofonts';
+@import './_foundation-icons';
 
 h1,h2 { font-family: 'LatoWebBold', Calibri, Geneva, sans-serif; color: $textColor;}
 h3,h4,h5,h6 { font-family: 'LatoWebSemibold', Calibri, Geneva, sans-serif; color: $textColor;}
@@ -24,6 +25,7 @@ body { background-color: $white; }
 @import './cms/_cmsLevel';
 @import './cms/_cmsLicense';
 @import './cms/_cmsEditor';
+@import './cms/_cmsAssessment';
 
 //General
 .breakline {

@@ -1,0 +1,53 @@
+#wrainbo-cms-assessment {
+
+  //Usage Page
+  #wrainbo-cms-assessment-usage {
+    .lineChart-holder, .barChart-holder {
+      width:90%;
+      height:20em;
+    }
+
+    rect {
+      fill: steelblue;
+    }
+
+    .columns {
+      position: relative;
+      .swap {
+        position: absolute;
+        top:0;
+        right:0;
+        width:2em;
+      }
+
+    }
+  }
+
+  //Functional Skills pgae
+
+  //Core Competency Page
+
+  //Learning Style page
+
+
+
+
+
+  //Chart Styling
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .x.axis path {
+    display: none;
+  }
+
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+}
