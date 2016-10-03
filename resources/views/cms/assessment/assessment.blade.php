@@ -2,63 +2,31 @@
 @section('content')
 @include('cms.header')
 
-<div id="wrainbo-analytics" class="wrainbo-cms-globalSetting">
+<div id="wrainbo-cms-assessment" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
   </div>
 
   <div class="medium-10 columns">
-    <div class="wrainbo-analytics-main">
-      <h2 class="wrainbo-cms-title">Magitech Capability Assessment</h2>
-      <form class="row">
-        <select class="menuSelecter">
-          <option value="overall">Overall</option>
-          <option value="marketing">Marketing acumen</option>
-          <option value="operation">Operation acumen</option>
-          <option value="financial">Financial acumen</option>
-        </select>
-        <select class="userSelecter">
-          <option value="">Pick One</option>
-        </select>
 
-        <div class="functionGroup">
-          <button class="secondary tiny button" value="halfDonut">Summary</button>
-          <button class="secondary tiny button" value="bar">Trend</button>
-        </div>
-      </form>
+    <ul class="tabs" data-tabs id="wrainbo-cms-assessment-tabs">
+      <li class="tabs-title"><a href="#none"><i class="step fi-align-center"></i></a></li>
+      <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Usage</a></li>
+      <li class="tabs-title"><a href="#panel2">Functional Skills</a></li>
+      <li class="tabs-title"><a href="#panel2">Core Competency</a></li>
+      <li class="tabs-title"><a href="#panel2">Learning Style</a></li>
+    </ul>
 
-      <!-- <label>X Axis<select class="AxisSelect" axis="x"></select></label>
-      <label>Y Axis<select class="AxisSelect" axis="y"></select></label> -->
 
-      <div id="vizcontainer" class="row" data-equalizer data-equalize-on="medium" >
-        <section class="medium-8 columns" >
-          <svg class="chart" />
-          <div class="textGroup">
-            <h3>75</h3>
-            <h5></h5>
-            <h4>Level 5</h4>
-          </div>
-        </section>
-
-        <section class="medium-4 columns" >
-            <div class="positive_element" class="row">
-              <img src="{{ url('image/accessment/gogo.png') }}" class="medium-2 columns"/>
-              <div class="medium-10 columns">
-
-              </div>
-            </div>
-
-            <hr />
-
-            <div class="negative_element" class="row">
-              <img src="{{ url('image/accessment/chacha.png') }}" class="medium-2 columns"/>
-              <div class="medium-10 columns">
-
-              </div>
-            </div>
-        </section>
+      <div class="tabs-content" data-tabs-content="wrainbo-cms-assessment-tabs">
+      <div class="tabs-panel is-active" id="panel1">
+        @include('cms.assessment.usage')
+      </div>
+      <div class="tabs-panel" id="panel2">
+        <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
       </div>
     </div>
   </div>
 </div>
+<script src="{{ url('js/cms/assessment/AssessmentManager.js') }}"></script>
 @stop

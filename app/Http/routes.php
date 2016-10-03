@@ -63,6 +63,8 @@ Route::group(['prefix' => 'cms'], function () {
     Route::get('logout', "CMS\CMSUserCtrl@logout");
     Route::post('register', "CMS\CMSUserCtrl@register");
 
+    Route::get('getUsageData', "CMS\CMSAssessmentCtrl@GetUsageData");
+
       //Access once user is login
       Route::group(['middleware' => 'session'], function () {
            Route::get('spell', function () {
