@@ -18,13 +18,19 @@ class CMSAssessmentCtrl extends Controller {
     $totalPlayLevel = $this->_level->GetTotalLevel();
     $totalUserPlayLevel = $this->_level->GetUserByLevel();
 
-    return json_encode(["totalPlay" => $totalPlayTime, "totalLevel" => $totalPlayLevel,
-            "userLevel" => $totalUserPlayLevel ]);
+    foreach ($totalPlayTime as $key => $value) {
+      $value->time =round( ($value->time / 60) / 24 , 2);
+    }
+
+    return json_encode(
+    [ "totalPlay" => ["data" => $totalPlayTime, "xAxis"=>"Date", "yAxis"=>"Time(Hour) "],
+      "totalLevel" => ["data" => $totalPlayLevel, "xAxis"=>"Date", "yAxis"=>"Levels of Play"],
+      "userLevel" => $totalUserPlayLevel
+    ]);
   }
 
   public function LoadPage() {
     $user_data = $this->_user->GetUserData(session('cms.token'));
-
 
     return view('cms.assessment.assessment',
       ['title' => 'Analytics Demo',"page"=>"assessment","user_name" => $user_data->name]);
