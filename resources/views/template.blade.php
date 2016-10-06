@@ -18,7 +18,7 @@
     <script type="text/javascript" src="{{ url('js/d3/LineChart.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/d3/LineDateChart.js')}}"></script>
     <script type="text/javascript" src="{{ url('js/d3/Barchart.js')}}"></script>
-    <script type="text/javascript" src="{{ url('js/d3/analysis/halfDonutChart.js')}}"></script>
+    <script type="text/javascript" src="{{ url('js/d3/HalfDonutChart.js')}}"></script>
 
 
     <div>

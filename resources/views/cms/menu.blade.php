@@ -11,5 +11,15 @@
 </div>
 
 <script type="text/javascript">
+    var windowH = $(document).height();
+    $('#wrainbo-cms-menu').css('height', (windowH-50)+'px');
+    setTimeout(function(){
+        var windowH = $(document).height();
+        $('#wrainbo-cms-menu').css('height', (windowH-50)+'px');
+      }, 700);
 
+    $(window).resize(function(){
+        var windowH = $(document).height();
+        $('#wrainbo-cms-menu').css('height', (windowH-50)+'px');
+    })
 </script>

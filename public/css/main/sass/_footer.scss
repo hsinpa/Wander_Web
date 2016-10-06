@@ -1,21 +1,28 @@
 .footer {
   background-color: $textColor;
   position: relative;
-  // height: 3em;
-  .logo {
-    width: 6em;
-    padding: 0.5em 0em 0.5em 0.5em;
+  height: 4em;
+  p{
+    position: absolute;
+    top:1.2em;
+    right:2em;
+    margin: 0em;
+    color:$white;
+    @media screen and (max-width: 40em) {
+      display: none;
+     }
   }
   section {
     position: absolute;
-    bottom: 0;
-    right:0;
+    top:0.5em;
+    left:2em;
     a {
-      //margin-bottom: 0.5em;
-
-      img {
-        width: 2.5em;
+      margin-right: 0.9em;
+      i {
+        font-size: 2em;
+        @include SetColorTransition(white,$blue);
       }
+
     }
   }
 }

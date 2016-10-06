@@ -1,7 +1,12 @@
 #wrainbo-cms-assessment {
+  .tabs-content {
+    background: transparent !important;
+    border: none;
+  }
 
   //Usage Page
   #wrainbo-cms-assessment-usage {
+
     .lineChart-holder, .barChart-holder {
       width:90%;
       height:20em;
@@ -10,28 +15,111 @@
     rect {
       fill: steelblue;
     }
+    .mainGraph {
+      text-align : center;
 
-    .columns {
-      position: relative;
-      .swap {
-        position: absolute;
-        top:0;
-        right:0;
-        width:2em;
+      .columns {
+        padding: 0em 0.5em;
+        .graph_box {
+          background-color: white;
+          position: relative;
+          h5 {
+            margin-bottom: 0;
+            padding-top: 0.5em;
+          }
+        }
+        .swap {
+          position: absolute;
+          top:0;
+          right:0;
+          width:2em;
+        }
+      }
+    }
+
+    .key-metrics {
+      text-align : center;
+      h3 {
+        margin: 0.5em 0em;
+        font-size: 1.4em;
+      }
+      .columns {
+        padding: 0em 0.5em;
+        h4 {
+          border-bottom: 1px solid black;
+          width:65%;
+          font-size: 1.3em;
+          position: relative;
+          margin: 0 auto;
+          margin-bottom: 0.7em;
+        }
+        .callout {
+          border: none !important;
+        }
+
+        .key-meticsBox {
+          background-color: white;
+          width:90%;
+          position: relative;
+          margin: 0 auto;
+        }
+        section {
+          h5 {padding-top: 0.5em;}
+          text-align: center;
+
+          p {margin-bottom: 0em; font-size: 0.9em;}
+          .changeValue {
+            color: $green;
+          }
+          .pushDown {
+            padding-bottom: 0.6em;
+          }
+        }
       }
 
     }
   }
 
   //Functional Skills pgae
+  #wrainbo-cms-assessment-functionalSkill {
+    text-align: center;
+    .halfDonatChart-holder {
+      width:90%;
+      height:8em;
+    }
 
+     h4 {
+       border-bottom: 1px solid black;
+       width:65%;
+       position: relative;
+       margin: 0 auto;
+       margin-bottom: 0.4em;
+     }
+     table {
+       text-align: center;
+       position: relative;
+       margin: 0 auto;
+       width:90%;
+     }
+  }
   //Core Competency Page
 
   //Learning Style page
 
 
 
+  .assessment-box {
+    background-color: white;
+    width:95%;
+    position: relative;
+    margin: 0 auto;
+    p {
+      padding: 0.5em;
+      text-align: left;
+      height: 20em;
 
+    }
+  }
 
   //Chart Styling
   .axis path,

@@ -1,10 +1,10 @@
 var LineDateChart = (function () {
 
   return {
-    Plot : function(DOMTarget, jsonData) {
+    Plot : function(DOMTarget, jsonData, xAxisTile, yAxisTitle) {
       if (jsonData.length <= 0) return;
 
-      var formatDate = d3.timeFormat("%y-%m-%d"),
+      var formatDate = d3.timeFormat("%b-%d"),
           yMax = _.max(jsonData , function(g) {return parseInt(g.y) } ),
           xMax = new Date(jsonData[jsonData.length - 1].x),
           xMin = new Date(jsonData[0].x),
@@ -13,14 +13,14 @@ var LineDateChart = (function () {
           WIDTH = $(DOMTarget).width(),
           HEIGHT =  $(DOMTarget).height(),
           MARGINS = {
-              top: 20,
+              top: 40,
               right: 20,
-              bottom: 20,
-              left: 50
+              bottom: 40,
+              left: 70
           },
         xScale = d3.scaleLinear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([xMin, xMax]),
         yScale = d3.scaleLinear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, yMax.y]),
-        xAxis = d3.axisBottom(xScale).ticks( 4 ).tickFormat(d3.timeFormat("%y-%m-%d")),
+        xAxis = d3.axisBottom(xScale).ticks( 4 ).tickFormat(formatDate),
         yAxis = d3.axisLeft(yScale);
 
         vis.append("svg:g")
@@ -31,6 +31,17 @@ var LineDateChart = (function () {
             .attr("transform", "translate(" + (MARGINS.left) + ",0)")
             .call(yAxis);
 
+        //Axis x title
+        vis.append("svg:text")      // text label for the x axis
+        .attr("x", (WIDTH/2) + MARGINS.right )
+        .attr("y", HEIGHT -3 )
+        .style("text-anchor", "middle")
+        .text(xAxisTile);
+
+        vis.append("svg:text")
+        .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+        .attr("transform", "translate("+ (MARGINS.right +10) +","+(HEIGHT/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+        .text(yAxisTitle);
 
         //Line
         var lineGen = d3.line()
