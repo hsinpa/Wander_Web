@@ -57,6 +57,30 @@
 
 <script lang="text/javascript">
   $(document).foundation();
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85057802-1', 'auto');
+  ga('send', 'pageview');
+
+  //Track Page Click
+  $("#responsive-menu a").on("click", function() {
+    ga('send', 'event', 'page', 'click', $(this).attr("href"));
+  });
+
+  //Trailer
+  $("fancybox.iframe").on("click", function() {
+    ga('send', 'event', 'page', 'click', "youtube_trailer");
+  });
+
+  //SocialMedia Tracker
+  $(".footer a").on("click", function() {
+    ga('send', 'event', 'social-media', 'click', $(this).attr("data-attr"));
+  });
+
 </script>
 </body>
 </html>
