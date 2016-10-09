@@ -1,78 +1,90 @@
 @extends('template')
-<link rel="stylesheet" src="{{ url('css/foundation/foundation-select.css') }}">
+
 @section('content')
 @include('cms.header')
 
-
-<script type="text/javascript" src="{{ url('js/cms/editor/attrchange.js') }}"></script>
 <div id="wrainbo-cms-level" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
   </div>
   <style>
-    .phone {
-      background-image: url(../image/editor/iphone.png);
-      width: 1000px;
-      height: 500px;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-    .viewport {
-      height: 86%;
-      top: 6.5%;
-      left: 12%;
-      width: 76%;
-      z-index: -1;
+    .phoneArea {
       position: relative;
+      z-index: 10;
     }
-    .background {
+    .view {
+      position: absolute;
+      height: 86.5%;
+      width: 75.5%;
+      left: 12.3%;
+      top: 6.75%;
+      z-index: -1;
+    }
+   .background {
       width:100%;
       height:100%;
       background-size: cover;
       background-repeat: no-repeat;
-      z-index: -1;
+      z-index: 5;
     }
     .tools {
+      width: 60%;
+      height: 60%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 20%;
+      bottom: -37.6%;
+      position: absolute;
+      z-index: 1;
+    }
+    .competitor {
       width: 45%;
       height: 45%;
       background-size: contain;
       background-repeat: no-repeat;
-      left: 25%;
-      bottom: 14%;
-      position: relative;
-    }
-    .competitor {
-      width: 35%;
-      height: 35%;
-      background-size: contain;
-      background-repeat: no-repeat;
-      top: -126%;
-      left: 72%;
-      position: relative;
-      z-index: -1;
+      bottom: 59%;
+      left: 78%;
+      position: absolute;
+      z-index: 1;
     }
     .problems {
-      width: 35%;
-      height: 35%;
+      width: 50%;
+      height: 50%;
       background-size: contain;
       background-repeat: no-repeat;
-      top: -136%;
-      left: 30%;
-      position: relative;
+      left: 25%;
+      bottom: 25%;
+      position: absolute;
     }
     .tactic {
       width: 15%;
       height: 35%;
       background-size: contain;
       background-repeat: no-repeat;
-      left: 75%;
-      top: -135%;
-      position: relative;
-      z-index: -1;
+      position: absolute;
+      z-index: 1;
+      bottom: -11%;
+      right: -1%;
     }
-    .area {
-      height:250px;
-      width:500px;
+    .phoneImage {
+      user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+    #selection-background-area > span > .selection-background-image {
+      border-radius: 10px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      width: 48%;
+      margin-right: 1%;
+
+    }
+    #background-area > .gu-mirror > .selection-background-image {
+      width: 100%;
+      height: 100%;
     }
   </style>
   <script lang="text/javascript">
@@ -209,11 +221,19 @@
         jQuery('.competitor').css('opacity', '0');
       }
     });
-
-
   });
 
 
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
+  <script>
+    $(document).ready(function(){
+      var backgroundSelectArea = document.getElementById('selection-background-area');
+      var backgroundArea = document.getElementById('background-area');
+      dragula([backgroundSelectArea, backgroundArea], {
+        mirrorContainer: document.getElementById('background-area')
+      });
+    });
   </script>
   <div class="medium-10 columns">
     <h2 class="wrainbo-cms-title">Game Editor</h2>
@@ -247,17 +267,32 @@
       </div>
     </div>
     <div class="row">
-      <div class="medium-10 medium-centered columns">
-        <div class="area">
-          <div class="phone">
-            <div class="viewport">
-              <div class="background"></div>
+      <div class="medium-4">
+        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <li class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title">Background</a>
+            <div class="accordion-content" data-tab-content>
+              <div id="selection-background-area">
+                <span><img src="../image/editor/modern/background.jpg" class="selection-background-image"></span>
+                <span><img src="../image/editor/modern/leadership_background.jpg" class="selection-background-image"></span>
+                <span><img src="../image/editor/fantasy/background.jpg" class="selection-background-image"></span>
+              </div>
             </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-10 medium-centered columns">
+        <div class="phoneArea">
+          <div class="view">
+            <div class="background" id="background-area"></div>
             <div class="tools"></div>
             <div class="competitor"></div>
             <div class="problems"></div>
             <div class="tactic"></div>
           </div>
+          <img src="../image/editor/iphone.png" class="phoneImage">
         </div>
       </div>
     </div>
