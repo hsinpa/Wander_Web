@@ -2,6 +2,7 @@
 
 @section('content')
 @include('cms.header')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css">
 
 <div id="wrainbo-cms-level" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
@@ -18,7 +19,7 @@
       width: 75.5%;
       left: 12.3%;
       top: 6.75%;
-      z-index: -1;
+      z-index: 1;
     }
    .background {
       width:100%;
@@ -73,18 +74,26 @@
       -webkit-user-drag: none;
       -webkit-user-select: none;
       -ms-user-select: none;
+      z-index: -1;
     }
-    #selection-background-area > span > .selection-background-image {
+    .selection-background-image {
       border-radius: 10px;
       margin-top: 2%;
       margin-bottom: 2%;
       width: 48%;
       margin-right: 1%;
-
     }
-    #background-area > .gu-mirror > .selection-background-image {
-      width: 100%;
-      height: 100%;
+    .gu-unselectable {
+      opacity: .25;
+      background: rgba(0,0,0,0.5);
+    }
+    #background-area > .selection-background-image:not(.gu-mirror) {
+      border-radius: 0px !important;
+      margin-top: 0% !important;
+      width: 100% !important;
+      height: 100% !important;
+      margin-bottom: 0% !important;
+      margin-right: 0% !important;
     }
   </style>
   <script lang="text/javascript">
@@ -222,16 +231,20 @@
       }
     });
   });
-
-
   </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script>
     $(document).ready(function(){
       var backgroundSelectArea = document.getElementById('selection-background-area');
       var backgroundArea = document.getElementById('background-area');
+
       dragula([backgroundSelectArea, backgroundArea], {
-        mirrorContainer: document.getElementById('background-area')
+        accepts: function (el, target) {
+          return target !== backgroundSelectArea
+        },
+        mirrorContainer: document.getElementById('background-area'),
+        direction: 'mixed',
+        copy: true
       });
     });
   </script>
@@ -273,9 +286,9 @@
             <a href="#" class="accordion-title">Background</a>
             <div class="accordion-content" data-tab-content>
               <div id="selection-background-area">
-                <span><img src="../image/editor/modern/background.jpg" class="selection-background-image"></span>
-                <span><img src="../image/editor/modern/leadership_background.jpg" class="selection-background-image"></span>
-                <span><img src="../image/editor/fantasy/background.jpg" class="selection-background-image"></span>
+                <img src="../image/editor/modern/background.jpg" class="selection-background-image">
+                <img src="../image/editor/modern/leadership_background.jpg" class="selection-background-image">
+                <img src="../image/editor/fantasy/background.jpg" class="selection-background-image">
               </div>
             </div>
           </li>
