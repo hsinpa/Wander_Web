@@ -244,7 +244,17 @@
         },
         mirrorContainer: document.getElementById('background-area'),
         direction: 'mixed',
-        copy: true
+        copy: true,
+        revertOnSpill: true
+      }).on('drop', function (el, target, source, sibling) {
+          var element = el;
+          var targetContainer = target;
+          var siblingTarget = sibling;
+          this.cancel(true);
+          $(targetContainer).append(element);
+          if (siblingTarget !== null) {
+            siblingTarget.remove();
+          }
       });
     });
   </script>
