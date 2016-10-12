@@ -115,8 +115,11 @@ Route::group(['prefix' => 'analytics'], function () {
     //For Unity
     Route::get("level/{user_id}", "CMS\CMSLevelCtrl@GetLevel");
     Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
+    Route::get("trophy/{guid}/{level}", "Analytics\UserCtrl@GetTrophyRanking");
 
     //For Assessment
+    Route::post('login', "Analytics\UserCtrl@PrimeLogin");
+
     Route::post('save', "Analytics\UserCtrl@SaveGameRecord");
     Route::post('import', "Analytics\UserCtrl@ImportUnityAnalyticsData");
 

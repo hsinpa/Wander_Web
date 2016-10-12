@@ -12,8 +12,7 @@
           </p> -->
         </div>
         <div class="breakline"></div>
-
-            <a class="various fancybox.iframe theme_black" href="https://www.youtube.com/embed/g6oLxcCAAcE?autoplay=1">
+            <a class="various fancybox.iframe theme_black" href="https://www.youtube.com/embed/yTA1UOo1jpM?autoplay=1">
                 WATCH TRAILER<img src="image/icon/bt_play.png" />
             </a>
             <div class="breakline"></div>

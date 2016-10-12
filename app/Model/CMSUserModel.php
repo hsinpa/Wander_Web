@@ -8,8 +8,6 @@ class CMSUserModel extends Eloquent {
   protected $table = 'CMS_User';
   private $sha_key = "wrainbo2016hsin";
 
-
-
   //Utility function
   public function RefreshToken($username) {
     $token = md5(uniqid(rand(), true));

@@ -21,54 +21,91 @@ class UserCtrl extends Controller {
     $this->_level = $level;
   }
 
-  //Temporaily manually import
-  public function ImportUnityAnalyticsData(Request $request) {
-    $outerData = $request->json()->all();
-    foreach ($outerData as $json) {
+  //Syn Data everytime user login / go online
+  public function OnSynData(Request $request) {
+    $dataArray = (object) $request->json()->all();
+    return SynData($dataArray);
+  }
 
-      $coreData = $json["custom_params"];
+  public function SynData($dataArray) {
+    $userData = $this->_user->GetUserByGuid($dataArray->id)[0];
+    $gameRecords = $this->_level->GetUserDataByGUID($dataArray->id);
 
-      switch ($json["name"]) {
-        case 'LevelProgression':
-          $round = json_decode($coreData["round"]);
+    return json_encode(array("error_status"=>false, "fb_id"=> $userData->fb_id, "email"=>$userData->email,
+              "guid"=>$userData->guid, "name"=>$userData->name,
+              "unlocks"=>$userData->unlocks, "game_records"=>$gameRecords),
+            JSON_UNESCAPED_UNICODE );
+  }
 
-          break;
+  //For Email / FB login only
+  public function PrimeLogin(Request $request) {
+    $data = (object) $request->json()->all();
 
-        case 'BtnInteraction':
-          break;
 
-        default:
-          break;
+    $errorMessage = json_encode(array("error_status" =>true ));
+    //Email
+    if ($data->login_type == "Email") {
+        $isNewUser = $this->_user->IsNewEmailUser( $data->email );
+        //If no user and not registering
+        if ($isNewUser && !isset($data->passwordCF)) {
+          return $errorMessage;
+        }
+
+
+        //User Register
+        if ($isNewUser && count($this->_user->CheckUserAvilability($data->email))<=0) {
+          $this->_user->EmailUserInsert($data);
+        } else if ($isNewUser) {
+          return $errorMessage;
+        }
+        //User Login
+        if (!$isNewUser) {
+          $emailResult = $this->_user->EmailUserUpdate($data);
+          if (count($emailResult) <= 0 ) {
+            return $errorMessage;
+          } else {
+            $data->id = $emailResult[0]->guid;
+          }
+        }
+
+    //Facebook
+    } else if ($data->login_type == "Facebook") {
+      $isNewUser = $this->_user->IsNewFBUser( $data->fb_id );
+
+
+      if ($isNewUser) {
+        if (isset($data->email) &&
+            count($this->_user->GetEmailUser($data->email)) > 0 ) {
+          $emailUser = $this->_user->GetEmailUser($data->email);
+          $this->_user->FBUserUpdate($data->fb_id,$data->username,$data->email);
+          $data->id = $emailUser[0]->guid;
+            echo "update";
+        } else {
+          $this->_user->FBUserInsert($data);
+        }
+      }
+
+      $fbResult = $this->_user->FBUserValidation($data->fb_id);
+      if ( count( $fbResult ) <= 0) {
+        return $errorMessage;
+      }  else {
+        $data->id = $fbResult[0]->guid;
       }
     }
+
+    //Return the syndata info
+    return $this->SynData($data);
   }
+
 
   public function GetRanking($guid, $level) {
     $all = $this->_level->GetAllByLevel($level );
+    return Utility::SortRanking($all, $guid);
+  }
 
-    $posArrayNum = max(0, min(count($all), 10));
-    $topTen = array_slice($all,0, $posArrayNum);
-
-    $index = -1;
-    for($i=0;$i<count($all);$i++) {
-      if ($all[$i]->guid == $guid) {
-        $index = $i;
-        break;
-      }
-    }
-
-    //$clamped = max($min, min($max, $current));
-    //If no user record
-    if ($index == -1) {
-      $all = $topTen;
-    } else {
-      $upperLimit = max($index, min(count($all), ($index+4)));
-      $bottomLimit = max(0, min($index, ($index-4)));
-      $all = array_slice($all, $bottomLimit, $upperLimit);
-    }
-
-    return json_encode(array("TopTen" => $topTen, "SelfRank"=>$all, "Rank"=>$index),
-                              JSON_UNESCAPED_UNICODE);
+  public function GetTrophyRanking($guid, $level) {
+    $record = $this->_user->GetAllUserByTrophy();
+    return Utility::SortRanking($record, $guid);
   }
 
   public function SaveGameRecord(Request $request) {
@@ -99,6 +136,9 @@ class UserCtrl extends Controller {
 
       $this->_record->SaveRecord($data->report, $data->competitor_report, $level_id);
       $this->_interaction->SaveRecord($data->interaction, $level_id);
+
+      $trophyNum = $this->_level->GetTrophyNumByUID($data->id);
+      $this->_user->UpdateUser($data->id, json_encode( $data->unlocks ), $trophyNum);
     }
   }
 }
