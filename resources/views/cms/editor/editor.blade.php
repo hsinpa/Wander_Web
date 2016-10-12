@@ -30,22 +30,22 @@
       position: absolute;
     }
     .tools {
-      width: 60%;
-      height: 60%;
+      width: 66%;
+      height: 26%;
       background-size: contain;
       background-repeat: no-repeat;
-      left: 20%;
-      bottom: -37.6%;
+      left: 17%;
+      bottom: 0%;
       position: absolute;
       z-index: 2;
     }
     .competitor {
-      width: 45%;
-      height: 45%;
+      width: 16%;
+      height: 31%;
       background-size: contain;
       background-repeat: no-repeat;
-      bottom: 59%;
-      left: 78%;
+      bottom: 69%;
+      left: 84%;
       position: absolute;
       z-index: 2;
     }
@@ -80,6 +80,8 @@
     }
     .selection-background-image {
       border-radius: 10px;
+    }
+    [class^="selection-"][class*="-image"] {
       margin-top: 2%;
       margin-bottom: 2%;
       width: 48%;
@@ -90,7 +92,7 @@
       background: rgba(0,0,0,0.5);
       z-index: 15;
     }
-    #background-area > .selection-background-image:not(.gu-mirror) {
+    .view > [id*="-area"] > [class^="selection-"][class*="-image"]:not(.gu-mirror) {
       border-radius: 0px !important;
       margin-top: 0% !important;
       width: 100% !important;
@@ -98,205 +100,57 @@
       margin-bottom: 0% !important;
       margin-right: 0% !important;
     }
-    .view > .gu-unselectable > img:nth-child(2) {
+    .view > .gu-unselectable > img:nth-child(2):not(.gu-mirror) {
       display:none;
     }
   </style>
-  <script lang="text/javascript">
-  $(function() {
-
-      jQuery('.problems').css('opacity', '0');
-      jQuery('.tools').css('opacity', '0');
-      jQuery('.competitor').css('opacity', '0');
-      jQuery('.tactic').css('opacity', '0');
-
-    $( "#subject" ).change(function() {
-      $change1 = $(this).val();
-      if ($change1 == "business") {
-        $("#theme").removeAttr('disabled');
-        $("#fantasy").removeAttr('disabled');
-        $("#modern").removeAttr('disabled');
-        $("#object").removeAttr('disabled');
-        $("#object").val([]);
-        jQuery('.problems').css('opacity', '0');
-        jQuery('.tools').css('opacity', '0');
-        jQuery('.competitor').css('opacity', '0');
-        jQuery('.tactic').css('opacity', '0');
-        $('.background').css('background-image', 'none');
-        $('.tools').css('background-image', 'none');
-        $('.competitor').css('background-image', 'none');
-        $('.problems').css('background-image', 'none');
-        $('.tactic').css('background-image', 'none');
-        $('#theme').prop('selectedIndex', 0);
-      } else if ($change1 == "procurement") {
-          $("#theme").removeAttr('disabled');
-          $("#fantasy").prop('disabled', true);
-          $("#modern").removeAttr('disabled');
-          $("#object").removeAttr('disabled');
-          $("#object").val([]);
-          jQuery('.problems').css('opacity', '0');
-          jQuery('.tools').css('opacity', '0');
-          jQuery('.competitor').css('opacity', '0');
-          jQuery('.tactic').css('opacity', '0');
-          $('.background').css('background-image', 'none');
-          $('.tools').css('background-image', 'none');
-          $('.competitor').css('background-image', 'none');
-          $('.problems').css('background-image', 'none');
-          $('.tactic').css('background-image', 'none');
-          $('#theme').prop('selectedIndex', 0);
-      } else if ($change1 == "leadership") {
-          $("#theme").removeAttr('disabled');
-          $("#fantasy").prop('disabled', true);
-          $("#modern").removeAttr('disabled');
-          $("#object").removeAttr('disabled');
-          $("#object").val([]);
-          jQuery('.problems').css('opacity', '0');
-          jQuery('.tools').css('opacity', '0');
-          jQuery('.competitor').css('opacity', '0');
-          jQuery('.tactic').css('opacity', '0');
-          $('.background').css('background-image', 'none');
-          $('.tools').css('background-image', 'none');
-          $('.competitor').css('background-image', 'none');
-          $('.problems').css('background-image', 'none');
-          $('.tactic').css('background-image', 'none');
-          $('#theme').prop('selectedIndex', 0);
-      }
-    });
-    $( "#theme" ).change(function($subject) {
-      $change = $(this).val();
-      var subject = $( "#subject option:selected" ).text();
-
-      if (subject=="Procurement" && $change=="modern") {
-        $('.background').css('background-image', 'url(../image/editor/modern_background.png)');
-        $('.tools').css('background-image', 'url(../image/editor/procurment_tools.png)');
-        $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
-        $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
-        $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
-        $("#object").val([]);
-        jQuery('.problems').css('opacity', '0');
-        jQuery('.tools').css('opacity', '0');
-        jQuery('.competitor').css('opacity', '0');
-        jQuery('.tactic').css('opacity', '0');
-      } else if (subject==="Leadership" && $change=="modern") {
-        $('.background').css('background-image', 'url(../image/editor/leadership_background.jpg)');
-        $('.tools').css('background-image', 'url(../image/editor/modern_tools.png)');
-        $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
-        $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
-        $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
-        $("#object").val([]);
-        jQuery('.problems').css('opacity', '0');
-        jQuery('.tools').css('opacity', '0');
-        jQuery('.competitor').css('opacity', '0');
-        jQuery('.tactic').css('opacity', '0');
-      } else if ($change == "fantasy") {
-        $('.background').css('background-image', 'url(../image/editor/magitech_background.png)');
-        $('.tools').css('background-image', 'url(../image/editor/magitech_tools.png)');
-        $('.competitor').css('background-image', 'url(../image/editor/magitech_competitor.png)');
-        $('.problems').css('background-image', 'url(../image/editor/magitech_problems.png)');
-        $('.tactic').css('background-image', 'url(../image/editor/magitech_analyze_tool.png)');
-        $("#object").val([]);
-        jQuery('.problems').css('opacity', '0');
-        jQuery('.tools').css('opacity', '0');
-        jQuery('.competitor').css('opacity', '0');
-        jQuery('.tactic').css('opacity', '0');
-      } else if ($change == "modern") {
-        $('.background').css('background-image', 'url(../image/editor/modern_background.png)');
-        $('.tools').css('background-image', 'url(../image/editor/modern_tools.png)');
-        $('.competitor').css('background-image', 'url(../image/editor/modern_competitor.png)');
-        $('.problems').css('background-image', 'url(../image/editor/modern_problems.png)');
-        $('.tactic').css('background-image', 'url(../image/editor/modern_analyze_tool.png)');
-        $("#object").val([]);
-        jQuery('.problems').css('opacity', '0');
-        jQuery('.tools').css('opacity', '0');
-        jQuery('.competitor').css('opacity', '0');
-        jQuery('.tactic').css('opacity', '0');
-      }
-    });
-
-    $( "#object" ).change(function() {
-      var $change = $(this).val();
-      if(jQuery.inArray("problem", $change) > -1) {
-        jQuery('.problems').css('opacity', '1');
-      } else if (jQuery.inArray("problem", $change) == -1) {
-        jQuery('.problems').css('opacity', '0');
-      }
-      if(jQuery.inArray("prop", $change) > -1) {
-        jQuery('.tools').css('opacity', '1');
-      } else if (jQuery.inArray("prop", $change) == -1) {
-        jQuery('.tools').css('opacity', '0');
-      }
-      if(jQuery.inArray("tactic", $change) > -1) {
-        jQuery('.tactic').css('opacity', '1');
-      } else if (jQuery.inArray("tactic", $change) == -1) {
-        jQuery('.tactic').css('opacity', '0');
-      }
-      if(jQuery.inArray("challenge", $change) > -1) {
-        jQuery('.competitor').css('opacity', '1');
-      } else if (jQuery.inArray("challenge", $change) == -1) {
-        jQuery('.competitor').css('opacity', '0');
-      }
-    });
-  });
-  </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script>
     $(document).ready(function(){
+
+      function dragger(selectArea, targetArea) {
+        dragula([selectArea, targetArea], {
+          accepts: function (el, target) {
+            return target !== selectArea
+          },
+          mirrorContainer: targetArea,
+          direction: 'mixed',
+          copy: true,
+          revertOnSpill: true
+        }).on('drop', function (el, target, source, sibling) {
+            var element = el;
+            var targetContainer = target;
+            var siblingTarget = sibling;
+            this.cancel(true);
+            $(targetContainer).empty().append(element);
+            if (siblingTarget !== null) {
+              siblingTarget.remove();
+            }
+        });
+      }
+
+      //Toolbar/Action Bar dragging
+      var toolSelectArea = document.getElementById('selection-tool-area');
+      var toolArea = document.getElementById('tool-area');
+      dragger(toolSelectArea, toolArea);
+
+      //Background dragging
       var backgroundSelectArea = document.getElementById('selection-background-area');
       var backgroundArea = document.getElementById('background-area');
+      dragger(backgroundSelectArea, backgroundArea);
 
-      dragula([backgroundSelectArea, backgroundArea], {
-        accepts: function (el, target) {
-          return target !== backgroundSelectArea
-        },
-        mirrorContainer: document.getElementById('background-area'),
-        direction: 'mixed',
-        copy: true,
-        revertOnSpill: true
-      }).on('drop', function (el, target, source, sibling) {
-          var element = el;
-          var targetContainer = target;
-          var siblingTarget = sibling;
-          this.cancel(true);
-          $(targetContainer).empty().append(element);
-          if (siblingTarget !== null) {
-            siblingTarget.remove();
-          }
-      });
+      //Competitor dragging
+      var competitorSelectArea = document.getElementById('selection-competitor-area');
+      var competitorArea = document.getElementById('competitor-area');
+      dragger(competitorSelectArea, competitorArea);
+
+
     });
   </script>
   <div class="medium-10 columns">
     <h2 class="wrainbo-cms-title">Game Editor</h2>
     <div class="row">
-      <div class="medium-12">
-        <div class="medium-3 medium-offset-1 columns">
-          <form>
-            <select id="subject">
-              <option disabled selected>Subject</option>
-              <option id="business" value="business">Business Acumen</option>
-              <option id="procurement" value="procurement">Procurement</option>
-              <option id="leadership" value="leadership">Leadership</option>
-            </select>
-        </div>
-        <div class="medium-3 medium-offset-1 columns">
-          <select id="theme" data-prompt="Art Theme" disabled>
-            <option disabled selected>Theme</option>
-            <option id="fantasy" value="fantasy" disabled>Fantasy</option>
-            <option id="modern" value="modern" disabled>Modern Comics</option>
-          </select>
-        </div>
-        <div class="medium-3 columns">
-          <select  id="object" multiple disabled data-prompt="Objects">
-            <option id="problem" value="problem">Problem</option>
-            <option id="prop" value="prop">Prop</option>
-            <option id="tactic" value="tactic">Tactic</option>
-            <option id="challenge" value="challenge">Challenge</option>
-          </select>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="medium-4">
+      <div class="medium-4 columns">
         <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
           <li class="accordion-item is-active" data-accordion-item>
             <a href="#" class="accordion-title">Background</a>
@@ -310,14 +164,40 @@
           </li>
         </ul>
       </div>
+      <div class="medium-4 columns">
+        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <li class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title">Tool Bar</a>
+            <div class="accordion-content" data-tab-content>
+              <div id="selection-tool-area">
+                <img src="../image/editor/modern/main_hud.png" class="selection-tool-image">
+                <img src="../image/editor/fantasy/main_hud.png" class="selection-tool-image">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="medium-4 columns">
+        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <li class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title">Competitor</a>
+            <div class="accordion-content" data-tab-content>
+              <div id="selection-competitor-area">
+                <img src="../image/editor/modern/competitor.png" class="selection-competitor-image">
+                <img src="../image/editor/fantasy/competitor.png" class="selection-competitor-image">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="row">
       <div class="medium-10 medium-centered columns">
         <div class="phoneArea">
           <div class="view">
             <div class="background" id="background-area"></div>
-            <div class="tools"></div>
-            <div class="competitor"></div>
+            <div class="tools" id="tool-area"></div>
+            <div class="competitor" id="competitor-area"></div>
             <div class="problems"></div>
             <div class="tactic"></div>
           </div>
