@@ -26,7 +26,8 @@
       height:100%;
       background-size: cover;
       background-repeat: no-repeat;
-      z-index: 5;
+      z-index: 1;
+      position: absolute;
     }
     .tools {
       width: 60%;
@@ -36,7 +37,7 @@
       left: 20%;
       bottom: -37.6%;
       position: absolute;
-      z-index: 1;
+      z-index: 2;
     }
     .competitor {
       width: 45%;
@@ -46,7 +47,7 @@
       bottom: 59%;
       left: 78%;
       position: absolute;
-      z-index: 1;
+      z-index: 2;
     }
     .problems {
       width: 50%;
@@ -56,6 +57,7 @@
       left: 25%;
       bottom: 25%;
       position: absolute;
+      z-index: 2;
     }
     .tactic {
       width: 15%;
@@ -63,7 +65,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       bottom: -11%;
       right: -1%;
     }
@@ -86,6 +88,7 @@
     .gu-unselectable {
       opacity: .25;
       background: rgba(0,0,0,0.5);
+      z-index: 15;
     }
     #background-area > .selection-background-image:not(.gu-mirror) {
       border-radius: 0px !important;
@@ -94,6 +97,9 @@
       height: 100% !important;
       margin-bottom: 0% !important;
       margin-right: 0% !important;
+    }
+    .view > .gu-unselectable > img:nth-child(2) {
+      display:none;
     }
   </style>
   <script lang="text/javascript">
@@ -251,7 +257,7 @@
           var targetContainer = target;
           var siblingTarget = sibling;
           this.cancel(true);
-          $(targetContainer).append(element);
+          $(targetContainer).empty().append(element);
           if (siblingTarget !== null) {
             siblingTarget.remove();
           }
