@@ -29,7 +29,7 @@
       z-index: 1;
       position: absolute;
     }
-    .tools {
+    .toolbar {
       width: 66%;
       height: 26%;
       background-size: contain;
@@ -59,14 +59,14 @@
       position: absolute;
       z-index: 2;
     }
-    .tactic {
+    .tool {
       width: 15%;
-      height: 35%;
+      height: 26%;
       background-size: contain;
       background-repeat: no-repeat;
       position: absolute;
       z-index: 2;
-      bottom: -11%;
+      bottom: -2%;
       right: -1%;
     }
     .phoneImage {
@@ -77,6 +77,18 @@
       -webkit-user-select: none;
       -ms-user-select: none;
       z-index: -1;
+      opacity: 0;
+    }
+    .phoneBackground {
+      position: absolute;
+      width: 132%;
+      height: 116%;
+      left: -16%;
+      top: -7.2%;
+      background-image: url(http://localhost:8000/image/editor/iphone.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 5;
     }
     .selection-background-image {
       border-radius: 10px;
@@ -93,15 +105,22 @@
       z-index: 15;
     }
     .view > [id*="-area"] > [class^="selection-"][class*="-image"]:not(.gu-mirror) {
-      border-radius: 0px !important;
-      margin-top: 0% !important;
-      width: 100% !important;
-      height: 100% !important;
-      margin-bottom: 0% !important;
-      margin-right: 0% !important;
+      border-radius: 0px;
+      margin-top: 0%;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0%;
+      margin-right: 0%;
     }
     .view > .gu-unselectable > img:nth-child(2):not(.gu-mirror) {
       display:none;
+    }
+    #tool-area > #modern-tool {
+      position: absolute;
+      left: -5%;
+      bottom: 10%;
+      height: 80%;
+      width: 95%;
     }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
@@ -129,10 +148,10 @@
         });
       }
 
-      //Toolbar/Action Bar dragging
-      var toolSelectArea = document.getElementById('selection-tool-area');
-      var toolArea = document.getElementById('tool-area');
-      dragger(toolSelectArea, toolArea);
+      //Toolbar dragging
+      var toolbarSelectArea = document.getElementById('selection-toolbar-area');
+      var toolbarArea = document.getElementById('toolbar-area');
+      dragger(toolbarSelectArea, toolbarArea);
 
       //Background dragging
       var backgroundSelectArea = document.getElementById('selection-background-area');
@@ -144,6 +163,10 @@
       var competitorArea = document.getElementById('competitor-area');
       dragger(competitorSelectArea, competitorArea);
 
+      //Tool dragging
+      var toolSelectArea = document.getElementById('selection-tool-area');
+      var toolArea = document.getElementById('tool-area');
+      dragger(toolSelectArea, toolArea);
 
     });
   </script>
@@ -163,15 +186,26 @@
             </div>
           </li>
         </ul>
+        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <li class="accordion-item is-active" data-accordion-item>
+            <a href="#" class="accordion-title">Tools</a>
+            <div class="accordion-content" data-tab-content>
+              <div id="selection-tool-area">
+                <img src="../image/editor/modern/tool.png" class="selection-tool-image" id="modern-tool">
+                <img src="../image/editor/fantasy/tool.png" class="selection-tool-image">
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="medium-4 columns">
         <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
           <li class="accordion-item is-active" data-accordion-item>
             <a href="#" class="accordion-title">Tool Bar</a>
             <div class="accordion-content" data-tab-content>
-              <div id="selection-tool-area">
-                <img src="../image/editor/modern/main_hud.png" class="selection-tool-image">
-                <img src="../image/editor/fantasy/main_hud.png" class="selection-tool-image">
+              <div id="selection-toolbar-area">
+                <img src="../image/editor/modern/main_hud.png" class="selection-toolbar-image">
+                <img src="../image/editor/fantasy/main_hud.png" class="selection-toolbar-image">
               </div>
             </div>
           </li>
@@ -195,11 +229,12 @@
       <div class="medium-10 medium-centered columns">
         <div class="phoneArea">
           <div class="view">
+            <div class="phoneBackground"></div>
             <div class="background" id="background-area"></div>
-            <div class="tools" id="tool-area"></div>
+            <div class="toolbar" id="toolbar-area"></div>
             <div class="competitor" id="competitor-area"></div>
             <div class="problems"></div>
-            <div class="tactic"></div>
+            <div class="tool" id="tool-area"></div>
           </div>
           <img src="../image/editor/iphone.png" class="phoneImage">
         </div>
