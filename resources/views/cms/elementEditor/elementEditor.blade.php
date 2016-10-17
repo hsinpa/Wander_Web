@@ -2,8 +2,6 @@
 @section('content')
 @include('cms.header')
 
-
-<script type="text/javascript" src="{{ url('js/cms/editor/attrchange.js') }}"></script>
 <div id="wrainbo-cms-level" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
@@ -18,7 +16,450 @@
     .left-margin {
       margin-left: 1%;
     }
+    #phone-container {
+      left: -4%;
+      position: relative;
+      top: 100px;
+    }
+    .phoneArea {
+      position: absolute;
+      z-index: 10;
+    }
+    .view {
+      position: absolute;
+      height: 86.5%;
+      width: 75.5%;
+      left: 12.3%;
+      top: 6.75%;
+      z-index: 1;
+    }
+   .background {
+      width:100%;
+      height:100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 1;
+      position: absolute;
+    }
+    .toolbar {
+      width: 66%;
+      height: 26%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 17%;
+      bottom: 0%;
+      position: absolute;
+      z-index: 2;
+    }
+    .products {
+      width: 27%;
+      height: 15%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 21.5%;
+      bottom: 2%;
+      position: absolute;
+      z-index: 3;
+    }
+    .tactics {
+      width: 27%;
+      height: 15%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 51.5%;
+      bottom: 2%;
+      position: absolute;
+      z-index: 3;
+    }
+    .competitor {
+      width: 16%;
+      height: 31%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 68%;
+      left: 83%;
+      position: absolute;
+      z-index: 2;
+    }
+    .competitor > img {
+      background-image: url(../image/editor/competitor/back.png);
+      background-size: contain;
+    }
+    .problem1 {
+      width: 17%;
+      height: 37%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 21.5%;
+      bottom: 40%;
+      position: absolute;
+      z-index: 2;
+    }
+    .problem2 {
+      width: 17%;
+      height: 37%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 41.5%;
+      bottom: 40%;
+      position: absolute;
+      z-index: 2;
+    }
+    .problem3 {
+      width: 17%;
+      height: 37%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 61.5%;
+      bottom: 40%;
+      position: absolute;
+      z-index: 2;
+    }
+    .topbar {
+      width: 47%;
+      height: 10%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: .5%;
+      top: .5%;
+      position: absolute;
+      z-index: 2;
+    }
+    .tool {
+      width: 15%;
+      height: 26%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      z-index: 2;
+      bottom: -2%;
+      right: -1%;
+    }
+    .hero {
+      width: 16%;
+      height: 38%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 0%;
+      left: 1%;
+      position: absolute;
+      z-index: 2;
+    }
+    .phoneImage {
+      user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      z-index: -1;
+      opacity: 0;
+    }
+    .phoneBackground {
+      position: absolute;
+      width: 132%;
+      height: 116%;
+      left: -16%;
+      top: -7.2%;
+      background-image: url(http://localhost:8000/image/editor/iphone.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 5;
+    }
+    .selection-background-image {
+      border-radius: 10px;
+    }
+    [class^="selection-"][class*="-image"] {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      width: 48%;
+      margin-right: 1%;
+    }
+    .gu-unselectable {
+      opacity: .25;
+      background: rgba(0,0,0,0.5);
+      z-index: 15;
+    }
+    .view > [id*="-area"] > [class^="selection-"][class*="-image"]:not(.gu-mirror) {
+      border-radius: 0px;
+      margin-top: 0%;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0%;
+      margin-right: 0%;
+    }
+    .view > .gu-unselectable > img:nth-child(2):not(.gu-mirror) {
+      display:none;
+    }
+    #tool-area > #modern-tool {
+      position: absolute;
+      left: -5%;
+      bottom: 10%;
+      height: 80%;
+      width: 95%;
+    }
+    body.gu-unselectable {
+      opacity: 1;
+      background: #f3f3f3;
+      z-index: -1;
+    }
+    .topbar-money {
+      height: 57%;
+      width: 6%;
+      left: 12%;
+      top: 28%;
+      position: absolute;
+      background-image: url(../image/editor/topbar/money-dollar.png);
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .topbar-money-text {
+      left: 19%;
+      top: 28%;
+      position: absolute;
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: gold;
+      font-size: xx-small;
+    }
+    .topbar-supply {
+      height: 57%;
+      width: 9%;
+      left: 44%;
+      top: 25%;
+      position: absolute;
+      background-image: url(../image/editor/topbar/supply-boxes.png);
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .topbar-supply-text {
+      left: 52.5%;
+      top: 28%;
+      position: absolute;
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: lightgreen;
+      font-size: xx-small;
+    }
+    .topbar-spell {
+      height: 57%;
+      width: 9%;
+      left: 31.4%;
+      top: 25%;
+      position: absolute;
+      background-image: url(../image/editor/topbar/spell-blue.png);
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .topbar-spell-text {
+      left: 39.5%;
+      top: 28%;
+      position: absolute;
+      z-index: 3;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: lightblue;
+      font-size: xx-small;
+    }
+    #toolbar-elements {
+      height: 15%;
+      bottom: 2%;
+      width: 57%;
+      left: 21.5%;
+    }
+    .prop-1 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-size: cover;
+      position: absolute;
+    }
+    .prop-2 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-size: cover;
+      position: absolute;
+      left: 16%;
+    }
+    .prop-3 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-size: cover;
+      position: absolute;
+      left: 33%;
+    }
+    .tactic-1 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-size: cover;
+      position: absolute;
+      left: 53%;
+    }
+    .tactic-2 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-size: cover;
+      position: absolute;
+      left: 69%;
+    }
+    .tactic-3 {
+      width: 14.5%;
+      height: 100%;
+      z-index: 4;
+      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-size: cover;
+      position: absolute;
+      left: 85%;
+    }
+    .prop-icon {
+      height: 80%;
+      width: 85%;
+      left: 7.5%;
+      top: 12%;
+      position: absolute;
+      background-image: url(../image/editor/products/hat-brown.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .tactic-icon {
+      height: 80%;
+      width: 85%;
+      left: 7.5%;
+      top: 12%;
+      position: absolute;
+      background-image: url(../image/editor/products/hat-brown.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .prop-price {
+      bottom: 9%;
+      right: 8%;
+      position: absolute;
+      color: yellow;
+      width: 60%;
+      height: 35%;
+      text-align: right;
+    }
+    .prop-price > span {
+      color: yellow;
+      text-align: right;
+    }
+    .prop-amount {
+      top: 1%;
+      left: 1%;
+      position: absolute;
+      color: yellow;
+      width: 50%;
+      height: 35%;
+      color: white;
+    }
+    .prop-amount > span {
+      color: white;
+    }
+    .screen-product {
+      width: 70%;
+      height: 80%;
+      left: 15%;
+      top: 15%;
+      position: relative;
+      background-image: url(../image/editor/fantasy/screen-product.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 10;
+    }
+    .screen-product-overlay {
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 9;
+      opacity: .6;
+    }
+    .product-information {
+      right: 5%;
+      width: 50%;
+      height: 63%;
+      position: absolute;
+      top: 18%;
+    }
+    .product-information > #market-price {
+      position: absolute;
+      top: 0%;
+      width: 100%;
+      height: 13%;
+    }
+    .product-information > #material-cost {
+      position: absolute;
+      top: 13%;
+      width: 100%;
+      height: 13%;
+    }
+    .product-information > #inventory-cost {
+      position: absolute;
+      top: 26%;
+      width: 100%;
+      height: 13%;
+    }
+    .product-information > #defect-rate {
+      position: absolute;
+      top: 39%;
+      width: 100%;
+      height: 13%;
+    }
+    .product-information > #price-elasticity {
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      height: 13%;
+    }
+    .product-information > #product-description {
+      position: absolute;
+      top: 65%;
+      width: 100%;
+      height: 30%;
+    }
+    .product-information > div > span {
+      color: white;
+    }
+    #product-image {
+      position: absolute;
+      width: 21%;
+      height: 50%;
+      left: 12%;
+      top: 28%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #product-name {
+      position: absolute;
+      width: 20%;
+      height: 10%;
+      left: 13%;
+      top: 73%;
+      text-align: center;
+    }
+    #product-name > span {
+      font-weight: bold;
+    }
   </style>
+  <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
   <script lang="text/javascript">
     $(document).ready(function() {
       $('#currencySave').click(function(){
@@ -36,298 +477,652 @@
       $('#spellSave').click(function(){
         $('#spellContainer').foundation('up', $('#spellContent'));
       });
+
+      $("#money-icon").change(function(){
+        if (this.value == "dollar") {
+          $('.topbar-money').css({"background-image":"url(../image/editor/topbar/money-dollar.png)"})
+        } else if (this.value == "euro") {
+          $('.topbar-money').css({"background-image":"url(../image/editor/topbar/money-euro.png)"})
+        }
+      });
+
+      $("#supply-icon").change(function(){
+        if (this.value == "boxes") {
+          $('.topbar-supply').css({"background-image":"url(../image/editor/topbar/supply-boxes.png)"})
+        } else if (this.value == "truck") {
+          $('.topbar-supply').css({"background-image":"url(../image/editor/topbar/supply-truck.png)"})
+        }
+      });
+
+      $("#spell-icon").change(function(){
+        if (this.value == "red") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/topbar/spell-red.png)"})
+        } else if (this.value == "blue") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/topbar/spell-blue.png)"})
+        } else if (this.value == "yellow") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/topbar/spell-yellow.png)"})
+        }
+      });
+
+      $("#hero-icon").change(function(){
+        if (this.value == "mage") {
+          var mage = '<img src="../image/editor/heroes/mage.png" class="selection-hero-image">';
+          $('#hero-area').empty().append(mage);
+        } else if (this.value == "wizard") {
+          var wizard = '<img src="../image/editor/heroes/wizard.png" class="selection-hero-image">';
+          $('#hero-area').empty().append(wizard);
+        } else if (this.value == "goblin") {
+          var goblin = '<img src="../image/editor/heroes/goblin.png" class="selection-hero-image">';
+          $('#hero-area').empty().append(goblin);
+        } else if (this.value == "builder") {
+          var builder = '<img src="../image/editor/heroes/builder.png" class="selection-hero-image">';
+          $('#hero-area').empty().append(builder);
+        }
+      });
+
+      $("#competitor-icon").change(function(){
+        if (this.value == "gray-robot") {
+          var robotgray = '<img src="../image/editor/competitor/robot-gray.png" class="selection-hero-image">';
+          $('#competitor-area').empty().append(robotgray);
+        } else if (this.value == "robot-blue") {
+          var robotblue = '<img src="../image/editor/competitor/robot-blue.png" class="selection-hero-image">';
+          $('#competitor-area').empty().append(robotblue);
+        } else if (this.value == "robot-white") {
+          var robotwhite = '<img src="../image/editor/competitor/robot-white.png" class="selection-hero-image">';
+          $('#competitor-area').empty().append(robotwhite);
+        } else if (this.value == "robot-red") {
+          var robotred = '<img src="../image/editor/competitor/robot-red.png" class="selection-hero-image">';
+          $('#competitor-area').empty().append(robotred);
+        } else if (this.value == "ninja") {
+          var ninja = '<img src="../image/editor/competitor/ninja.png" class="selection-hero-image">';
+          $('#competitor-area').empty().append(ninja);
+        }
+      });
+
+      $("#prop-1-icon").change(function(){
+        var url = "url(../image/editor/products/" + this.value + ".png)"
+        $('.prop-1-icon').css({"background-image":url})
+      });
+
+      $("#prop-2-icon").change(function(){
+        var url = "url(../image/editor/products/" + this.value + ".png)"
+        $('.prop-2-icon').css({"background-image":url})
+      });
+
+      $("#prop-3-icon").change(function(){
+        var url = "url(../image/editor/products/" + this.value + ".png)"
+        $('.prop-3-icon').css({"background-image":url})
+      });
+
+      $("#tactic-1-icon").change(function(){
+        var url = "url(../image/editor/tactics/" + this.value + ".png)"
+        $('.tactic-1-icon').css({"background-image":url})
+      });
+
+      $("#tactic-2-icon").change(function(){
+        var url = "url(../image/editor/tactics/" + this.value + ".png)"
+        $('.tactic-2-icon').css({"background-image":url})
+      });
+
+      $("#tactic-3-icon").change(function(){
+        var url = "url(../image/editor/tactics/" + this.value + ".png)"
+        $('.tactic-3-icon').css({"background-image":url})
+      });
+
+      $('#prop-1-price').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
+      $('#prop-2-price').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
+      $('#prop-3-price').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
+      $('#prop-1-amount').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
+      $('#prop-2-amount').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
+      $('#prop-3-amount').adaptText({
+        minFontSize: 10,
+        maxFontSize: 200,
+        tollerance: 2
+      });
     });
   </script>
-  <div class="medium-10 columns">
+  <div class="medium-12">
     <h2 class="wrainbo-cms-title">Game Editor</h2>
-    <div class="medium-4 left-margin">
-      <div class="medium-12 columns">
-        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="currencyContainer">
-          <li class="accordion-item is-active" data-accordion-item>
-            <a href="#currencyContent" class="accordion-title">Currency</a>
-            <div class="accordion-content" data-tab-content id="currencyContent">
-              <div class="row">
-                <div class="panel">
-                  <h4>Money</h4>
-                  <form>
-                    <label>Currency Name: <input type="text" placeholder="Name" /></label>
-                    <label>Icon
-                      <select>
-                        <option value="dollar">Dollar Coin</option>
-                        <option value="euro">Euro Coin</option>
-                        <option value="gold">Gold Bar</option>
-                        <option value="silver">Silver Bar</option>
-                      </select>
-                    </label>
-                </div>
-                <div class="panel">
-                  <h4>Spell</h4>
-                  <label>Spell Power Name: <input type="text" placeholder="Spell Power" /></label>
+  </div>
+  <div class="medium-3 left-margin columns">
+    <div class="medium-12 columns">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="currencyContainer">
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#currencyContent" class="accordion-title">Currency</a>
+          <div class="accordion-content" data-tab-content id="currencyContent">
+            <div class="row">
+              <div class="panel">
+                <h4>Money</h4>
+                <form>
+                  <label>Currency Name: <input type="text" placeholder="Name" /></label>
                   <label>Icon
-                    <select>
-                      <option value="blue">Blue Orb</option>
-                      <option value="purple">Purple Orb</option>
-                      <option value="light">Lightbulb</option>
-                      <option value="book">Book</option>
+                    <select id="money-icon">
+                      <option value="dollar">Dollar Coin</option>
+                      <option value="euro">Euro Coin</option>
                     </select>
                   </label>
-                </div>
-                <div class="panel">
-                  <h4>Supply</h4>
-                  <label>Supply Name: <input type="text" placeholder="Supply" /></label>
-                  <label>Icon
-                    <select>
-                      <option value="boxes">Boxes</option>
-                      <option value="truck">Truck</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="medium-3 medium-centered">
-                  <button type="button" id="currencySave" class="success button saveButton">Save Changes</button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="medium-12 columns">
-        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="characterContainer">
-          <li class="accordion-item" data-accordion-item>
-            <a href="#characterContent" class="accordion-title">Characters</a>
-            <div class="accordion-content" data-tab-content id="characterContent">
-            <div class="row">
-              <div class="panel">
-                <h4>Player</h4>
-                <label>Player Name: <input type="text" placeholder="Name" /></label>
-                <label>Player Description: <input type="text" placeholder="Description" /></label>
-                <label>Player Icon:
-                  <select>
-                    <option value="human">Human</option>
-                    <option value="robot">Robot</option>
-                    <option value="orc">Orc</option>
-                    <option value="man">Business Man</option>
-                    <option value="woman">Business Woman</option>
-                  </select>
-                </label>
-                <label>Starting Currency: <input type="number" placeholder="Starting Currency" /></label>
-                <label>Starting Spell Power: <input type="number" placeholder="Starting Spell Power" /></label>
-                <label>Starting Supply: <input type="number" placeholder="Starting Supply" /></label>
               </div>
               <div class="panel">
-                <h4>Opponent</h4>
-                <label>Opponent Name: <input type="text" placeholder="Name" /></label>
-                <label>Opponent Description: <input type="text" placeholder="Description" /></label>
-                <label>Opponent Icon:
-                  <select>
-                    <option value="human">Human</option>
-                    <option value="robot">Robot</option>
-                    <option value="orc">Orc</option>
-                    <option value="man">Business Man</option>
-                    <option value="woman">Business Woman</option>
+                <h4>Spell</h4>
+                <label>Spell Power Name: <input type="text" placeholder="Spell Power" /></label>
+                <label>Icon
+                  <select id="spell-icon">
+                    <option value="blue">Blue Orb</option>
+                    <option value="red">Red Orb</option>
+                    <option value="yellow">Yellow Orb</option>
                   </select>
                 </label>
-                <label>Starting Currency: <input type="number" placeholder="Starting Currency" /></label>
-                <label>Starting Spell Power: <input type="number" placeholder="Starting Spell Power" /></label>
-                <label>Starting Supply: <input type="number" placeholder="Starting Supply" /></label>
+              </div>
+              <div class="panel">
+                <h4>Supply</h4>
+                <label>Supply Name: <input type="text" placeholder="Supply" /></label>
+                <label>Icon
+                  <select id="supply-icon">
+                    <option value="boxes">Boxes</option>
+                    <option value="truck">Truck</option>
+                  </select>
+                </label>
               </div>
               <div class="medium-3 medium-centered">
-                <button type="button" id="characterSave" class="success button saveButton">Save Changes</button>
+                <button type="button" id="currencySave" class="success button saveButton">Save Changes</button>
               </div>
             </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="medium-12 columns">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="characterContainer">
+        <li class="accordion-item" data-accordion-item>
+          <a href="#characterContent" class="accordion-title">Characters</a>
+          <div class="accordion-content" data-tab-content id="characterContent">
+          <div class="row">
+            <div class="panel">
+              <h4>Hero</h4>
+              <label>Hero Name: <input type="text" placeholder="Name" /></label>
+              <label>Hero Description: <input type="text" placeholder="Description" /></label>
+              <label>Hero Icon:
+                <select id="hero-icon">
+                  <option value="mage">Mage</option>
+                  <option value="goblin">Goblin</option>
+                  <option value="wizard">Wizard</option>
+                  <option value="builder">Builder</option>
+                </select>
+              </label>
             </div>
-          </li>
-        </ul>
+            <div class="panel">
+              <h4>Competitor</h4>
+              <label>Competitor Name: <input type="text" placeholder="Name" /></label>
+              <label>Competitor Description: <input type="text" placeholder="Description" /></label>
+              <label>Competitor Icon:
+                <select id="competitor-icon">
+                  <option value="robot-gray">Gray Robot</option>
+                  <option value="robot-blue">Blue Robot</option>
+                  <option value="robot-red">Red Robot</option>
+                  <option value="robot-white">White Robot</option>
+                  <option value="ninja">Ninja</option>
+                </select>
+              </label>
+            </div>
+            <div class="medium-3 medium-centered">
+              <button type="button" id="characterSave" class="success button saveButton">Save Changes</button>
+            </div>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="medium-12 columns">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="propContainer">
+        <li class="accordion-item" data-accordion-item>
+          <a href="#propContent" class="accordion-title">Props</a>
+          <script>
+            $(document).ready(function() {
+              var current = 2;
+              var id = 1;
+              var prop = '<div class="panel" id="prop-'+ id +'">\
+                            <div id="prop-'+ id +'-original">\
+                              <label>Prop Name: <input type="text" placeholder="Name" id="prop-'+ id +'-name" /></label>\
+                              <label>Prop Description: <input type="text" placeholder="Description" id="prop-'+ id +'-description" /></label>\
+                              <label>Prop Icon:\
+                                <select id="prop-'+ id +'-icon">\
+                                  <option selected disabled></option>\
+                                  <option value="bag-blue">Blue Bag</option>\
+                                  <option value="bag-brown">Brown Bag</option>\
+                                  <option value="bag-red">Red Bag</option>\
+                                  <option value="cloak-blue">Blue Cloak</option>\
+                                  <option value="cloak-brown">Brown Cloak</option>\
+                                  <option value="cloak-red">Red Cloak</option>\
+                                  <option value="hat-blue">Blue Hat</option>\
+                                  <option value="hat-brown">Brown Hat</option>\
+                                  <option value="hat-red">Red Hat</option>\
+                                  <option value="ring-blue">Blue Ring</option>\
+                                  <option value="ring-brown">Brown Ring</option>\
+                                  <option value="ring-red">Red Ring</option>\
+                                  <option value="shoes-blue">Blue Shoes</option>\
+                                  <option value="shoes-brown">Brown Shoes</option>\
+                                  <option value="shoes-red">Red Shoes</option>\
+                                  <option value="watch-blue">Blue Watch</option>\
+                                  <option value="watch-brown">Brown Watch</option>\
+                                  <option value="watch-red">Red Watch</option>\
+                                </select>\
+                              </label>\
+                              <div id="prop-controls">\
+                                <a class="secondary button" id="prop-'+ id +'-config">Configure pricing information</a>\
+                                <a class="alert button" id="prop-remove">Remove</a>\
+                              </div>\
+                            </div>\
+                            <div id="prop-'+ id +'-flipped">\
+                              <label>Market Price: <input type="number" placeholder="Market Price" id="prop-'+ id +'-market" /></label>\
+                              <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-'+ id +'-material" /></label>\
+                              <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-'+ id +'-inventory" /></label>\
+                              <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-'+ id +'-defect" /></label>\
+                              <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-'+ id +'-elasticity" /></label>\
+                              <a class="secondary button" id="prop-'+ id +'-return">Return to product information</a>\
+                            </div>\
+                          </div>';
+              $(prop).appendTo('#prop-listing');
+              $('#prop-'+id+'-flipped').hide();
+              id++;
+              $('#propAdding' ).on('click', '#prop-add', function() {
+                var prop1 = '<div class="panel" id="prop-'+ id +'">\
+                              <div id="prop-'+ id +'-original">\
+                                <label>Prop Name: <input type="text" placeholder="Name" id="prop-'+ id +'-name" /></label>\
+                                <label>Prop Description: <input type="text" placeholder="Description" id="prop-'+ current +'-description" /></label>\
+                                <label>Prop Icon:\
+                                  <select id="prop-'+ id +'-icon">\
+                                    <option selected disabled></option>\
+                                    <option value="bag-blue">Blue Bag</option>\
+                                    <option value="bag-brown">Brown Bag</option>\
+                                    <option value="bag-red">Red Bag</option>\
+                                    <option value="cloak-blue">Blue Cloak</option>\
+                                    <option value="cloak-brown">Brown Cloak</option>\
+                                    <option value="cloak-red">Red Cloak</option>\
+                                    <option value="hat-blue">Blue Hat</option>\
+                                    <option value="hat-brown">Brown Hat</option>\
+                                    <option value="hat-red">Red Hat</option>\
+                                    <option value="ring-blue">Blue Ring</option>\
+                                    <option value="ring-brown">Brown Ring</option>\
+                                    <option value="ring-red">Red Ring</option>\
+                                    <option value="shoes-blue">Blue Shoes</option>\
+                                    <option value="shoes-brown">Brown Shoes</option>\
+                                    <option value="shoes-red">Red Shoes</option>\
+                                    <option value="watch-blue">Blue Watch</option>\
+                                    <option value="watch-brown">Brown Watch</option>\
+                                    <option value="watch-red">Red Watch</option>\
+                                  </select>\
+                                </label>\
+                                <div id="prop-controls">\
+                                  <a class="secondary button" id="prop-'+ id +'-config">Configure pricing information</a>\
+                                  <a class="alert button" id="prop-remove">Remove</a>\
+                                </div>\
+                              </div>\
+                              <div id="prop-'+ id +'-flipped">\
+                                <label>Market Price: <input type="number" placeholder="Market Price" id="prop-'+ id +'-market" /></label>\
+                                <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-'+ id +'-material" /></label>\
+                                <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-'+ id +'-inventory" /></label>\
+                                <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-'+ id +'-defect" /></label>\
+                                <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-'+ id +'-elasticity" /></label>\
+                                <a class="secondary button" id="prop-'+ id +'-return">Return to general information</a>\
+                              </div>\
+                            </div>';
+                if (current < 7) {
+                  $(prop1).appendTo('#prop-listing');
+                  $('#prop-'+id+'-flipped').hide();
+                  current++;
+                  id++;
+                  $('[id ^=prop-][id $=-config]').click(function() {
+                    var id = event.target.id.substring(5,6);
+                    $('#prop-'+id+'-flipped').slideToggle();
+                    this.toggle = !this.toggle;
+                    $(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
+                    return false;
+                  });
+                  return false;
+                }
+              });
+              $('#prop-listing' ).on('click', '#prop-remove', function() {
+                $(this).parents('.panel').remove();
+                current--;
+                return false;
+              });
+
+              $('#prop-controls').on('click', '[id ^=prop-][id $=-config]', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
+                $('#market-price').empty().append(tmp);
+                var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
+                $('#material-cost').empty().append(tmp);
+                var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
+                $('#inventory-cost').empty().append(tmp);
+                var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
+                $('#defect-rate').empty().append(tmp);
+                var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
+                $('#price-elasticity').empty().append(tmp);
+                var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
+                $('#product-description').empty().append(tmp);
+              });
+
+              $('[id ^=prop-][id $=-name]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>'+$('#prop-'+id+'-name').val()+'</span>';
+                $('#product-name').empty().append(tmp);
+                $('#product-name').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 30,
+                  tollerance: 2
+                });
+              });
+
+              $('[id ^=prop-][id $=-description]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
+                $('#product-description').empty().append(tmp);
+                $('#product-description').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $('[id ^=prop-][id $=-icon]').on('change', function() {
+                var id = event.target.id.substring(5,6);
+                var url = "url(../image/editor/products/" + this.value + ".png)"
+                $('#product-image').css({"background-image":url});
+              });
+
+
+              $('[id ^=prop-][id $=-market]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
+                $('#market-price').empty().append(tmp);
+                $('#market-price').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $('[id ^=prop-][id $=-material]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
+                $('#material-cost').empty().append(tmp);
+                $('#material-cost').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $('[id ^=prop-][id $=-inventory]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
+                $('#inventory-cost').empty().append(tmp);
+                $('#inventory-cost').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+              $('[id ^=prop-][id $=-defect]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
+                $('#defect-rate').empty().append(tmp);
+                $('#defect-rate').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $('[id ^=prop-][id $=-elasticity]').on('input', function() {
+                var id = event.target.id.substring(5,6);
+                var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
+                $('#price-elasticity').empty().append(tmp);
+                $('#price-elasticity').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+            });
+
+
+
+
+            /*
+
+            */
+          </script>
+          <div class="accordion-content" data-tab-content id="propContent">
+          <div class="row" id="prop-listing">
+          </div>
+          <div class="medium-12 medium-centered" id="propAdding">
+            <button type="button" id="propSave" class="button saveButton">Save Changes</button>
+            <button class="success button" id="prop-add">Add</button>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="medium-12 columns">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
+        <li class="accordion-item" data-accordion-item>
+          <a href="#spellContent" class="accordion-title">Spells</a>
+          <div class="accordion-content" data-tab-content id="spellContent">
+          <div class="row">
+            <div class="panel">
+              <h4>Spell 1</h4>
+              <label>Spell Name: <input type="text" placeholder="Name" /></label>
+              <label>Spell Description: <input type="text" placeholder="Description" /></label>
+              <label>Spell Icon:
+                <select id="tactic-1-icon">
+                  <option value="loan">Loan</option>
+                  <option value="megaphone">Megaphone</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="group">Group</option>
+                  <option value="cycle">Cycle</option>
+                  <option value="money-tree">Money Tree</option>
+                  <option value="research">Research</option>
+                  <option value="spell-blue">Blue Spell</option>
+                  <option value="spell-red">Red Spell</option>
+                  <option value="star">Star</option>
+                  <option value="supply">Supply</option>
+                </select>
+              </label>
+              <a class="secondary button" data-open="spell1Config">Click to configure spell actions</a>
+              <div class="reveal" id="spell1Config" data-reveal>
+                <h3>Spell Configuration</h3>
+                <h4>Primary Action 1</h4>
+                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+                <h4>Primary Action 2</h4>
+                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+              </div>
+            </div>
+            <div class="panel">
+              <h4>Spell 2</h4>
+              <label>Spell Name: <input type="text" placeholder="Name" /></label>
+              <label>Spell Description: <input type="text" placeholder="Description" /></label>
+              <label>Spell Icon:
+                <select id="tactic-2-icon">
+                  <option value="loan">Loan</option>
+                  <option value="megaphone">Megaphone</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="group">Group</option>
+                  <option value="cycle">Cycle</option>
+                  <option value="money-tree">Money Tree</option>
+                  <option value="research">Research</option>
+                  <option value="spell-blue">Blue Spell</option>
+                  <option value="spell-red">Red Spell</option>
+                  <option value="star">Star</option>
+                  <option value="supply">Supply</option>
+                </select>
+              </label>
+              <a class="secondary button" data-open="spell2Config">Click to configure spell actions</a>
+              <div class="reveal" id="spell2Config" data-reveal>
+                <h3>Spell Configuration</h3>
+                <h4>Primary Action 1</h4>
+                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+                <h4>Primary Action 2</h4>
+                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+              </div>
+            </div>
+            <div class="panel">
+              <h4>Spell 3</h4>
+              <label>Spell Name: <input type="text" placeholder="Name" /></label>
+              <label>Spell Description: <input type="text" placeholder="Description" /></label>
+              <label>Spell Icon:
+                <select id="tactic-3-icon">
+                  <option value="loan">Loan</option>
+                  <option value="megaphone">Megaphone</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="group">Group</option>
+                  <option value="cycle">Cycle</option>
+                  <option value="money-tree">Money Tree</option>
+                  <option value="research">Research</option>
+                  <option value="spell-blue">Blue Spell</option>
+                  <option value="spell-red">Red Spell</option>
+                  <option value="star">Star</option>
+                  <option value="supply">Supply</option>
+                </select>
+              </label>
+              <a class="secondary button" data-open="spell3Config">Click to configure spell actions</a>
+              <div class="reveal" id="spell3Config" data-reveal>
+                <h3>Spell Configuration</h3>
+                <h4>Primary Action 1</h4>
+                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+                <h4>Primary Action 2</h4>
+                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
+                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
+                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
+              </div>
+            </div>
+            <div class="medium-3 medium-centered">
+              <button type="button" id="spellSave" class="success button saveButton">Save Changes</button>
+            </div>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="medium-6 medium-centered left-margin columns" id="phone-container">
+    <div class="phoneArea">
+      <div class="view">
+        <div class="phoneBackground"></div>
+        <div class="background" id="background-area"><img src="../image/editor/fantasy/background.jpg" class="selection-background-image"></div>
+        <div class="topbar" id="topbar-area"><img src="../image/editor/fantasy/topbar.png" class="selection-topbar-image"></div>
+        <div class="topbar" id="topbar-elements">
+          <div class="topbar-money"></div>
+          <div class="topbar-money-text">5000</div>
+          <div class="topbar-spell"></div>
+          <div class="topbar-spell-text">5</div>
+          <div class="topbar-supply"></div>
+          <div class="topbar-supply-text">200</div>
+        </div>
+        <div class="toolbar" id="toolbar-area"><img src="../image/editor/fantasy/main_hud.png" class="selection-toolbar-image"></div>
+        <div class="toolbar" id="toolbar-elements">
+          <div class="prop-1">
+            <div class="prop-icon prop-1-icon"></div>
+            <div class="prop-price prop-1-price" id="prop-1-price">
+              <span>$30</span>
+            </div>
+            <div class="prop-amount prop-1-amount" id="prop-1-amount">
+              <span>x300</span>
+            </div>
+          </div>
+          <div class="prop-2">
+            <div class="prop-icon prop-2-icon"></div>
+            <div class="prop-price prop-2-price" id="prop-2-price">
+              <span>$30</span>
+            </div>
+            <div class="prop-amount prop-2-amount" id="prop-2-amount">
+              <span>x30</span>
+            </div>
+          </div>
+          <div class="prop-3">
+            <div class="prop-icon prop-3-icon"></div>
+            <div class="prop-price prop-3-price" id="prop-3-price">
+              <span>$30</span>
+            </div>
+            <div class="prop-amount prop-3-amount" id="prop-3-amount">
+              <span>x600</span>
+            </div>
+          </div>
+          <div class="tactic-1">
+            <div class="tactic-icon tactic-1-icon"></div>
+            <div class="tactic-price tactic-1-price"></div>
+          </div>
+          <div class="tactic-2">
+            <div class="tactic-icon tactic-2-icon"></div>
+            <div class="tactic-price tactic-2-price"></div>
+          </div>
+          <div class="tactic-3">
+            <div class="tactic-icon tactic-3-icon"></div>
+            <div class="tactic-price tactic-3-price"></div>
+          </div>
+        </div>
+        <div class="products" id="products-area"></div>
+        <div class="tactics" id="tactics-area"></div>
+        <div class="competitor" id="competitor-area"><img src="../image/editor/modern/competitor.png" class="selection-competitor-image"></div>
+        <div class="hero" id="hero-area"><img src="../image/editor/heroes/mage.png" class="selection-hero-image"></div>
+        <div class="problem1" id="problem1-area"></div>
+        <div class="problem2" id="problem2-area"><img src="../image/editor/fantasy/problem.png" class="selection-problem-image"></div>
+        <div class="problem3" id="problem3-area"></div>
+        <div class="tool" id="tool-area"><img src="../image/editor/fantasy/tool.png" class="selection-tool-image"></div>
+        <div class="screen-product-overlay"></div>
+        <div class="screen-product" id="screen-product">
+          <div id="product-image"></div>
+          <div id="product-name"></div>
+          <div class="product-information">
+            <div id="market-price">
+            </div>
+            <div id="material-cost">
+            </div>
+            <div id="inventory-cost">
+            </div>
+            <div id="defect-rate">
+            </div>
+            <div id="price-elasticity">
+            </div>
+            <div id="product-description">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="medium-12 columns">
-        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="propContainer">
-          <li class="accordion-item" data-accordion-item>
-            <a href="#propContent" class="accordion-title">Props</a>
-            <div class="accordion-content" data-tab-content id="propContent">
-            <div class="row">
-              <div class="panel">
-                <h4>Prop 1</h4>
-                <label>Prop Name: <input type="text" placeholder="Name" /></label>
-                <label>Prop Description: <input type="text" placeholder="Description" /></label>
-                <label>Prop Icon:
-                  <select>
-                    <option value="hat">Hat</option>
-                    <option value="clock">Clock</option>
-                    <option value="watch">Watch</option>
-                    <option value="shirt">Shirt</option>
-                    <option value="pants">Pants</option>
-                    <option value="computer">Computer</option>
-                    <option value="phone">Phone</option>
-                    <option value="food">Food</option>
-                    <option value="drink">Drink</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="prop1Config">Click to configure prop pricing information</a>
-                <div class="reveal" id="prop1Config" data-reveal>
-                  <h3>Prop 1 - Pricing Configuration</h3>
-                  <label>Market Price: <input type="number" placeholder="Market Price" /></label>
-                  <label>Material Cost: <input type="number" placeholder="Material Cost" /></label>
-                  <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Defect Rate: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Price Elasticity: <input type="number" placeholder="Inventory Cost" /></label>
-                </div>
-              </div>
-              <div class="panel">
-                <h4>Prop 2</h4>
-                <label>Prop Name: <input type="text" placeholder="Name" /></label>
-                <label>Prop Description: <input type="text" placeholder="Description" /></label>
-                <label>Prop Icon:
-                  <select>
-                    <option value="hat">Hat</option>
-                    <option value="clock">Clock</option>
-                    <option value="watch">Watch</option>
-                    <option value="shirt">Shirt</option>
-                    <option value="pants">Pants</option>
-                    <option value="computer">Computer</option>
-                    <option value="phone">Phone</option>
-                    <option value="food">Food</option>
-                    <option value="drink">Drink</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="prop2Config">Click to configure prop pricing information</a>
-                <div class="reveal" id="prop2Config" data-reveal>
-                  <h3>Prop 2 - Pricing Configuration</h3>
-                  <label>Market Price: <input type="number" placeholder="Market Price" /></label>
-                  <label>Material Cost: <input type="number" placeholder="Material Cost" /></label>
-                  <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Defect Rate: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Price Elasticity: <input type="number" placeholder="Inventory Cost" /></label>
-                </div>
-              </div>
-              <div class="panel">
-                <h4>Prop 3</h4>
-                <label>Prop Name: <input type="text" placeholder="Name" /></label>
-                <label>Prop Description: <input type="text" placeholder="Description" /></label>
-                <label>Prop Icon:
-                  <select>
-                    <option value="hat">Hat</option>
-                    <option value="clock">Clock</option>
-                    <option value="watch">Watch</option>
-                    <option value="shirt">Shirt</option>
-                    <option value="pants">Pants</option>
-                    <option value="computer">Computer</option>
-                    <option value="phone">Phone</option>
-                    <option value="food">Food</option>
-                    <option value="drink">Drink</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="prop3Config">Click to configure prop pricing information</a>
-                <div class="reveal" id="prop3Config" data-reveal>
-                  <h3>Prop 3 - Pricing Configuration</h3>
-                  <label>Market Price: <input type="number" placeholder="Market Price" /></label>
-                  <label>Material Cost: <input type="number" placeholder="Material Cost" /></label>
-                  <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Defect Rate: <input type="number" placeholder="Inventory Cost" /></label>
-                  <label>Price Elasticity: <input type="number" placeholder="Inventory Cost" /></label>
-                </div>
-              </div>
-              <div class="medium-3 medium-centered">
-                <button type="button" id="propSave" class="success button saveButton">Save Changes</button>
-              </div>
-            </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="medium-12 columns">
-        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
-          <li class="accordion-item" data-accordion-item>
-            <a href="#spellContent" class="accordion-title">Spells</a>
-            <div class="accordion-content" data-tab-content id="spellContent">
-            <div class="row">
-              <div class="panel">
-                <h4>Spell 1</h4>
-                <label>Spell Name: <input type="text" placeholder="Name" /></label>
-                <label>Spell Description: <input type="text" placeholder="Description" /></label>
-                <label>Spell Icon:
-                  <select>
-                    <option value="wand">Wand</option>
-                    <option value="brain">Brain</option>
-                    <option value="star">Star</option>
-                    <option value="megaphone">Megaphone</option>
-                    <option value="paper">Paper</option>
-                    <option value="book">Book</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="spell1Config">Click to configure spell actions</a>
-                <div class="reveal" id="spell1Config" data-reveal>
-                  <h3>Spell Configuration</h3>
-                  <h4>Primary Action 1</h4>
-                  <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                  <h4>Primary Action 2</h4>
-                  <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                </div>
-              </div>
-              <div class="panel">
-                <h4>Spell 2</h4>
-                <label>Spell Name: <input type="text" placeholder="Name" /></label>
-                <label>Spell Description: <input type="text" placeholder="Description" /></label>
-                <label>Spell Icon:
-                  <select>
-                    <option value="wand">Wand</option>
-                    <option value="brain">Brain</option>
-                    <option value="star">Star</option>
-                    <option value="megaphone">Megaphone</option>
-                    <option value="paper">Paper</option>
-                    <option value="book">Book</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="spell2Config">Click to configure spell actions</a>
-                <div class="reveal" id="spell2Config" data-reveal>
-                  <h3>Spell Configuration</h3>
-                  <h4>Primary Action 1</h4>
-                  <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                  <h4>Primary Action 2</h4>
-                  <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                </div>
-              </div>
-              <div class="panel">
-                <h4>Spell 3</h4>
-                <label>Spell Name: <input type="text" placeholder="Name" /></label>
-                <label>Spell Description: <input type="text" placeholder="Description" /></label>
-                <label>Spell Icon:
-                  <select>
-                    <option value="wand">Wand</option>
-                    <option value="brain">Brain</option>
-                    <option value="star">Star</option>
-                    <option value="megaphone">Megaphone</option>
-                    <option value="paper">Paper</option>
-                    <option value="book">Book</option>
-                  </select>
-                </label>
-                <a class="secondary button" data-open="spell3Config">Click to configure spell actions</a>
-                <div class="reveal" id="spell3Config" data-reveal>
-                  <h3>Spell Configuration</h3>
-                  <h4>Primary Action 1</h4>
-                  <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                  <h4>Primary Action 2</h4>
-                  <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                  <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                  <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                </div>
-              </div>
-              <div class="medium-3 medium-centered">
-                <button type="button" id="spellSave" class="success button saveButton">Save Changes</button>
-              </div>
-            </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <img src="../image/editor/iphone.png" class="phoneImage">
     </div>
   </div>
 </div>

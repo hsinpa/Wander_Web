@@ -18,6 +18,119 @@
     .left-margin {
       margin-left: 1%;
     }
+    .phoneArea {
+      position: relative;
+      z-index: 10;
+    }
+    .view {
+      position: absolute;
+      height: 86.5%;
+      width: 75.5%;
+      left: 12.3%;
+      top: 6.75%;
+      z-index: 1;
+    }
+   .background {
+      width:100%;
+      height:100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 1;
+      position: absolute;
+    }
+    .toolbar {
+      width: 66%;
+      height: 26%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 17%;
+      bottom: 0%;
+      position: absolute;
+      z-index: 2;
+    }
+    .competitor {
+      width: 16%;
+      height: 31%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 69%;
+      left: 84%;
+      position: absolute;
+      z-index: 2;
+    }
+    .problems {
+      width: 50%;
+      height: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 25%;
+      bottom: 25%;
+      position: absolute;
+      z-index: 2;
+    }
+    .tool {
+      width: 15%;
+      height: 26%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      z-index: 2;
+      bottom: -2%;
+      right: -1%;
+    }
+    .phoneImage {
+      user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      z-index: -1;
+      opacity: 0;
+    }
+    .phoneBackground {
+      position: absolute;
+      width: 132%;
+      height: 116%;
+      left: -16%;
+      top: -7.2%;
+      background-image: url(http://localhost:8000/image/editor/iphone.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 5;
+    }
+    .selection-background-image {
+      border-radius: 10px;
+    }
+    [class^="selection-"][class*="-image"] {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      width: 48%;
+      margin-right: 1%;
+    }
+    .gu-unselectable {
+      opacity: .25;
+      background: rgba(0,0,0,0.5);
+      z-index: 15;
+    }
+    .view > [id*="-area"] > [class^="selection-"][class*="-image"]:not(.gu-mirror) {
+      border-radius: 0px;
+      margin-top: 0%;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0%;
+      margin-right: 0%;
+    }
+    .view > .gu-unselectable > img:nth-child(2):not(.gu-mirror) {
+      display:none;
+    }
+    #tool-area > #modern-tool {
+      position: absolute;
+      left: -5%;
+      bottom: 10%;
+      height: 80%;
+      width: 95%;
+    }
   </style>
   <script lang="text/javascript">
     $(document).ready(function() {
@@ -327,6 +440,19 @@
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="medium-6">
+      <div class="phoneArea">
+        <div class="view">
+          <div class="phoneBackground"></div>
+          <div class="background" id="background-area"></div>
+          <div class="toolbar" id="toolbar-area"></div>
+          <div class="competitor" id="competitor-area"></div>
+          <div class="problems"></div>
+          <div class="tool" id="tool-area"></div>
+        </div>
+        <img src="../image/editor/iphone.png" class="phoneImage">
       </div>
     </div>
   </div>
