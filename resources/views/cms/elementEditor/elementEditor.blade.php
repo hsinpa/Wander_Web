@@ -331,7 +331,6 @@
       left: 7.5%;
       top: 12%;
       position: absolute;
-      background-image: url(../image/editor/products/hat-brown.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -342,7 +341,6 @@
       left: 7.5%;
       top: 12%;
       position: absolute;
-      background-image: url(../image/editor/products/hat-brown.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -569,40 +567,10 @@
         $('.tactic-3-icon').css({"background-image":url})
       });
 
-      $('#prop-1-price').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
-      $('#prop-2-price').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
-      $('#prop-3-price').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
-      $('#prop-1-amount').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
-      $('#prop-2-amount').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
-      $('#prop-3-amount').adaptText({
-        minFontSize: 10,
-        maxFontSize: 200,
-        tollerance: 2
-      });
     });
   </script>
   <div class="medium-12">
-    <h2 class="wrainbo-cms-title">Game Editor</h2>
+    <h2 class="wrainbo-cms-title">Element Editor</h2>
   </div>
   <div class="medium-3 left-margin columns">
     <div class="medium-12 columns">
@@ -698,6 +666,8 @@
           <a href="#propContent" class="accordion-title">Props</a>
           <script>
             $(document).ready(function() {
+            $('.screen-product').hide();
+            $('.screen-product-overlay').hide();
               var current = 2;
               var id = 1;
               var prop = '<div class="panel" id="prop-'+ id +'">\
@@ -727,6 +697,14 @@
                                   <option value="watch-red">Red Watch</option>\
                                 </select>\
                               </label>\
+                              <label>Toolbar Location:\
+                                <select id="prop-'+ id +'-display">\
+                                  <option selected></option>\
+                                  <option value="position-1">Position 1</option>\
+                                  <option value="position-2">Position 2</option>\
+                                  <option value="position-3">Position 3</option>\
+                                </select>\
+                              </label>\
                               <div id="prop-controls">\
                                 <a class="secondary button" id="prop-'+ id +'-config">Configure pricing information</a>\
                                 <a class="alert button" id="prop-remove">Remove</a>\
@@ -738,14 +716,13 @@
                               <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-'+ id +'-inventory" /></label>\
                               <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-'+ id +'-defect" /></label>\
                               <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-'+ id +'-elasticity" /></label>\
-                              <a class="secondary button" id="prop-'+ id +'-return">Return to product information</a>\
                             </div>\
                           </div>';
               $(prop).appendTo('#prop-listing');
               $('#prop-'+id+'-flipped').hide();
               id++;
               $('#propAdding' ).on('click', '#prop-add', function() {
-                var prop1 = '<div class="panel" id="prop-'+ id +'">\
+                var prop1 = '<hr><div class="panel" id="prop-'+ id +'">\
                               <div id="prop-'+ id +'-original">\
                                 <label>Prop Name: <input type="text" placeholder="Name" id="prop-'+ id +'-name" /></label>\
                                 <label>Prop Description: <input type="text" placeholder="Description" id="prop-'+ current +'-description" /></label>\
@@ -772,6 +749,14 @@
                                     <option value="watch-red">Red Watch</option>\
                                   </select>\
                                 </label>\
+                                <label>Toolbar Location:\
+                                  <select id="prop-'+ id +'-display">\
+                                    <option selected></option>\
+                                    <option value="position-1">Position 1</option>\
+                                    <option value="position-2">Position 2</option>\
+                                    <option value="position-3">Position 3</option>\
+                                  </select>\
+                                </label>\
                                 <div id="prop-controls">\
                                   <a class="secondary button" id="prop-'+ id +'-config">Configure pricing information</a>\
                                   <a class="alert button" id="prop-remove">Remove</a>\
@@ -791,39 +776,18 @@
                   $('#prop-'+id+'-flipped').hide();
                   current++;
                   id++;
-                  $('[id ^=prop-][id $=-config]').click(function() {
-                    var id = event.target.id.substring(5,6);
-                    $('#prop-'+id+'-flipped').slideToggle();
-                    this.toggle = !this.toggle;
-                    $(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
-                    return false;
-                  });
                   return false;
                 }
               });
               $('#prop-listing' ).on('click', '#prop-remove', function() {
                 $(this).parents('.panel').remove();
                 current--;
+                $('.screen-product').hide();
+                $('.screen-product-overlay').hide();
                 return false;
               });
 
-              $('#prop-controls').on('click', '[id ^=prop-][id $=-config]', function() {
-                var id = event.target.id.substring(5,6);
-                var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
-                $('#market-price').empty().append(tmp);
-                var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
-                $('#material-cost').empty().append(tmp);
-                var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
-                $('#inventory-cost').empty().append(tmp);
-                var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
-                $('#defect-rate').empty().append(tmp);
-                var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
-                $('#price-elasticity').empty().append(tmp);
-                var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
-                $('#product-description').empty().append(tmp);
-              });
-
-              $('[id ^=prop-][id $=-name]').on('input', function() {
+              $(document).on('input', '[id ^=prop-][id $=-name]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>'+$('#prop-'+id+'-name').val()+'</span>';
                 $('#product-name').empty().append(tmp);
@@ -834,7 +798,7 @@
                 });
               });
 
-              $('[id ^=prop-][id $=-description]').on('input', function() {
+              $(document).on('input','[id ^=prop-][id $=-description]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
                 $('#product-description').empty().append(tmp);
@@ -845,14 +809,14 @@
                 });
               });
 
-              $('[id ^=prop-][id $=-icon]').on('change', function() {
+              $(document).on('change', '[id ^=prop-][id $=-icon]', function() {
                 var id = event.target.id.substring(5,6);
-                var url = "url(../image/editor/products/" + this.value + ".png)"
+                var url = "url(../image/editor/products/" + this.value + ".png)";
                 $('#product-image').css({"background-image":url});
               });
 
 
-              $('[id ^=prop-][id $=-market]').on('input', function() {
+              $(document).on('input', '[id ^=prop-][id $=-market]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
                 $('#market-price').empty().append(tmp);
@@ -863,7 +827,7 @@
                 });
               });
 
-              $('[id ^=prop-][id $=-material]').on('input', function() {
+              $(document).on('input', '[id ^=prop-][id $=-material]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
                 $('#material-cost').empty().append(tmp);
@@ -874,7 +838,7 @@
                 });
               });
 
-              $('[id ^=prop-][id $=-inventory]').on('input', function() {
+              $(document).on('input', '[id ^=prop-][id $=-inventory]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
                 $('#inventory-cost').empty().append(tmp);
@@ -884,7 +848,7 @@
                   tollerance: 2
                 });
               });
-              $('[id ^=prop-][id $=-defect]').on('input', function() {
+              $(document).on('input', '[id ^=prop-][id $=-defect]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
                 $('#defect-rate').empty().append(tmp);
@@ -895,7 +859,7 @@
                 });
               });
 
-              $('[id ^=prop-][id $=-elasticity]').on('input', function() {
+              $(document).on('input','[id ^=prop-][id $=-elasticity]', function() {
                 var id = event.target.id.substring(5,6);
                 var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
                 $('#price-elasticity').empty().append(tmp);
@@ -906,14 +870,296 @@
                 });
               });
 
+              $(document).on('click','[id ^=prop-][id $=-config]', function() {
+                var id = event.target.id.substring(5,6);
+                $('#prop-'+id+'-flipped').slideToggle();
+                this.toggle = !this.toggle;
+                $(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
+                if ($('#prop-'+id+'-config').text()=="Hide pricing information") {
+                  $('.screen-product').show();
+                  $('.screen-product-overlay').show();
+                  //Get existing information
+                  var id = event.target.id.substring(5,6);
+                  if ($('#prop-'+id+'-name').val()!=="") {
+                    var tmp = '<span>'+$('#prop-'+id+'-name').val()+'</span>';
+                    $('#product-name').empty().append(tmp);
+                    $('#product-name').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 30,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-description').val()!=="") {
+                    var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
+                    $('#product-description').empty().append(tmp);
+                    $('#product-description').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-icon').val()!==null) {
+                    var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)"
+                    $('#product-image').css({"background-image":url});
+                  }
+                  if ($('#prop-'+id+'-market').val()!=="") {
+                    var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
+                    $('#market-price').empty().append(tmp);
+                    $('#market-price').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-material').val()!=="") {
+                    var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
+                    $('#material-cost').empty().append(tmp);
+                    $('#material-cost').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-inventory').val()!=="") {
+                    var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
+                    $('#inventory-cost').empty().append(tmp);
+                    $('#inventory-cost').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-defect').val()!=="") {
+                    var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
+                    $('#defect-rate').empty().append(tmp);
+                    $('#defect-rate').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+id+'-elasticity').val()!=="") {
+                    var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
+                    $('#price-elasticity').empty().append(tmp);
+                    $('#price-elasticity').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                } else {
+                  $('.screen-product').hide();
+                  $('.screen-product-overlay').hide();
+                }
+                return false;
+              });
+              function position1image () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-icon').val()!==null){
+                  var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                  $('#prop-1-image').css({"background-image":url});
+                }
+              }
+              function position1market () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-market').val()!=="") {
+                  var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                  $('#prop-1-price').empty().append(tmp);
+                  $('#prop-1-price').adaptText({
+                    minFontSize: 10,
+                    maxFontSize: 21,
+                    tollerance: 2
+                  });
+                }
+              }
+              function position2image () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-icon').val()!==null){
+                  var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                  $('#prop-2-image').css({"background-image":url});
+                }
+              }
+              function position2market () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-market').val()!=="") {
+                  var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                  $('#prop-2-price').empty().append(tmp);
+                  $('#prop-2-price').adaptText({
+                    minFontSize: 10,
+                    maxFontSize: 21,
+                    tollerance: 2
+                  });
+                }
+              }
+              function position3image () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-icon').val()!==null){
+                  var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                  $('#prop-3-image').css({"background-image":url});
+                }
+              }
+              function position3market () {
+                var id = event.target.id.substring(5,6);
+                if ($('#prop-'+id+'-market').val()!=="") {
+                  var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                  $('#prop-3-price').empty().append(tmp);
+                  $('#prop-3-price').adaptText({
+                    minFontSize: 10,
+                    maxFontSize: 21,
+                    tollerance: 2
+                  });
+                }
+              }
+
+              var prop1assignment = 0;
+              var prop2assignment = 0;
+              var prop3assignment = 0;
+              $(document).on('change', '[id ^=prop-][id $=-display]', {prop1assignment: prop1assignment, prop2assignment: prop2assignment, prop3assignment: prop3assignment}, function() {
+                var id = event.target.id.substring(5,6);
+                if ($(event.target).val()==null) {
+                  if (id == prop1assignment) {
+                  $('#prop-1-image').css({"background-image":"none"});
+                  $('#prop-1-price').empty();
+                  prop1assignment = 0;
+                } else if (id == prop2assignment) {
+                  $('#prop-2-image').css({"background-image":"none"});
+                  $('#prop-2-price').empty();
+                  prop1assignment = 0;
+                } else if (id == prop3assignment) {
+                  $('#prop-3-image').css({"background-image":"none"});
+                  $('#prop-3-price').empty();
+                  prop1assignment = 0;
+                }
+                  document.removeEventListener("change", position1image, false);
+                  document.removeEventListener("input", position1market, false);
+                  document.removeEventListener("change", position2image, false);
+                  document.removeEventListener("input", position2market, false);
+                  document.removeEventListener("change", position3image, false);
+                  document.removeEventListener("input", position3market, false);
+                }
+              });
+              $(document).on('change', '[id ^=prop-][id $=-display]', {prop1assignment: prop1assignment, prop2assignment: prop2assignment, prop3assignment: prop3assignment}, function() {
+                var id = event.target.id.substring(5,6);
+                if ($(event.target).val()=="position-1") {
+                  if (id == prop1assignment) {
+                    $('#prop-1-image').css({"background-image":"none"});
+                    $('#prop-1-price').empty();
+                    prop1assignment = 0;
+                  } else if (id == prop2assignment) {
+                    $('#prop-2-image').css({"background-image":"none"});
+                    $('#prop-2-price').empty();
+                    prop2assignment = 0;
+                  } else if (id == prop3assignment) {
+                    $('#prop-3-image').css({"background-image":"none"});
+                    $('#prop-3-price').empty();
+                    prop3assignment = 0;
+                  }
+                  prop1assignment = id;
+                  document.removeEventListener("change", position1image, false);
+                  document.removeEventListener("input", position1market, false);
+                  document.removeEventListener("change", position2image, false);
+                  document.removeEventListener("input", position2market, false);
+                  document.removeEventListener("change", position3image, false);
+                  document.removeEventListener("input", position3market, false);
+                  $('#prop-1-image').css({"background-image":"none"});
+                  $('#prop-1-price').empty();
+                  if ($('#prop-'+id+'-icon').val()!==null){
+                    var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                    $('#prop-1-image').css({"background-image":url});
+                  }
+                  if ($('#prop-'+id+'-market').val()!=="") {
+                    var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                    $('#prop-1-price').empty().append(tmp);
+                    $('#prop-1-price').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 13,
+                      tollerance: 2
+                    });
+                  }
+                  document.addEventListener("change", position1image, false);
+                  document.addEventListener("input", position1market, false);
+                }
+                if ($(event.target).val()=="position-2") {
+                  if (id == prop1assignment) {
+                    $('#prop-1-image').css({"background-image":"none"});
+                    $('#prop-1-price').empty();
+                    prop1assignment = 0;
+                  } else if (id == prop2assignment) {
+                    $('#prop-2-image').css({"background-image":"none"});
+                    $('#prop-2-price').empty();
+                    prop2assignment = 0;
+                  } else if (id == prop3assignment) {
+                    $('#prop-3-image').css({"background-image":"none"});
+                    $('#prop-3-price').empty();
+                    prop3assignment = 0;
+                  }
+                  prop2assignment = id;
+                  document.removeEventListener("change", position1image, false);
+                  document.removeEventListener("input", position1market, false);
+                  document.removeEventListener("change", position2image, false);
+                  document.removeEventListener("input", position2market, false);
+                  document.removeEventListener("change", position3image, false);
+                  document.removeEventListener("input", position3market, false);
+                  $('#prop-2-image').css({"background-image":"none"});
+                  $('#prop-2-price').empty();
+                  if ($('#prop-'+id+'-icon').val()!==null){
+                    var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                    $('#prop-2-image').css({"background-image":url});
+                  }
+                  if ($('#prop-'+id+'-market').val()!=="") {
+                    var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                    $('#prop-2-price').empty().append(tmp);
+                    $('#prop-2-price').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 13,
+                      tollerance: 2
+                    });
+                  }
+                  document.addEventListener("change", position2image, false);
+                  document.addEventListener("input", position2market, false);
+                }
+                if ($(event.target).val()=="position-3") {
+                  if (id == prop1assignment) {
+                    $('#prop-1-image').css({"background-image":"none"});
+                    $('#prop-1-price').empty();
+                    prop1assignment = 0;
+                  } else if (id == prop2assignment) {
+                    $('#prop-2-image').css({"background-image":"none"});
+                    $('#prop-2-price').empty();
+                    prop2assignment = 0;
+                  } else if (id == prop3assignment) {
+                    $('#prop-3-image').css({"background-image":"none"});
+                    $('#prop-3-price').empty();
+                    prop3assignment = 0;
+                  }
+                  prop3assignment = id;
+                  document.removeEventListener("change", position1image, false);
+                  document.removeEventListener("input", position1market, false);
+                  document.removeEventListener("change", position2image, false);
+                  document.removeEventListener("input", position2market, false);
+                  document.removeEventListener("change", position3image, false);
+                  document.removeEventListener("input", position3market, false);
+                  $('#prop-3-image').css({"background-image":"none"});
+                  $('#prop-3-price').empty();
+                  if ($('#prop-'+id+'-icon').val()!==null){
+                    var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)";
+                    $('#prop-3-image').css({"background-image":url});
+                  }
+                  if ($('#prop-'+id+'-market').val()!=="") {
+                    var tmp = '<span>$'+$('#prop-'+id+'-market').val()+'</span>';
+                    $('#prop-3-price').empty().append(tmp);
+                    $('#prop-3-price').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 13,
+                      tollerance: 2
+                    });
+                  }
+                  document.addEventListener("change", position3image, false);
+                  document.addEventListener("input", position3market, false);
+                }
+              });
             });
 
-
-
-
-            /*
-
-            */
           </script>
           <div class="accordion-content" data-tab-content id="propContent">
           <div class="row" id="prop-listing">
@@ -921,6 +1167,50 @@
           <div class="medium-12 medium-centered" id="propAdding">
             <button type="button" id="propSave" class="button saveButton">Save Changes</button>
             <button class="success button" id="prop-add">Add</button>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="medium-12 columns">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
+        <li class="accordion-item" data-accordion-item>
+          <a href="#spellContent" class="accordion-title">Spells</a>
+          <div class="accordion-content" data-tab-content id="spellContent">
+          <div class="row">
+            <div class="panel" id="customer-cid">
+              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-cid-name" /></label>
+              <label>Customer Race:
+                <select id="customer-cid-race">
+                  <option selected disabled></option>
+                  <option value="human">Human</option>
+                  <option value="goblin">Goblin</option>
+                  <option value="orc">Orc</option>
+                </select>
+              </label>
+              <label>Customer Gender:
+                <select id="customer-cid-gender">
+                  <option selected disabled></option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </label>
+              <label>Customers reached: <input type="number" placeholder="Customers reaching" id="customer-cid-reaching" /></label>
+              <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-cid-visiting" /></label>
+              <label>Awareness: <input type="number" placeholder="Awareness" id="customer-cid-awareness" /></label>
+              <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-cid-payment" /></label>
+              <label>Average price:</label>
+              <label>Hat: <input type="number" placeholder="Average Price" id="customer-cid-avg1" /></label>
+              <label>Cloak: <input type="number" placeholder="Average Price" id="customer-cid-avg1" /></label>
+              <label>Price Elasticity:
+                <select id="customer-cid-elasticity">
+                  <option selected disabled></option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </label>
+            </div>
           </div>
           </div>
         </li>
@@ -1055,30 +1345,24 @@
         <div class="toolbar" id="toolbar-area"><img src="../image/editor/fantasy/main_hud.png" class="selection-toolbar-image"></div>
         <div class="toolbar" id="toolbar-elements">
           <div class="prop-1">
-            <div class="prop-icon prop-1-icon"></div>
+            <div class="prop-icon prop-1-icon" id="prop-1-image"></div>
             <div class="prop-price prop-1-price" id="prop-1-price">
-              <span>$30</span>
             </div>
             <div class="prop-amount prop-1-amount" id="prop-1-amount">
-              <span>x300</span>
             </div>
           </div>
           <div class="prop-2">
-            <div class="prop-icon prop-2-icon"></div>
+            <div class="prop-icon prop-2-icon" id="prop-2-image"></div>
             <div class="prop-price prop-2-price" id="prop-2-price">
-              <span>$30</span>
             </div>
             <div class="prop-amount prop-2-amount" id="prop-2-amount">
-              <span>x30</span>
             </div>
           </div>
           <div class="prop-3">
-            <div class="prop-icon prop-3-icon"></div>
+            <div class="prop-icon prop-3-icon" id="prop-3-image"></div>
             <div class="prop-price prop-3-price" id="prop-3-price">
-              <span>$30</span>
             </div>
             <div class="prop-amount prop-3-amount" id="prop-3-amount">
-              <span>x600</span>
             </div>
           </div>
           <div class="tactic-1">
