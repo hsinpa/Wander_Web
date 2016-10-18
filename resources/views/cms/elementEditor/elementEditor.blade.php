@@ -381,13 +381,76 @@
       background-repeat: no-repeat;
       z-index: 10;
     }
-    .screen-product-overlay {
+    .screen-overlay {
       background-color: black;
       width: 100%;
       height: 100%;
       position: absolute;
       z-index: 9;
       opacity: .6;
+    }
+    .screen-customer {
+      position: absolute;
+      width: 70%;
+      height: 80%;
+      left: 15%;
+      top: 15%;
+      position: relative;
+      background-image: url(../image/editor/fantasy/screen-customer.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 10;
+    }
+    .screen-customer > #customer-image {
+      position: absolute;
+      width: 30%;
+      left: 5%;
+      height: 56%;
+      top: 26%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 10;
+    }
+    .customer-information {
+      right: 10%;
+      width: 50%;
+      height: 72%;
+      position: absolute;
+      top: 19%;
+    }
+    .customer-information > div > span {
+      color:white;
+    }
+    .customer-information > #customer-reached {
+      position: absolute;
+      top: 0%;
+      width: 100%;
+      height: 13%;
+    }
+    .customer-information > #customer-visiting {
+      position: absolute;
+      top: 13%;
+      width: 100%;
+      height: 13%;
+    }
+    .customer-information > #customer-awareness {
+      position: absolute;
+      top: 26%;
+      width: 100%;
+      height: 13%;
+    }
+    .customer-information > #customer-payment {
+      position: absolute;
+      top: 39%;
+      width: 100%;
+      height: 13%;
+    }
+    .customer-information > #customer-elasticity {
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      height: 13%;
     }
     .product-information {
       right: 5%;
@@ -470,6 +533,10 @@
       });
       $('#propSave').click(function(){
         $('#propContainer').foundation('up', $('#propContent'));
+        setTimeout(function(){ $('#customerContainer').foundation('down', $('#customerContainer')); }, 300);
+      });
+      $('#customerSave').click(function(){
+        $('#customerContainer').foundation('up', $('#customerContainer'));
         setTimeout(function(){ $('#spellContainer').foundation('down', $('#spellContent')); }, 300);
       });
       $('#spellSave').click(function(){
@@ -666,8 +733,8 @@
           <a href="#propContent" class="accordion-title">Props</a>
           <script>
             $(document).ready(function() {
-            $('.screen-product').hide();
-            $('.screen-product-overlay').hide();
+              $('.screen-product').hide();
+              $('.screen-overlay').hide();
               var current = 2;
               var id = 1;
               var prop = '<div class="panel" id="prop-'+ id +'">\
@@ -779,11 +846,100 @@
                   return false;
                 }
               });
-              $('#prop-listing' ).on('click', '#prop-remove', function() {
+
+              $('.screen-customer').hide();
+              var currentCid = 2;
+              var cid = 1;
+              var cust = '<div class="panel" id="customer-'+ cid +'">\
+                            <div id="customer-'+ cid +'-original">\
+                              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-'+ cid +'-name" /></label>\
+                              <label>Customer Image:\
+                                <select id="customer-'+ cid +'-image">\
+                                  <option selected disabled></option>\
+                                  <option value="knight">Knight</option>\
+                                  <option value="paladin">Paldin</option>\
+                                  <option value="goblin-old">Old Goblin</option>\
+                                  <option value="goblin-young">Young Goblin</option>\
+                                  <option value="orc-family">Orc Family</option>\
+                                </select>\
+                              </label>\
+                              <div id="customer-controls">\
+                                <a class="secondary button" id="customer-'+ cid +'-config">Configure customer information</a>\
+                                <a class="alert button" id="customer-remove">Remove</a>\
+                              </div>\
+                            </div>\
+                            <div id="customer-'+ cid +'-flipped">\
+                              <label>Customers reached: <input type="number" placeholder="Customers reached" id="customer-'+ cid +'-reached" /></label>\
+                              <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-'+ cid +'-visiting" /></label>\
+                              <label>Awareness: <input type="number" placeholder="Awareness" id="customer-'+ cid +'-awareness" /></label>\
+                              <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-'+ cid +'-payment" /></label>\
+                              <label>Price Elasticity:\
+                                <select id="customer-'+ cid +'-elasticity">\
+                                  <option selected disabled></option>\
+                                  <option value="high">High</option>\
+                                  <option value="medium">Medium</option>\
+                                  <option value="low">Low</option>\
+                                </select>\
+                              </label>\
+                            </div>\
+                          </div>';
+              $(cust).appendTo('#customer-listing');
+              $('#customer-'+cid+'-flipped').hide();
+              cid++;
+              $('#customerAdding' ).on('click', '#customer-add', function() {
+                var cust1 = '<hr><div class="panel" id="customer-'+ cid +'">\
+                              <div id="customer-'+ cid +'-original">\
+                                <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-'+ cid +'-name" /></label>\
+                                <label>Customer Image:\
+                                  <select id="customer-'+ cid +'-image">\
+                                    <option selected disabled></option>\
+                                    <option value="human">Human</option>\
+                                    <option value="goblin">Goblin</option>\
+                                    <option value="orc">Orc</option>\
+                                  </select>\
+                                </label>\
+                                <div id="customer-controls">\
+                                  <a class="secondary button" id="customer-'+ cid +'-config">Configure customer information</a>\
+                                  <a class="alert button" id="customer-remove">Remove</a>\
+                                </div>\
+                              </div>\
+                              <div id="customer-'+ cid +'-flipped">\
+                                <label>Customers reached: <input type="number" placeholder="Customers reached" id="customer-'+ cid +'-reached" /></label>\
+                                <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-'+ cid +'-visiting" /></label>\
+                                <label>Awareness: <input type="number" placeholder="Awareness" id="customer-'+ cid +'-awareness" /></label>\
+                                <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-'+ cid +'-payment" /></label>\
+                                <label>Price Elasticity:\
+                                  <select id="customer-'+ cid +'-elasticity">\
+                                    <option selected disabled></option>\
+                                    <option value="high">High</option>\
+                                    <option value="medium">Medium</option>\
+                                    <option value="low">Low</option>\
+                                  </select>\
+                                </label>\
+                              </div>\
+                            </div>';
+                if (currentCid < 7) {
+                  $(cust1).appendTo('#customer-listing');
+                  $('#customer-'+cid+'-flipped').hide();
+                  currentCid++;
+                  cid++;
+                  return false;
+                }
+              });
+
+              $('#customer-listing' ).on('click', '#customer-remove', function() {
+                $(this).parents('.panel').remove();
+                currentCid--;
+                $('.screen-customer').hide();
+                $('.screen-overlay').hide();
+                return false;
+              });
+
+              $('#customer-listing' ).on('click', '#prop-remove', function() {
                 $(this).parents('.panel').remove();
                 current--;
                 $('.screen-product').hide();
-                $('.screen-product-overlay').hide();
+                $('.screen-overlay').hide();
                 return false;
               });
 
@@ -870,6 +1026,61 @@
                 });
               });
 
+              $(document).on('input','[id ^=customer-][id $=-reached]', function() {
+                var cid = event.target.id.substring(9,10);
+                var tmp = '<span>Customers reached: '+$('#customer-'+cid+'-reached').val()+'</span>';
+                $('#customer-reached').empty().append(tmp);
+                $('#customer-reached').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $(document).on('input','[id ^=customer-][id $=-visiting]', function() {
+                var cid = event.target.id.substring(9,10);
+                var tmp = '<span>Customers visiting: '+$('#customer-'+cid+'-visiting').val()+'</span>';
+                $('#customer-visiting').empty().append(tmp);
+                $('#customer-visiting').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $(document).on('input','[id ^=customer-][id $=-awareness]', function() {
+                var cid = event.target.id.substring(9,10);
+                var tmp = '<span>Awareness: '+$('#customer-'+cid+'-awareness').val()+'%</span>';
+                $('#customer-awareness').empty().append(tmp);
+                $('#customer-awareness').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $(document).on('input','[id ^=customer-][id $=-payment]', function() {
+                var cid = event.target.id.substring(9,10);
+                var tmp = '<span>Payment speed: '+$('#customer-'+cid+'-payment').val()+' round(s)</span>';
+                $('#customer-payment').empty().append(tmp);
+                $('#customer-payment').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
+              $(document).on('change','[id ^=customer-][id $=-elasticity]', function() {
+                var cid = event.target.id.substring(9,10);
+                var tmp = '<span>Price Elasticity: '+$('#customer-'+cid+'-elasticity').val()+'</span>';
+                $('#customer-elasticity').empty().append(tmp);
+                $('#customer-elasticity').adaptText({
+                  minFontSize: 10,
+                  maxFontSize: 15,
+                  tollerance: 2
+                });
+              });
+
               $(document).on('click','[id ^=prop-][id $=-config]', function() {
                 var id = event.target.id.substring(5,6);
                 $('#prop-'+id+'-flipped').slideToggle();
@@ -877,7 +1088,7 @@
                 $(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
                 if ($('#prop-'+id+'-config').text()=="Hide pricing information") {
                   $('.screen-product').show();
-                  $('.screen-product-overlay').show();
+                  $('.screen-overlay').show();
                   //Get existing information
                   var id = event.target.id.substring(5,6);
                   if ($('#prop-'+id+'-name').val()!=="") {
@@ -949,10 +1160,123 @@
                   }
                 } else {
                   $('.screen-product').hide();
-                  $('.screen-product-overlay').hide();
+                  $('.screen-overlay').hide();
                 }
                 return false;
               });
+
+              $(document).on('click','[id ^=customer-][id $=-config]', function() {
+                var cid = event.target.id.substring(9,10);
+                $('#customer-'+cid+'-flipped').slideToggle();
+                this.toggle = !this.toggle;
+                $(this).text(this.toggle ? "Hide customer information" : "Configure customer information");
+                if ($('#customer-'+cid+'-config').text()=="Hide customer information") {
+                  $('.screen-customer').show();
+                  $('.screen-overlay').show();
+                  //Get existing information
+                  var cid = event.target.id.substring(9,10);
+                  if ($('#customer-'+cid+'-reached').val()!=="") {
+                    var tmp = '<span>Customer reached: '+$('#customer-'+cid+'-reached').val()+'</span>';
+                    $('#customer-reached').empty().append(tmp);
+                    $('#customer-reached').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 30,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#customer-'+cid+'-visiting').val()!=="") {
+                    var tmp = '<span>Customer visiting: '+$('#customer-'+cid+'-visiting').val()+'</span>';
+                    $('#customer-visiting').empty().append(tmp);
+                    $('#customer-visiting').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#customer-'+cid+'-awareness').val()!=="") {
+                    var tmp = '<span>Awareness: '+$('#customer-'+cid+'-awareness').val()+'</span>';
+                    $('#customer-awareness').empty().append(tmp);
+                    $('#customer-awareness').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#customer-'+cid+'-payment').val()!=="") {
+                    var tmp = '<span>Payment speed: '+$('#customer-'+cid+'-payment').val()+'</span>';
+                    $('#customer-payment').empty().append(tmp);
+                    $('#customer-payment').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#customer-'+cid+'-elasticity').val()!==null) {
+                    var tmp = '<span>Price Elasticity: '+$('#customer-'+cid+'-elasticity').val()+'</span>';
+                    $('#customer-elasticity').empty().append(tmp);
+                    $('#customer-elasticity').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#customer-'+cid+'-image').val()!==null) {
+                    var url = "url(../image/editor/customers/" + $('#customer-'+cid+'-image').val() + ".png)"
+                    $('#customer-image').css({"background-image":url});
+                  }
+                  if ($('#prop-'+cid+'-market').val()!=="") {
+                    var tmp = '<span>Market Price: $'+$('#prop-'+cid+'-market').val()+'</span>';
+                    $('#market-price').empty().append(tmp);
+                    $('#market-price').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+cid+'-material').val()!=="") {
+                    var tmp = '<span>Material Cost: $'+$('#prop-'+cid+'-material').val()+'/unit</span>';
+                    $('#material-cost').empty().append(tmp);
+                    $('#material-cost').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+cid+'-inventory').val()!=="") {
+                    var tmp = '<span>Inventory Cost: $'+$('#prop-'+cid+'-inventory').val()+'/unit</span>';
+                    $('#inventory-cost').empty().append(tmp);
+                    $('#inventory-cost').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+cid+'-defect').val()!=="") {
+                    var tmp = '<span>Defect Rate: '+$('#prop-'+cid+'-defect').val()+'%</span>';
+                    $('#defect-rate').empty().append(tmp);
+                    $('#defect-rate').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                  if ($('#prop-'+cid+'-elasticity').val()!=="") {
+                    var tmp = '<span>Price Elasticity: '+$('#prop-'+cid+'-elasticity').val()+'</span>';
+                    $('#price-elasticity').empty().append(tmp);
+                    $('#price-elasticity').adaptText({
+                      minFontSize: 10,
+                      maxFontSize: 15,
+                      tollerance: 2
+                    });
+                  }
+                } else {
+                  $('.screen-customer').hide();
+                  $('.screen-overlay').hide();
+                }
+                return false;
+              });
+
+
               function position1image () {
                 var id = event.target.id.substring(5,6);
                 if ($('#prop-'+id+'-icon').val()!==null){
@@ -1173,44 +1497,15 @@
       </ul>
     </div>
     <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="customerContainer">
         <li class="accordion-item" data-accordion-item>
-          <a href="#spellContent" class="accordion-title">Spells</a>
-          <div class="accordion-content" data-tab-content id="spellContent">
-          <div class="row">
-            <div class="panel" id="customer-cid">
-              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-cid-name" /></label>
-              <label>Customer Race:
-                <select id="customer-cid-race">
-                  <option selected disabled></option>
-                  <option value="human">Human</option>
-                  <option value="goblin">Goblin</option>
-                  <option value="orc">Orc</option>
-                </select>
-              </label>
-              <label>Customer Gender:
-                <select id="customer-cid-gender">
-                  <option selected disabled></option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-              </label>
-              <label>Customers reached: <input type="number" placeholder="Customers reaching" id="customer-cid-reaching" /></label>
-              <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-cid-visiting" /></label>
-              <label>Awareness: <input type="number" placeholder="Awareness" id="customer-cid-awareness" /></label>
-              <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-cid-payment" /></label>
-              <label>Average price:</label>
-              <label>Hat: <input type="number" placeholder="Average Price" id="customer-cid-avg1" /></label>
-              <label>Cloak: <input type="number" placeholder="Average Price" id="customer-cid-avg1" /></label>
-              <label>Price Elasticity:
-                <select id="customer-cid-elasticity">
-                  <option selected disabled></option>
-                  <option value="high">High</option>
-                  <option value="medium">Medium</option>
-                  <option value="low">Low</option>
-                </select>
-              </label>
-            </div>
+          <a href="#customerContent" class="accordion-title">Customers</a>
+          <div class="accordion-content" data-tab-content id="customerContent">
+          <div class="row" id="customer-listing">
+          </div>
+          <div class="medium-12 medium-centered" id="customerAdding">
+            <button type="button" id="customerSave" class="button saveButton">Save Changes</button>
+            <button class="success button" id="customer-add">Add</button>
           </div>
           </div>
         </li>
@@ -1386,7 +1681,7 @@
         <div class="problem2" id="problem2-area"><img src="../image/editor/fantasy/problem.png" class="selection-problem-image"></div>
         <div class="problem3" id="problem3-area"></div>
         <div class="tool" id="tool-area"><img src="../image/editor/fantasy/tool.png" class="selection-tool-image"></div>
-        <div class="screen-product-overlay"></div>
+        <div class="screen-overlay"></div>
         <div class="screen-product" id="screen-product">
           <div id="product-image"></div>
           <div id="product-name"></div>
@@ -1402,6 +1697,21 @@
             <div id="price-elasticity">
             </div>
             <div id="product-description">
+            </div>
+          </div>
+        </div>
+        <div class="screen-customer" id="screen-customer">
+          <div id="customer-image"></div>
+          <div class="customer-information">
+            <div id="customer-reached">
+            </div>
+            <div id="customer-visiting">
+            </div>
+            <div id="customer-awareness">
+            </div>
+            <div id="customer-payment">
+            </div>
+            <div id="customer-elasticity">
             </div>
           </div>
         </div>
