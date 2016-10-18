@@ -99,9 +99,14 @@ Route::group(['prefix' => 'cms'], function () {
 
   Route::get('editor', "CMS\CMSEditorCtrl@LoadPage");
 
-  //================== CLIENT EDITOR ==================
+  //================== ELEMENT EDITOR ==================
 
   Route::get('elementEditor', "CMS\CMSElementEditorCtrl@LoadPage");
+
+  //================== SPELL EDITOR ==================
+
+  Route::get('spellEditor', "CMS\CMSSpellEditorCtrl@LoadPage");
+
   });
 });
 
