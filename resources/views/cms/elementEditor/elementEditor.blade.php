@@ -1678,7 +1678,7 @@
         <div class="competitor" id="competitor-area"><img src="../image/editor/modern/competitor.png" class="selection-competitor-image"></div>
         <div class="hero" id="hero-area"><img src="../image/editor/heroes/mage.png" class="selection-hero-image"></div>
         <div class="problem1" id="problem1-area"></div>
-        <div class="problem2" id="problem2-area"><img src="../image/editor/fantasy/problem.png" class="selection-problem-image"></div>
+        <div class="problem2" id="problem2-area"></div>
         <div class="problem3" id="problem3-area"></div>
         <div class="tool" id="tool-area"><img src="../image/editor/fantasy/tool.png" class="selection-tool-image"></div>
         <div class="screen-overlay"></div>

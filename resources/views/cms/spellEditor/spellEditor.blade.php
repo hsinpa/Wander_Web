@@ -54,7 +54,7 @@
       left: 3%;
       background-color: #5e5e5e;
       border-radius: 8px;
-      overflow-y: scroll;
+      overflow-y: hidden;
       overflow-x: hidden;
       padding:5%;
       padding-right: 10%;
@@ -89,14 +89,15 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
+      border: 7px solid #383838;
     }
     #spell-actionbar{
       background-color: #444;
       position: absolute;
       top: 70%;
-      width: 50%;
+      width: 60%;
       height: 17%;
-      left: 40%;
+      left: 35%;
       border-radius: 10px;
       z-index: 1;
       padding-left: 1%;
@@ -121,7 +122,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .spell-actionbar-empty:after {
+    #spell-actionbar-empty:after {
       color: #a6a9af;
       text-align: center;
       content: "+";
@@ -131,20 +132,257 @@
       display: flex;
       justify-content: center;
     }
-    #spell-icon-group {
-      background-image: url(../image/editor/tactics/group.png);
+    .spell-icon-container > img {
+      width: 90%;
+      height: 90%;
+      margin-left: 5%;
+      margin-top: 5%;
     }
-    #spell-icon-cycle {
-      background-image: url(../image/editor/tactics/cycle.png);
+    .spell-actionbar-item > #spell-icon-group {
+      width: 90%;
+      margin-left: 5%;
+      position: absolute;
+      top: 10%;
     }
-    #spell-icon-insurance {
-      background-image: url(../image/editor/tactics/insurance.png);
+    #spell-sidebar-customer {
+      background-image: url("../image/editor/customers/knight.png");
     }
-    #spell-icon-loan {
-      background-image: url(../image/editor/tactics/loan.png);
+    #spell-sidebar-product {
+      background-image: url("../image/editor/products/hat-brown.png");
     }
-    #spell-icon-research {
-      background-image: url(../image/editor/tactics/research.png);
+    #spell-sidebar-opponent {
+      background-image: url("../image/editor/competitor/robot-gray.png");
+    }
+
+    /*/ Actionbar - Opponent /*/
+    #spell-actionbar-opponent-1 {
+      background-image: url("../image/editor/competitor/robot-gray.png");
+    }
+    #spell-actionbar-opponent-2 {
+      background-image: url("../image/editor/competitor/robot-white.png");
+    }
+    #spell-actionbar-opponent-3 {
+      background-image: url("../image/editor/competitor/robot-blue.png");
+    }
+    #spell-actionbar-opponent-4 {
+      background-image: url("../image/editor/competitor/ninja.png");
+    }
+    #spell-actionbar-opponent-5 {
+      background-image: url("../image/editor/competitor/robot-red.png");
+    }
+
+    /*/ Actionbar - Product /*/
+    #spell-actionbar-product-1 {
+      background-image: url("../image/editor/products/hat-brown.png");
+    }
+    #spell-actionbar-product-2 {
+      background-image: url("../image/editor/products/cloak-red.png");
+    }
+    #spell-actionbar-product-3 {
+      background-image: url("../image/editor/products/ring-blue.png");
+    }
+    #spell-actionbar-product-4 {
+      background-image: url("../image/editor/products/shoes-brown.png");
+    }
+    #spell-actionbar-product-5 {
+      background-image: url("../image/editor/products/bag-blue.png");
+    }
+    #spell-actionbar-product-6 {
+      background-image: url("../image/editor/products/watch-red.png");
+    }
+
+    /*/ Actionbar - Customer /*/
+    #spell-actionbar-customer-1 {
+      background-image: url("../image/editor/customers/knight.png");
+    }
+    #spell-actionbar-customer-2 {
+      background-image: url("../image/editor/customers/orc.png");
+    }
+    #spell-actionbar-customer-3 {
+      background-image: url("../image/editor/customers/paladin.png");
+    }
+    #spell-actionbar-customer-4 {
+      background-image: url("../image/editor/customers/orc-family.png");
+    }
+    #spell-actionbar-customer-5 {
+      background-image: url("../image/editor/customers/goblin-old.png");
+    }
+    #spell-actionbar-customer-6 {
+      background-image: url("../image/editor/customers/goblin-young.png");
+    }
+
+    #spell-window {
+      position: absolute;
+      width: 35%;
+      height: 50%;
+      background-color: #444;
+      border-radius: 10px;
+      left: 35%;
+      top: 15%;
+    }
+    #spell-window-image {
+      position: absolute;
+      height: 40%;
+      width: 40%;
+      top: 10%;
+      left: 10%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    #spell-window-name {
+      position: absolute;
+      width: 40%;
+      height: 7%;
+      left: 55%;
+      top: 10%;
+    }
+    #spell-window-type {
+      position: absolute;
+      width: 40%;
+      height: 7%;
+      left: 55%;
+      top: 20%;
+    }
+    #spell-window-attr-1 {
+      position: absolute;
+      top: 55%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    #spell-window-attr-2 {
+      position: absolute;
+      top: 62%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    #spell-window-attr-3 {
+      position: absolute;
+      top: 69%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    #spell-window-attr-4 {
+      position: absolute;
+      top: 76%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    #spell-window-attr-5 {
+      position: absolute;
+      top: 83%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-window-attr-name > input {
+      width: 95%;
+      position: absolute;
+      border-radius: 5px;
+      height: 90%;
+      top: 5%;
+      background-color: #383838;
+      color: white;
+      font-size: 1.5vh;
+    }
+    #spell-window-attr-1-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+    }
+    #spell-window-attr-2-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+    }
+    #spell-window-attr-3-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+    }
+    #spell-window-attr-4-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+    }
+    #spell-window-attr-5-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+    }
+    .spell-window-attr-value > input {
+      width: 100%;
+      position: absolute;
+      border-radius: 5px;
+      height: 90%;
+      top: 5%;
+      background-color: #383838;
+      color: white;
+      font-size: 1.5vh;
+    }
+    #spell-window-attr-1-value {
+      position: absolute;
+      left: 45%;
+      width: 35%;
+      height: 100%;
+    }
+    #spell-window-attr-2-value {
+      position: absolute;
+      left: 45%;
+      width: 35%;
+      height: 100%;
+    }
+    #spell-window-attr-3-value {
+      position: absolute;
+      left: 45%;
+      width: 35%;
+      height: 100%;
+    }
+    #spell-window-attr-4-value {
+      position: absolute;
+      left: 45%;
+      width: 35%;
+      height: 100%;
+    }
+    #spell-window-attr-5-value {
+      position: absolute;
+      left: 45%;
+      width: 35%;
+      height: 100%;
+    }
+    #spell-window-attr-1-type {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      height: 100%;
+    }
+    #spell-window-attr-2-type {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      height: 100%;
+    }
+    #spell-window-attr-3-type {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      height: 100%;
+    }
+    #spell-window-attr-4-type {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      height: 100%;
+    }
+    #spell-window-attr-5-type {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      height: 100%;
     }
 
   </style>
@@ -173,7 +411,7 @@
       }
       $('.spell-sidebar-open').on("click", sidebarSlide);
       $('.spell-sidebar-closed').on("click", sidebarSlide);
-
+/*
       //Dragging sidebar-storage icons to actionbar
       function actionbarDrag(selectArea, targetArea) {
         dragula([selectArea, targetArea], {
@@ -192,14 +430,65 @@
             var siblingTarget = sibling;
             this.cancel(true);
             $(targetContainer).removeClass('spell-actionbar-empty');
-            $(targetContainer).attr('id', ''+$(el).attr('id')+'');
+            $(targetContainer).removeAttr('id');
+            $(targetContainer).empty().append(el);
+            var newContainer = '<div class="spell-actionbar-item" id="spell-actionbar-empty"></div>';
+            $('#spell-actionbar').append(newContainer);
+
+            var array = document.getElementsByClassName('spell-icon-container');
+            var actionbarSelectArea = Array.prototype.slice.call(array);
+            var array = document.getElementsByClassName('spell-actionbar-item');
+            var actionbarArea = Array.prototype.slice.call(array);
+            actionbarDrag(actionbarSelectArea, actionbarArea);
         });
       }
-      //Initialize dragging
 
-      var actionbarSelectArea = document.getElementById('spell-icon-group');
-      var actionbarArea = $('.spell-actionbar-empty');
-      actionbarDrag(actionbarSelectArea)
+      //Initialize dragging
+      var array = document.getElementsByClassName('spell-icon-container');
+      var actionbarSelectArea = Array.prototype.slice.call(array);
+      var array = document.getElementsByClassName('spell-actionbar-item');
+      var actionbarArea = Array.prototype.slice.call(array);
+      var actionDrag = dragula ({
+        direction: 'mixed',
+        copy: true,
+        revertOnSpill: true,
+        containers: actionbarSelectArea,
+        containers: actionbarArea
+      }).on('drag', function () {
+          console.log('Drag started');
+      }).on('drop', function (el, target, source, sibling) {
+          var element = el;
+          var targetContainer = target;
+          var siblingTarget = sibling;
+          this.cancel(true);
+          $(targetContainer).removeClass('spell-actionbar-empty');
+          $(targetContainer).removeAttr('id');
+          $(targetContainer).empty().append(el);
+          var newContainer = '<div class="spell-actionbar-item" id="spell-actionbar-empty"></div>';
+          $('#spell-actionbar').append(newContainer);
+      });
+      */
+      var opponentBar = '<div class="spell-actionbar-item" id="spell-actionbar-opponent-1"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-opponent-2"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-opponent-3"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-opponent-4"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-opponent-5"></div>'
+
+      var productBar = '<div class="spell-actionbar-item" id="spell-actionbar-product-1"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-product-2"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-product-3"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-product-4"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-product-5"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-product-6"></div>'
+
+      var customerBar = '<div class="spell-actionbar-item" id="spell-actionbar-customer-1"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-customer-2"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-customer-3"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-customer-4"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-customer-5"></div>\
+      <div class="spell-actionbar-item" id="spell-actionbar-customer-6"></div>'
+
+
 
     });
   </script>
@@ -213,26 +502,51 @@
   <div class="medium-2 columns">
     <div class="spell-sidebar-open" id="spell-sidebar">
       <div class="spell-sidebar-storage">
-        <div class="spell-sidebar-storage-icon" id="spell-icon-container">
-          <img src="../image/editor/tactics/group.png" id="spell-icon-group">
+        <div class="spell-sidebar-storage-icon spell-icon-container" id="spell-sidebar-customer">
         </div>
-        <div class="spell-sidebar-storage-icon" id="spell-icon-container">
-          <img src="../image/editor/tactics/insurance.png" id="spell-icon-insurance">
+        <div class="spell-sidebar-storage-icon spell-icon-container" id="spell-sidebar-product">
         </div>
-        <div class="spell-sidebar-storage-icon" id="spell-icon-container">
-          <img src="../image/editor/tactics/loan.png" id="spell-icon-loan">
-        </div>
-        <div class="spell-sidebar-storage-icon" id="spell-icon-container">
-          <img src="../image/editor/tactics/research.png" id="spell-icon-research">
-        </div>
-        <div class="spell-sidebar-storage-icon" id="spell-icon-container">
-          <img src="../image/editor/tactics/cycle.png"  id="spell-icon-cycle">
+        <div class="spell-sidebar-storage-icon spell-icon-container" id="spell-sidebar-opponent">
         </div>
       </div>
     </div>
   </div>
   <div class="medium-8 columns" id="spell-actionbar">
-    <div class="spell-actionbar-item spell-actionbar-empty"></div>
+    <div class="spell-actionbar-item" id="spell-actionbar-opponent-1"></div>
+    <div class="spell-actionbar-item" id="spell-actionbar-opponent-2"></div>
+    <div class="spell-actionbar-item" id="spell-actionbar-opponent-3"></div>
+    <div class="spell-actionbar-item" id="spell-actionbar-opponent-4"></div>
+    <div class="spell-actionbar-item" id="spell-actionbar-opponent-5"></div>
+  </div>
+  <div id="spell-window">
+    <div id="spell-window-image"></div>
+    <div id="spell-window-name"></div>
+    <div id="spell-window-type"></div>
+    <div id="spell-window-attr-1">
+      <div class="spell-window-attr-name" id="spell-window-attr-1-name"><input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-1-value"><input type="number" placeholder="Value"></div>
+      <div id="spell-window-attr-1-type"><button class="button">%</button><button class="button">#</button><button class="button">Δ</button></div>
+    </div>
+    <div id="spell-window-attr-2">
+      <div class="spell-window-attr-name" id="spell-window-attr-2-name">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-2-value">Value: <input type="number" placeholder="Value"></div>
+      <div id="spell-window-attr-2-type"></div>
+    </div>
+    <div id="spell-window-attr-3">
+      <div class="spell-window-attr-name" id="spell-window-attr-3-name">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-3-value">Value: <input type="number" placeholder="Value"></div>
+      <div id="spell-window-attr-3-type"></div>
+    </div>
+    <div id="spell-window-attr-4">
+      <div class="spell-window-attr-name" id="spell-window-attr-4-name">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-4-value">Value: <input type="number" placeholder="Value"></div>
+      <div id="spell-window-attr-4-type"></div>
+    </div>
+    <div id="spell-window-attr-5">
+      <div class="spell-window-attr-name" id="spell-window-attr-5-name">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-5-value">Value: <input type="number" placeholder="Value"></div>
+      <div id="spell-window-attr-5-type"></div>
+    </div>
   </div>
 
 </div>
