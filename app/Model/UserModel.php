@@ -2,11 +2,19 @@
 namespace App\Model;
 
 use Eloquent;
+use Utility;
 use DB;
 
 class UserModel extends Eloquent {
   protected $table = 'User';
   private $sha_key = "wrainbo2016hsin";
+
+  public function GetCurrentVersion() {
+    $q ="SELECT * FROM Setting";
+    $r = DB::select($q)[0];
+
+    return $r->device_version;
+  }
 
   public function IsNewFBUser($fb_id) {
       $q = "SELECT * FROM User WHERE fb_id = ?";
@@ -17,6 +25,12 @@ class UserModel extends Eloquent {
       $q = "SELECT * FROM User WHERE email = ?";
       return (count(DB::select($q, array($email)) ) <=0);
   }
+
+  public function GetUserByID($id) {
+      $q = "SELECT * FROM User WHERE _id = ?";
+      return DB::select($q, array($id));
+  }
+
 
   public function GetUserByGuid($guid) {
       $q = "SELECT * FROM User WHERE guid = ?";
@@ -53,7 +67,7 @@ class UserModel extends Eloquent {
   //Guest User
   public function InsertUser( $data ) {
     $q ="INSERT INTO $this->table (name, guid)
-         VALUES ( ?, ?, ?)";
+         VALUES ( ?, ?)";
      DB::insert($q, array ($data->username, $data->id) );
      return DB::getPdo()->lastInsertId();
   }
@@ -93,13 +107,13 @@ class UserModel extends Eloquent {
     return DB::select($q, array($email));
   }
 
-  //EMAIL LOGIN
-  public function EmailUserUpdate($data) {
+  //If guid exist but no email yet
+  public function ExistUserEmailUpdate($data) {
     $hashPassword = hash("sha256", $data->password.$this->sha_key);
     $q = "UPDATE $this->table
-          SET name=?
-          WHERE email = ? && password = ?";
-    DB::update($q, array ($data->username, $data->email, $hashPassword) );
+          SET name=?, email = ?, password = ?
+          WHERE guid = ?";
+    DB::update($q, array ($data->username, $data->email, $hashPassword, $data->id) );
     return $this->EmailValidation($data->email, $hashPassword);
   }
 

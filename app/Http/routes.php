@@ -116,6 +116,8 @@ Route::group(['prefix' => 'analytics'], function () {
     Route::get("level/{user_id}", "CMS\CMSLevelCtrl@GetLevel");
     Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
     Route::get("trophy/{guid}/{level}", "Analytics\UserCtrl@GetTrophyRanking");
+    Route::get("getShadowPlayer/{level}/{isMulti}", "Analytics\UserCtrl@GetShadowPlayerData");
+    Route::get("getUnityVersion", "Analytics\UserCtrl@CheckUnityVersion");
 
     //For Assessment
     Route::post('login', "Analytics\UserCtrl@PrimeLogin");

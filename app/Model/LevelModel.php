@@ -69,7 +69,8 @@ class LevelModel extends Eloquent {
   }
 
   public function GetUserDataByGUID($guid) {
-    $q = "SELECT  type, max(coin) as coin, User.name, User.guid, star, hero, level
+    $q = "SELECT  type as game_mode, max(coin) as coins, User.name, User.guid,
+          star, hero, level
           FROM $this->table
           LEFT JOIN User ON User._id = Level.user_id
           WHERE User.guid = ?
@@ -95,7 +96,27 @@ class LevelModel extends Eloquent {
     return Utility::Clamp($plus-$minus, 0, $plus);
   }
 
+  public function GetAverageUserData($level) {
+    $q = "SELECT Level._id, coin, hero, user_id, name
+          FROM Level
+          LEFT JOIN User ON User._id = Level.user_id
+          WHERE type = 'multi' && Level.level = ?
+          GROUP BY Level._id
+          ORDER BY Level.coin DESC";
+    $allLevelData = DB::select($q, array( $level ));
+    return $allLevelData;
+  }
 
+  public function GetUserDataByName($level, $name) {
+    $q = "SELECT Level._id, MAX(coin) as coin, hero, user_id, name
+          FROM Level
+          LEFT JOIN User ON User._id = Level.user_id
+          WHERE  Level.level = ? && User.name = ?
+          GROUP BY Level.user_id
+          ORDER BY Level.coin DESC";
+    $allLevelData = DB::select($q, array( $level, $name ));
+    return $allLevelData;
+  }
 
   //============================ Insert ==========================
   public function SaveLevel($data, $user_id) {

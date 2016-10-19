@@ -6,6 +6,7 @@ use App\Model\SaleModel;
 use App\Model\RecordModel;
 use App\Model\InteractionModel;
 use App\Model\UserModel;
+use App\Model\ShadowDataModel;
 
 use App\Model\Utility;
 use Illuminate\Http\Request;
@@ -13,12 +14,43 @@ use Illuminate\Http\Request;
 class UserCtrl extends Controller {
 
   function __construct(LevelModel $level, SaleModel $sale, RecordModel $record,
-    InteractionModel $interaction, UserModel $user) {
+    InteractionModel $interaction, UserModel $user, ShadowDataModel $shadow) {
     $this->_user = $user;
     $this->_interaction = $interaction;
     $this->_record = $record;
     $this->_sale = $sale;
     $this->_level = $level;
+    $this->_shadow = $shadow;
+  }
+
+//================== MULTIPLAYER GROUP ==================
+  public function GetShadowPlayerData($level, $isMulti) {
+    $allLevelData = ($isMulti == "true") ? $this->_level->GetAverageUserData($level)
+                               : $this->_shadow->GetShadowData($level);
+    //Get data from top # player
+    $getIndex = Utility::Clamp(count($allLevelData)-1, 0, 5);
+    $getIndex = rand(0, $getIndex);
+
+    if (count($allLevelData) > 0) {
+      $wantedData = $allLevelData[$getIndex];
+      //Get Preparation
+      $prepareData = $this->_record->GetUserPreparationByLevelID($wantedData->_id);
+
+      //Get Sell Setting
+      $sellData = $this->_sale->GetSellSettingByLevelID($wantedData->_id);
+
+      $message = array("error_status" => false, "Level" => $wantedData,
+                      "Prepare" => $prepareData, "Sell" => $sellData);
+
+      return json_encode($message ,JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+    }
+    return json_encode(array("error_status" => true));
+  }
+//================== END MULTIPLAYER GROUP ==================
+
+//================== LOGIN GROUP ==================
+  public function CheckUnityVersion() {
+    return json_encode(array("device_version" => $this->_user->GetCurrentVersion() ));
   }
 
   //Syn Data everytime user login / go online
@@ -34,7 +66,7 @@ class UserCtrl extends Controller {
     return json_encode(array("error_status"=>false, "fb_id"=> $userData->fb_id, "email"=>$userData->email,
               "guid"=>$userData->guid, "name"=>$userData->name,
               "unlocks"=>$userData->unlocks, "game_records"=>$gameRecords),
-            JSON_UNESCAPED_UNICODE );
+            JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
   }
 
   //For Email / FB login only
@@ -50,17 +82,24 @@ class UserCtrl extends Controller {
         if ($isNewUser && !isset($data->passwordCF)) {
           return $errorMessage;
         }
-
-
         //User Register
         if ($isNewUser && count($this->_user->CheckUserAvilability($data->email))<=0) {
-          $this->_user->EmailUserInsert($data);
+          //if email not exist but guid exist
+          $userArray = $this->_user->GetUserByGuid($data->id);
+          if (count($userArray) > 0) {
+            $emailResult = $this->_user->ExistUserEmailUpdate($data);
+
+          } else {
+            //True Register
+            $this->_user->EmailUserInsert($data);
+          }
         } else if ($isNewUser) {
           return $errorMessage;
         }
         //User Login
         if (!$isNewUser) {
-          $emailResult = $this->_user->EmailUserUpdate($data);
+          $emailResult = $this->_user->EmailValidation($data->email,
+                                      Utility::GetHashString($data->password));
           if (count($emailResult) <= 0 ) {
             return $errorMessage;
           } else {
@@ -79,7 +118,6 @@ class UserCtrl extends Controller {
           $emailUser = $this->_user->GetEmailUser($data->email);
           $this->_user->FBUserUpdate($data->fb_id,$data->username,$data->email);
           $data->id = $emailUser[0]->guid;
-            echo "update";
         } else {
           $this->_user->FBUserInsert($data);
         }
@@ -97,7 +135,10 @@ class UserCtrl extends Controller {
     return $this->SynData($data);
   }
 
+  //================== END LOGIN GROUP ==================
 
+
+  //================== RANK GROUP ==================
   public function GetRanking($guid, $level) {
     $all = $this->_level->GetAllByLevel($level );
     return Utility::SortRanking($all, $guid);
@@ -108,6 +149,10 @@ class UserCtrl extends Controller {
     return Utility::SortRanking($record, $guid);
   }
 
+  //================== END RANK GROUP ==================
+
+
+  //================== SAVE RECORD GROUP ==================
   public function SaveGameRecord(Request $request) {
     $dataArray = (object) $request->json()->all();
     foreach ($dataArray as $data) {
@@ -116,6 +161,7 @@ class UserCtrl extends Controller {
       $userData = $this->_user->GetUserByGuid($data->id);
 
       $user_id=(count($userData)<=0) ? $this->_user->InsertUser($data) : $userData[0]->_id;
+      $userData = $this->_user->GetUserByID($user_id)[0];
 
 
       //If no record then save
@@ -137,8 +183,13 @@ class UserCtrl extends Controller {
       $this->_record->SaveRecord($data->report, $data->competitor_report, $level_id);
       $this->_interaction->SaveRecord($data->interaction, $level_id);
 
-      $trophyNum = $this->_level->GetTrophyNumByUID($data->id);
-      $this->_user->UpdateUser($data->id, json_encode( $data->unlocks ), $trophyNum);
+      //If win + 30 / or -15
+      if ($data->game_mode=="multi") {
+        $userData->trophy += ($data->star > 0) ? 30 : -15;
+        $userData->trophy = Utility::Clamp($userData->trophy, 0, $userData->trophy);
+      }
+
+      $this->_user->UpdateUser($data->id, json_encode( $data->unlocks ), $userData->trophy);
     }
   }
 }

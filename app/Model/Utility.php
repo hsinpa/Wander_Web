@@ -13,6 +13,11 @@ class Utility {
     return max($min, min($max, $current));
   }
 
+  public static function GetHashString($value) {
+    $sha_key = "wrainbo2016hsin";
+    return hash("sha256", $value.$sha_key);
+  }
+
   public static function SortRanking($dataArray, $selfGuid) {
     $posArrayNum = max(0, min(count($dataArray), 10));
     $topTen = array_slice($dataArray,0, $posArrayNum);
@@ -37,7 +42,7 @@ class Utility {
     }
 
     return json_encode(array("TopTen" => $topTen, "SelfRank"=>$dataArray, "Rank"=>$index),
-                              JSON_UNESCAPED_UNICODE);
+                              JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
   }
 
 }
