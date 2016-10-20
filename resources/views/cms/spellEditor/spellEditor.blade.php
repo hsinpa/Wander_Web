@@ -279,6 +279,12 @@
       width: 90%;
       left: 5%;
     }
+    .spell-window-attr-name {
+      position: absolute;
+      height: 100%;
+      width: 45%;
+      left: 5%;
+    }
     .spell-window-attr-name > input {
       width: 95%;
       position: absolute;
@@ -289,30 +295,8 @@
       color: white;
       font-size: 1.5vh;
     }
-    #spell-window-attr-1-name {
-      position: absolute;
-      height: 100%;
-      width: 45%;
-    }
-    #spell-window-attr-2-name {
-      position: absolute;
-      height: 100%;
-      width: 45%;
-    }
-    #spell-window-attr-3-name {
-      position: absolute;
-      height: 100%;
-      width: 45%;
-    }
-    #spell-window-attr-4-name {
-      position: absolute;
-      height: 100%;
-      width: 45%;
-    }
-    #spell-window-attr-5-name {
-      position: absolute;
-      height: 100%;
-      width: 45%;
+    .spell-window-attr-name > input:focus {
+      background-color: #383838;
     }
     .spell-window-attr-value > input {
       width: 100%;
@@ -324,67 +308,87 @@
       color: white;
       font-size: 1.5vh;
     }
-    #spell-window-attr-1-value {
+    .spell-window-attr-value > input:focus {
+      background-color: #383838;
+    }
+    .spell-window-attr-value {
       position: absolute;
-      left: 45%;
+      left: 50%;
       width: 35%;
       height: 100%;
     }
-    #spell-window-attr-2-value {
-      position: absolute;
-      left: 45%;
-      width: 35%;
-      height: 100%;
+    .spell-window-attr-value > input:nth-child(1) {
+      z-index: 3;
+      cursor: default;
     }
-    #spell-window-attr-3-value {
+    .spell-window-attr-type {
       position: absolute;
-      left: 45%;
-      width: 35%;
-      height: 100%;
-    }
-    #spell-window-attr-4-value {
-      position: absolute;
-      left: 45%;
-      width: 35%;
-      height: 100%;
-    }
-    #spell-window-attr-5-value {
-      position: absolute;
-      left: 45%;
-      width: 35%;
-      height: 100%;
-    }
-    #spell-window-attr-1-type {
-      position: absolute;
-      left: 80%;
+      left: 85%;
       width: 20%;
       height: 100%;
     }
-    #spell-window-attr-2-type {
+    .spell-button-percentage {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 10%;
+      width: 25%;
       position: absolute;
-      left: 80%;
-      width: 20%;
-      height: 100%;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding-left: 4%;
+      padding-right: 4%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
     }
-    #spell-window-attr-3-type {
+    .spell-button-percentage:hover, .spell-button-percentage:focus {
+      background-color: #444;
+    }
+    .spell-button-number {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 35%;
+      width: 25%;
       position: absolute;
-      left: 80%;
-      width: 20%;
-      height: 100%;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
     }
-    #spell-window-attr-4-type {
+    .spell-button-number:hover, .spell-button-number:focus {
+      background-color: #444;
+    }
+    .spell-button-delta {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 60%;
+      width: 25%;
       position: absolute;
-      left: 80%;
-      width: 20%;
-      height: 100%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      padding-right: 4%;
+      padding-left: 4%;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
     }
-    #spell-window-attr-5-type {
+    .spell-button-delta:hover, .spell-button-delta:focus {
+      background-color: #444;
+    }
+    .spell-window-attr-active {
+      width: 3%;
       position: absolute;
-      left: 80%;
-      width: 20%;
-      height: 100%;
+      height: 80%;
+      top: 20%;
     }
-
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
@@ -488,6 +492,34 @@
       <div class="spell-actionbar-item" id="spell-actionbar-customer-5"></div>\
       <div class="spell-actionbar-item" id="spell-actionbar-customer-6"></div>'
 
+      $(document).on("click",$('.spell-window-attr-value input:nth-child(1)'), function() {
+        $(event.target).next().css("z-index","4").focus();
+      });
+      $(document).on("input", $('.spell-window-attr-value input:nth-child(2)'), function () {
+        var value = $(event.target).val();
+        if (! /^-?\d*\.?\d+$/.test(value)) {
+          $(event.target).parent().next('div').find("button").prop("disabled", true);
+        } else {
+          $(event.target).parent().next('div').find("button").prop("disabled", false);
+        }
+      });
+      $(document).on("focusout",$('.spell-window-attr-value input:nth-child(2)'), function() {
+        var value = $(event.target).val();
+        if (! /^-?\d*\.?\d+$/.test(value)) {
+          $(event.target).prev().val(value);
+          $(event.target).css("z-index","2");
+        } else {
+          return false;
+        }
+      });
+      $('.spell-window-attr-type .spell-button-percentage').on("click" ,function() {
+        console.log('fired');
+        var temp = $(event.target).parent().prev().find(">:first-child").next().val()+"%";
+        console.log(temp);
+        $(event.target).parent().prev().find(">:first-child").val(temp);
+        $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+        $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+      });
 
 
     });
@@ -523,29 +555,34 @@
     <div id="spell-window-name"></div>
     <div id="spell-window-type"></div>
     <div id="spell-window-attr-1">
-      <div class="spell-window-attr-name" id="spell-window-attr-1-name"><input type="text" placeholder="Name"></div>
-      <div class="spell-window-attr-value" id="spell-window-attr-1-value"><input type="number" placeholder="Value"></div>
-      <div id="spell-window-attr-1-type"><button class="button">%</button><button class="button">#</button><button class="button">Δ</button></div>
+      <div class="spell-window-attr-active" id="spell-window-attr-active-1"><input type="radio" disabled=""></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-1"><input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
+      <div class="spell-window-attr-type" id="spell-window-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-2">
-      <div class="spell-window-attr-name" id="spell-window-attr-2-name">Name: <input type="text" placeholder="Name"></div>
-      <div class="spell-window-attr-value" id="spell-window-attr-2-value">Value: <input type="number" placeholder="Value"></div>
-      <div id="spell-window-attr-2-type"></div>
+      <div class="spell-window-attr-active" id="spell-window-attr-active-2"><input type="radio" disabled=""></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-2">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
+      <div class="spell-window-attr-type" id="spell-window-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-3">
-      <div class="spell-window-attr-name" id="spell-window-attr-3-name">Name: <input type="text" placeholder="Name"></div>
-      <div class="spell-window-attr-value" id="spell-window-attr-3-value">Value: <input type="number" placeholder="Value"></div>
-      <div id="spell-window-attr-3-type"></div>
+      <div class="spell-window-attr-active" id="spell-window-attr-active-3"><input type="radio" disabled=""></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-3">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
+      <div class="spell-window-attr-type" id="spell-window-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-4">
-      <div class="spell-window-attr-name" id="spell-window-attr-4-name">Name: <input type="text" placeholder="Name"></div>
-      <div class="spell-window-attr-value" id="spell-window-attr-4-value">Value: <input type="number" placeholder="Value"></div>
-      <div id="spell-window-attr-4-type"></div>
+      <div class="spell-window-attr-active" id="spell-window-attr-active-4"><input type="radio" disabled=""></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-4">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
+      <div class="spell-window-attr-type" id="spell-window-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-5">
-      <div class="spell-window-attr-name" id="spell-window-attr-5-name">Name: <input type="text" placeholder="Name"></div>
-      <div class="spell-window-attr-value" id="spell-window-attr-5-value">Value: <input type="number" placeholder="Value"></div>
-      <div id="spell-window-attr-5-type"></div>
+      <div class="spell-window-attr-active" id="spell-window-attr-active-5"><input type="radio" disabled=""></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-5">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-value" id="spell-window-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
+      <div class="spell-window-attr-type" id="spell-window-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
   </div>
 
