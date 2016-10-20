@@ -224,8 +224,8 @@
       position: absolute;
       height: 40%;
       width: 40%;
-      top: 10%;
-      left: 10%;
+      top: 5%;
+      left: 5%;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -234,15 +234,29 @@
       position: absolute;
       width: 40%;
       height: 7%;
-      left: 55%;
+      left: 50%;
       top: 10%;
+      color: white;
+    }
+    #spell-window-name > input {
+      width: 80%;
+      position: absolute;
+      border-radius: 5px;
+      height: 90%;
+      top: 0%;
+      background-color: #383838;
+      color: white;
+      font-size: 1.5vh;
+      left: 29%;
     }
     #spell-window-type {
       position: absolute;
       width: 40%;
       height: 7%;
-      left: 55%;
+      left: 50%;
       top: 20%;
+
+      color:white;
     }
     #spell-window-attr-1 {
       position: absolute;
@@ -281,9 +295,18 @@
     }
     .spell-window-attr-name {
       position: absolute;
-      height: 100%;
-      width: 45%;
-      left: 5%;
+      font-size: 2vh;
+      top: 10%;
+      color: white;
+      border: 1px solid #cacaca;
+      width: auto;
+      border-radius: 5px;
+      padding-left: 2%;
+      padding-right: 2%;
+      height: 86%;
+      background-color: #383838;
+      text-align: center;
+      left: 10%;
     }
     .spell-window-attr-name > input {
       width: 95%;
@@ -389,11 +412,16 @@
       height: 80%;
       top: 20%;
     }
+    #spell-window > .spell-window-attr-active {
+      display: none;
+    }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
   <script lang="text/javascript">
     $(document).ready(function() {
+      $('#spell-window').hide();
+      $('#spell-actionbar').hide();
 
       //Sidebar open/close function
       function sidebarSlide() {
@@ -507,18 +535,82 @@
         var value = $(event.target).val();
         if (! /^-?\d*\.?\d+$/.test(value)) {
           $(event.target).prev().val(value);
+          $(event.target).prev().css("color","white");
           $(event.target).css("z-index","2");
+          $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
         } else {
           return false;
         }
       });
       $('.spell-window-attr-type .spell-button-percentage').on("click" ,function() {
-        console.log('fired');
         var temp = $(event.target).parent().prev().find(">:first-child").next().val()+"%";
-        console.log(temp);
         $(event.target).parent().prev().find(">:first-child").val(temp);
         $(event.target).parent().prev().find(">:first-child").css("z-index","4");
         $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+        $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
+        var num = parseInt(temp);
+        if (num < 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","red");
+        } else if (num > 0){
+          $(event.target).parent().prev().find(">:first-child").css("color","green");
+        } else if (num == 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","white");
+        }
+      });
+      $('.spell-window-attr-type .spell-button-number').on("click" ,function() {
+        var temp = "Multiplied by " + $(event.target).parent().prev().find(">:first-child").next().val();
+        $(event.target).parent().prev().find(">:first-child").val(temp);
+        $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+        $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+        $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
+        var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
+        if (num < 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","red");
+        } else if (num > 0){
+          $(event.target).parent().prev().find(">:first-child").css("color","green");
+        } else if (num == 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","white");
+        }
+      });
+      $('.spell-window-attr-type .spell-button-delta').on("click" ,function() {
+        var temp = "Set to " + $(event.target).parent().prev().find(">:first-child").next().val();
+        $(event.target).parent().prev().find(">:first-child").val(temp);
+        $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+        $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+        $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
+        var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
+        if (num < 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","red");
+        } else if (num > 0){
+          $(event.target).parent().prev().find(">:first-child").css("color","green");
+        } else if (num == 0) {
+          $(event.target).parent().prev().find(">:first-child").css("color","white");
+        }
+      });
+      $(document).on("click",$('#spell-actionbar .spell-actionbar-item'), function() {
+        if ($(event.target).hasClass('spell-actionbar-item') == false){
+          return false;
+        }
+        $('#spell-window').show();
+        var bg = $(event.target).css('background-image');
+        $('#spell-window-image').css('background-image',bg);
+        if (bg.includes("competitor")){
+          $('#spell-window-type').html('Type: Competitor');
+        } else if (bg.includes("products")){
+          $('#spell-window-type').html('Type: Product');
+        } else {
+          $('#spell-window-type').html('Type: Customer');
+        }
+        $('#spell-window-name').html('Name: <input type="text" placeholder="Name">');
+      });
+      $('.spell-sidebar-storage #spell-sidebar-customer').on("click" ,function() {
+        $('#spell-actionbar').show().empty().append(customerBar);
+      });
+      $('.spell-sidebar-storage #spell-sidebar-product').on("click" ,function() {
+        $('#spell-actionbar').show().empty().append(productBar);
+      });
+      $('.spell-sidebar-storage #spell-sidebar-opponent').on("click" ,function() {
+        $('#spell-actionbar').show().empty().append(opponentBar);
       });
 
 
@@ -555,32 +647,27 @@
     <div id="spell-window-name"></div>
     <div id="spell-window-type"></div>
     <div id="spell-window-attr-1">
-      <div class="spell-window-attr-active" id="spell-window-attr-active-1"><input type="radio" disabled=""></div>
-      <div class="spell-window-attr-name" id="spell-window-attr-name-1"><input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-1">Population</div>
       <div class="spell-window-attr-value" id="spell-window-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
       <div class="spell-window-attr-type" id="spell-window-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-2">
-      <div class="spell-window-attr-active" id="spell-window-attr-active-2"><input type="radio" disabled=""></div>
-      <div class="spell-window-attr-name" id="spell-window-attr-name-2">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-2">Awareness</div>
       <div class="spell-window-attr-value" id="spell-window-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
       <div class="spell-window-attr-type" id="spell-window-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-3">
-      <div class="spell-window-attr-active" id="spell-window-attr-active-3"><input type="radio" disabled=""></div>
-      <div class="spell-window-attr-name" id="spell-window-attr-name-3">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-3">Elasticity</div>
       <div class="spell-window-attr-value" id="spell-window-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
       <div class="spell-window-attr-type" id="spell-window-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-4">
-      <div class="spell-window-attr-active" id="spell-window-attr-active-4"><input type="radio" disabled=""></div>
-      <div class="spell-window-attr-name" id="spell-window-attr-name-4">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-4">Popularity</div>
       <div class="spell-window-attr-value" id="spell-window-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
       <div class="spell-window-attr-type" id="spell-window-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
     <div id="spell-window-attr-5">
-      <div class="spell-window-attr-active" id="spell-window-attr-active-5"><input type="radio" disabled=""></div>
-      <div class="spell-window-attr-name" id="spell-window-attr-name-5">Name: <input type="text" placeholder="Name"></div>
+      <div class="spell-window-attr-name" id="spell-window-attr-name-5">Charisma</div>
       <div class="spell-window-attr-value" id="spell-window-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
       <div class="spell-window-attr-type" id="spell-window-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
     </div>
