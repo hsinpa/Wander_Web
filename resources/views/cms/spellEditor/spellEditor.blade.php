@@ -415,6 +415,122 @@
     #spell-window > .spell-window-attr-active {
       display: none;
     }
+    #spell-information {
+      background-color: #444;
+      left: 72%;
+      width: 23%;
+      height: 50%;
+      top: 15%;
+      position: absolute;
+      border-radius: 10px;
+    }
+    #spell-information > .spell-information-name {
+      position: absolute;
+      top: 50%;
+      width: 80%;
+      left: 10%;
+      height: 10%;
+      font-size: 2.5vh;
+      color: white;
+    }
+    #spell-information > .spell-information-name > .spell-information-name-title {
+      color: gray;
+    }
+    #spell-information > .spell-information-description {
+      position: absolute;
+      top: 60%;
+      width: 80%;
+      left: 10%;
+      height: 20%;
+      font-size: 2.5vh;
+      color: white;
+    }
+    #spell-information > .spell-information-name > .spell-information-description-title {
+      color: gray;
+    }
+    #spell-information > .spell-information-image {
+      position: absolute;
+      height: 40%;
+      width: 40%;
+      top: 5%;
+      left: 5%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../image/editor/tactics/group.png");
+    }
+    #spell-window-image > .spell-window-image-1 {
+      position: absolute;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #spell-window-image > .spell-window-image-2 {
+      position: absolute;
+      left: 33%;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #spell-window-image > .spell-window-image-3 {
+      position: absolute;
+      left: 66%;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #spell-window-image > .spell-window-image-4 {
+      position: absolute;
+      top: 53%;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #spell-window-image > .spell-window-image-5 {
+      position: absolute;
+      top: 53%;
+      left: 33%;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #spell-window-image > .spell-window-image-6 {
+      position: absolute;
+      top: 53%;
+      left: 66%;
+      width: 33%;
+      height: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .spell-window-attr-value > input:nth-child(3) {
+      display: none;
+    }
+    #spell-information > span.spell-information-name {
+      font-size: 2vh;
+    }
+    .spell-information-name > input {
+      display: inline-block;
+      width: 60%;
+      z-index: 2;
+      position: relative;
+      border-radius: 5px;
+      height: 60%;
+    }
+    #spell-information > span.spell-information-description {
+      font-size: 2vh;
+    }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
@@ -422,6 +538,8 @@
     $(document).ready(function() {
       $('#spell-window').hide();
       $('#spell-actionbar').hide();
+      $('#spell-information').hide();
+
 
       //Sidebar open/close function
       function sidebarSlide() {
@@ -532,6 +650,9 @@
         }
       });
       $(document).on("focusout",$('.spell-window-attr-value input:nth-child(2)'), function() {
+        if ($(event.target).hasClass('spell-window-attr-value') == false){
+          return false;
+        }
         var value = $(event.target).val();
         if (! /^-?\d*\.?\d+$/.test(value)) {
           $(event.target).prev().val(value);
@@ -543,47 +664,52 @@
         }
       });
       $('.spell-window-attr-type .spell-button-percentage').on("click" ,function() {
-        var temp = $(event.target).parent().prev().find(">:first-child").next().val()+"%";
-        $(event.target).parent().prev().find(">:first-child").val(temp);
+        var temp = $(event.target).parent().prev().find(">:last-child").val();
+        var perc = $(event.target).parent().prev().find(">:first-child").next().val();
+        var result = (perc / 100) * temp;
+        $(event.target).parent().prev().find(">:first-child").val(result);
         $(event.target).parent().prev().find(">:first-child").css("z-index","4");
         $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
         $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
-        var num = parseInt(temp);
-        if (num < 0) {
+        if (perc < 100) {
           $(event.target).parent().prev().find(">:first-child").css("color","red");
-        } else if (num > 0){
+        } else if (perc > 100){
           $(event.target).parent().prev().find(">:first-child").css("color","green");
-        } else if (num == 0) {
+        } else if (perc == 100) {
           $(event.target).parent().prev().find(">:first-child").css("color","white");
         }
       });
       $('.spell-window-attr-type .spell-button-number').on("click" ,function() {
-        var temp = "Multiplied by " + $(event.target).parent().prev().find(">:first-child").next().val();
-        $(event.target).parent().prev().find(">:first-child").val(temp);
+        var temp = $(event.target).parent().prev().find(">:last-child").val();
+        var add = $(event.target).parent().prev().find(">:first-child").next().val();
+        var result = parseInt(temp) + parseInt(add);
+        $(event.target).parent().prev().find(">:first-child").val(result);
         $(event.target).parent().prev().find(">:first-child").css("z-index","4");
         $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
         $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
         var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
-        if (num < 0) {
+        if (add < 0) {
           $(event.target).parent().prev().find(">:first-child").css("color","red");
-        } else if (num > 0){
+        } else if (add > 0){
           $(event.target).parent().prev().find(">:first-child").css("color","green");
-        } else if (num == 0) {
+        } else if (add == 0) {
           $(event.target).parent().prev().find(">:first-child").css("color","white");
         }
       });
       $('.spell-window-attr-type .spell-button-delta').on("click" ,function() {
-        var temp = "Set to " + $(event.target).parent().prev().find(">:first-child").next().val();
-        $(event.target).parent().prev().find(">:first-child").val(temp);
+        var temp = $(event.target).parent().prev().find(">:last-child").val();
+        var add = $(event.target).parent().prev().find(">:first-child").next().val();
+        var result = parseInt(add);
+        $(event.target).parent().prev().find(">:first-child").val(result);
         $(event.target).parent().prev().find(">:first-child").css("z-index","4");
         $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
         $(event.target).parent().parent().prepend('<div class="spell-window-attr-active"><input type="radio" checked></div>');
         var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
-        if (num < 0) {
+        if (result < temp) {
           $(event.target).parent().prev().find(">:first-child").css("color","red");
-        } else if (num > 0){
+        } else if (result > temp){
           $(event.target).parent().prev().find(">:first-child").css("color","green");
-        } else if (num == 0) {
+        } else if (result == temp) {
           $(event.target).parent().prev().find(">:first-child").css("color","white");
         }
       });
@@ -591,26 +717,108 @@
         if ($(event.target).hasClass('spell-actionbar-item') == false){
           return false;
         }
-        $('#spell-window').show();
+        $('#spell-window').show(600);
+        $('#spell-information').show(600);
         var bg = $(event.target).css('background-image');
-        $('#spell-window-image').css('background-image',bg);
+        if ($('.spell-window-image-1').css('background-image') == "none" || $('.spell-window-image-1').css('background-image') == bg) {
+          $('.spell-window-image-1').css('background-image',bg);
+        } else if ($('.spell-window-image-2').css('background-image') == "none" || $('.spell-window-image-2').css('background-image') == bg) {
+          $('.spell-window-image-2').css('background-image',bg);
+        } else if ($('.spell-window-image-3').css('background-image') == "none" || $('.spell-window-image-3').css('background-image') == bg) {
+          $('.spell-window-image-3').css('background-image',bg);
+        } else if ($('.spell-window-image-4').css('background-image') == "none" || $('.spell-window-image-4').css('background-image') == bg) {
+          $('.spell-window-image-4').css('background-image',bg);
+        } else if ($('.spell-window-image-5').css('background-image') == "none" || $('.spell-window-image-5').css('background-image') == bg) {
+          $('.spell-window-image-5').css('background-image',bg);
+        } else if ($('.spell-window-image-6').css('background-image') == "none" || $('.spell-window-image-6').css('background-image') == bg) {
+          $('.spell-window-image-6').css('background-image',bg);
+        }
         if (bg.includes("competitor")){
           $('#spell-window-type').html('Type: Competitor');
+          if (bg.includes("ninja")) {
+            $('#spell-window-name').html('Name: Ninja');
+          } else if (bg.includes("robot-blue")) {
+            $('#spell-window-name').html('Name: Blue Robot');
+          } else if (bg.includes("robot-gray")) {
+            $('#spell-window-name').html('Name: Gray Robot');
+          } else if (bg.includes("robot-red")) {
+            $('#spell-window-name').html('Name: Red Robot');
+          } else if (bg.includes("robot-white")) {
+            $('#spell-window-name').html('Name: White Robot');
+          }
         } else if (bg.includes("products")){
           $('#spell-window-type').html('Type: Product');
+          if (bg.includes("bag")) {
+            $('#spell-window-name').html('Name: Bag');
+          } else if (bg.includes("cloak")) {
+            $('#spell-window-name').html('Name: Cloak');
+          } else if (bg.includes("hat")) {
+            $('#spell-window-name').html('Name: Hat');
+          } else if (bg.includes("ring")) {
+            $('#spell-window-name').html('Name: Ring');
+          } else if (bg.includes("shoes")) {
+            $('#spell-window-name').html('Name: Shoes');
+          } else if (bg.includes("watch")) {
+            $('#spell-window-name').html('Name: Watch');
+          }
         } else {
           $('#spell-window-type').html('Type: Customer');
+          if (bg.includes("knight")) {
+            $('#spell-window-name').html('Name: Knight');
+          } else if (bg.includes("paladin")) {
+            $('#spell-window-name').html('Name: Paladin');
+          } else if (bg.includes("goblin-young")) {
+            $('#spell-window-name').html('Name: Young Goblin');
+          } else if (bg.includes("goblin-old")) {
+            $('#spell-window-name').html('Name: Old Goblin');
+          } else if (bg.includes("orc-family")) {
+            $('#spell-window-name').html('Name: Orc Family');
+          } else if (bg.includes("orc")) {
+            $('#spell-window-name').html('Name: Orc');
+          }
         }
-        $('#spell-window-name').html('Name: <input type="text" placeholder="Name">');
       });
       $('.spell-sidebar-storage #spell-sidebar-customer').on("click" ,function() {
         $('#spell-actionbar').show().empty().append(customerBar);
+        document.getElementById('spell-form').reset();
+        for (x = 1; x < 6; x++){
+          var tmp = Math.floor(Math.random() * 100) + 1;
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
+        }
+        $('.spell-window-attr-active').remove();
+        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window').hide(600);
+        $('#spell-information').show(600);
       });
       $('.spell-sidebar-storage #spell-sidebar-product').on("click" ,function() {
         $('#spell-actionbar').show().empty().append(productBar);
+        document.getElementById('spell-form').reset();
+        for (x = 1; x < 6; x++){
+          var tmp = Math.floor(Math.random() * 100) + 1;
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
+        }
+        $('.spell-window-attr-active').remove();
+        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window').hide(600);
+        $('#spell-information').show(600);
       });
       $('.spell-sidebar-storage #spell-sidebar-opponent').on("click" ,function() {
         $('#spell-actionbar').show().empty().append(opponentBar);
+        document.getElementById('spell-form').reset();
+        for (x = 1; x < 6; x++){
+          var tmp = Math.floor(Math.random() * 100) + 1;
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
+          $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
+        }
+        $('.spell-window-attr-active').remove();
+        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window').hide(600);
+        $('#spell-information').show(600);
       });
 
 
@@ -643,38 +851,53 @@
     <div class="spell-actionbar-item" id="spell-actionbar-opponent-5"></div>
   </div>
   <div id="spell-window">
-    <div id="spell-window-image"></div>
+    <div id="spell-window-image">
+      <div class="spell-window-image-1"></div>
+      <div class="spell-window-image-2"></div>
+      <div class="spell-window-image-3"></div>
+      <div class="spell-window-image-4"></div>
+      <div class="spell-window-image-5"></div>
+      <div class="spell-window-image-6"></div>
+    </div>
     <div id="spell-window-name"></div>
     <div id="spell-window-type"></div>
-    <div id="spell-window-attr-1">
-      <div class="spell-window-attr-name" id="spell-window-attr-name-1">Population</div>
-      <div class="spell-window-attr-value" id="spell-window-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
-      <div class="spell-window-attr-type" id="spell-window-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+    <form id="spell-form">
+      <div id="spell-window-attr-1">
+        <span class="spell-window-attr-name" id="spell-window-attr-name-1">Population</span>
+        <div class="spell-window-attr-value" id="spell-window-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+        <div class="spell-window-attr-type" id="spell-window-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+      </div>
+      <div id="spell-window-attr-2">
+        <span class="spell-window-attr-name" id="spell-window-attr-name-2">Awareness</span>
+        <div class="spell-window-attr-value" id="spell-window-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+        <div class="spell-window-attr-type" id="spell-window-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+      </div>
+      <div id="spell-window-attr-3">
+        <span class="spell-window-attr-name" id="spell-window-attr-name-3">Elasticity</span>
+        <div class="spell-window-attr-value" id="spell-window-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+        <div class="spell-window-attr-type" id="spell-window-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+      </div>
+      <div id="spell-window-attr-4">
+        <span class="spell-window-attr-name" id="spell-window-attr-name-4">Popularity</span>
+        <div class="spell-window-attr-value" id="spell-window-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+        <div class="spell-window-attr-type" id="spell-window-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+      </div>
+      <div id="spell-window-attr-5">
+        <span class="spell-window-attr-name" id="spell-window-attr-name-5">Responsiveness</span>
+        <div class="spell-window-attr-value" id="spell-window-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+        <div class="spell-window-attr-type" id="spell-window-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+      </div>
     </div>
-    <div id="spell-window-attr-2">
-      <div class="spell-window-attr-name" id="spell-window-attr-name-2">Awareness</div>
-      <div class="spell-window-attr-value" id="spell-window-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
-      <div class="spell-window-attr-type" id="spell-window-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
-    </div>
-    <div id="spell-window-attr-3">
-      <div class="spell-window-attr-name" id="spell-window-attr-name-3">Elasticity</div>
-      <div class="spell-window-attr-value" id="spell-window-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
-      <div class="spell-window-attr-type" id="spell-window-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
-    </div>
-    <div id="spell-window-attr-4">
-      <div class="spell-window-attr-name" id="spell-window-attr-name-4">Popularity</div>
-      <div class="spell-window-attr-value" id="spell-window-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
-      <div class="spell-window-attr-type" id="spell-window-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
-    </div>
-    <div id="spell-window-attr-5">
-      <div class="spell-window-attr-name" id="spell-window-attr-name-5">Charisma</div>
-      <div class="spell-window-attr-value" id="spell-window-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
-      <div class="spell-window-attr-type" id="spell-window-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
-    </div>
+  </div>
+  </form>
+  <div id="spell-information">
+    <div class="spell-information-image"></div>
+    <span class="spell-information-name">Spell Name: <input type="text"></span>
+    <span class="spell-information-description">Description: <textarea rows="3"></textarea></span>
   </div>
 
 </div>
 
-</form>
+
 
 @stop
