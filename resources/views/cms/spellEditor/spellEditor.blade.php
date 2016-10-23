@@ -529,6 +529,7 @@
       border-radius: 10px;
       left: 35%;
       top: 15%;
+      z-index: 11;
     }
     .spell-window-item {
       position: absolute;
@@ -772,9 +773,16 @@
           return false;
         }
 
-        $('#spell-window').show(600);
-        $('#spell-information').show(600);
-
+        if ($('#spell-window-container').is(":visible")) {
+          $('#spell-window-container').hide(600);
+          setTimeout(function(){
+            $('#spell-window').show(600);
+            $('#spell-information').show(600);
+          }, 600);
+        } else {
+            $('#spell-window').show(600);
+            $('#spell-information').show(600);
+        }
 
         var bg = $(event.target).css('background-image');
         $('#spell-window-image').css('background-image',bg);
