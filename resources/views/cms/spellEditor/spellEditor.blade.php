@@ -237,26 +237,16 @@
       left: 50%;
       top: 10%;
       color: white;
-    }
-    #spell-window-name > input {
-      width: 80%;
-      position: absolute;
-      border-radius: 5px;
-      height: 90%;
-      top: 0%;
-      background-color: #383838;
-      color: white;
-      font-size: 1.5vh;
-      left: 29%;
+      font-size: 2vh;
     }
     #spell-window-type {
       position: absolute;
       width: 40%;
       height: 7%;
       left: 50%;
-      top: 20%;
-
+      top: 22%;
       color:white;
+      font-size: 2vh;
     }
     #spell-window-attr-1 {
       position: absolute;
@@ -531,6 +521,65 @@
     #spell-information > span.spell-information-description {
       font-size: 2vh;
     }
+    #spell-window-container {
+      position: absolute;
+      width: 35%;
+      height: 50%;
+      background-color: #444;
+      border-radius: 10px;
+      left: 35%;
+      top: 15%;
+    }
+    .spell-window-item {
+      position: absolute;
+      width: 28%;
+      height: 45%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .spell-window-container-1 {
+      top: 13%;
+      left: 5%;
+    }
+    .spell-window-container-2 {
+      top: 13%;
+      left: 35%;
+    }
+    .spell-window-container-3 {
+      top: 13%;
+      left: 65%;
+    }
+    .spell-window-container-4 {
+      top: 55%;
+      left: 5%;
+    }
+    .spell-window-container-5 {
+      top: 55%;
+      left: 35%;
+    }
+    .spell-window-container-6 {
+      top: 55%;
+      left: 65%;
+    }
+    .spell-window-title {
+      font-size: 2.5vh;
+      top: 2%;
+      position: absolute;
+      left: 4%;
+      color: white;
+    }
+    #spell-window-close {
+      background-image: url("../image/editor/close.png");
+      position: absolute;
+      width: 7%;
+      height: 5%;
+      top: 3%;
+      left: 88%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
@@ -539,6 +588,9 @@
       $('#spell-window').hide();
       $('#spell-actionbar').hide();
       $('#spell-information').hide();
+      $('#spell-window-product').hide();
+      $('#spell-window-competitor').hide();
+      $('#spell-window-container').hide();
 
 
       //Sidebar open/close function
@@ -717,21 +769,27 @@
         if ($(event.target).hasClass('spell-actionbar-item') == false){
           return false;
         }
-        $('#spell-window').show(600);
-        $('#spell-information').show(600);
+
+        $('#spell-window-container').hide(600);
+        setTimeout(function(){
+          $('#spell-window').show(600);
+          $('#spell-information').show(600);
+        }, 600);
+
         var bg = $(event.target).css('background-image');
-        if ($('.spell-window-image-1').css('background-image') == "none" || $('.spell-window-image-1').css('background-image') == bg) {
-          $('.spell-window-image-1').css('background-image',bg);
-        } else if ($('.spell-window-image-2').css('background-image') == "none" || $('.spell-window-image-2').css('background-image') == bg) {
-          $('.spell-window-image-2').css('background-image',bg);
-        } else if ($('.spell-window-image-3').css('background-image') == "none" || $('.spell-window-image-3').css('background-image') == bg) {
-          $('.spell-window-image-3').css('background-image',bg);
-        } else if ($('.spell-window-image-4').css('background-image') == "none" || $('.spell-window-image-4').css('background-image') == bg) {
-          $('.spell-window-image-4').css('background-image',bg);
-        } else if ($('.spell-window-image-5').css('background-image') == "none" || $('.spell-window-image-5').css('background-image') == bg) {
-          $('.spell-window-image-5').css('background-image',bg);
-        } else if ($('.spell-window-image-6').css('background-image') == "none" || $('.spell-window-image-6').css('background-image') == bg) {
-          $('.spell-window-image-6').css('background-image',bg);
+        $('#spell-window-image').css('background-image',bg);
+        if ($('.spell-window-container-1').css('background-image') == "none" || $('.spell-window-container-1').css('background-image') == bg) {
+          $('.spell-window-container-1').css('background-image',bg);
+        } else if ($('.spell-window-container-2').css('background-image') == "none" || $('.spell-window-container-2').css('background-image') == bg) {
+          $('.spell-window-container-2').css('background-image',bg);
+        } else if ($('.spell-window-container-3').css('background-image') == "none" || $('.spell-window-container-3').css('background-image') == bg) {
+          $('.spell-window-container-3').css('background-image',bg);
+        } else if ($('.spell-window-container-4').css('background-image') == "none" || $('.spell-window-container-4').css('background-image') == bg) {
+          $('.spell-window-container-4').css('background-image',bg);
+        } else if ($('.spell-window-container-5').css('background-image') == "none" || $('.spell-window-container-5').css('background-image') == bg) {
+          $('.spell-window-container-5').css('background-image',bg);
+        } else if ($('.spell-window-container-6').css('background-image') == "none" || $('.spell-window-container-6').css('background-image') == bg) {
+          $('.spell-window-container-6').css('background-image',bg);
         }
         if (bg.includes("competitor")){
           $('#spell-window-type').html('Type: Competitor');
@@ -788,7 +846,14 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
         $('.spell-window-attr-active').remove();
-        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window-container').children().css("background-image", "none");
+        $('.spell-window-container-1').empty();
+        $('.spell-window-container-2').empty();
+        $('.spell-window-container-3').empty();
+        $('.spell-window-container-4').empty();
+        $('.spell-window-container-5').empty();
+        $('.spell-window-container-6').empty();
+        $('.spell-window-title').empty().text('Customers affected');
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
       });
@@ -802,7 +867,8 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
         $('.spell-window-attr-active').remove();
-        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window-container').children().css("background-image", "none");
+        $('.spell-window-title').empty().text('Products affected');
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
       });
@@ -816,9 +882,14 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
         $('.spell-window-attr-active').remove();
-        $('#spell-window-image').children().css("background-image", "none");
+        $('#spell-window-container').children().css("background-image", "none");
+        $('.spell-window-title').empty().text('Competitors affected');
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
+      });
+      $('#spell-window-close').on("click" ,function() {
+        $('#spell-window').hide(600);
+        setTimeout(function(){ $('#spell-window-container').show(600); }, 600);
       });
 
 
@@ -851,14 +922,8 @@
     <div class="spell-actionbar-item" id="spell-actionbar-opponent-5"></div>
   </div>
   <div id="spell-window">
-    <div id="spell-window-image">
-      <div class="spell-window-image-1"></div>
-      <div class="spell-window-image-2"></div>
-      <div class="spell-window-image-3"></div>
-      <div class="spell-window-image-4"></div>
-      <div class="spell-window-image-5"></div>
-      <div class="spell-window-image-6"></div>
-    </div>
+    <div id="spell-window-close"></div>
+    <div id="spell-window-image"></div>
     <div id="spell-window-name"></div>
     <div id="spell-window-type"></div>
     <form id="spell-form">
@@ -894,6 +959,15 @@
     <div class="spell-information-image"></div>
     <span class="spell-information-name">Spell Name: <input type="text"></span>
     <span class="spell-information-description">Description: <textarea rows="3"></textarea></span>
+  </div>
+  <div id="spell-window-container">
+    <span class="spell-window-title"></span>
+    <div class="spell-window-item spell-window-container-1"></div>
+    <div class="spell-window-item spell-window-container-2"></div>
+    <div class="spell-window-item spell-window-container-3"></div>
+    <div class="spell-window-item spell-window-container-4"></div>
+    <div class="spell-window-item spell-window-container-5"></div>
+    <div class="spell-window-item spell-window-container-6"></div>
   </div>
 
 </div>
