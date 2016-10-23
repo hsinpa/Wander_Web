@@ -690,7 +690,8 @@
       <div class="spell-actionbar-item" id="spell-actionbar-customer-5"></div>\
       <div class="spell-actionbar-item" id="spell-actionbar-customer-6"></div>'
 
-      $(document).on("click",$('.spell-window-attr-value input:nth-child(1)'), function() {
+      var spellForm = $('#spell-form');
+      $(spellForm).on("click",$('.spell-window-attr-value input:nth-child(1)'), function() {
         $(event.target).next().css("z-index","4").focus();
       });
       $(document).on("input", $('.spell-window-attr-value input:nth-child(2)'), function () {
@@ -765,16 +766,15 @@
           $(event.target).parent().prev().find(">:first-child").css("color","white");
         }
       });
-      $(document).on("click",$('#spell-actionbar .spell-actionbar-item'), function() {
+      var spellActionbar = $('#spell-actionbar');
+      $(spellActionbar).on("click",$('#spell-actionbar .spell-actionbar-item'), function() {
         if ($(event.target).hasClass('spell-actionbar-item') == false){
           return false;
         }
 
-        $('#spell-window-container').hide(600);
-        setTimeout(function(){
-          $('#spell-window').show(600);
-          $('#spell-information').show(600);
-        }, 600);
+        $('#spell-window').show(600);
+        $('#spell-information').show(600);
+
 
         var bg = $(event.target).css('background-image');
         $('#spell-window-image').css('background-image',bg);
@@ -845,6 +845,7 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
+        $('#spell-window-container').hide(600);
         $('.spell-window-attr-active').remove();
         $('#spell-window-container').children().css("background-image", "none");
         $('.spell-window-container-1').empty();
@@ -853,9 +854,9 @@
         $('.spell-window-container-4').empty();
         $('.spell-window-container-5').empty();
         $('.spell-window-container-6').empty();
-        $('.spell-window-title').empty().text('Customers affected');
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
+        setTimeout(function(){ $('.spell-window-title').empty().text('Customers affected'); }, 600);
       });
       $('.spell-sidebar-storage #spell-sidebar-product').on("click" ,function() {
         $('#spell-actionbar').show().empty().append(productBar);
@@ -866,11 +867,18 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
+        $('#spell-window-container').hide(600);
         $('.spell-window-attr-active').remove();
         $('#spell-window-container').children().css("background-image", "none");
-        $('.spell-window-title').empty().text('Products affected');
+        $('.spell-window-container-1').empty();
+        $('.spell-window-container-2').empty();
+        $('.spell-window-container-3').empty();
+        $('.spell-window-container-4').empty();
+        $('.spell-window-container-5').empty();
+        $('.spell-window-container-6').empty();
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
+        setTimeout(function(){ $('.spell-window-title').empty().text('Products affected'); }, 600);
       });
       $('.spell-sidebar-storage #spell-sidebar-opponent').on("click" ,function() {
         $('#spell-actionbar').show().empty().append(opponentBar);
@@ -881,11 +889,18 @@
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(3)').val(tmp.toString());
           $('#spell-window-attr-value-' + x + ' >  input:nth-child(1)').css("color", "white");
         }
+        $('#spell-window-container').hide(600);
         $('.spell-window-attr-active').remove();
         $('#spell-window-container').children().css("background-image", "none");
-        $('.spell-window-title').empty().text('Competitors affected');
+        $('.spell-window-container-1').empty();
+        $('.spell-window-container-2').empty();
+        $('.spell-window-container-3').empty();
+        $('.spell-window-container-4').empty();
+        $('.spell-window-container-5').empty();
+        $('.spell-window-container-6').empty();
         $('#spell-window').hide(600);
         $('#spell-information').show(600);
+        setTimeout(function(){ $('.spell-window-title').empty().text('Competitors affected'); }, 600);
       });
       $('#spell-window-close').on("click" ,function() {
         $('#spell-window').hide(600);
