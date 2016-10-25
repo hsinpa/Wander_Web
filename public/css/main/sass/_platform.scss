@@ -8,18 +8,23 @@
       }
     }
     div {
-      margin-top: 1em;
+      // margin-top: 1em;
     }
   }
   .platformDetailPanel-1 {
     .detailRow {
       @media screen and (min-width: 64em) {
-          margin-top: 5em;
+          margin-top: 4em;
        }
     }
   }
   .platformDetailPanel-2 {
     background-color: #f3f3f3;
+    .detailRow {
+      @media screen and (min-width: 64em) {
+          margin-top: 4em;
+       }
+    }
   }
 
     .rslides_container {

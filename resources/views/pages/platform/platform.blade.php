@@ -4,8 +4,7 @@
     <div id="wrainbo-intro-main" class="platform-bg">
           <h1>Customizable platform</h1>
 
-          <p>Wrainbo is a customizable learning and assessment platform <br />
-            that combines mobile gaming and big data</p>
+          <p>Problem-solving modularization &#183; Platform editor &#183; Portfolio of games</p>
 
           <!-- <img class="breakline" src="image/icon/breakline_yellow.png"></img> -->
             <!-- <div class="detail-bt">
@@ -22,6 +21,7 @@
 
     </div>
     @include('pages.platform.platform_detail')
+    @include('layouts.footer')
   </article>
 
   <script>

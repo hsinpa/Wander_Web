@@ -19,15 +19,16 @@
         <ul >
           <!-- <li><a href="/"><img src="image/icon/logo.png" /></a></li> -->
           <li><a href="/">HOME</a></li>
-          <li><a href="overview">MAGITECH</a>
+          <li><a href="gameplay">PLATFORM</a>
             <ul>
-            <li class="nav3"><a href="/overview">Overview</a></li>
-            <li class="nav3"><a href="/learning">Practical Learning</a></li>
-            <li class="nav3"><a href="/assessment">Data Driven Assessment</a></li>
-            <li class="nav3"><a href="/package">Package</a></li>
+            <li class="nav3"><a href="/gameplay">GAME-BASED LEARNING</a></li>
+            <!-- <li class="nav3"><a href="/learning">Practical Learning</a></li> -->
+            <li class="nav3"><a href="/assessment">DATA DRIVEN ASSESSMENT</a></li>
+            <li class="nav3"><a href="/platform">CUSTOMIZABLE PLATFORM</a></li>
+            <!-- <li class="nav3"><a href="/package">Package</a></li> -->
             </ul>
           </li>
-          <li><a href="/platform">PLATFORM</a></li>
+          <li><a href="/games">GAMES</a></li>
           <li><a href="/aboutUs" >ABOUT US</a></li>
           <li><a class="demo-button" href="/demo" >GET DEMO</a></li>
           <li class="web-topbar-seperateLine"> | </li>

@@ -2,10 +2,10 @@
 @section('content')
   <article id="wrainbo-intro">
     <div id="wrainbo-intro-main" class="gameplay-bg">
-          <h1>Magitech Overview</h1>
+          <h1>Immersive game-based learning</h1>
 
-          <p>In Magitech, fantasy mobile gameplay is seamlessly blended with<br />
-            practical business learning in bite-sized levels.</p>
+          <p>Hands-on simulation &#183; Bite-sized mobile learning
+           &#183; On-demand learning tools</p>
 
           <!-- <img class="breakline" src="image/icon/breakline_yellow.png"></img> -->
             <!-- <div class="detail-bt">
@@ -21,8 +21,8 @@
           </a>
 
     </div>
-    @include('pages.home.gameIntro')
     @include('pages.gameplay.gameplay_detail')
+    @include('layouts.footer')
   </article>
 
   <script>

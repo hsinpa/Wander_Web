@@ -79,6 +79,14 @@ class LevelModel extends Eloquent {
     return DB::select($q, array ($guid) );
   }
 
+  public function GetMaxLevel() {
+    $q = "SELECT max( level ) AS level
+          FROM $this->table
+          WHERE type = 'campaign'";
+
+    return DB::select($q);
+  }
+
   //============================ Multiplayer ==========================
   public function GetTrophyNumByUID($user_id) {
     $q = "SELECT  type, coin, star, hero, level

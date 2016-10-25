@@ -3,9 +3,9 @@
 
           <section class="row">
             <div class="detailRow medium-6 columns">
-              <h1>Fantasy meets business</h1>
+              <h1>Hands-on simulation</h1>
               <p>
-                Magitech is the world’s first mobile fantasy game that helps people build business acumen. Using magic heroes and spells that represent business management techniques, players will compete with robots and trade with fantasy characters to maximize profits.
+                Wrainbo’s gameplay involves using various tools to solve problems, and adapting strategy based on the simulation results. Through hands-on practice, players not only will be more engaged but also would retain knowledge better.
               </p>
             </div>
 
@@ -27,7 +27,7 @@
                 <h1>Bite-sized mobile learning</h1>
 
               <p>
-                Magitech is designed for mobile to be played anytime and anywhere. Its single-player mode features bite-sized levels of 5-10 minutes, and each level features a concrete business concept- such as demand driven pricing and product quality control- to learn and practice.
+                Our games are designed for mobile devices and feature bite-sized levels that allow players to learn at their own pace, anytime an anywhere. Each business concept is introduced as a chop so it is effortless to digest.
               </p>
             </div>
           </section>
@@ -37,14 +37,14 @@
 
           <section class="row">
             <div class="detailRow medium-6 columns">
-                <h1>Social gameplay</h1>
+                <h1>On-demand learning tools</h1>
 
               <p>
-                Embedded in Magitech is a library that cover all the core concepts introduced in the game. In addition to high-level concepts, the library also provides real world cases to help link the gameplay to business practices.
+                In addition to learning through gameplay and simulation, learners would also be able to use various learning tools housed in the library of the game, from concept summary, case study, to interactive quiz.
               </p>
             </div>
             <div class="medium-6 columns">
-              <img src="image/gameplay/GAMEPLAY3.jpg" />
+              <img src="image/gameplay/GAMEPLAY3.png" />
             </div>
 
           </section>

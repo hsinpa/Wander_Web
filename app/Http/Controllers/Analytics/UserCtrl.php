@@ -46,6 +46,19 @@ class UserCtrl extends Controller {
     }
     return json_encode(array("error_status" => true));
   }
+
+  public function GetAllShadowPlayer() {
+    $maxLevel = $this->_level->GetMaxLevel()[0];
+    $allRecord = [];
+    for ($i = 1; $i <= $maxLevel->level; $i++ ) {
+      $s_data = json_decode( $this->GetShadowPlayerData( $i, "false"));
+      if ($s_data->error_status == false) {
+        array_push($allRecord, json_decode( $this->GetShadowPlayerData( $i, "false") ) );  
+      }
+    }
+
+    return json_encode($allRecord ,JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+  }
 //================== END MULTIPLAYER GROUP ==================
 
 //================== LOGIN GROUP ==================

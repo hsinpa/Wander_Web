@@ -2,22 +2,45 @@
   <div class="intro-panel">
       <h3>Why Wrainbo?</h3>
       <p>
-        Wrainbo is a customizable platform that marries immersive mobile game design with practical learning. It also incorporates big data assessment based on gameplay data to provide personalized coaching.
+        Wrainbo helps organizations unlock learning ROI through an adult learning game platform with better engagement, retention, and personalization
       </p>
+
+      <div class="row">
+        <section>
+          <img src="image/icon/ic-gameplay.png"/>
+            <h6>
+              Immersive game-based learning
+            </h6>
+        </section>
+
+        <section>
+          <img src="image/icon/ic-data.png"/>
+            <h6>
+                Data-driven assessment
+            </h6>
+        </section>
+
+        <section>
+          <img src="image/icon/ic-customize.png"/>
+            <h6>
+                Customizable platform
+            </h6>
+        </section>
+      </div>
   </div>
 
   <div class="homeDetailPanel-2">
     <section class="row">
       <div class="detailRow medium-6 columns">
-        <h1>Immersive Gameplay</h1>
+        <h1>Immersive game-based learning</h1>
 
         <p>
-          Wrainbo is partnering with leading professors and corporate trainers to embed practical knowledge into our games. Through hands-on simulation and dynamic library content, players would naturally learn and retain the relevant concepts and skills.
-        </p>
-        <a href="overview">LEARN MORE</a>
+          Through immersive simulation, bite-sized single and multiplayer gameplay, and various learning tools, players would naturally learn practical concepts and how to apply in real world. 85% of the players who have played the game have expressed strong satisfaction!
+        </p><br />
+        <a href="gameplay">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
-        <img src="image/home/img-iphone.png" />
+        <img src="image/home/img-immersive-gamplay.png" />
       </div>
     </section>
   </div>
@@ -25,15 +48,15 @@
   <div class="homeDetailPanel-1">
     <section class="row">
       <div class="medium-6 columns">
-        <img src="image/home/img-learning.png" />
+        <img src="image/home/img-data_driven.png" />
       </div>
       <div class="detailRow medium-6 columns">
-        <h1>Practical Learning</h1>
+        <h1>Data-driven assessment</h1>
 
-        <p>Wrainbo helps organization better engage their learners through immersive mobile gameplay. Players can play the game anytime and anywhere via bite-sized single player levels and live multiplayer sessions.
+        <p>Wrainbo transforms gameplay and learning data into performance management insights. Through our cloud-based analytics and personalized report, organizations and individuals could track training progress, receive personalized coaching, and better allocate training spend to drive ROI.
 
-        </p>
-        <a href="http://wrainbo.com/learning">LEARN MORE</a>
+        </p><br />
+        <a href="http://wrainbo.com/assessment">LEARN MORE</a>
       </div>
     </section>
   </div>
@@ -42,20 +65,20 @@
 
     <section class="row">
       <div class="detailRow medium-6 columns">
-        <h1>Data-driven assessment</h1>
+        <h1>Customizable platform</h1>
 
         <p>
-          Wrainbo transforms gameplay data into performance management insights. Using our cloud-based analytics, organizations could track training progress, provide personalized coaching, and better allocate training spend to drive ROI.
-        </p>
-        <a href="http://wrainbo.com/assessment">LEARN MORE</a>
+          Wrainbo's platform is dynamically programmed to enable fast and cost-effective development of varied learning paradigms, from leadership, sales skill training, to learning beyond business domain such as medical diagnostics.
+        </p><br />
+        <a href="http://wrainbo.com/platform">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
-        <img src="image/home/img-data_driven.png" />
+        <img src="image/platform/img-spelleditor.png" />
       </div>
     </section>
   </div>
 
-  <div class="homeDetailPanel-1">
+  <!-- <div class="homeDetailPanel-1">
     <section class="row">
       <div class="medium-6 columns">
         <img src="image/home/img-data.png" />
@@ -68,6 +91,6 @@
         </p>        <a href="http://wrainbo.com/platform">LEARN MORE</a>
       </div>
     </section>
-  </div>
+  </div> -->
 
 </div>

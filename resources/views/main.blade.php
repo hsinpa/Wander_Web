@@ -37,11 +37,12 @@
           <ul class="off-canvas-list">
               <li><label>Menu</label></li>
               <li><a href="http://wrainbo.com/">Home</a></li>
-              <li><a href="http://wrainbo.com/overview">GAMEPLAY</a></li>
-              <li><a href="http://wrainbo.com/learning">LEARNING</a></li>
-              <li><a href="http://wrainbo.com/assessment">ASSESSMENT</a></li>
-              <li><a href="http://wrainbo.com/platform">PLATFORM</a></li>
-              <li><a href="http://wrainbo.com/package">PACKAGE</a></li>
+              <li><a href="http://wrainbo.com/gameplay">GAME-BASED LEARNING</a></li>
+              <!-- <li><a href="http://wrainbo.com/learning">LEARNING</a></li> -->
+              <li><a href="http://wrainbo.com/assessment">DATA DRIVEN ASSESSMENT</a></li>
+              <li><a href="http://wrainbo.com/platform">CUSTOMIZABLE PLATFORM</a></li>
+              <li><a href="http://wrainbo.com/games">GAMES</a></li>
+              <!-- <li><a href="http://wrainbo.com/package">PACKAGE</a></li> -->
               <li><a href="http://wrainbo.com/aboutUs">ABOUT US</a></li>
           </ul>
 

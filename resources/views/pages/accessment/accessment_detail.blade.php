@@ -3,10 +3,10 @@
 
           <section class="row">
             <div class="detailRow medium-6 columns">
-                <h1>Data-driven assessment</h1>
+                <h1>Data-driven insights</h1>
 
               <p>
-                Magitech captures multiple layers of data during the gameplay, from summary statistics (e.g., level of gold achieved, types of business spells mastered) to learning and problem solving pattern (e.g., frequency of reviewing data and library, adaptiveness to in-game events) This exhaustive data captured is used to provide the Magitech score – a measure of the player’s business acumen in each of the core functional areas and critical thinking dimensions.
+                Wrainbo captures multiple layers of data during the gameplay, from summary statistics to learning and problem solving pattern. The data captured is then used to provide insights via web dashboard and personalized assessment report.
               </p>
             </div>
 
@@ -21,15 +21,32 @@
 
           <section class="row">
             <div class="medium-6 columns">
-              <img src="image/accessment/img-data2.jpg" />
+              <img src="image/accessment/img-data2.png" />
             </div>
             <div class="detailRow medium-6 columns">
-                <h1>Web analytics dashboard</h1>
-
+                <h1>Web-based dashboard</h1>
               <p>
-                The data is presented through cloud-based analytics on the web for capability assessment to help optimize training spend, provide personal coaching, and recruit talents.
+                Through the web-based dashboard, organizations could quickly assess the completion and performance data of its learners and benchmark against other organizations.
               </p>
             </div>
+          </section>
+        </div>
+
+        <div class="accessDetailPanel-1">
+
+          <section class="row">
+            <div class="detailRow medium-6 columns">
+                <h1>Personalized assessment report</h1>
+
+              <p>
+                Upon completion of each game, Wrainbo will provide a detailed assessment report to provide feedback on strength, weakness, problem solving pattern, and ideas of how to further develop relevant abilities.
+              </p>
+            </div>
+
+            <div class="medium-6 columns">
+              <img src="image/accessment/img-data3.png" />
+            </div>
+
           </section>
         </div>
 </div>

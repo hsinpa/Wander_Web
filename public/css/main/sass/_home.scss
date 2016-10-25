@@ -1,16 +1,29 @@
 .wrainbo_button {
   display: inline-block;
-  border: 2px solid #f1c40f;
-  border-radius: 5px;
-  padding: 1em 2em;
-  color : #f1c40f;
+  border: 2px solid $blue;
+  border-radius: 10px;
+  padding: 1em 3em;
+  color : $blue;
   background: transparent;
-  font-family: 'LatoWebBold';
-
-   &:hover {
-     background: #f1c40f;
-     color : #34495e;
-   }
+  position: relative;
+  font-family: 'LatoWebSemibold';
+  //text-align: left;
+  //  &:hover {
+  //    background: $hover;
+  //    color : $color;
+  //  }
+  img {
+    // margin: 0em 0em;
+    // padding: 0em;
+    // position: absolute;
+    // top :1em;
+    // right : 0.6em;
+    // z-index: 1;
+    width :1.5em;
+    position: relative;
+    left : 0.7em;
+    // height: 1.5em;
+  }
 }
 
 
@@ -55,17 +68,16 @@
       }
 
           .theme_yellow {
-            @include SetUpButton($yellow ,black );
+            @include SetUpButton($blue ,white );
           }
           .theme_black {
-            @include SetUpButton(black, $yellow );
+            @extend .wrainbo_button;
           }
           a {
             position: relative;
             width:12.4em;
             padding: 1em 1em !important;
             text-align: center;
-            box-shadow: 6px 6px 30px 3px rgba(0,0,0,.5);
 
             @media screen and (min-width: 64em) {
               //font-size: 1.55vw;
@@ -118,8 +130,8 @@
           }
         }
         p {
-          color: white;
-          text-shadow: black 1px 1px 20px;
+          color: black;
+          // text-shadow: black 1px 1px 20px;
           @media screen and (max-width: 39.9375em) { display: none;}
 
         }
@@ -134,6 +146,8 @@
     .intro-panel {
       background-color: $white;
       border: 1px solid $gray;
+      border-right: none;
+      border-left: none;
       box-shadow: 0px 10px 30px 1px #b0b0b0;
 
       h3 {
@@ -143,17 +157,32 @@
       }
 
       p {
-        padding: 0em 0em 1.5em 0em;
+        padding: 0em;
         text-align: center;
-        max-width: 40em;
+        max-width: 60em;
+      }
+      section {
+        width: 13em;
+        display: inline-block;
+        margin: 0.7em 4em;
+        padding: 1em 0em;
+        border-radius: 5px;
+        img {
+          width: 8em;
+        }
       }
     }
 
     .homeDetailPanel-1 {
       @include SetUpBGColor(#eeeeee);
+      img {
+        max-width: 22em;
+      }
     }
 
     .homeDetailPanel-3 {
+      @include SetUpBGColor($white);
+
       img {
         //max-width: 22em;
       }
@@ -165,7 +194,7 @@
     }
 
     a {
-      @include SetUpButton(black, $yellow );
+      @extend .wrainbo_button;
       margin-top: 1em;
     }
 
@@ -190,7 +219,7 @@
       margin: 0 auto;
       p {
         padding: 0 0.5em;
-        height: 8em;
+        height: 5em;
       }
       @media (max-width:700px) {
         margin-top:1em;
@@ -212,6 +241,7 @@
     h6 {
       text-align: right;
       margin: 1em 1em;
+      font-size: 0.8em;
     }
     .main_quote {
       span {

@@ -7,25 +7,25 @@
     <div class="medium-4 columns" data-equalizer-watch>
       <div class="quote">
         <p>
-          “This is my biggest learning at the conference- a mobile game that could help my team learn business analytics!!!”
+          “This is my biggest learning in ATD 2016 conference.”
         </p>
-        <h6>──HR Executive</h6>
+        <h6>─Petra Verheijen, Global Head of LMS at Astellas Pharma</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          “This is what the millennial generation needs- an engaging way to level up their business acumen skills”
+          “Potential to be the 21st century version of Monopoly.”
         </p>
-        <h6>──Corporate Learning Exec</h6>
+        <h6>─Pino Lopomo, Economics Professor at Duke University</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          “I was impressed with Magitech…the game appears fully equipped to deliver on its premises to educate players on core business concepts.”
+          “The mission of Magitech is refreshing…I am impressed.”
         </p>
-        <h6>──Video game media</h6>
+        <h6>─Christopher Peterson, Blog writer at IGN</h6>
       </div>
     </div>
   </section>

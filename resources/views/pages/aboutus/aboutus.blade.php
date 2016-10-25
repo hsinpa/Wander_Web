@@ -11,6 +11,7 @@
   @include('pages.aboutus.aboutus_detail')
   @include('pages.aboutus.aboutus_recognition')
   @include('pages.aboutus.aboutus_media')
+  @include('pages.aboutus.aboutus_contact')
 
 </article>
   <script>

@@ -1,5 +1,5 @@
 <div id="wrainbo-aboutus-media">
-  <h4>Media about Wrainbo</h4>
+  <h4>Media Coverage</h4>
   <div class="row">
     <section link="http://www.gamification.co/2016/06/29/five-impactful-experiences-from-games-for-change-2016/">
         <p>

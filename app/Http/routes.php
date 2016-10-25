@@ -21,14 +21,19 @@ Route::get('platform', function () {
       ['title' => 'Platform | Wrainbo']);
 });
 
+Route::get('games', function () {
+    return view('pages.games.games',
+      ['title' => 'Games | Wrainbo']);
+});
+
 Route::get('package', function () {
     return view('pages.product.product',
       ['title' => 'Package | Wrainbo']);
 });
 
-Route::get('overview', function () {
+Route::get('gameplay', function () {
     return view('pages.gameplay.gameplay',
-      ['title' => 'Overview | Wrainbo']);
+      ['title' => 'Game-Based Learning | Wrainbo']);
 });
 
 Route::get('learning', function () {
@@ -117,6 +122,8 @@ Route::group(['prefix' => 'analytics'], function () {
     Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
     Route::get("trophy/{guid}/{level}", "Analytics\UserCtrl@GetTrophyRanking");
     Route::get("getShadowPlayer/{level}/{isMulti}", "Analytics\UserCtrl@GetShadowPlayerData");
+    Route::get("getAllShadowPlayer/", "Analytics\UserCtrl@GetAllShadowPlayer");
+
     Route::get("getUnityVersion", "Analytics\UserCtrl@CheckUnityVersion");
 
     //For Assessment

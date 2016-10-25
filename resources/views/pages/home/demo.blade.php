@@ -14,7 +14,7 @@
           <input name="phone" type="number"  placeholder="Phone"></input>
 
           <br />
-          <input type="submit" value="Get Demo"/>
+          <input type="submit" value="GET DEMO"/>
           <p>
             Already have an account? <a href="{{ url('cms') }}">Click here to Log in</a>
           </p>
