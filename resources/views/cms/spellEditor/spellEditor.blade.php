@@ -59,7 +59,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       position: relative;
-      width: 96%;
+      width: 91%;
       height: 29%;
       text-align: center;
       color: white;
@@ -72,7 +72,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       position: relative;
-      width: 96%;
+      width: 91%;
       height: 29%;
       text-align: center;
       color: white;
@@ -85,7 +85,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       position: relative;
-      width: 96%;
+      width: 91%;
       height: 29%;
       text-align: center;
       color: white;
@@ -97,7 +97,7 @@
       background-color: #444;
       left: 65%;
       width: 33%;
-      height: 42%;
+      height: 55%;
       top: 15%;
       position: absolute;
       border-radius: 5px;
@@ -114,34 +114,70 @@
       -moz-columns: 2;
       left: 4%;
       position: relative;
-      height: 27%;
+      height: 43%;
+    }
+    .spell-window-action-1-rename {
+      position: relative;
+      width: 8%;
+      height: 60%;
+      top: -73%;
+      left: 102%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../image/editor/spell/rename.png);
     }
     .spell-window-action-1-toggle {
       position: absolute;
       width: 8%;
       height: 15%;
-      right: -4.5%;
-      top: 6%;
+      right: -10.5%;
+      top: 4%;
       background-size: contain;
       background-repeat: no-repeat;
+    }
+    .spell-window-action-2-rename {
+      position: relative;
+      width: 8%;
+      height: 60%;
+      top: -73%;
+      left: 102%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../image/editor/spell/rename.png);
     }
     .spell-window-action-2-toggle {
       position: absolute;
       width: 8%;
       height: 15%;
-      right: -4.5%;
-      top: 39%;
+      right: -10.5%;
+      top: 38%;
       background-size: contain;
       background-repeat: no-repeat;
+    }
+    .spell-window-action-3-rename {
+      position: relative;
+      width: 8%;
+      height: 60%;
+      top: -73%;
+      left: 102%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../image/editor/spell/rename.png);
     }
     .spell-window-action-3-toggle {
       position: absolute;
       width: 8%;
       height: 15%;
-      right: -4.5%;
+      right: -10.5%;
       top: 71%;
       background-size: contain;
       background-repeat: no-repeat;
+    }
+    .spell-window-toggle-remove {
+      background-image: url(../image/editor/spell/remove.png);
+    }
+    .spell-window-toggle-add {
+      background-image: url(../image/editor/spell/add.png);
     }
     .spell-action-cost-input {
       float: left !important;
@@ -162,8 +198,8 @@
     .spell-target-window {
       position: absolute;
       width: 80%;
-      height: 22%;
-      top: 62%;
+      height: 35%;
+      top: 71%;
       left: 18%;
       background-color: #444;
       border-radius: 5px;
@@ -234,6 +270,7 @@
       color: black;
       left: 3%;
       margin-top: 1.5%;
+      margin-bottom: -1.5%;
       width: 64%;
       height: 10%;
       font-size: 2.5vh;
@@ -243,6 +280,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
   <script lang="text/javascript">
+
     $.fn.inlineEdit = function(replaceWith, connectWith) {
       $(this).hover(function() {
           $(this).addClass('hover');
@@ -266,7 +304,6 @@
     };
 
     $.fn.actionInlineEdit = function(text, replaceWith, connectWith) {
-      console.log('action clicked');
       $(this).hover(function() {
           $(text).addClass('hover');
       }, function() {
@@ -287,6 +324,315 @@
           });
       });
     };
+
+    var A1_gold = 0;
+    var A1_mana = 0;
+
+    var A2_gold = 0;
+    var A2_mana = 0;
+
+    var A3_gold = 0;
+    var A3_mana = 0;
+
+    var A1_targets = new Array;
+    var A2_targets = new Array;
+    var A3_targets = new Array;
+
+window.onload = function() {
+    $('.spell-window-action-3').fadeOut(1);
+    $('.spell-window-action-3-rename').fadeOut(1);
+    $('.spell-window-action-2').fadeOut(1);
+    $('.spell-window-action-2-rename').fadeOut(1);
+    $('.spell-action-window').fadeOut(1);
+    $('.spell-target-window').fadeOut(1);
+
+    var current = 0;
+
+    var focus = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/business_man.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/business_woman.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/shopper_man.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/shopper_woman.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/young_woman.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/old_man.png);"></div>'
+
+    var challenge = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/black_suit_man.png);"></div>\
+                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/red_suit_man.png);"></div>\
+                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/gray_suit_woman.png);"></div>\
+                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/purple_suit_woman.png);"></div>'
+
+    var tool = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/products/backpack.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/hat.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/jacket.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/shoes.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/blue_ring.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/red_ring.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/yellow_ring.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/blue_watch.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/red_watch.png);"></div>\
+                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/yellow_watch.png);"></div>'
+
+    function saveCurrent() {
+      if (current == 1) {
+        A1_gold = $('.spell-action-cost-gold').val();
+        A1_mana = $('.spell-action-cost-mana').val();
+      }
+      if (current == 2) {
+        A2_gold = $('.spell-action-cost-gold').val();
+        A2_mana = $('.spell-action-cost-mana').val();
+      }
+      if (current == 3) {
+        A3_gold = $('.spell-action-cost-gold').val();
+        A3_mana = $('.spell-action-cost-mana').val();
+      }
+    }
+
+    $('.spell-window-action-1-text').on("click", function () {
+      saveCurrent();
+      $('.spell-action-window').fadeIn();
+      $('.spell-target-window').fadeOut();
+      $('.spell-action-target').empty();
+      $('.spell-action-cost-gold').val('');
+      $('.spell-action-cost-mana').val('');
+      current = 1;
+      $('.spell-action-cost-gold').val(A1_gold);
+      $('.spell-action-cost-mana').val(A1_mana);
+      if (A1_targets.length !== null || A1_targets.length !== 0) {
+        for (x = 0; x < A1_targets.length; x++) {
+          $('.spell-action-target').append("<li>"+A1_targets[x]+"</div>");
+        }
+      }
+    });
+
+    $('.spell-window-action-2-text').on("click", function () {
+      saveCurrent();
+      $('.spell-action-window').fadeIn();
+      $('.spell-target-window').fadeOut();
+      $('.spell-action-target').empty();
+      $('.spell-action-cost-gold').val('');
+      $('.spell-action-cost-mana').val('');
+      current = 2;
+      $('.spell-action-cost-gold').val(A2_gold);
+      $('.spell-action-cost-mana').val(A2_mana);
+      if (A2_targets.length !== null || A2_targets.length !== 0) {
+        for (x = 0; x < A2_targets.length; x++) {
+          $('.spell-action-target').append("<li>"+A2_targets[x]+"</div>");
+        }
+      }
+    });
+
+    $('.spell-window-action-3-text').on("click", function () {
+      saveCurrent();
+      $('.spell-action-window').fadeIn();
+      $('.spell-target-window').fadeOut();
+      $('.spell-action-target').empty();
+      $('.spell-action-cost-gold').val('');
+      $('.spell-action-cost-mana').val('');
+      current = 3;
+      $('.spell-action-cost-gold').val(A3_gold);
+      $('.spell-action-cost-mana').val(A3_mana);
+      if (A3_targets.length !== null || A3_targets.length !== 0) {
+        for (x = 0; x < A3_targets.length; x++) {
+          $('.spell-action-target').append("<li>"+A3_targets[x]+"</div>");
+        }
+      }
+    });
+
+    $('.spell-window-action-1-toggle').on("click", function () {
+      if ($('.spell-window-action-1-toggle').hasClass('spell-window-toggle-add')) {
+        appearA1();
+      } else {
+        hideA1();
+      }
+    });
+
+    $('.spell-window-action-2-toggle').on("click", function () {
+      if ($('.spell-window-action-2-toggle').hasClass('spell-window-toggle-add')) {
+        appearA2();
+      } else {
+        hideA2();
+      }
+    });
+
+    $('.spell-window-action-3-toggle').on("click", function () {
+      if ($('.spell-window-action-3-toggle').hasClass('spell-window-toggle-add')) {
+        appearA3();
+      } else {
+        hideA3();
+      }
+    });
+
+    function appearA1 () {
+      $('.spell-window-action-1').fadeIn();
+      $('.spell-window-action-1-rename').fadeIn();
+      $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-3').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-3').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      }
+    }
+
+    function hideA1 () {
+      $('.spell-window-action-1').fadeOut();
+      $('.spell-window-action-1-rename').fadeOut();
+      $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
+        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
+        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-remove');
+      }
+    }
+
+    function appearA2 () {
+      $('.spell-window-action-2').fadeIn();
+      $('.spell-window-action-2-rename').fadeIn();
+      $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+      }
+    }
+
+    function hideA2 () {
+      $('.spell-window-action-2').fadeOut();
+      $('.spell-window-action-2-rename').fadeOut();
+      $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
+        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove')
+          $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove');
+        $('.spell-window-action-2-toggle').addClass('spell-window-toggle-add');
+      }
+    }
+
+    function appearA3 () {
+      $('.spell-window-action-3').fadeIn();
+      $('.spell-window-action-3-rename').fadeIn();
+      $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":hidden")) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":hidden")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      }
+    }
+
+    function hideA3 () {
+      $('.spell-window-action-3').fadeOut();
+      $('.spell-window-action-3-rename').fadeOut();
+      $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove');
+      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":hidden")) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":hidden")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":visible")) {
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":visible")) {
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      }
+    }
+
+    $('.spell-action-buttons-challenge').on("click", function () {
+      $('.spell-target-window').empty().append(challenge).fadeIn();
+    });
+
+    $('.spell-action-buttons-focus').on("click", function () {
+      $('.spell-target-window').empty().append(focus).fadeIn();
+    });
+
+    $('.spell-action-buttons-tool').on("click", function () {
+      $('.spell-target-window').empty().append(tool).fadeIn();
+    });
+
+    $('.spell-target-window').on("click", ".spell-target-item", function () {
+      var bg = $(event.target).css('background-image');
+      var temp;
+      if (bg.includes("black_suit_man")) {
+        temp = "Business Man (Black Suit)";
+      } else if (bg.includes("red_suit_man")) {
+        temp = "Business Man (Red Suit)";
+      } else if (bg.includes("gray_suit_woman")) {
+        temp = "Business Woman (Gray Suit)";
+      } else if (bg.includes("purple_suit_woman")) {
+        temp = "Business Woman (Purple Suit)";
+      } else if  (bg.includes("business_man")) {
+        temp = "Business Man";
+      } else if  (bg.includes("business_woman")) {
+        temp = "Business Woman";
+      } else if  (bg.includes("shopper_man")) {
+        temp = "Shopper Man";
+      } else if  (bg.includes("shopper_woman")) {
+        temp = "Shopper Woman";
+      } else if  (bg.includes("young_woman")) {
+        temp = "Young Woman";
+      } else if  (bg.includes("old_man")) {
+        temp = "Old Man";
+      } else if  (bg.includes("backpack")) {
+        temp = "Backpack";
+      } else if  (bg.includes("hat")) {
+        temp = "Hat";
+      } else if  (bg.includes("jacket")) {
+        temp = "Jacket";
+      } else if  (bg.includes("shoes")) {
+        temp = "Shoes";
+      } else if  (bg.includes("blue_ring")) {
+        temp = "Blue Ring";
+      } else if (bg.includes("yellow_ring")) {
+        temp = "Yellow Ring";
+      } else if (bg.includes("red_ring")) {
+        temp = "Red Ring";
+      } else if (bg.includes("blue_watch")) {
+        temp = "Blue Ring";
+      } else if (bg.includes("yellow_watch")) {
+        temp = "Yellow Ring";
+      } else if (bg.includes("red_watch")) {
+        temp = "Red Ring";
+      }
+      if (current == 1) {
+        if (A1_targets.length < 15) {
+          $('.spell-action-target').append("<li>"+temp+"</li>");
+        }
+        A1_targets.push(temp);
+      } else if (current == 2) {
+        if (A2_targets.length < 15) {
+          $('.spell-action-target').append("<li>"+temp+"</li>");
+        }
+        A2_targets.push(temp);
+      } else if (current == 3) {
+        if (A3_targets.length < 15) {
+          $('.spell-action-target').append("<li>"+temp+"</li>");
+        }
+        A3_targets.push(temp);
+      }
+    });
+
+  };
   </script>
 
   <div class="medium-2 columns">
@@ -303,14 +649,17 @@
       <div class="spell-window-action">
         <div class="spell-window-action-1">
           <div class="spell-window-action-1-text">Action #1</div>
+          <div class="spell-window-action-1-rename"></div>
         </div>
-        <div class="spell-window-action-1-toggle"></div>
+        <div class="spell-window-action-1-toggle spell-window-toggle-remove"></div>
         <div class="spell-window-action-2">
           <div class="spell-window-action-2-text">Action #2</div>
+          <div class="spell-window-action-2-rename"></div>
         </div>
-        <div class="spell-window-action-2-toggle"></div>
+        <div class="spell-window-action-2-toggle spell-window-toggle-add"></div>
         <div class="spell-window-action-3">
           <div class="spell-window-action-3-text">Action #3</div>
+          <div class="spell-window-action-3-rename"></div>
         </div>
         <div class="spell-window-action-3-toggle"></div>
       </div>
@@ -342,17 +691,17 @@
       var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-1-input" />'),
       connectWith = $('input[name="spell-window-action-1-text"]');
       text = $('.spell-window-action-1-text');
-      $('.spell-window-action-1').actionInlineEdit(text, replaceWith, connectWith);
+      $('.spell-window-action-1-rename').actionInlineEdit(text, replaceWith, connectWith);
 
       var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-2-input" />'),
       connectWith = $('input[name="spell-window-action-2-text"]');
       text = $('.spell-window-action-2-text');
-      $('.spell-window-action-2').actionInlineEdit(text, replaceWith, connectWith);
+      $('.spell-window-action-2-rename').actionInlineEdit(text, replaceWith, connectWith);
 
       var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-3-input" />'),
       connectWith = $('input[name="spell-window-action-3-text"]');
       text = $('.spell-window-action-3-text');
-      $('.spell-window-action-3').actionInlineEdit(text, replaceWith, connectWith);
+      $('.spell-window-action-3-rename').actionInlineEdit(text, replaceWith, connectWith);
     </script>
 
     <div class="spell-action-window">
@@ -362,7 +711,7 @@
           <label for="middle-label" class="text-left middle">Gold: </label>
         </div>
         <div class="medium-6 columns spell-action-cost-input">
-          <input type="number">
+          <input type="number" class="spell-action-cost-gold">
         </div>
       </div>
       <div class="row">
@@ -370,7 +719,7 @@
           <label for="middle-label" class="text-left middle">Mana: </label>
         </div>
         <div class="medium-6 columns spell-action-cost-input">
-          <input type="number">
+          <input type="number" class="spell-action-cost-mana">
         </div>
       </div>
       <h4 class="spell-action-title">Target</h4>
@@ -380,9 +729,9 @@
         <li>Goblin Old</li>
       </ul>
       <div class="spell-action-buttons">
-        <button class="button">Challenge</button>
-        <button class="button">Focus</button>
-        <button class="button">Tool</button>
+        <button class="button spell-action-buttons-challenge">Challenge</button>
+        <button class="button spell-action-buttons-focus">Focus</button>
+        <button class="button spell-action-buttons-tool">Tool</button>
       </div>
     </div>
 
