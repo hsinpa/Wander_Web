@@ -9,21 +9,29 @@
     p, ul, li, label, h2, h3, h4 {
       color: white;
     }
+
+    .spell-container {
+      position: absolute;
+      left: 17%;
+      width: 83%;
+      height: 90%;
+    }
     .spell-window {
       background-image: url(../image/editor/spell_window.png);
       background-size: contain;
       background-repeat: no-repeat;
-      width: 45%;
-      height: 42%;
-      left: 18%;
-      position: absolute;
+      width: 47%;
+      height: 55%;
+      left: 2%;
+      top: 5%;
+      position: relative;
       border-radius: 5px;
     }
     .spell-window-title {
       position: relative;
       left: 3%;
       top: 3.5%;
-      width: 64%;
+      width: 88%;
       height: 10%;
       font-size: 2.5vh;
       text-align: center;
@@ -31,9 +39,9 @@
     .spell-window-image {
       position: absolute;
       width: 16%;
-      height: 24%;
-      left: 4%;
-      top: 20%;
+      height: 22%;
+      left: 8%;
+      top: 17%;
       background-image: url(../image/editor/spell/icons/megaphone.png);
       background-size: contain;
       background-repeat: no-repeat;
@@ -41,17 +49,17 @@
     }
     .spell-window-description {
       position: absolute;
-      left: 4%;
-      top: 50%;
-      width: 16%;
+      left: 5%;
+      top: 45%;
+      width: 24%;
       height: 34%;
       color: white;
     }
     .spell-window-action {
       position: relative;
-      left: 23%;
-      top: 16%;
-      width: 50%;
+      left: 30%;
+      top: 13%;
+      width: 60%;
       height: 53%;
     }
     .spell-window-action-1 {
@@ -65,7 +73,6 @@
       color: white;
       font-size: 2.5vh;
       padding-top: 3%;
-      margin-bottom: 2%;
     }
     .spell-window-action-2 {
       background-image: url(../image/editor/spell/action.png);
@@ -78,7 +85,6 @@
       color: white;
       font-size: 2.5vh;
       padding-top: 3%;
-      margin-bottom: 2%;
     }
     .spell-window-action-3 {
       background-image: url(../image/editor/spell/action.png);
@@ -95,10 +101,10 @@
 
     .spell-action-window {
       background-color: #444;
-      left: 65%;
-      width: 33%;
+      left: 51%;
+      width: 47%;
       height: 55%;
-      top: 15%;
+      top: 2%;
       position: absolute;
       border-radius: 5px;
       padding: 1%;
@@ -108,19 +114,50 @@
       left: 2%;
       top: 2%;
     }
+    .spell-action-title:nth-of-type(2) {
+      top:-3%;
+    }
     .spell-action-target {
+      position: relative;
+      weight: 95%;
       columns: 2;
       -webkit-columns: 2;
       -moz-columns: 2;
-      left: 4%;
+      list-style-position: inside;
+      text-indent: -.5em;
+      overflow: hidden;
+      margin-bottom: 0;
+      padding-left: 2%;
+    }
+    .spell-action-target-storage {
       position: relative;
-      height: 43%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width: 100%;
+      height: 35%;
+      top: -4%;
+    }
+    .spell-action-target-storage::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+    .spell-action-target-storage::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #847f7f;
+    }
+    .spell-action-target-storage::-webkit-scrollbar {
+      width: 12px;
+      background-color: #444;
     }
     .spell-window-action-1-rename {
       position: relative;
       width: 8%;
       height: 60%;
-      top: -73%;
+      top: -60%;
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
@@ -139,7 +176,7 @@
       position: relative;
       width: 8%;
       height: 60%;
-      top: -73%;
+      top: -60%;
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
@@ -150,7 +187,7 @@
       width: 8%;
       height: 15%;
       right: -10.5%;
-      top: 38%;
+      top: 33%;
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -158,7 +195,7 @@
       position: relative;
       width: 8%;
       height: 60%;
-      top: -73%;
+      top: -60%;
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
@@ -169,7 +206,7 @@
       width: 8%;
       height: 15%;
       right: -10.5%;
-      top: 71%;
+      top: 62%;
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -196,11 +233,11 @@
     }
 
     .spell-target-window {
-      position: absolute;
-      width: 80%;
+      position: relative;
+      width: 96%;
       height: 35%;
-      top: 71%;
-      left: 18%;
+      bottom: -5%;
+      left: 2%;
       background-color: #444;
       border-radius: 5px;
       padding: 1%;
@@ -244,9 +281,9 @@
       position: absolute;
       color: black;
       left: 4%;
-      top: 50%;
-      width: 18%;
-      height: 33%;
+      top: 45%;
+      width: 25%;
+      height: 30%;
       border-radius: 5px;
       border: none;
     }
@@ -259,7 +296,6 @@
       color: white;
       font-size: 2.5vh;
       padding-top: 3%;
-      margin-bottom: 2%;
       padding-bottom: 2%;
       border-radius: 5px;
       border: none;
@@ -269,10 +305,10 @@
       background-color: #c4c5c8;
       color: black;
       left: 3%;
-      margin-top: 1.5%;
-      margin-bottom: -1.5%;
-      width: 64%;
-      height: 10%;
+      margin-top: 2%;
+      margin-bottom: -1%;
+      width: 85%;
+      height: 8%;
       font-size: 2.5vh;
       text-align: center;
     }
@@ -398,7 +434,7 @@ window.onload = function() {
       $('.spell-action-cost-mana').val(A1_mana);
       if (A1_targets.length !== null || A1_targets.length !== 0) {
         for (x = 0; x < A1_targets.length; x++) {
-          $('.spell-action-target').append("<li>"+A1_targets[x]+"</div>");
+          $('.spell-action-target').append("<li data-content='"+x+"'>"+A1_targets[x]+"</div>");
         }
       }
     });
@@ -615,20 +651,26 @@ window.onload = function() {
         temp = "Red Ring";
       }
       if (current == 1) {
-        if (A1_targets.length < 15) {
-          $('.spell-action-target').append("<li>"+temp+"</li>");
+        if ($.inArray(temp, A1_targets) !== -1) {
+          return false;
         }
         A1_targets.push(temp);
+        var id = A1_targets.length - 1;
+        $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
       } else if (current == 2) {
-        if (A2_targets.length < 15) {
-          $('.spell-action-target').append("<li>"+temp+"</li>");
+        if ($.inArray(temp, A2_targets) !== -1) {
+          return false;
         }
         A2_targets.push(temp);
+        var id = A2_targets.length - 1;
+        $('.spell-action-target').append("<li data-content='" + id + "' class=\"spell-action-target-item\">"+temp+"</li>");
       } else if (current == 3) {
-        if (A3_targets.length < 15) {
-          $('.spell-action-target').append("<li>"+temp+"</li>");
+        if ($.inArray(temp, A3_targets) !== -1) {
+          return false;
         }
         A3_targets.push(temp);
+        var id = A3_targets.length - 1;
+        $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
       }
     });
 
@@ -641,106 +683,111 @@ window.onload = function() {
   <div class="medium-10 columns">
     <h2 class="wrainbo-cms-title">Spell Editor</h2>
   </div>
-  <div class="medium-6 columns">
-    <div class="spell-window">
-      <div class="spell-window-title">Click to edit spell name</div>
-      <div class="spell-window-image"></div>
-      <div class="spell-window-description">Click here to edit the spell description</div>
-      <div class="spell-window-action">
-        <div class="spell-window-action-1">
-          <div class="spell-window-action-1-text">Action #1</div>
-          <div class="spell-window-action-1-rename"></div>
+  <div class="medium-10 columns">
+    <div class="spell-container">
+
+      <div class="spell-window">
+        <div class="spell-window-title">Click to edit spell name</div>
+        <div class="spell-window-image"></div>
+        <div class="spell-window-description">Click here to edit the spell description</div>
+        <div class="spell-window-action">
+          <div class="spell-window-action-1">
+            <div class="spell-window-action-1-text">Action #1</div>
+            <div class="spell-window-action-1-rename"></div>
+          </div>
+          <div class="spell-window-action-1-toggle spell-window-toggle-remove"></div>
+          <div class="spell-window-action-2">
+            <div class="spell-window-action-2-text">Action #2</div>
+            <div class="spell-window-action-2-rename"></div>
+          </div>
+          <div class="spell-window-action-2-toggle spell-window-toggle-add"></div>
+          <div class="spell-window-action-3">
+            <div class="spell-window-action-3-text">Action #3</div>
+            <div class="spell-window-action-3-rename"></div>
+          </div>
+          <div class="spell-window-action-3-toggle"></div>
         </div>
-        <div class="spell-window-action-1-toggle spell-window-toggle-remove"></div>
-        <div class="spell-window-action-2">
-          <div class="spell-window-action-2-text">Action #2</div>
-          <div class="spell-window-action-2-rename"></div>
-        </div>
-        <div class="spell-window-action-2-toggle spell-window-toggle-add"></div>
-        <div class="spell-window-action-3">
-          <div class="spell-window-action-3-text">Action #3</div>
-          <div class="spell-window-action-3-rename"></div>
-        </div>
-        <div class="spell-window-action-3-toggle"></div>
       </div>
+
+      <div class="spell-action-window">
+        <h4 class="spell-action-title">Cost</h4>
+        <div class="row">
+          <div class="medium-2 medium-offset-1 columns spell-action-cost-input">
+            <label for="middle-label" class="text-left middle">Gold: </label>
+          </div>
+          <div class="medium-6 columns spell-action-cost-input">
+            <input type="number" class="spell-action-cost-gold">
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-2 medium-offset-1 columns spell-action-cost-input">
+            <label for="middle-label" class="text-left middle">Mana: </label>
+          </div>
+          <div class="medium-6 columns spell-action-cost-input">
+            <input type="number" class="spell-action-cost-mana">
+          </div>
+        </div>
+        <h4 class="spell-action-title">Target</h4>
+        <div class="spell-action-target-storage">
+          <ul class="spell-action-target">
+            <li>Human Male</li>
+            <li>Human Female</li>
+            <li>Goblin Old</li>
+          </ul>
+        </div>
+        <div class="spell-action-buttons">
+          <button class="button spell-action-buttons-challenge">Challenge</button>
+          <button class="button spell-action-buttons-focus">Focus</button>
+          <button class="button spell-action-buttons-tool">Tool</button>
+        </div>
+      </div>
+
+      <div class="spell-target-window">
+        <div class="spell-target-item"></div>
+      </div>
+
     </div>
-
-    <form>
-      <input type="hidden" name="spell-window-title" />
-      <input type="hidden" name="spell-window-description" />
-      <input type="hidden" name="spell-window-action-1-text" />
-      <input type="hidden" name="spell-window-action-1-gold" />
-      <input type="hidden" name="spell-window-action-1-mana" />
-      <input type="hidden" name="spell-window-action-2-text" />
-      <input type="hidden" name="spell-window-action-2-gold" />
-      <input type="hidden" name="spell-window-action-2-mana" />
-      <input type="hidden" name="spell-window-action-3-text" />
-      <input type="hidden" name="spell-window-action-3-gold" />
-      <input type="hidden" name="spell-window-action-3-mana" />
-    </form>
-
-    <script>
-    var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-title-input" />'),
-    connectWith = $('input[name="spell-window-action-2-text"]');
-    $('.spell-window-title').inlineEdit(replaceWith, connectWith);
-
-      var replaceWith = $('<textarea name="temp" class="spell-window-description-input" maxlength="100"></textarea>'),
-      connectWith = $('input[name="spell-window-description"]');
-      $('.spell-window-description').inlineEdit(replaceWith, connectWith);
-
-      var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-1-input" />'),
-      connectWith = $('input[name="spell-window-action-1-text"]');
-      text = $('.spell-window-action-1-text');
-      $('.spell-window-action-1-rename').actionInlineEdit(text, replaceWith, connectWith);
-
-      var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-2-input" />'),
-      connectWith = $('input[name="spell-window-action-2-text"]');
-      text = $('.spell-window-action-2-text');
-      $('.spell-window-action-2-rename').actionInlineEdit(text, replaceWith, connectWith);
-
-      var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-3-input" />'),
-      connectWith = $('input[name="spell-window-action-3-text"]');
-      text = $('.spell-window-action-3-text');
-      $('.spell-window-action-3-rename').actionInlineEdit(text, replaceWith, connectWith);
-    </script>
-
-    <div class="spell-action-window">
-      <h4 class="spell-action-title">Cost</h4>
-      <div class="row">
-        <div class="medium-2 medium-offset-1 columns spell-action-cost-input">
-          <label for="middle-label" class="text-left middle">Gold: </label>
-        </div>
-        <div class="medium-6 columns spell-action-cost-input">
-          <input type="number" class="spell-action-cost-gold">
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-2 medium-offset-1 columns spell-action-cost-input">
-          <label for="middle-label" class="text-left middle">Mana: </label>
-        </div>
-        <div class="medium-6 columns spell-action-cost-input">
-          <input type="number" class="spell-action-cost-mana">
-        </div>
-      </div>
-      <h4 class="spell-action-title">Target</h4>
-      <ul class="spell-action-target">
-        <li>Human Male</li>
-        <li>Human Female</li>
-        <li>Goblin Old</li>
-      </ul>
-      <div class="spell-action-buttons">
-        <button class="button spell-action-buttons-challenge">Challenge</button>
-        <button class="button spell-action-buttons-focus">Focus</button>
-        <button class="button spell-action-buttons-tool">Tool</button>
-      </div>
-    </div>
-
-    <div class="spell-target-window">
-      <div class="spell-target-item"></div>
-    </div>
-
-
   </div>
+
+  <form>
+    <input type="hidden" name="spell-window-title" />
+    <input type="hidden" name="spell-window-description" />
+    <input type="hidden" name="spell-window-action-1-text" />
+    <input type="hidden" name="spell-window-action-1-gold" />
+    <input type="hidden" name="spell-window-action-1-mana" />
+    <input type="hidden" name="spell-window-action-2-text" />
+    <input type="hidden" name="spell-window-action-2-gold" />
+    <input type="hidden" name="spell-window-action-2-mana" />
+    <input type="hidden" name="spell-window-action-3-text" />
+    <input type="hidden" name="spell-window-action-3-gold" />
+    <input type="hidden" name="spell-window-action-3-mana" />
+  </form>
+
+  <script>
+  var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-title-input" />'),
+  connectWith = $('input[name="spell-window-action-2-text"]');
+  $('.spell-window-title').inlineEdit(replaceWith, connectWith);
+
+    var replaceWith = $('<textarea name="temp" class="spell-window-description-input" maxlength="100"></textarea>'),
+    connectWith = $('input[name="spell-window-description"]');
+    $('.spell-window-description').inlineEdit(replaceWith, connectWith);
+
+    var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-1-input" />'),
+    connectWith = $('input[name="spell-window-action-1-text"]');
+    text = $('.spell-window-action-1-text');
+    $('.spell-window-action-1-rename').actionInlineEdit(text, replaceWith, connectWith);
+
+    var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-2-input" />'),
+    connectWith = $('input[name="spell-window-action-2-text"]');
+    text = $('.spell-window-action-2-text');
+    $('.spell-window-action-2-rename').actionInlineEdit(text, replaceWith, connectWith);
+
+    var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-3-input" />'),
+    connectWith = $('input[name="spell-window-action-3-text"]');
+    text = $('.spell-window-action-3-text');
+    $('.spell-window-action-3-rename').actionInlineEdit(text, replaceWith, connectWith);
+  </script>
+
 </div>
 
 
