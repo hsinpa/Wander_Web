@@ -162,7 +162,7 @@
       height: 116%;
       left: -16%;
       top: -7.2%;
-      background-image: url(http://localhost:8000/image/editor/iphone.png);
+      background-image: url(../image/editor/iphone.png);
       background-size: contain;
       background-repeat: no-repeat;
       z-index: 5;
@@ -277,7 +277,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-image: url(../image/editor/fantasy/prop-blank.png);
       background-size: cover;
       position: absolute;
     }
@@ -285,7 +285,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-image: url(../image/editor/fantasy/prop-blank.png);
       background-size: cover;
       position: absolute;
       left: 16%;
@@ -294,7 +294,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/prop-blank.png);
+      background-image: url(../image/editor/fantasy/prop-blank.png);
       background-size: cover;
       position: absolute;
       left: 33%;
@@ -303,7 +303,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-image: url(../image/editor/fantasy/tactic-blank.png);
       background-size: cover;
       position: absolute;
       left: 53%;
@@ -312,7 +312,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-image: url(../image/editor/fantasy/tactic-blank.png);
       background-size: cover;
       position: absolute;
       left: 69%;
@@ -321,7 +321,7 @@
       width: 14.5%;
       height: 100%;
       z-index: 4;
-      background-image: url(http://localhost:8000/image/editor/fantasy/tactic-blank.png);
+      background-image: url(../image/editor/fantasy/tactic-blank.png);
       background-size: cover;
       position: absolute;
       left: 85%;

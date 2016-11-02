@@ -149,7 +149,7 @@
       height: 116%;
       left: -16%;
       top: -7.2%;
-      background-image: url(http://localhost:8000/image/editor/iphone.png);
+      background-image: url(../image/editor/iphone.png);
       background-size: contain;
       background-repeat: no-repeat;
       z-index: 5;
