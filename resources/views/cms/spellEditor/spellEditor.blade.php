@@ -58,7 +58,7 @@
       position: relative;
       left: 31%;
       top: 18%;
-      width: 60%;
+      width: 52%;
       height: 53%;
     }
     .spell-window-action-1 {
@@ -704,126 +704,108 @@ window.onload = function() {
       }
     });
 
-    $('.spell-window-action-1-toggle').on("click", function () {
+    $('.spell-window-action').on("click", '.spell-window-action-1-toggle', function () {
       if ($('.spell-window-action-1-toggle').hasClass('spell-window-toggle-add')) {
-        appearA1();
+        appear();
       } else {
-        hideA1();
+        disappear();
       }
     });
 
-    $('.spell-window-action-2-toggle').on("click", function () {
+    $('.spell-window-action').on("click", '.spell-window-action-2-toggle', function () {
       if ($('.spell-window-action-2-toggle').hasClass('spell-window-toggle-add')) {
-        appearA2();
+        appear();
       } else {
-        hideA2();
+        disappear();
       }
     });
 
-    $('.spell-window-action-3-toggle').on("click", function () {
+    $('.spell-window-action').on("click", '.spell-window-action-3-toggle', function () {
       if ($('.spell-window-action-3-toggle').hasClass('spell-window-toggle-add')) {
-        appearA3();
+        appear();
       } else {
-        hideA3();
+        disappear();
       }
     });
 
-    function appearA1 () {
-      $('.spell-window-action-1').fadeIn();
-      $('.spell-window-action-1-rename').fadeIn();
-      $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-3').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-3').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      }
-    }
+    function appear() {
 
-    function hideA1 () {
-      $('.spell-window-action-1').fadeOut();
-      $('.spell-window-action-1-rename').fadeOut();
-      $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
-        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-2').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
-        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-2').is(":visible") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      if ($('.spell-window-action-1').css('display')=="none") {
+        $('.spell-window-action-1').fadeIn();
+        $('.spell-window-action-1-rename').fadeIn();
+      } else if ($('.spell-window-action-2').css('display')=="none") {
+        $('.spell-window-action-2').fadeIn();
+        $('.spell-window-action-2-rename').fadeIn();
+      } else if ($('.spell-window-action-3').css('display')=="none") {
+        $('.spell-window-action-3').fadeIn();
+        $('.spell-window-action-3-rename').fadeIn();
+      }
+
+      var x = 0;
+      if ($('.spell-window-action-1').css('display')=="none") {
+        x++;
+      }
+      if ($('.spell-window-action-2').css('display')=="none") {
+        x++;
+      }
+      if ($('.spell-window-action-3').css('display')=="none") {
+        x++;
+      }
+
+      console.log(x);
+
+      if (x == 0) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').removeClass('spell-window-toggle-add');
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').removeClass('spell-window-toggle-add');
+      } else if (x == 1) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
         $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-remove');
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+      } else if (x == 2) {
+        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-remove');
       }
     }
 
-    function appearA2 () {
-      $('.spell-window-action-2').fadeIn();
-      $('.spell-window-action-2-rename').fadeIn();
-      $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-      }
+    function disappear () {
+      $(event.target).prev().fadeOut();
+      $(event.target).last().children().last().fadeOut();
+      $(event.target).prev().promise().done(function(){
+        var x = 0;
+        if ($('.spell-window-action-1').css('display')=="none") {
+          x++;
+        }
+        if ($('.spell-window-action-2').css('display')=="none") {
+          x++;
+        }
+        if ($('.spell-window-action-3').css('display')=="none") {
+          x++;
+        }
+        console.log(x);
+
+        if (x == 3) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove spell-window-toggle-add');
+          $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove spell-window-toggle-add');
+        } else if (x == 2) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+          $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove spell-window-toggle-add')
+        } else if (x == 1) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        } else {
+          $('.spell-window-action-1-toggle').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-3-toggle').addClass('spell-window-toggle-remove');
+        }
+      });
+
     }
 
-    function hideA2 () {
-      $('.spell-window-action-2').fadeOut();
-      $('.spell-window-action-2-rename').fadeOut();
-      $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":hidden")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove');
-        $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-3').is(":visible")) {
-          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove')
-          $('.spell-window-action-1-toggle').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-3').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove');
-        $('.spell-window-action-2-toggle').addClass('spell-window-toggle-add');
-      }
-    }
-
-    function appearA3 () {
-      $('.spell-window-action-3').fadeIn();
-      $('.spell-window-action-3-rename').fadeIn();
-      $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":hidden")) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":hidden")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      }
-    }
-
-    function hideA3 () {
-      $('.spell-window-action-3').fadeOut();
-      $('.spell-window-action-3-rename').fadeOut();
-      $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove');
-      if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":hidden")) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":hidden")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":hidden") && $('.spell-window-action-2').is(":visible")) {
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if ($('.spell-window-action-1').is(":visible") && $('.spell-window-action-2').is(":visible")) {
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      }
-    }
 
     $('.spell-action-buttons-challenge').on("click", function () {
       $('.spell-target-window').empty().append(challenge).fadeIn();
