@@ -7,7 +7,7 @@
   <style>
 
     p, ul, li, label, h2, h3, h4 {
-      color: white;
+      color: black;
     }
 
     .spell-container {
@@ -17,20 +17,20 @@
       height: 90%;
     }
     .spell-window {
-      background-image: url(../image/editor/spell_window.png);
+      background-image: url(../image/editor/spell/spell_window.png);
       background-size: contain;
       background-repeat: no-repeat;
       width: 47%;
       height: 55%;
       left: 2%;
-      top: 5%;
+      top: 2%;
       position: relative;
       border-radius: 5px;
     }
     .spell-window-title {
       position: relative;
-      left: 3%;
-      top: 3.5%;
+      left: 5.5%;
+      top: 5.5%;
       width: 88%;
       height: 10%;
       font-size: 2.5vh;
@@ -40,8 +40,8 @@
       position: absolute;
       width: 16%;
       height: 22%;
-      left: 8%;
-      top: 17%;
+      left: 10%;
+      top: 22%;
       background-image: url(../image/editor/spell/icons/megaphone.png);
       background-size: contain;
       background-repeat: no-repeat;
@@ -50,15 +50,14 @@
     .spell-window-description {
       position: absolute;
       left: 5%;
-      top: 45%;
+      top: 52%;
       width: 24%;
       height: 34%;
-      color: white;
     }
     .spell-window-action {
       position: relative;
-      left: 30%;
-      top: 13%;
+      left: 31%;
+      top: 18%;
       width: 60%;
       height: 53%;
     }
@@ -108,6 +107,7 @@
       position: absolute;
       border-radius: 5px;
       padding: 1%;
+      z-index: 1;
     }
     .spell-action-title {
       position: relative;
@@ -233,11 +233,11 @@
     }
 
     .spell-target-window {
-      position: relative;
-      width: 96%;
-      height: 35%;
-      bottom: -5%;
-      left: 2%;
+      position: absolute;
+      width: 79.7%;
+      height: 32%;
+      bottom: -3%;
+      left: 18.6%;
       background-color: #444;
       border-radius: 5px;
       padding: 1%;
@@ -280,8 +280,8 @@
     .spell-window-description-input {
       position: absolute;
       color: black;
-      left: 4%;
-      top: 45%;
+      left: 5%;
+      top: 52%;
       width: 25%;
       height: 30%;
       border-radius: 5px;
@@ -302,7 +302,7 @@
     }
     .spell-window-title-input {
       position: relative;
-      background-color: #c4c5c8;
+      background-color: #e6e6e6;
       color: black;
       left: 3%;
       margin-top: 2%;
@@ -311,6 +311,218 @@
       height: 8%;
       font-size: 2.5vh;
       text-align: center;
+    }
+
+    .spell-information-window {
+      position: absolute;
+      width: 35%;
+      height: 50%;
+      background-color: #444;
+      border-radius: 10px;
+      border-color: darkgray;
+      border-width: medium;
+      border-style: solid;
+      left: 35%;
+      top: 4%;
+      z-index: 2;
+    }
+    .spell-information-image {
+      position: absolute;
+      height: 40%;
+      width: 40%;
+      top: 5%;
+      left: 5%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .spell-information-name {
+      position: absolute;
+      width: 40%;
+      height: 7%;
+      left: 50%;
+      top: 10%;
+      color: white;
+      font-size: 2vh;
+    }
+    .spell-information-type {
+      position: absolute;
+      width: 40%;
+      height: 7%;
+      left: 50%;
+      top: 24%;
+      color:white;
+      font-size: 2vh;
+    }
+    .spell-information-attr-1 {
+      position: absolute;
+      top: 55%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-information-attr-2 {
+      position: absolute;
+      top: 62%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-information-attr-3 {
+      position: absolute;
+      top: 69%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-information-attr-4 {
+      position: absolute;
+      top: 76%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-information-attr-5 {
+      position: absolute;
+      top: 83%;
+      height: 7%;
+      width: 90%;
+      left: 5%;
+    }
+    .spell-information-attr-name {
+      position: absolute;
+      font-size: 2vh;
+      top: 10%;
+      color: white;
+      border: 1px solid #cacaca;
+      width: auto;
+      border-radius: 5px;
+      padding-left: 2%;
+      padding-right: 2%;
+      height: 86%;
+      background-color: #383838;
+      text-align: center;
+      left: 10%;
+    }
+    .spell-information-attr-name > input {
+      width: 95%;
+      position: absolute;
+      border-radius: 5px;
+      height: 90%;
+      top: 5%;
+      background-color: #383838;
+      color: white;
+      font-size: 1.5vh;
+    }
+    .spell-information-attr-name > input:focus {
+      background-color: #383838;
+    }
+    .spell-information-attr-value > input {
+      width: 100%;
+      position: absolute;
+      border-radius: 5px;
+      height: 90%;
+      top: 5%;
+      background-color: #383838;
+      color: white;
+      font-size: 1.5vh;
+    }
+    .spell-information-attr-value > input:focus {
+      background-color: #383838;
+    }
+    .spell-information-attr-value {
+      position: absolute;
+      left: 50%;
+      width: 35%;
+      height: 100%;
+      top: 0;
+    }
+    .spell-information-attr-value > input:nth-child(1) {
+      z-index: 3;
+      cursor: default;
+    }
+    .spell-information-attr-type {
+      position: absolute;
+      left: 85%;
+      width: 20%;
+      height: 100%;
+      top: 0;
+    }
+    .spell-button-percentage {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 10%;
+      width: 25%;
+      position: absolute;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding-left: 4%;
+      padding-right: 4%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
+    }
+    .spell-button-percentage:hover, .spell-button-percentage:focus {
+      background-color: #444;
+    }
+    .spell-button-number {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 35%;
+      width: 25%;
+      position: absolute;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
+    }
+    .spell-button-number:hover, .spell-button-number:focus {
+      background-color: #444;
+    }
+    .spell-button-delta {
+      max-height: 100%;
+      padding: 0;
+      margin: 0;
+      top: 5%;
+      left: 60%;
+      width: 25%;
+      position: absolute;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      padding-right: 4%;
+      padding-left: 4%;
+      padding-top: 7%;
+      padding-bottom: 7%;
+      background-color: #383838;
+      border: 1px solid #cacaca;
+    }
+    .spell-button-delta:hover, .spell-button-delta:focus {
+      background-color: #444;
+    }
+    .spell-information-attr-change {
+      position: absolute;
+      top: 20%;
+      height: 70%;
+      width: 4%;
+    }
+    .spell-information-window > .spell-information-attr-active {
+      display: none;
+    }
+    .spell-information-close {
+      background-image: url("../image/editor/close.png");
+      position: absolute;
+      width: 7%;
+      height: 5%;
+      top: 3%;
+      left: 88%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
@@ -374,6 +586,23 @@
     var A2_targets = new Array;
     var A3_targets = new Array;
 
+    var target_information1 = [];
+    var target_information2 = [];
+    var target_information3 = [];
+
+
+    for (x=0; x < 20; x++) {
+      var tmp1 = Math.floor(Math.random() * 100) + 1;
+      var tmp2 = Math.floor(Math.random() * 100) + 1;
+      var tmp3 = Math.floor(Math.random() * 100) + 1;
+      var tmp4 = Math.floor(Math.random() * 100) + 1;
+      var tmp5 = Math.floor(Math.random() * 100) + 1;
+      target_information1.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+      target_information2.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+      target_information3.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+    }
+
+
 window.onload = function() {
     $('.spell-window-action-3').fadeOut(1);
     $('.spell-window-action-3-rename').fadeOut(1);
@@ -381,31 +610,33 @@ window.onload = function() {
     $('.spell-window-action-2-rename').fadeOut(1);
     $('.spell-action-window').fadeOut(1);
     $('.spell-target-window').fadeOut(1);
+    $('.spell-information-attr-change').fadeOut(1);
+    $('.spell-information-window').fadeOut(1);
 
     var current = 0;
 
-    var focus = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/business_man.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/business_woman.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/shopper_man.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/shopper_woman.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/young_woman.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/customers/old_man.png);"></div>'
+    var focus = '<div class="spell-target-item" data-content="4" style="background-image: url(../image/editor/spell/customers/business_man.png);"></div>\
+                <div class="spell-target-item" data-content="5" style="background-image: url(../image/editor/spell/customers/business_woman.png);"></div>\
+                <div class="spell-target-item" data-content="6" style="background-image: url(../image/editor/spell/customers/shopper_man.png);"></div>\
+                <div class="spell-target-item" data-content="7" style="background-image: url(../image/editor/spell/customers/shopper_woman.png);"></div>\
+                <div class="spell-target-item" data-content="8" style="background-image: url(../image/editor/spell/customers/young_woman.png);"></div>\
+                <div class="spell-target-item" data-content="9" style="background-image: url(../image/editor/spell/customers/old_man.png);"></div>'
 
-    var challenge = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/black_suit_man.png);"></div>\
-                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/red_suit_man.png);"></div>\
-                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/gray_suit_woman.png);"></div>\
-                    <div class="spell-target-item" style="background-image: url(../image/editor/spell/competitors/purple_suit_woman.png);"></div>'
+    var challenge = '<div class="spell-target-item" data-content="0" style="background-image: url(../image/editor/spell/competitors/black_suit_man.png);"></div>\
+                    <div class="spell-target-item" data-content="1" style="background-image: url(../image/editor/spell/competitors/red_suit_man.png);"></div>\
+                    <div class="spell-target-item" data-content="2" style="background-image: url(../image/editor/spell/competitors/gray_suit_woman.png);"></div>\
+                    <div class="spell-target-item" data-content="3" style="background-image: url(../image/editor/spell/competitors/purple_suit_woman.png);"></div>'
 
-    var tool = '<div class="spell-target-item" style="background-image: url(../image/editor/spell/products/backpack.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/hat.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/jacket.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/shoes.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/blue_ring.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/red_ring.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/yellow_ring.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/blue_watch.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/red_watch.png);"></div>\
-                <div class="spell-target-item" style="background-image: url(../image/editor/spell/products/yellow_watch.png);"></div>'
+    var tool = '<div class="spell-target-item" data-content="10" style="background-image: url(../image/editor/spell/products/backpack.png);"></div>\
+                <div class="spell-target-item" data-content="11" style="background-image: url(../image/editor/spell/products/hat.png);"></div>\
+                <div class="spell-target-item" data-content="12" style="background-image: url(../image/editor/spell/products/jacket.png);"></div>\
+                <div class="spell-target-item" data-content="13" style="background-image: url(../image/editor/spell/products/shoes.png);"></div>\
+                <div class="spell-target-item" data-content="14" style="background-image: url(../image/editor/spell/products/blue_ring.png);"></div>\
+                <div class="spell-target-item" data-content="15" style="background-image: url(../image/editor/spell/products/red_ring.png);"></div>\
+                <div class="spell-target-item" data-content="16" style="background-image: url(../image/editor/spell/products/yellow_ring.png);"></div>\
+                <div class="spell-target-item" data-content="17" style="background-image: url(../image/editor/spell/products/blue_watch.png);"></div>\
+                <div class="spell-target-item" data-content="18" style="background-image: url(../image/editor/spell/products/red_watch.png);"></div>\
+                <div class="spell-target-item" data-content="19" style="background-image: url(../image/editor/spell/products/yellow_watch.png);"></div>'
 
     function saveCurrent() {
       if (current == 1) {
@@ -608,6 +839,7 @@ window.onload = function() {
 
     $('.spell-target-window').on("click", ".spell-target-item", function () {
       var bg = $(event.target).css('background-image');
+      var id = $(event.target).attr('data-content');
       var temp;
       if (bg.includes("black_suit_man")) {
         temp = "Business Man (Black Suit)";
@@ -652,25 +884,246 @@ window.onload = function() {
       }
       if (current == 1) {
         if ($.inArray(temp, A1_targets) !== -1) {
+          $('.spell-information-image').css('background-image',bg);
+          $('.spell-information-name').text(temp);
+          if (bg.includes('competitors')) {
+            $('.spell-information-type').text('Challenge');
+          } else if (bg.includes('customers')) {
+            $('.spell-information-type').text('Focus');
+          } else {
+            $('.spell-information-type').text('Tool');
+          }
+          loadInformation(target_information1, id);
+          $('.spell-information-window').fadeIn();
+          $(".spell-information-close").on("click", function(){saveInformation (target_information1, id);});
           return false;
         }
         A1_targets.push(temp);
-        var id = A1_targets.length - 1;
         $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
+        loadInformation(target_information1, id);
+        $('.spell-information-window').fadeIn();
+        $(".spell-information-close").on("click", function(){saveInformation (target_information1, id);});
       } else if (current == 2) {
         if ($.inArray(temp, A2_targets) !== -1) {
+          $('.spell-information-image').css('background-image',bg);
+          $('.spell-information-name').text(temp);
+          if (bg.includes('competitors')) {
+            $('.spell-information-type').text('Challenge');
+          } else if (bg.includes('customers')) {
+            $('.spell-information-type').text('Focus');
+          } else {
+            $('.spell-information-type').text('Tool');
+          }
+          loadInformation(target_information2, id);
+          $('.spell-information-window').fadeIn();
+          $(".spell-information-close").on("click", function(){saveInformation (target_information2, id);});
           return false;
         }
         A2_targets.push(temp);
-        var id = A2_targets.length - 1;
         $('.spell-action-target').append("<li data-content='" + id + "' class=\"spell-action-target-item\">"+temp+"</li>");
+        loadInformation(target_information2, id);
+        $('.spell-information-window').fadeIn();
+        $(".spell-information-close").on("click", function(){saveInformation (target_information2, id);});
       } else if (current == 3) {
         if ($.inArray(temp, A3_targets) !== -1) {
+          $('.spell-information-image').css('background-image',bg);
+          $('.spell-information-name').text(temp);
+          if (bg.includes('competitors')) {
+            $('.spell-information-type').text('Challenge');
+          } else if (bg.includes('customers')) {
+            $('.spell-information-type').text('Focus');
+          } else {
+            $('.spell-information-type').text('Tool');
+          }
+          loadInformation(target_information3, id);
+          $('.spell-information-window').fadeIn();
+          $(".spell-information-close").on("click", function(){saveInformation (target_information3, id);});
           return false;
         }
         A3_targets.push(temp);
-        var id = A3_targets.length - 1;
         $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
+        loadInformation(target_information3, id);
+        $('.spell-information-window').fadeIn();
+        $(".spell-information-close").on("click", function(){saveInformation (target_information3, id);});
+      }
+      $('.spell-information-image').css('background-image',bg);
+      $('.spell-information-name').text(temp);
+      if (bg.includes('competitors')) {
+        $('.spell-information-type').text('Challenge');
+      } else if (bg.includes('customers')) {
+        $('.spell-information-type').text('Focus');
+      } else {
+        $('.spell-information-type').text('Tool');
+      }
+    });
+
+    function loadInformation (target_information, id) {
+      $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').val(target_information[id].field1changed);
+      $('.spell-information-attr-value-1 > input[type="text"]:nth-child(2)').val(target_information[id].field1by);
+      $('.spell-information-attr-value-1 > input[type="text"]:nth-child(3)').val(target_information[id].field1);
+      if (target_information[id].field1changed < target_information[id].field1) {
+        $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'red');
+        $('.spell-information-attr-1').find('.spell-information-attr-change').fadeIn();
+      } else if (target_information[id].field1changed > target_information[id].field1) {
+        $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'green');
+        $('.spell-information-attr-1').find('.spell-information-attr-change').fadeIn();
+      } else {
+        $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-1').find('.spell-information-attr-change').fadeOut();
+      }
+
+      $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').val(target_information[id].field2changed);
+      $('.spell-information-attr-value-2 > input[type="text"]:nth-child(2)').val(target_information[id].field2by);
+      $('.spell-information-attr-value-2 > input[type="text"]:nth-child(3)').val(target_information[id].field2);
+      if (target_information[id].field2changed < target_information[id].field2) {
+        $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'red');
+        $('.spell-information-attr-2').find('.spell-information-attr-change').fadeIn();
+      } else if (target_information[id].field2changed > target_information[id].field2) {
+        $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'green');
+        $('.spell-information-attr-2').find('.spell-information-attr-change').fadeIn();
+      } else {
+        $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-2').find('.spell-information-attr-change').fadeOut();
+      }
+
+      $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').val(target_information[id].field3changed);
+      $('.spell-information-attr-value-3 > input[type="text"]:nth-child(2)').val(target_information[id].field3by);
+      $('.spell-information-attr-value-3 > input[type="text"]:nth-child(3)').val(target_information[id].field3);
+      if (target_information[id].field3changed < target_information[id].field3) {
+        $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'red');
+        $('.spell-information-attr-3').find('.spell-information-attr-change').fadeIn();
+      } else if (target_information[id].field3changed > target_information[id].field3) {
+        $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'green');
+        $('.spell-information-attr-3').find('.spell-information-attr-change').fadeIn();
+      } else {
+        $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-3').find('.spell-information-attr-change').fadeOut();
+      }
+
+      $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').val(target_information[id].field4changed);
+      $('.spell-information-attr-value-4 > input[type="text"]:nth-child(2)').val(target_information[id].field4by);
+      $('.spell-information-attr-value-4 > input[type="text"]:nth-child(3)').val(target_information[id].field4);
+      if (target_information[id].field4changed < target_information[id].field4) {
+        $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'red');
+        $('.spell-information-attr-4').find('.spell-information-attr-change').fadeIn();
+      } else if (target_information[id].field4changed > target_information[id].field4) {
+        $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'green');
+        $('.spell-information-attr-4').find('.spell-information-attr-change').fadeIn();
+      } else {
+        $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-4').find('.spell-information-attr-change').fadeOut();
+      }
+
+      $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').val(target_information[id].field5changed);
+      $('.spell-information-attr-value-5 > input[type="text"]:nth-child(2)').val(target_information[id].field5by);
+      $('.spell-information-attr-value-5 > input[type="text"]:nth-child(3)').val(target_information[id].field5);
+      if (target_information[id].field5changed < target_information[id].field5) {
+        $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'red');
+        $('.spell-information-attr-5').find('.spell-information-attr-change').fadeIn();
+      } else if (target_information[id].field5changed > target_information[id].field5) {
+        $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'green');
+        $('.spell-information-attr-5').find('.spell-information-attr-change').fadeIn();
+      } else {
+        $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-5').find('.spell-information-attr-change').fadeOut();
+      }
+    };
+
+    function saveInformation (target_information, id) {
+      target_information[id].field1changed = parseInt($('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').val());
+      target_information[id].field2changed = parseInt($('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').val());
+      target_information[id].field3changed = parseInt($('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').val());
+      target_information[id].field4changed = parseInt($('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').val());
+      target_information[id].field5changed = parseInt($('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').val());
+      target_information[id].field1by = parseInt($('.spell-information-attr-value-1 > input[type="text"]:nth-child(2)').val());
+      target_information[id].field2by = parseInt($('.spell-information-attr-value-2 > input[type="text"]:nth-child(2)').val());
+      target_information[id].field3by = parseInt($('.spell-information-attr-value-3 > input[type="text"]:nth-child(2)').val());
+      target_information[id].field4by = parseInt($('.spell-information-attr-value-4 > input[type="text"]:nth-child(2)').val());
+      target_information[id].field5by = parseInt($('.spell-information-attr-value-5 > input[type="text"]:nth-child(2)').val());
+      $('.spell-information-window').fadeOut();
+      $('.spell-information-close').off();
+      $('.spell-information-image').css('background-image','none');
+    };
+
+    $('.spell-information-window').on("click",$('.spell-window-attr-value input:nth-child(1)'), function() {
+      $(event.target).next().css("z-index","4").focus();
+    });
+    $('.spell-information-window').on("input", $('.spell-window-attr-value input:nth-child(2)'), function () {
+      var value = $(event.target).val();
+      if (! /^-?\d*\.?\d+$/.test(value)) {
+        $(event.target).parent().next('div').find("button").prop("disabled", true);
+      } else {
+        $(event.target).parent().next('div').find("button").prop("disabled", false);
+      }
+    });
+    $('.spell-information-window').on("focusout",$('.spell-window-attr-value input:nth-child(2)'), function() {
+      if ($(event.target).hasClass('spell-window-attr-value') == false){
+        return false;
+      }
+      var value = $(event.target).val();
+      if (! /^-?\d*\.?\d+$/.test(value)) {
+        $(event.target).prev().val(value);
+        $(event.target).prev().css("color","white");
+        $(event.target).css("z-index","2");
+      } else {
+        return false;
+      }
+    });
+    $('.spell-information-window').on("click", '.spell-button-percentage', function() {
+      var temp = $(event.target).parent().prev().find(">:last-child").val();
+      var perc = $(event.target).parent().prev().find(">:first-child").next().val();
+      var result = (perc / 100) * temp;
+      console.log(perc);
+      $(event.target).parent().prev().find(">:first-child").val(result);
+      $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+      $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+      if (perc < 100) {
+        $(event.target).parent().prev().find(">:first-child").css("color","red");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (perc > 100){
+        $(event.target).parent().prev().find(">:first-child").css("color","green");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (perc == 100) {
+        $(event.target).parent().prev().find(">:first-child").css("color","white");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
+      }
+    });
+    $('.spell-information-window').on("click", '.spell-button-number', function() {
+      var temp = $(event.target).parent().prev().find(">:last-child").val();
+      var add = $(event.target).parent().prev().find(">:first-child").next().val();
+      var result = parseInt(temp) + parseInt(add);
+      $(event.target).parent().prev().find(">:first-child").val(result);
+      $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+      $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+      var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
+      if (add < 0) {
+        $(event.target).parent().prev().find(">:first-child").css("color","red");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (add > 0){
+        $(event.target).parent().prev().find(">:first-child").css("color","green");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (add == 0) {
+        $(event.target).parent().prev().find(">:first-child").css("color","white");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
+      }
+    });
+    $('.spell-information-window').on("click", '.spell-button-delta', function() {
+      var temp = $(event.target).parent().prev().find(">:last-child").val();
+      var add = $(event.target).parent().prev().find(">:first-child").next().val();
+      var result = parseInt(add);
+      $(event.target).parent().prev().find(">:first-child").val(result);
+      $(event.target).parent().prev().find(">:first-child").css("z-index","4");
+      $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
+      var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
+      if (result < temp) {
+        $(event.target).parent().prev().find(">:first-child").css("color","red");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (result > temp){
+        $(event.target).parent().prev().find(">:first-child").css("color","green");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
+      } else if (result == temp) {
+        $(event.target).parent().prev().find(">:first-child").css("color","white");
+        $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
       }
     });
 
@@ -739,6 +1192,46 @@ window.onload = function() {
           <button class="button spell-action-buttons-challenge">Challenge</button>
           <button class="button spell-action-buttons-focus">Focus</button>
           <button class="button spell-action-buttons-tool">Tool</button>
+        </div>
+      </div>
+
+      <div class="spell-information-window">
+        <div class="spell-information-close"></div>
+        <div class="spell-information-image"></div>
+        <div class="spell-information-name"></div>
+        <div class="spell-information-type"></div>
+          <form name="spell-form">
+            <div class="spell-information-attr-1">
+              <input type="radio" class="spell-information-attr-change" value="" checked>
+              <span class="spell-information-attr-name spell-information-attr-name-1">Population</span>
+              <div class="spell-information-attr-value spell-information-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <div class="spell-information-attr-type spell-information-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+            </div>
+            <div class="spell-information-attr-2">
+              <input type="radio" class="spell-information-attr-change" value="" checked>
+              <span class="spell-information-attr-name spell-information-attr-name-2">Awareness</span>
+              <div class="spell-information-attr-value spell-information-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <div class="spell-information-attr-type spell-information-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+            </div>
+            <div class="spell-information-attr-3">
+              <input type="radio" class="spell-information-attr-change" value="" checked>
+              <span class="spell-information-attr-name spell-information-attr-name-3">Elasticity</span>
+              <div class="spell-information-attr-value spell-information-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <div class="spell-information-attr-type spell-information-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+            </div>
+            <div class="spell-information-attr-4">
+              <input type="radio" class="spell-information-attr-change" value="" checked>
+              <span class="spell-information-attr-name spell-information-attr-name-4">Popularity</span>
+              <div class="spell-information-attr-value spell-information-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <div class="spell-information-attr-type spell-information-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+            </div>
+            <div class="spell-information-attr-5">
+              <input type="radio" class="spell-information-attr-change" value="" checked>
+              <span class="spell-information-attr-name spell-information-attr-name-5">Responsiveness</span>
+              <div class="spell-information-attr-value spell-information-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <div class="spell-information-attr-type spell-information-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
+            </div>
+          </form>
         </div>
       </div>
 
