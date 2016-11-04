@@ -733,46 +733,17 @@ window.onload = function() {
       if ($('.spell-window-action-1').css('display')=="none") {
         $('.spell-window-action-1').fadeIn();
         $('.spell-window-action-1-rename').fadeIn();
+        var elem = $('.spell-window-action-1-rename');
       } else if ($('.spell-window-action-2').css('display')=="none") {
         $('.spell-window-action-2').fadeIn();
         $('.spell-window-action-2-rename').fadeIn();
+        var elem = $('.spell-window-action-2-rename')
       } else if ($('.spell-window-action-3').css('display')=="none") {
         $('.spell-window-action-3').fadeIn();
         $('.spell-window-action-3-rename').fadeIn();
+        var elem = $('.spell-window-action-3-rename');
       }
-
-      var x = 0;
-      if ($('.spell-window-action-1').css('display')=="none") {
-        x++;
-      }
-      if ($('.spell-window-action-2').css('display')=="none") {
-        x++;
-      }
-      if ($('.spell-window-action-3').css('display')=="none") {
-        x++;
-      }
-
-      console.log(x);
-
-      if (x == 0) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').removeClass('spell-window-toggle-add');
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').removeClass('spell-window-toggle-add');
-      } else if (x == 1) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-      } else if (x == 2) {
-        $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
-        $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-remove');
-      }
-    }
-
-    function disappear () {
-      $(event.target).prev().fadeOut();
-      $(event.target).last().children().last().fadeOut();
-      $(event.target).prev().promise().done(function(){
+      $(elem).promise().done(function(){
         var x = 0;
         if ($('.spell-window-action-1').css('display')=="none") {
           x++;
@@ -783,7 +754,45 @@ window.onload = function() {
         if ($('.spell-window-action-3').css('display')=="none") {
           x++;
         }
-        console.log(x);
+
+        if (x == 0) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+        } else if (x == 1) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        } else if (x == 2) {
+          $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
+          $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
+        }
+      });
+    }
+
+    function disappear () {
+      var y = 0;
+      if ($(event.target).hasClass('spell-window-action-1-toggle')) {
+        y = 0;
+      } else if ($(event.target).hasClass('spell-window-action-2-toggle')) {
+        y = 1;
+      } else {
+        y = 2;
+      }
+
+      $('[class ^="spell-window-action"]:not([class $="rename"]):not([class $="toggle"]):not([class $="remove"]):not([class $="text"]):not([class $="add"]):not(":eq(0)"):visible:eq('+y+')').fadeOut();
+      $('[class ^="spell-window-action"][class $="-rename"]:visible:eq('+y+')').fadeOut();
+      $('[class ^="spell-window-action"][class $="-rename"]:visible:eq('+y+')').promise().done(function(){
+        var x = 0;
+        if ($('.spell-window-action-1').css('display')=="none") {
+          x++;
+        }
+        if ($('.spell-window-action-2').css('display')=="none") {
+          x++;
+        }
+        if ($('.spell-window-action-3').css('display')=="none") {
+          x++;
+        }
 
         if (x == 3) {
           $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
@@ -797,10 +806,6 @@ window.onload = function() {
           $('.spell-window-action-1-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
           $('.spell-window-action-2-toggle').removeClass('spell-window-toggle-add').addClass('spell-window-toggle-remove');
           $('.spell-window-action-3-toggle').removeClass('spell-window-toggle-remove').addClass('spell-window-toggle-add');
-        } else {
-          $('.spell-window-action-1-toggle').addClass('spell-window-toggle-remove');
-          $('.spell-window-action-2-toggle').addClass('spell-window-toggle-remove');
-          $('.spell-window-action-3-toggle').addClass('spell-window-toggle-remove');
         }
       });
 
@@ -1055,7 +1060,6 @@ window.onload = function() {
       var temp = $(event.target).parent().prev().find(">:last-child").val();
       var perc = $(event.target).parent().prev().find(">:first-child").next().val();
       var result = (perc / 100) * temp;
-      console.log(perc);
       $(event.target).parent().prev().find(">:first-child").val(result);
       $(event.target).parent().prev().find(">:first-child").css("z-index","4");
       $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
