@@ -394,7 +394,6 @@
       font-size: 2vh;
       top: 10%;
       color: white;
-      border: 1px solid #cacaca;
       width: auto;
       border-radius: 5px;
       padding-left: 2%;
@@ -402,7 +401,7 @@
       height: 86%;
       background-color: #383838;
       text-align: center;
-      left: 10%;
+      left: 9%;
     }
     .spell-information-attr-name > input {
       width: 95%;
@@ -432,8 +431,8 @@
     }
     .spell-information-attr-value {
       position: absolute;
-      left: 50%;
-      width: 35%;
+      left: 66%;
+      width: 14%;
       height: 100%;
       top: 0;
     }
@@ -447,6 +446,25 @@
       width: 20%;
       height: 100%;
       top: 0;
+    }
+    .spell-information-attr-start {
+      left: 48%;
+      position: relative;
+      color: white;
+    }
+    .spell-information-label {
+      position: relative;
+      top: 44%;
+      width: 50%;
+      left: 44%;
+    }
+    .spell-information-label-1 {
+      color:white;
+    }
+    .spell-information-label-2 {
+      color: white;
+      position: relative;
+      left: 10%;
     }
     .spell-button-percentage {
       max-height: 100%;
@@ -573,6 +591,7 @@
       });
     };
 
+
     var A1_gold = 0;
     var A1_mana = 0;
 
@@ -597,9 +616,9 @@
       var tmp3 = Math.floor(Math.random() * 100) + 1;
       var tmp4 = Math.floor(Math.random() * 100) + 1;
       var tmp5 = Math.floor(Math.random() * 100) + 1;
-      target_information1.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
-      target_information2.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
-      target_information3.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: tmp1, field2changed: tmp2, field3changed: tmp3, field4changed: tmp4, field5changed: tmp5, field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+      target_information1.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: "", field2changed: "", field3changed: "", field4changed: "", field5changed: "", field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+      target_information2.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: "", field2changed: "", field3changed: "", field4changed: "", field5changed: "", field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
+      target_information3.push({field1: tmp1, field2: tmp2, field3: tmp3, field4: tmp4, field5: tmp5, field1changed: "", field2changed: "", field3changed: "", field4changed: "", field5changed: "", field1by: tmp1, field2by: tmp2, field3by: tmp3, field4by: tmp4, field5by: tmp5});
     }
 
 
@@ -612,6 +631,41 @@ window.onload = function() {
     $('.spell-target-window').fadeOut(1);
     $('.spell-information-attr-change').fadeOut(1);
     $('.spell-information-window').fadeOut(1);
+
+    if($('#spell_name_storage').text() !== ""){
+      var spell_name = $('#spell_name_storage').text();
+      $('.spell-window-title').text(spell_name);
+    }
+    if($('#spell_description_storage').text() !== ""){
+      var spell_description = $('#spell_description_storage').text();
+      $('.spell-window-description').text(spell_description);
+    }
+    if($('#spell_icon_storage').text() !== ""){
+      var spell_icon = $('#spell_icon_storage').text();
+      if (spell_icon == "loan") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/loan.png)")
+      } else if (spell_icon == "megaphone") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/megaphone.png)")
+      } else if (spell_icon == "insurance") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/insurance.png)")
+      } else if (spell_icon == "group") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/group.png)")
+      } else if (spell_icon == "cycle") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/cycle.png)")
+      } else if (spell_icon == "money-tree") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/money-tree.png)")
+      } else if (spell_icon == "research") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/research.png)")
+      } else if (spell_icon == "spell-blue") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/spell-blue.png)")
+      } else if (spell_icon == "spell-red") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/spell-red.png)")
+      } else if (spell_icon == "star") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/star.png)")
+      } else if (spell_icon == "supply") {
+        $('.spell-window-image').css("background-image","url(../image/editor/spell/icons/supply.png)")
+      }
+    }
 
     var current = 0;
 
@@ -946,12 +1000,14 @@ window.onload = function() {
 
     function loadInformation (target_information, id) {
       $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').val(target_information[id].field1changed);
-      $('.spell-information-attr-value-1 > input[type="text"]:nth-child(2)').val(target_information[id].field1by);
-      $('.spell-information-attr-value-1 > input[type="text"]:nth-child(3)').val(target_information[id].field1);
-      if (target_information[id].field1changed < target_information[id].field1) {
+      $('.spell-information-attr-start-1').text(target_information[id].field1);
+      if (target_information[id].field1changed !== "") {
+        $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-1').find('.spell-information-attr-change').fadeOut();
+      } else if (target_information[id].field1changed < 0) {
         $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'red');
         $('.spell-information-attr-1').find('.spell-information-attr-change').fadeIn();
-      } else if (target_information[id].field1changed > target_information[id].field1) {
+      } else if (target_information[id].field1changed > 0) {
         $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').css('color', 'green');
         $('.spell-information-attr-1').find('.spell-information-attr-change').fadeIn();
       } else {
@@ -960,12 +1016,14 @@ window.onload = function() {
       }
 
       $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').val(target_information[id].field2changed);
-      $('.spell-information-attr-value-2 > input[type="text"]:nth-child(2)').val(target_information[id].field2by);
-      $('.spell-information-attr-value-2 > input[type="text"]:nth-child(3)').val(target_information[id].field2);
-      if (target_information[id].field2changed < target_information[id].field2) {
+      $('.spell-information-attr-start-2').text(target_information[id].field2);
+      if (target_information[id].field2changed !== "") {
+        $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-2').find('.spell-information-attr-change').fadeOut();
+      } else if (target_information[id].field2changed < 0) {
         $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'red');
         $('.spell-information-attr-2').find('.spell-information-attr-change').fadeIn();
-      } else if (target_information[id].field2changed > target_information[id].field2) {
+      } else if (target_information[id].field2changed > 0) {
         $('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').css('color', 'green');
         $('.spell-information-attr-2').find('.spell-information-attr-change').fadeIn();
       } else {
@@ -974,12 +1032,14 @@ window.onload = function() {
       }
 
       $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').val(target_information[id].field3changed);
-      $('.spell-information-attr-value-3 > input[type="text"]:nth-child(2)').val(target_information[id].field3by);
-      $('.spell-information-attr-value-3 > input[type="text"]:nth-child(3)').val(target_information[id].field3);
-      if (target_information[id].field3changed < target_information[id].field3) {
+      $('.spell-information-attr-start-3').text(target_information[id].field3);
+      if (target_information[id].field3changed !== "") {
+        $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-3').find('.spell-information-attr-change').fadeOut();
+      } else if (target_information[id].field3changed < 0) {
         $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'red');
         $('.spell-information-attr-3').find('.spell-information-attr-change').fadeIn();
-      } else if (target_information[id].field3changed > target_information[id].field3) {
+      } else if (target_information[id].field3changed > 0) {
         $('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').css('color', 'green');
         $('.spell-information-attr-3').find('.spell-information-attr-change').fadeIn();
       } else {
@@ -988,12 +1048,14 @@ window.onload = function() {
       }
 
       $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').val(target_information[id].field4changed);
-      $('.spell-information-attr-value-4 > input[type="text"]:nth-child(2)').val(target_information[id].field4by);
-      $('.spell-information-attr-value-4 > input[type="text"]:nth-child(3)').val(target_information[id].field4);
-      if (target_information[id].field4changed < target_information[id].field4) {
+      $('.spell-information-attr-start-4').text(target_information[id].field4);
+      if (target_information[id].field4changed !== ""){
+        $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-4').find('.spell-information-attr-change').fadeOut();
+      } else if (target_information[id].field4changed < 0) {
         $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'red');
         $('.spell-information-attr-4').find('.spell-information-attr-change').fadeIn();
-      } else if (target_information[id].field4changed > target_information[id].field4) {
+      } else if (target_information[id].field4changed > 0) {
         $('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').css('color', 'green');
         $('.spell-information-attr-4').find('.spell-information-attr-change').fadeIn();
       } else {
@@ -1002,12 +1064,15 @@ window.onload = function() {
       }
 
       $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').val(target_information[id].field5changed);
-      $('.spell-information-attr-value-5 > input[type="text"]:nth-child(2)').val(target_information[id].field5by);
-      $('.spell-information-attr-value-5 > input[type="text"]:nth-child(3)').val(target_information[id].field5);
-      if (target_information[id].field5changed < target_information[id].field5) {
+      $('.spell-information-attr-start-5').text(target_information[id].field5);
+      if (target_information[id].field5changed !== "") {
+        $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'white');
+        $('.spell-information-attr-5').find('.spell-information-attr-change').fadeOut();
+      }
+      else if (target_information[id].field5changed < 0) {
         $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'red');
         $('.spell-information-attr-5').find('.spell-information-attr-change').fadeIn();
-      } else if (target_information[id].field5changed > target_information[id].field5) {
+      } else if (target_information[id].field5changed > 0) {
         $('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').css('color', 'green');
         $('.spell-information-attr-5').find('.spell-information-attr-change').fadeIn();
       } else {
@@ -1017,11 +1082,6 @@ window.onload = function() {
     };
 
     function saveInformation (target_information, id) {
-      target_information[id].field1changed = parseInt($('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').val());
-      target_information[id].field2changed = parseInt($('.spell-information-attr-value-2 > input[type="text"]:nth-child(1)').val());
-      target_information[id].field3changed = parseInt($('.spell-information-attr-value-3 > input[type="text"]:nth-child(1)').val());
-      target_information[id].field4changed = parseInt($('.spell-information-attr-value-4 > input[type="text"]:nth-child(1)').val());
-      target_information[id].field5changed = parseInt($('.spell-information-attr-value-5 > input[type="text"]:nth-child(1)').val());
       target_information[id].field1by = parseInt($('.spell-information-attr-value-1 > input[type="text"]:nth-child(2)').val());
       target_information[id].field2by = parseInt($('.spell-information-attr-value-2 > input[type="text"]:nth-child(2)').val());
       target_information[id].field3by = parseInt($('.spell-information-attr-value-3 > input[type="text"]:nth-child(2)').val());
@@ -1060,7 +1120,12 @@ window.onload = function() {
       var temp = $(event.target).parent().prev().find(">:last-child").val();
       var perc = $(event.target).parent().prev().find(">:first-child").next().val();
       var result = (perc / 100) * temp;
-      $(event.target).parent().prev().find(">:first-child").val(result);
+      var percent = perc+"%";
+      $(event.target).parent().children().css("background-color","");
+      $(event.target).parent().children().css("color","");
+      $(event.target).css("background-color","ghostwhite");
+      $(event.target).css("color","gray");
+      $(event.target).parent().prev().find(">:first-child").val(percent);
       $(event.target).parent().prev().find(">:first-child").css("z-index","4");
       $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
       if (perc < 100) {
@@ -1072,13 +1137,28 @@ window.onload = function() {
       } else if (perc == 100) {
         $(event.target).parent().prev().find(">:first-child").css("color","white");
         $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
+        $(event.target).css("background-color","");
+        $(event.target).css("color","");
       }
     });
     $('.spell-information-window').on("click", '.spell-button-number', function() {
-      var temp = $(event.target).parent().prev().find(">:last-child").val();
-      var add = $(event.target).parent().prev().find(">:first-child").next().val();
+      var temp = $(event.target).parent().prev().prev().text();
+      var add = $(event.target).parent().prev().find(">:last-child").val();
       var result = parseInt(temp) + parseInt(add);
-      $(event.target).parent().prev().find(">:first-child").val(result);
+      var addition;
+      if (add > 0) {
+        addition = "+" + add;
+      } else if (add < 0) {
+        addition = add;
+      } else if (add == 0) {
+        addition = add;
+      }
+
+      $(event.target).parent().children().css("background-color","");
+      $(event.target).parent().children().css("color","");
+      $(event.target).css("background-color","ghostwhite");
+      $(event.target).css("color","gray");
+      $(event.target).parent().prev().find(">:first-child").val(addition);
       $(event.target).parent().prev().find(">:first-child").css("z-index","4");
       $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
       var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
@@ -1091,25 +1171,32 @@ window.onload = function() {
       } else if (add == 0) {
         $(event.target).parent().prev().find(">:first-child").css("color","white");
         $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
+        $(event.target).css("background-color","");
+        $(event.target).css("color","");
       }
     });
     $('.spell-information-window').on("click", '.spell-button-delta', function() {
-      var temp = $(event.target).parent().prev().find(">:last-child").val();
-      var add = $(event.target).parent().prev().find(">:first-child").next().val();
+      var temp = $(event.target).parent().prev().prev().text();
+      var add = $(event.target).parent().prev().find(">:last-child").val();
       var result = parseInt(add);
-      $(event.target).parent().prev().find(">:first-child").val(result);
+      $(event.target).parent().children().css("background-color","");
+      $(event.target).parent().children().css("color","");
+      $(event.target).css("background-color","ghostwhite");
+      $(event.target).css("color","gray");
+      $(event.target).parent().prev().find(">:first-child").val(add);
       $(event.target).parent().prev().find(">:first-child").css("z-index","4");
       $(event.target).parent().prev().find(">:first-child").next().css("z-index","2");
-      var num = parseInt($(event.target).parent().prev().find(">:first-child").next().val());
-      if (result < temp) {
+      if (add < 0) {
         $(event.target).parent().prev().find(">:first-child").css("color","red");
         $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
-      } else if (result > temp){
+      } else if (add > 0){
         $(event.target).parent().prev().find(">:first-child").css("color","green");
         $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeIn();
-      } else if (result == temp) {
+      } else if (add == 0) {
         $(event.target).parent().prev().find(">:first-child").css("color","white");
         $(event.target).closest('[class^="spell-information-attr-"]').parent().find('.spell-information-attr-change').fadeOut();
+        $(event.target).css("background-color","");
+        $(event.target).css("color","");
       }
     });
 
@@ -1186,35 +1273,41 @@ window.onload = function() {
         <div class="spell-information-image"></div>
         <div class="spell-information-name"></div>
         <div class="spell-information-type"></div>
+        <div class="spell-information-label"><span class="spell-information-label-1">Current</span><span class="spell-information-label-2">Change By</span></div>
           <form name="spell-form">
             <div class="spell-information-attr-1">
               <input type="radio" class="spell-information-attr-change" value="" checked>
               <span class="spell-information-attr-name spell-information-attr-name-1">Population</span>
-              <div class="spell-information-attr-value spell-information-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <span class="spell-information-attr-start spell-information-attr-start-1"></span>
+              <div class="spell-information-attr-value spell-information-attr-value-1"><input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
               <div class="spell-information-attr-type spell-information-attr-type-1"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
             </div>
             <div class="spell-information-attr-2">
               <input type="radio" class="spell-information-attr-change" value="" checked>
               <span class="spell-information-attr-name spell-information-attr-name-2">Awareness</span>
-              <div class="spell-information-attr-value spell-information-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <span class="spell-information-attr-start spell-information-attr-start-2"></span>
+              <div class="spell-information-attr-value spell-information-attr-value-2">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
               <div class="spell-information-attr-type spell-information-attr-type-2"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
             </div>
             <div class="spell-information-attr-3">
               <input type="radio" class="spell-information-attr-change" value="" checked>
               <span class="spell-information-attr-name spell-information-attr-name-3">Elasticity</span>
-              <div class="spell-information-attr-value spell-information-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <span class="spell-information-attr-start spell-information-attr-start-3"></span>
+              <div class="spell-information-attr-value spell-information-attr-value-3">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
               <div class="spell-information-attr-type spell-information-attr-type-3"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
             </div>
             <div class="spell-information-attr-4">
               <input type="radio" class="spell-information-attr-change" value="" checked>
               <span class="spell-information-attr-name spell-information-attr-name-4">Popularity</span>
-              <div class="spell-information-attr-value spell-information-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <span class="spell-information-attr-start spell-information-attr-start-4"></span>
+              <div class="spell-information-attr-value spell-information-attr-value-4">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
               <div class="spell-information-attr-type spell-information-attr-type-4"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
             </div>
             <div class="spell-information-attr-5">
               <input type="radio" class="spell-information-attr-change" value="" checked>
               <span class="spell-information-attr-name spell-information-attr-name-5">Responsiveness</span>
-              <div class="spell-information-attr-value spell-information-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"><input type="text" placeholder="Value"></div>
+              <span class="spell-information-attr-start spell-information-attr-start-5"></span>
+              <div class="spell-information-attr-value spell-information-attr-value-5">Value: <input type="text" placeholder="Value" disabled><input type="text" placeholder="Value"></div>
               <div class="spell-information-attr-type spell-information-attr-type-5"><button class="button spell-button-percentage">%</button><button class="button spell-button-number">#</button><button class="button spell-button-delta">Δ</button></div>
             </div>
           </form>
@@ -1241,6 +1334,9 @@ window.onload = function() {
     <input type="hidden" name="spell-window-action-3-gold" />
     <input type="hidden" name="spell-window-action-3-mana" />
   </form>
+  <div id="spell_name_storage" style="display: none">{{$spell_name}}</div>
+  <div id="spell_description_storage" style="display: none">{{$spell_description}}</div>
+  <div id="spell_icon_storage" style="display: none">{{$spell_icon}}</div>
 
   <script>
   var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-title-input" />'),

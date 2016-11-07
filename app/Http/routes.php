@@ -107,6 +107,8 @@ Route::group(['prefix' => 'cms'], function () {
 
   Route::get('spellEditor', "CMS\CMSSpellEditorCtrl@LoadPage");
 
+  Route::post('sendSpell', "CMS\CMSElementEditorCtrl@SendSpell");
+
   });
 });
 

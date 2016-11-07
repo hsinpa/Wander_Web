@@ -539,6 +539,9 @@
       $('#customerSave').click(function(){
         $('#customerContainer').foundation('up', $('#customerContainer'));
         setTimeout(function(){ $('#spellContainer').foundation('down', $('#spellContent')); }, 300);
+        $('.screen-product').hide();
+        $('.screen-overlay').hide();
+        $('.screen-customer').hide();
       });
       $('#spellSave').click(function(){
         $('#spellContainer').foundation('up', $('#spellContent'));
@@ -633,6 +636,23 @@
       $("#tactic-3-icon").change(function(){
         var url = "url(../image/editor/tactics/" + this.value + ".png)"
         $('.tactic-3-icon').css({"background-image":url})
+      });
+
+
+      $("[class^='customer-'][class$='-image']").change(function(){
+        if (this.value == "knight") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/knight.png)"})
+        } else if (this.value == "paladin") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/paladin.png)"})
+        } else if (this.value == "goblin-old") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-old.png)"})
+        } else if (this.value == "goblin-young") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-young.png)"})
+        } else if (this.value == "orc-family") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc-family.png)"})
+        } else if (this.value == "orc") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc.png)"})
+        }
       });
 
     });
@@ -769,6 +789,7 @@
                           <option value="goblin-old">Old Goblin</option>\
                           <option value="goblin-young">Young Goblin</option>\
                           <option value="orc-family">Orc Family</option>\
+                          <option value="orc">Orc</option>\
                         </select>\
                       </label>\
                       <div id="customer-controls">\
@@ -802,8 +823,11 @@
                         <label>Customer Image:\
                           <select id="customer-'+ cid +'-image">\
                             <option selected disabled></option>\
-                            <option value="human">Human</option>\
-                            <option value="goblin">Goblin</option>\
+                            <option value="knight">Knight</option>\
+                            <option value="paladin">Paldin</option>\
+                            <option value="goblin-old">Old Goblin</option>\
+                            <option value="goblin-young">Young Goblin</option>\
+                            <option value="orc-family">Orc Family</option>\
                             <option value="orc">Orc</option>\
                           </select>\
                         </label>\
@@ -834,6 +858,8 @@
           $('[id ^=prop-][id $=-config]').text("Configure pricing information");
           $('.screen-product').hide();
           $('.screen-overlay').hide();
+          $('.screen-customer').hide();
+          $('#customer-image').css("background-image","");
           currentCid++;
           cid++;
           return false;
@@ -981,7 +1007,7 @@
 
       $(document).on('input','[id ^=customer-][id $=-awareness]', function() {
         var cid = event.target.id.substring(9);
-        cid = cid.slice(0,-11);
+        cid = cid.slice(0,-10);
         var tmp = '<span>Awareness: '+$('#customer-'+cid+'-awareness').val()+'%</span>';
         $('#customer-awareness').empty().append(tmp);
         $('#customer-awareness').adaptText({
@@ -1448,7 +1474,7 @@
   <div class="medium-3 left-margin columns">
     <div class="medium-12 columns">
       <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="currencyContainer">
-        <li class="accordion-item is-active" data-accordion-item>
+        <li class="accordion-item" data-accordion-item>
           <a href="#currencyContent" class="accordion-title">Currency</a>
           <div class="accordion-content" data-tab-content id="currencyContent">
             <div class="row">
@@ -1563,6 +1589,8 @@
         </li>
       </ul>
     </div>
+  </form>
+  <form action="sendSpell" method="POST" name="send-spell">
     <div class="medium-12 columns">
       <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
         <li class="accordion-item" data-accordion-item>
@@ -1571,10 +1599,10 @@
           <div class="row">
             <div class="panel">
               <h4>Spell 1</h4>
-              <label>Spell Name: <input type="text" placeholder="Name" /></label>
-              <label>Spell Description: <input type="text" placeholder="Description" /></label>
+              <label>Spell Name: <input type="text" placeholder="Name" name="spell-name" /></label>
+              <label>Spell Description: <input type="text" placeholder="Description" name="spell-description" /></label>
               <label>Spell Icon:
-                <select id="tactic-1-icon">
+                <select id="tactic-1-icon"  name="spell-icon">
                   <option value="loan">Loan</option>
                   <option value="megaphone">Megaphone</option>
                   <option value="insurance">Insurance</option>
@@ -1588,7 +1616,7 @@
                   <option value="supply">Supply</option>
                 </select>
               </label>
-              <a class="secondary button" data-open="spell1Config">Click to configure spell actions</a>
+              <input type="submit" class="secondary button" value="Click to configure spell actions">
               <div class="reveal" id="spell1Config" data-reveal>
                 <h3>Spell Configuration</h3>
                 <h4>Primary Action 1</h4>
@@ -1601,6 +1629,10 @@
                 <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
               </div>
             </div>
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+          </form>
+          <form>
+            <!--
             <div class="panel">
               <h4>Spell 2</h4>
               <label>Spell Name: <input type="text" placeholder="Name" /></label>
@@ -1665,6 +1697,7 @@
                 <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
               </div>
             </div>
+            --->
             <div class="medium-3 medium-centered">
               <button type="button" id="spellSave" class="button saveButton">Save Changes</button>
             </div>
