@@ -520,6 +520,22 @@
     #product-name > span {
       font-weight: bold;
     }
+    [id^="customer-"][id$="-label1"],[id^="customer-"][id$="-label2"],[id^="customer-"][id$="-label3"],[id^="customer-"][id$="-label4"],[id^="customer-"][id$="-label5"] {
+      width: 49%;
+      display: inline-block;
+      margin-right: 2%;
+    }
+    [id^="customer-"][id$="-reached"],[id^="customer-"][id$="-visiting"],[id^="customer-"][id$="-awareness"],[id^="customer-"][id$="-payment"],[id^="customer-"][id$="-elasticity"] {
+      width: 49%;
+      display: inline-block;
+    }
+    #customer-reached-1, #customer-reached-2, #customer-visiting-1, #customer-visiting-2, #customer-awareness-1, #customer-awareness-2, #customer-payment-1, #customer-payment-2, #customer-elasticity-1, #customer-elasticity-2 {
+      width: auto;
+      display: inline-block;
+      margin-right: 4%;
+      color: white;
+      font-family: 'LatoWebLight', Calibri, Candara, Optima, Arial, sans-serif;
+    }
   </style>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
   <script lang="text/javascript">
@@ -798,18 +814,11 @@
                       </div>\
                     </div>\
                     <div id="customer-'+ cid +'-flipped">\
-                      <label>Customers reached: <input type="number" placeholder="Customers reached" id="customer-'+ cid +'-reached" /></label>\
-                      <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-'+ cid +'-visiting" /></label>\
-                      <label>Awareness: <input type="number" placeholder="Awareness" id="customer-'+ cid +'-awareness" /></label>\
-                      <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-'+ cid +'-payment" /></label>\
-                      <label>Price Elasticity:\
-                        <select id="customer-'+ cid +'-elasticity">\
-                          <option selected disabled></option>\
-                          <option value="high">High</option>\
-                          <option value="medium">Medium</option>\
-                          <option value="low">Low</option>\
-                        </select>\
-                      </label>\
+                      <input type="text" id="customer-'+cid+'-label1" placeholder="Attribute 1" /><input type="text" placeholder="Attribute 1 Value" id="customer-'+ cid +'-reached" />\
+                      <input type="text" id="customer-'+cid+'-label2" placeholder="Attribute 2" /><input type="text" placeholder="Attribute 2 Value" id="customer-'+ cid +'-visiting" />\
+                      <input type="text" id="customer-'+cid+'-label3" placeholder="Attribute 3" /><input type="text" placeholder="Attribute 3 Value" id="customer-'+ cid +'-awareness" />\
+                      <input type="text" id="customer-'+cid+'-label4" placeholder="Attribute 4" /><input type="text" placeholder="Attribute 4 Value" id="customer-'+ cid +'-payment" />\
+                      <input type="text" id="customer-'+cid+'-label5" placeholder="Attribute 5" /><input type="text" placeholder="Attribute 5 Value" id="customer-'+ cid +'-elasticity" />\
                     </div>\
                   </div>';
       $(cust).appendTo('#customer-listing');
@@ -837,18 +846,11 @@
                         </div>\
                       </div>\
                       <div id="customer-'+ cid +'-flipped">\
-                        <label>Customers reached: <input type="number" placeholder="Customers reached" id="customer-'+ cid +'-reached" /></label>\
-                        <label>Customers visiting: <input type="number" placeholder="Customers visiting" id="customer-'+ cid +'-visiting" /></label>\
-                        <label>Awareness: <input type="number" placeholder="Awareness" id="customer-'+ cid +'-awareness" /></label>\
-                        <label>Payment speed: <input type="number" placeholder="Payment Speed" id="customer-'+ cid +'-payment" /></label>\
-                        <label>Price Elasticity:\
-                          <select id="customer-'+ cid +'-elasticity">\
-                            <option selected disabled></option>\
-                            <option value="high">High</option>\
-                            <option value="medium">Medium</option>\
-                            <option value="low">Low</option>\
-                          </select>\
-                        </label>\
+                        <input type="text" id="customer-'+cid+'-label1" placeholder="Attribute 1" /><input type="text" placeholder="Attribute 1 Value" id="customer-'+ cid +'-reached" />\
+                        <input type="text" id="customer-'+cid+'-label2" placeholder="Attribute 2" /><input type="text" placeholder="Attribute 2 Value" id="customer-'+ cid +'-visiting" />\
+                        <input type="text" id="customer-'+cid+'-label3" placeholder="Attribute 3" /><input type="text" placeholder="Attribute 3 Value" id="customer-'+ cid +'-awareness" />\
+                        <input type="text" id="customer-'+cid+'-label4" placeholder="Attribute 4" /><input type="text" placeholder="Attribute 4 Value" id="customer-'+ cid +'-payment" />\
+                        <input type="text" id="customer-'+cid+'-label5" placeholder="Attribute 5" /><input type="text" placeholder="Attribute 5 Value" id="customer-'+ cid +'-elasticity" />\
                       </div>\
                     </div>';
         if (currentCid < 7) {
@@ -981,60 +983,120 @@
         });
       });
 
-      $(document).on('input','[id ^=customer-][id $=-reached]', function() {
+      $('#customer-listing').on('input','[id ^=customer-][id $=-label1]', function() {
         var cid = event.target.id.substring(9);
-        cid = cid.slice(0,-8);
-        var tmp = '<span>Customers reached: '+$('#customer-'+cid+'-reached').val()+'</span>';
-        $('#customer-reached').empty().append(tmp);
-        $('#customer-reached').adaptText({
+        cid = cid.slice(0,-7);
+        var tmp = $('#customer-'+cid+'-label1').val()+":";
+        $('#customer-reached-1').empty().append(tmp);
+        $('#customer-reached-1').adaptText({
           minFontSize: 10,
           maxFontSize: 15,
           tollerance: 2
         });
       });
 
-      $(document).on('input','[id ^=customer-][id $=-visiting]', function() {
+      $('#customer-listing').on('input','[id ^=customer-][id $=-reached]', function() {
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-8);
+        var tmp = $('#customer-'+cid+'-reached').val();
+        $('#customer-reached-2').empty().append(tmp);
+        $('#customer-reached-2').adaptText({
+          minFontSize: 10,
+          maxFontSize: 15,
+          tollerance: 2
+        });
+      });
+
+      $('#customer-listing').on('input','[id ^=customer-][id $=-label2]', function() {
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-7);
+        var tmp = $('#customer-'+cid+'-label2').val()+":";
+        $('#customer-visiting-1').empty().append(tmp);
+        $('#customer-visiting-1').adaptText({
+          minFontSize: 10,
+          maxFontSize: 15,
+          tollerance: 2
+        });
+      });
+
+      $('#customer-listing').on('input','[id ^=customer-][id $=-visiting]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-9);
-        var tmp = '<span>Customers visiting: '+$('#customer-'+cid+'-visiting').val()+'</span>';
-        $('#customer-visiting').empty().append(tmp);
-        $('#customer-visiting').adaptText({
+        var tmp = $('#customer-'+cid+'-visiting').val();
+        $('#customer-visiting-2').empty().append(tmp);
+        $('#customer-visiting-2').adaptText({
           minFontSize: 10,
           maxFontSize: 15,
           tollerance: 2
         });
       });
 
-      $(document).on('input','[id ^=customer-][id $=-awareness]', function() {
+      $('#customer-listing').on('input','[id ^=customer-][id $=-label3]', function() {
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-7);
+        var tmp = $('#customer-'+cid+'-label3').val()+":";
+        $('#customer-awareness-1').empty().append(tmp);
+        $('#customer-awareness-1').adaptText({
+          minFontSize: 10,
+          maxFontSize: 15,
+          tollerance: 2
+        });
+      });
+
+      $('#customer-listing').on('input','[id ^=customer-][id $=-awareness]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-10);
-        var tmp = '<span>Awareness: '+$('#customer-'+cid+'-awareness').val()+'%</span>';
-        $('#customer-awareness').empty().append(tmp);
-        $('#customer-awareness').adaptText({
+        var tmp = $('#customer-'+cid+'-awareness').val();
+        $('#customer-awareness-2').empty().append(tmp);
+        $('#customer-awareness-2').adaptText({
           minFontSize: 10,
           maxFontSize: 15,
           tollerance: 2
         });
       });
 
-      $(document).on('input','[id ^=customer-][id $=-payment]', function() {
+      $('#customer-listing').on('input','[id ^=customer-][id $=-label4]', function() {
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-7);
+        var tmp = $('#customer-'+cid+'-label4').val()+":";
+        $('#customer-payment-1').empty().append(tmp);
+        $('#customer-payment-1').adaptText({
+          minFontSize: 10,
+          maxFontSize: 15,
+          tollerance: 2
+        });
+      });
+
+      $('#customer-listing').on('input','[id ^=customer-][id $=-payment]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-8);
-        var tmp = '<span>Payment speed: '+$('#customer-'+cid+'-payment').val()+' round(s)</span>';
-        $('#customer-payment').empty().append(tmp);
-        $('#customer-payment').adaptText({
+        var tmp = $('#customer-'+cid+'-payment').val();
+        $('#customer-payment-2').empty().append(tmp);
+        $('#customer-payment-2').adaptText({
           minFontSize: 10,
           maxFontSize: 15,
           tollerance: 2
         });
       });
 
-      $(document).on('change','[id ^=customer-][id $=-elasticity]', function() {
+      $('#customer-listing').on('input','[id ^=customer-][id $=-label5]', function() {
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-7);
+        var tmp = $('#customer-'+cid+'-label5').val()+":";
+        $('#customer-elasticity-1').empty().append(tmp);
+        $('#customer-elasticity-1').adaptText({
+          minFontSize: 10,
+          maxFontSize: 15,
+          tollerance: 2
+        });
+      });
+
+      $('#customer-listing').on('input','[id ^=customer-][id $=-elasticity]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-11);
-        var tmp = '<span>Price Elasticity: '+$('#customer-'+cid+'-elasticity').val()+'</span>';
-        $('#customer-elasticity').empty().append(tmp);
-        $('#customer-elasticity').adaptText({
+        var tmp = $('#customer-'+cid+'-elasticity').val();
+        $('#customer-elasticity-2').empty().append(tmp);
+        $('#customer-elasticity-2').adaptText({
           minFontSize: 10,
           maxFontSize: 15,
           tollerance: 2
@@ -1168,15 +1230,6 @@
             var tmp = '<span>Payment speed: '+$('#customer-'+cid+'-payment').val()+'</span>';
             $('#customer-payment').empty().append(tmp);
             $('#customer-payment').adaptText({
-              minFontSize: 10,
-              maxFontSize: 15,
-              tollerance: 2
-            });
-          }
-          if ($('#customer-'+cid+'-elasticity').val()!==null) {
-            var tmp = '<span>Price Elasticity: '+$('#customer-'+cid+'-elasticity').val()+'</span>';
-            $('#customer-elasticity').empty().append(tmp);
-            $('#customer-elasticity').adaptText({
               minFontSize: 10,
               maxFontSize: 15,
               tollerance: 2
@@ -1788,15 +1841,15 @@
         <div class="screen-customer" id="screen-customer">
           <div id="customer-image"></div>
           <div class="customer-information">
-            <div id="customer-reached">
+            <div id="customer-reached"><div id="customer-reached-1"></div><div id="customer-reached-2"></div>
             </div>
-            <div id="customer-visiting">
+            <div id="customer-visiting"><div id="customer-visiting-1"></div><div id="customer-visiting-2"></div>
             </div>
-            <div id="customer-awareness">
+            <div id="customer-awareness"><div id="customer-awareness-1"></div><div id="customer-awareness-2"></div>
             </div>
-            <div id="customer-payment">
+            <div id="customer-payment"><div id="customer-payment-1"></div><div id="customer-payment-2"></div>
             </div>
-            <div id="customer-elasticity">
+            <div id="customer-elasticity"><div id="customer-elasticity-1"></div><div id="customer-elasticity-2"></div>
             </div>
           </div>
         </div>

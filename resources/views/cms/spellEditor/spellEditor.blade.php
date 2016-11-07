@@ -100,6 +100,10 @@
 
     .spell-action-window {
       background-color: #444;
+      background-color: #fff;
+      border-color: #b3b3b3;
+      border-style: solid;
+      border-width: 8px;
       left: 51%;
       width: 47%;
       height: 55%;
@@ -132,7 +136,7 @@
     .spell-action-target-storage {
       position: relative;
       overflow-x: hidden;
-      overflow-y: scroll;
+      overflow-y: hidden;
       width: 100%;
       height: 35%;
       top: -4%;
@@ -238,7 +242,10 @@
       height: 32%;
       bottom: -3%;
       left: 18.6%;
-      background-color: #444;
+      background-color: #fff;
+      border-color: #b3b3b3;
+      border-style: solid;
+      border-width: 8px;
       border-radius: 5px;
       padding: 1%;
       overflow-x: auto;
@@ -259,7 +266,6 @@
     }
     .spell-target-window::-webkit-scrollbar {
       width: 12px;
-      background-color: #444;
     }
     .spell-target-item {
       position: relative;
@@ -269,7 +275,7 @@
       margin-left: .5%;
       display: inline-block;
       margin-right: .5%;
-      background-color: #383838;
+      background-color: #767775;
       border-radius: 10px;
       border: 1px solid black;
       z-index: 2;
@@ -359,35 +365,35 @@
       top: 55%;
       height: 7%;
       width: 90%;
-      left: 5%;
+      left: 2%;
     }
     .spell-information-attr-2 {
       position: absolute;
       top: 62%;
       height: 7%;
       width: 90%;
-      left: 5%;
+      left: 2%;
     }
     .spell-information-attr-3 {
       position: absolute;
       top: 69%;
       height: 7%;
       width: 90%;
-      left: 5%;
+      left: 2%;
     }
     .spell-information-attr-4 {
       position: absolute;
       top: 76%;
       height: 7%;
       width: 90%;
-      left: 5%;
+      left: 2%;
     }
     .spell-information-attr-5 {
       position: absolute;
       top: 83%;
       height: 7%;
       width: 90%;
-      left: 5%;
+      left: 2%;
     }
     .spell-information-attr-name {
       position: absolute;
@@ -431,7 +437,7 @@
     }
     .spell-information-attr-value {
       position: absolute;
-      left: 66%;
+      left: 60%;
       width: 14%;
       height: 100%;
       top: 0;
@@ -442,7 +448,7 @@
     }
     .spell-information-attr-type {
       position: absolute;
-      left: 85%;
+      left: 80%;
       width: 20%;
       height: 100%;
       top: 0;
