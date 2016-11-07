@@ -553,8 +553,8 @@
         setTimeout(function(){ $('#customerContainer').foundation('down', $('#customerContent')); }, 300);
       });
       $('#customerSave').click(function(){
-        $('#customerContainer').foundation('up', $('#customerContainer'));
-        setTimeout(function(){ $('#spellContainer').foundation('down', $('#spellContent')); }, 300);
+        $('#customerContainer').foundation('toggle', $('#customerContent'));
+        setTimeout(function(){ $('#spellContainer').foundation('down', $('#spellContent')) }, 300);
         $('.screen-product').hide();
         $('.screen-overlay').hide();
         $('.screen-customer').hide();
