@@ -157,7 +157,7 @@
       width: 12px;
       background-color: #444;
     }
-    .spell-window-action-1-rename {
+    .spell-window-action-1-config {
       position: relative;
       width: 8%;
       height: 60%;
@@ -165,7 +165,7 @@
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(../image/editor/spell/rename.png);
+      background-image: url(../image/editor/spell/config.png);
     }
     .spell-window-action-1-toggle {
       position: absolute;
@@ -176,7 +176,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .spell-window-action-2-rename {
+    .spell-window-action-2-config {
       position: relative;
       width: 8%;
       height: 60%;
@@ -184,7 +184,7 @@
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(../image/editor/spell/rename.png);
+      background-image: url(../image/editor/spell/config.png);
     }
     .spell-window-action-2-toggle {
       position: absolute;
@@ -195,7 +195,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .spell-window-action-3-rename {
+    .spell-window-action-3-config {
       position: relative;
       width: 8%;
       height: 60%;
@@ -203,7 +203,7 @@
       left: 102%;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(../image/editor/spell/rename.png);
+      background-image: url(../image/editor/spell/config.png);
     }
     .spell-window-action-3-toggle {
       position: absolute;
@@ -298,7 +298,7 @@
       width: 92%;
       height: 70%;
       text-align: center;
-      background-color: #020403;
+      background-color: #62acff;
       color: white;
       font-size: 2.5vh;
       padding-top: 3%;
@@ -630,9 +630,9 @@
 
 window.onload = function() {
     $('.spell-window-action-3').fadeOut(1);
-    $('.spell-window-action-3-rename').fadeOut(1);
+    $('.spell-window-action-3-config').fadeOut(1);
     $('.spell-window-action-2').fadeOut(1);
-    $('.spell-window-action-2-rename').fadeOut(1);
+    $('.spell-window-action-2-config').fadeOut(1);
     $('.spell-action-window').fadeOut(1);
     $('.spell-target-window').fadeOut(1);
     $('.spell-information-attr-change').fadeOut(1);
@@ -713,7 +713,7 @@ window.onload = function() {
       }
     }
 
-    $('.spell-window-action-1-text').on("click", function () {
+    $('.spell-window-action-1-config').on("click", function () {
       saveCurrent();
       $('.spell-action-window').fadeIn();
       $('.spell-target-window').fadeOut();
@@ -730,7 +730,7 @@ window.onload = function() {
       }
     });
 
-    $('.spell-window-action-2-text').on("click", function () {
+    $('.spell-window-action-2-config').on("click", function () {
       saveCurrent();
       $('.spell-action-window').fadeIn();
       $('.spell-target-window').fadeOut();
@@ -747,7 +747,7 @@ window.onload = function() {
       }
     });
 
-    $('.spell-window-action-3-text').on("click", function () {
+    $('.spell-window-action-3-config').on("click", function () {
       saveCurrent();
       $('.spell-action-window').fadeIn();
       $('.spell-target-window').fadeOut();
@@ -792,16 +792,16 @@ window.onload = function() {
 
       if ($('.spell-window-action-1').css('display')=="none") {
         $('.spell-window-action-1').fadeIn();
-        $('.spell-window-action-1-rename').fadeIn();
-        var elem = $('.spell-window-action-1-rename');
+        $('.spell-window-action-1-config').fadeIn();
+        var elem = $('.spell-window-action-1-config');
       } else if ($('.spell-window-action-2').css('display')=="none") {
         $('.spell-window-action-2').fadeIn();
-        $('.spell-window-action-2-rename').fadeIn();
-        var elem = $('.spell-window-action-2-rename')
+        $('.spell-window-action-2-config').fadeIn();
+        var elem = $('.spell-window-action-2-config')
       } else if ($('.spell-window-action-3').css('display')=="none") {
         $('.spell-window-action-3').fadeIn();
-        $('.spell-window-action-3-rename').fadeIn();
-        var elem = $('.spell-window-action-3-rename');
+        $('.spell-window-action-3-config').fadeIn();
+        var elem = $('.spell-window-action-3-config');
       }
       $(elem).promise().done(function(){
         var x = 0;
@@ -840,9 +840,9 @@ window.onload = function() {
         y = 2;
       }
 
-      $('[class ^="spell-window-action"]:not([class $="rename"]):not([class $="toggle"]):not([class $="remove"]):not([class $="text"]):not([class $="add"]):not(":eq(0)"):visible:eq('+y+')').fadeOut();
-      $('[class ^="spell-window-action"][class $="-rename"]:visible:eq('+y+')').fadeOut();
-      $('[class ^="spell-window-action"][class $="-rename"]:visible:eq('+y+')').promise().done(function(){
+      $('[class ^="spell-window-action"]:not([class $="config"]):not([class $="toggle"]):not([class $="remove"]):not([class $="text"]):not([class $="add"]):not(":eq(0)"):visible:eq('+y+')').fadeOut();
+      $('[class ^="spell-window-action"][class $="-config"]:visible:eq('+y+')').fadeOut();
+      $('[class ^="spell-window-action"][class $="-config"]:visible:eq('+y+')').promise().done(function(){
         var x = 0;
         if ($('.spell-window-action-1').css('display')=="none") {
           x++;
@@ -942,14 +942,13 @@ window.onload = function() {
           }
           loadInformation(target_information1, id);
           $('.spell-information-window').fadeIn();
-          $(".spell-information-close").on("click", function(){saveInformation (target_information1, id);});
+          $(".spell-information-close").on("click", function(){saveInformation (target_information1, id, temp);});
           return false;
         }
         A1_targets.push(temp);
-        $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
         loadInformation(target_information1, id);
         $('.spell-information-window').fadeIn();
-        $(".spell-information-close").on("click", function(){saveInformation (target_information1, id);});
+        $(".spell-information-close").on("click", function(){saveInformation (target_information1, id, temp);});
       } else if (current == 2) {
         if ($.inArray(temp, A2_targets) !== -1) {
           $('.spell-information-image').css('background-image',bg);
@@ -963,14 +962,14 @@ window.onload = function() {
           }
           loadInformation(target_information2, id);
           $('.spell-information-window').fadeIn();
-          $(".spell-information-close").on("click", function(){saveInformation (target_information2, id);});
+          $(".spell-information-close").on("click", function(){saveInformation (target_information2, id, temp);});
           return false;
         }
         A2_targets.push(temp);
         $('.spell-action-target').append("<li data-content='" + id + "' class=\"spell-action-target-item\">"+temp+"</li>");
         loadInformation(target_information2, id);
         $('.spell-information-window').fadeIn();
-        $(".spell-information-close").on("click", function(){saveInformation (target_information2, id);});
+        $(".spell-information-close").on("click", function(){saveInformation (target_information2, id, temp);});
       } else if (current == 3) {
         if ($.inArray(temp, A3_targets) !== -1) {
           $('.spell-information-image').css('background-image',bg);
@@ -984,14 +983,14 @@ window.onload = function() {
           }
           loadInformation(target_information3, id);
           $('.spell-information-window').fadeIn();
-          $(".spell-information-close").on("click", function(){saveInformation (target_information3, id);});
+          $(".spell-information-close").on("click", function(){saveInformation (target_information3, id, temp);});
           return false;
         }
         A3_targets.push(temp);
-        $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
+
         loadInformation(target_information3, id);
         $('.spell-information-window').fadeIn();
-        $(".spell-information-close").on("click", function(){saveInformation (target_information3, id);});
+        $(".spell-information-close").on("click", function(){saveInformation (target_information3, id, temp);});
       }
       $('.spell-information-image').css('background-image',bg);
       $('.spell-information-name').text(temp);
@@ -1005,6 +1004,12 @@ window.onload = function() {
     });
 
     function loadInformation (target_information, id) {
+      $('.spell-button-delta').css("background-color","");
+      $('.spell-button-delta').css("color","");
+      $('.spell-button-number').css("background-color","");
+      $('.spell-button-number').css("color","");
+      $('.spell-button-percentage').css("background-color","");
+      $('.spell-button-percentage').css("color","");
       $('.spell-information-attr-value-1 > input[type="text"]:nth-child(1)').val(target_information[id].field1changed);
       $('.spell-information-attr-start-1').text(target_information[id].field1);
       if (target_information[id].field1changed !== "") {
@@ -1087,7 +1092,7 @@ window.onload = function() {
       }
     };
 
-    function saveInformation (target_information, id) {
+    function saveInformation (target_information, id, temp) {
       target_information[id].field1by = parseInt($('.spell-information-attr-value-1 > input[type="text"]:nth-child(2)').val());
       target_information[id].field2by = parseInt($('.spell-information-attr-value-2 > input[type="text"]:nth-child(2)').val());
       target_information[id].field3by = parseInt($('.spell-information-attr-value-3 > input[type="text"]:nth-child(2)').val());
@@ -1096,6 +1101,13 @@ window.onload = function() {
       $('.spell-information-window').fadeOut();
       $('.spell-information-close').off();
       $('.spell-information-image').css('background-image','none');
+      if ($('.spell-action-target:contains('+temp+')').length) {
+        console.log('contains already');
+        return true;
+      } else {
+        console.log('Does not contain element, adding');
+        $('.spell-action-target').append("<li data-content='" + id + "'>"+temp+"</li>");
+      }
     };
 
     $('.spell-information-window').on("click",$('.spell-window-attr-value input:nth-child(1)'), function() {
@@ -1225,17 +1237,17 @@ window.onload = function() {
         <div class="spell-window-action">
           <div class="spell-window-action-1">
             <div class="spell-window-action-1-text">Action #1</div>
-            <div class="spell-window-action-1-rename"></div>
+            <div class="spell-window-action-1-config"></div>
           </div>
           <div class="spell-window-action-1-toggle spell-window-toggle-remove"></div>
           <div class="spell-window-action-2">
             <div class="spell-window-action-2-text">Action #2</div>
-            <div class="spell-window-action-2-rename"></div>
+            <div class="spell-window-action-2-config"></div>
           </div>
           <div class="spell-window-action-2-toggle spell-window-toggle-add"></div>
           <div class="spell-window-action-3">
             <div class="spell-window-action-3-text">Action #3</div>
-            <div class="spell-window-action-3-rename"></div>
+            <div class="spell-window-action-3-config"></div>
           </div>
           <div class="spell-window-action-3-toggle"></div>
         </div>
@@ -1356,17 +1368,17 @@ window.onload = function() {
     var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-1-input" />'),
     connectWith = $('input[name="spell-window-action-1-text"]');
     text = $('.spell-window-action-1-text');
-    $('.spell-window-action-1-rename').actionInlineEdit(text, replaceWith, connectWith);
+    $('.spell-window-action-1-text').inlineEdit(replaceWith, connectWith);
 
     var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-2-input" />'),
     connectWith = $('input[name="spell-window-action-2-text"]');
     text = $('.spell-window-action-2-text');
-    $('.spell-window-action-2-rename').actionInlineEdit(text, replaceWith, connectWith);
+    $('.spell-window-action-2-text').inlineEdit(replaceWith, connectWith);
 
     var replaceWith = $('<input maxlength="26" name="temp" class="spell-window-action-3-input" />'),
     connectWith = $('input[name="spell-window-action-3-text"]');
     text = $('.spell-window-action-3-text');
-    $('.spell-window-action-3-rename').actionInlineEdit(text, replaceWith, connectWith);
+    $('.spell-window-action-3-text').inlineEdit(replaceWith, connectWith);
   </script>
 
 </div>
