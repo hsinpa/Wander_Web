@@ -379,11 +379,11 @@
       border-radius: 5px;
       border-top-left-radius: 5px;
       border-top-right-radius: 0px;
-      left: -156%;
+      left: -260%;
       position: relative;
       margin-top: -10%;
       margin-right: 4%;
-      width: 254%;
+      width: 358%;
       transition: left 300ms linear, border-top-right-radius 300ms linear, padding-bottom 300ms linear, width 300ms linear, transform 300ms linear;
     }
     .selection-hero-closed {
@@ -408,11 +408,11 @@
       z-index: 3;
     }
     .selection-hero-storage > [class^="selection-"][class*="-image"] {
-      margin-top: 0%;
+      margin-top: 1.5%;
       margin-bottom: 2%;
-      width: 14%;
-      height: auto;
-      margin-right: 5%;
+      width: 9%;
+      height: 90%;
+      margin-right: 2%;
     }
     .selection-hero-storage > [class^="selection-"][class*="-image"]:nth-child(4) {
       height: 90%;
@@ -1034,6 +1034,10 @@
             <img src="../image/editor/heroes/builder.png" class="selection-hero-image">
             <img src="../image/editor/heroes/mage.png" class="selection-hero-image">
             <img src="../image/editor/heroes/goblin.png" class="selection-hero-image">
+            <img src="../image/editor/heroes/man-1.png" class="selection-hero-image">
+            <img src="../image/editor/heroes/man-2.png" class="selection-hero-image">
+            <img src="../image/editor/heroes/woman-1.png" class="selection-hero-image">
+            <img src="../image/editor/heroes/woman-2.png" class="selection-hero-image">
           </div>
         </div>
       </div>
