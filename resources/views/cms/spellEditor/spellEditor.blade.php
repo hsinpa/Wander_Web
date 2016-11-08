@@ -1213,7 +1213,7 @@ window.onload = function() {
     @include('cms.menu')
   </div>
   <div class="medium-10 columns">
-    <h2 class="wrainbo-cms-title">Spell Editor</h2>
+    <h2 class="wrainbo-cms-title">Tool Editor</h2>
   </div>
   <div class="medium-10 columns">
     <div class="spell-container">
