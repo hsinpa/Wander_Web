@@ -39,6 +39,26 @@ class CMSLicenseCtrl extends Controller {
     }
   }
 
+  //Buy more licenses
+  public function Charge(Request $post) {
+    require_once('./config.php');
+
+    $token  = $_POST['stripeToken'];
+
+    $customer = \Stripe\Customer::create(array(
+        'email' => 'customer@example.com',
+        'source'  => $token
+    ));
+
+    $charge = \Stripe\Charge::create(array(
+        'customer' => $customer->id,
+        'amount'   => 5000,
+        'currency' => 'usd'
+    ));
+
+    echo '<h1>Successfully charged $50.00!</h1>';
+  }
+
 
   public function LoadPage() {
     $user_data = $this->_user->GetUserData(session('cms.token'));

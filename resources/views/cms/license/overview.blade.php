@@ -3,17 +3,51 @@
 
   <div class="chart-holder">
     <canvas id="donut" height="260px" width="260px"></canvas>
-    <p>
-      <span class="licenseDonutChart-title">Available</span>
-      <span class="licenseDonutChart-remaining">{{$available_licenses}}</span>
-      <span class="licenseDonutChart-total">{{$active_licenses}}/{{$total_licenses}} Active</span>
-    </p>
   </div>
   <script>
     var total = {{$total_licenses}};
     var available = {{$available_licenses}};
     var active = {{$active_licenses}};
     var donutLocation = document.getElementById('donut').getContext('2d');
+
+    Chart.pluginService.register({
+      beforeDraw: function(chart) {
+        var width = chart.chart.width,
+            height = chart.chart.height,
+            ctx = chart.chart.ctx;
+
+        ctx.restore();
+        var fontSize = (height / 254).toFixed(2);
+        ctx.font = fontSize + "em LatoWebLight";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = '#2a8bde';
+        var text = "Available",
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = (height / 2)*.7;
+        ctx.fillText(text, textX, textY);
+
+        var fontSize = (height / 80).toFixed(2);
+        ctx.font = fontSize + "em LatoWebLight";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = '#2a8bde';
+        var text = "{{$available_licenses}}",
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = (height / 2)*1.0;
+        ctx.fillText(text, textX, textY);
+
+        var fontSize = (height / 254).toFixed(2);
+        ctx.font = fontSize + "em LatoWebLight";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = 'black';
+        var text = "{{$active_licenses}}/{{$total_licenses}} Active",
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = (height / 2)*1.3;
+        ctx.fillText(text, textX, textY);
+
+        ctx.save();
+      }
+    });
+
     var myDoughnutChart = new Chart(donutLocation, {
       type: 'doughnut',
       data: {
@@ -35,8 +69,6 @@
       }
     });
   </script>
-  <br />
-
   <div>
       <table>
         <tr>

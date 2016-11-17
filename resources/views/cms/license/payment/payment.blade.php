@@ -17,22 +17,17 @@
               @endforeach
       </div>
     @endif
-    <h2 class="wrainbo-cms-title">Manage License</h2>
+    <h2 class="wrainbo-cms-title">Payment</h2>
 
     <div class="row license-holder" >
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
         <div class="license-holder-box" >
-          @include('cms.license.overview')
+          @include('cms.license.payment.order')
         </div>
       </div>
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
         <div class="license-holder-box" >
-          @include('cms.license.register')
-        </div>
-      </div>
-      <div class="medium-4 columns">
-        <div class="license-holder-box" >
-          @include('cms.license.purchase')
+          @include('cms.license.payment.info')
         </div>
       </div>
     </div>
@@ -40,6 +35,4 @@
 
   </div>
 </div>
-  <script type="text/javascript" src="{{ url('js/cms/license/donutChart.js')}}"></script>
-  <script type="text/javascript" src="{{ url('js/cms/license/LicenseManager.js') }}"></script>
 @stop

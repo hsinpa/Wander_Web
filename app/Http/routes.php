@@ -92,6 +92,10 @@ Route::group(['prefix' => 'cms'], function () {
   //================== LICENSE ==================
 
     Route::get('license', "CMS\CMSLicenseCtrl@LoadPage");
+    Route::post('charge', "CMS\CMSLicenseCtrl@Charge");
+    Route::group(['prefix' => 'license'], function () {
+      Route::get('payment', "CMS\CMSPaymentCtrl@LoadPage");
+    });
 
     Route::post('registerEmail', "CMS\CMSLicenseCtrl@RegisterEmail");
 
@@ -106,7 +110,6 @@ Route::group(['prefix' => 'cms'], function () {
   //================== SPELL EDITOR ==================
 
   Route::get('spellEditor', "CMS\CMSSpellEditorCtrl@LoadPage");
-
   Route::post('sendSpell', "CMS\CMSElementEditorCtrl@SendSpell");
 
   });
