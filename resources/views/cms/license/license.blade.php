@@ -3,7 +3,7 @@
 
 @include('cms.header')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
-<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <div id="wrainbo-cms-license" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')

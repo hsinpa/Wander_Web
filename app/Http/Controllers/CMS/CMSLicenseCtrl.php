@@ -41,22 +41,24 @@ class CMSLicenseCtrl extends Controller {
 
   //Buy more licenses
   public function Charge(Request $post) {
-    require_once('./config.php');
 
-    $token  = $_POST['stripeToken'];
+    \Stripe\Stripe::setApiKey("sk_test_hx194iFHfvBWG6Nanzq9dj0d");
 
-    $customer = \Stripe\Customer::create(array(
-        'email' => 'customer@example.com',
-        'source'  => $token
-    ));
+    // Get the credit card details submitted by the form
+    $token = $_POST['stripeToken'];
 
-    $charge = \Stripe\Charge::create(array(
-        'customer' => $customer->id,
-        'amount'   => 5000,
-        'currency' => 'usd'
-    ));
-
-    echo '<h1>Successfully charged $50.00!</h1>';
+    // Create a charge: this will charge the user's card
+    try {
+      $charge = \Stripe\Charge::create(array(
+        "amount" => 1000, // Amount in cents
+        "currency" => "usd",
+        "source" => $token,
+        "description" => "Example charge"
+        ));
+    } catch(\Stripe\Error\Card $e) {
+      // The card has been declined
+    }
+    echo '<h1>Successfully charged '+$amount/10+'</h1>';
   }
 
 
