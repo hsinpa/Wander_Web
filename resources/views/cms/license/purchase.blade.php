@@ -3,11 +3,46 @@
   <script lang="text/javascript">
     Stripe.setPublishableKey('pk_test_K1GnAWJfmeCt5ahBj6UGPH0K');
     $( document ).ready(function() {
-      $( "#purchase" ).change(function() {
-        $purchase = $(this).val();
-        $purchase = $purchase*30;
-        var total = "$" + $purchase;
-        document.getElementById("amount").textContent = total;
+      $('.license-form-card > label > input').payment('formatCardNumber');
+      $('.license-form-cvc > label > input').payment('formatCardCVC');      
+      $('input[name=license-type]:checked').css('border','3px solid darkgray');
+      $( "#purchase" ).on("input", function() {
+        if ($('input[name=license-type]:checked').length){
+          if ($('input[name=license-type]:checked').val() == 0) {
+            $purchase = $('#purchase').val();
+            $purchase = $purchase*50;
+            var total = "$" + $purchase;
+            document.getElementById("amount").textContent = total;
+          } else if ($('input[name=license-type]:checked').val() == 1) {
+            $purchase = $('#purchase').val();
+            $purchase = $purchase*75;
+            var total = "$" + $purchase;
+            document.getElementById("amount").textContent = total;
+          } else if ($('input[name=license-type]:checked').val() == 2) {
+            $purchase = $('#purchase').val();
+            $purchase = $purchase*100;
+            var total = "$" + $purchase;
+            document.getElementById("amount").textContent = total;
+          }
+        }
+      });
+      $('.license-select:first-child').on("click", function() {
+        if ($('input[name=license-type]:checked').val() == 0) {
+          $purchase = $('#purchase').val();
+          $purchase = $purchase*50;
+          var total = "$" + $purchase;
+          document.getElementById("amount").textContent = total;
+        } else if ($('input[name=license-type]:checked').val() == 1) {
+          $purchase = $('#purchase').val();
+          $purchase = $purchase*75;
+          var total = "$" + $purchase;
+          document.getElementById("amount").textContent = total;
+        } else if ($('input[name=license-type]:checked').val() == 2) {
+          $purchase = $('#purchase').val();
+          $purchase = $purchase*100;
+          var total = "$" + $purchase;
+          document.getElementById("amount").textContent = total;
+        }
       });
 
       $('.license-select > .button').on("click", function () {
@@ -74,6 +109,7 @@
     .license-select {
        list-style-type:none;
        margin-bottom: 0;
+       margin-left: 0;
     }
     .license-select input[type="radio"]:checked{
       opacity: .8;
@@ -84,39 +120,70 @@
     #amount {
       margin-bottom: 0;
     }
+    .license-form-right {
+      float: right;
+      display: inline-block;
+      width: 50%;
+    }
+    .license-form-right > h1 {
+      color: white;
+      padding-top: 25%;
+    }
+    .license-form-left {
+      padding: 0;
+      width: 50%;
+      background-color: white;
+      margin-left: -8px;
+      float: left;
+    }
+    #license-form {
+      background-color: rgb(41, 41, 41);
+    }
+    .license-form-expiration > div {
+      font-family: 'LatoWebLight', Calibri, Candara, Optima, Arial, sans-serif;
+      color: #444;
+    }
+    .license-form-expiration:nth-child(3), .license-form-expiration > span, .license-form-expiration > input {
+      display: inline-block;
+    }
+    .license-form-expiration > input {
+      width: 40%;
+    }
+    .license-form-zip, .license-form-cvc {
+      width: 40%;
+      display: inline-block;
+    }
+    .license-form-cvc {
+      margin-left: 5%;
+    }
+    .license-form-left > input {
+      display: block;
+      margin-left: 40%;
+    }
   </style>
 
   <form action="charge" method="POST" id="payment-form">
   <div>
     <label>Purchase Additional Licenses</label>
-    <input type="number" id="purchase" value="0"/>
+    <input type="number" name="purchase" id="purchase" value="0"/>
   </div>
 
   <div class="wrainbo-cms-license-purchase-package">
     <ul class="license-select">
       <li class="button secondary basic">
-        <input type="radio" id="license-basic" name="license-type" />
-        <label for="license-basic">Basic</label>
+        <input type="radio" id="license-basic" name="license-type" value="0" />
+        Basic
       </li>
       <li class="button pro">
-        <input type="radio" id="license-pro" name="license-type" />
-        <label for="license-pro">Pro</label>
+        <input type="radio" id="license-pro" name="license-type" value="1" />
+        Pro
       </li>
       <li class="button proplus">
-        <input type="radio" id="license-proplus" name="license-type" />
-        <label for="license-proplus">Pro+</label>
+        <input type="radio" id="license-proplus" name="license-type" value="2" />
+        Pro+
       </li>
     </ul>
   </div>
-
-  <script>
-    $( document ).ready(function() {
-      $('input[name=license-type]').change(function () {
-        $('input[name=license-type]:not(:checked)').parent().css('border','3px solid white');
-        $('input[name=license-type]:checked').parent().css('border','3px solid darkgray');
-      });
-    });
-  </script>
 
   <span class="tip">*Current License</span>
   <br />
@@ -132,43 +199,45 @@
           <img src="{{url('image/icon/visa.png') }}"/>
       </section>
   </div>
-  <div class="reveal" id="license-form" action="charge" method="post" data-reveal>
-    <h1>Payment Information</h1>
-      <span class="payment-errors"></span>
+  <div class="reveal xlarge" id="license-form" action="charge" method="post" data-reveal>
+    <div class="license-form-left">
+        <span class="payment-errors"></span>
 
-      <div>
-        <label>
-          <span>Card Number</span>
-          <input type="text" size="20" data-stripe="number">
-        </label>
-      </div>
+        <div class="license-form-card">
+          <label>
+            <span>Card Number</span>
+            <input type="text" size="20" data-stripe="number">
+          </label>
+        </div>
 
-      <div>
-        <label>
-          <span>Expiration (MM/YY)</span>
-          <input type="text" size="2" data-stripe="exp_month">
-        </label>
-        <span> / </span>
-        <input type="text" size="2" data-stripe="exp_year">
-      </div>
+        <div class="license-form-expiration">
+            <div>Expiration (MM/YY)</div>
+            <input type="text" size="2" data-stripe="exp_month">
+          <span> / </span>
+          <input type="text" size="2" data-stripe="exp_year">
+        </div>
 
-      <div>
-        <label>
-          <span>CVC</span>
-          <input type="text" size="4" data-stripe="cvc">
-        </label>
-      </div>
+        <span class="license-form-cvc">
+          <label>
+            <span>CVC</span>
+            <input type="text" size="4" data-stripe="cvc">
+          </label>
+        </span>
 
-      <div>
-        <label>
-          <span>Billing Zip</span>
-          <input type="text" size="6" data-stripe="address_zip">
-        </label>
-      </div>
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <span class="license-form-zip">
+          <label>
+            <span>Billing Zip</span>
+            <input type="text" size="6" data-stripe="address_zip">
+          </label>
+        </span>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-      <input type="submit" class="submit" value="Submit Payment">
-    </form>
+        <input type="submit" class="submit submitButton" value="Submit Payment">
+      </form>
+    </div>
+    <div class="license-form-right">
+      <h1>Payment Information</h1>
+    </div>
   </div>
 
 </div>
