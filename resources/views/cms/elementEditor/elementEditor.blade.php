@@ -536,10 +536,584 @@
       color: white;
       font-family: 'LatoWebLight', Calibri, Candara, Optima, Arial, sans-serif;
     }
+
+    .propertyListing {
+      margin-bottom: 3%;
+    }
+    .propertyButton {
+      padding-top: 1%;
+      margin-left: 4%;
+      display: inline-table;
+      width: 18%;
+      background-color: darkgray;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .propertyButton > span {
+      display: inline-block;
+    }
+    .propertyButtonClosed {
+      padding-bottom: 1%;
+    }
+    .propertyButtonOpen {
+      padding-bottom: 0%;
+    }
+    .propertyDetails {
+      width: 250%;
+      background-color: darkgray;
+      border-radius: 5px;
+      transition: left 300ms linear, border-top-right-radius 300ms linear, padding-bottom 300ms linear, width 300ms linear, transform 300ms linear;
+    }
+    .propertyDetailsLeft {
+      left: -150%;
+      position: relative;
+    }
+    .propertyDetailsClosed {
+        height: 0px;
+        margin-top: 0%;
+    }
+    .propertyDetailsHalfOpen {
+        height: 180px;
+        margin-top: 10%;
+    }
+    .propertyDetailsOpen {
+        height: 360px;
+        margin-top: 10%;
+    }
+    .propertyIconListing {
+      width: 90%;
+      height: 150px;
+      margin-top: 1%;
+      display: inline-block;
+      overflow-x: scroll;
+    }
+    .propertyIcon {
+      width: 27%;
+      height: 95%;
+      margin-right: 5%;
+      display: inline-block;
+    }
+    .propertyIconLabel {
+      font-family: 'LatoWebLight', Calibri, Candara, Optima, Arial, sans-serif;
+    }
+    .propertyIconImage {
+      height: 100px;
+      width: 100px;
+      background-color: lightgray;
+      border-radius: 5px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      display: inline-block;
+    }
+    .propertyInformation {
+      height: 185px;
+      width: 90%;
+      display: inline-block;
+    }
+    .propertyInformation > h5 {
+      margin-bottom: 0;
+    }
+    .propertyInformationInputs {
+      columns: 2;
+      height: 100%;
+    }
+    .propertyInformationInputs > label {
+      display: inline-block;
+    }
+    .propertyInformationInputs > label > input {
+      margin-bottom: .5rem;
+    }
+
+    a#prop-1-info {
+      padding: .5em;
+    }
+    #prop-1-flipped > label {
+        font-size: .75em;
+    }
+    #prop-1-flipped > label > input {
+      height: 1.5rem;
+      margin-bottom: .5rem;
+    }
+
+    a#prop-2-info {
+      padding: .5em;
+    }
+    #prop-2-flipped > label {
+        font-size: .75em;
+    }
+    #prop-2-flipped > label > input {
+      height: 1.5rem;
+      margin-bottom: .5rem;
+    }
+
+    a#prop-3-info {
+      padding: .5em;
+    }
+    #prop-3-flipped > label {
+        font-size: .75em;
+    }
+    #prop-3-flipped > label > input {
+      height: 1.5rem;
+      margin-bottom: .5rem;
+    }
+
   </style>
   <script type="text/javascript" src="{{ url('js/cms/editor/adapttext.js') }}"></script>
   <script lang="text/javascript">
     $(document).ready(function() {
+
+      $('.propertyInformation').hide();
+      $('.propertyDetails').hide();
+      $('#prop-1-original').hide();
+      $('#prop-1-flipped').hide();
+      $('#prop-2-original').hide();
+      $('#prop-2-flipped').hide();
+      $('#prop-3-original').hide();
+      $('#prop-3-flipped').hide();
+      $('#customer-1-original').hide();
+      $('#customer-1-flipped').hide();
+      $('#customer-2-original').hide();
+      $('#customer-2-flipped').hide();
+      $('#customer-3-original').hide();
+      $('#customer-3-flipped').hide();
+
+      $('#iconHero').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#charactersHero').fadeIn();
+      });
+      $('#iconCompetitor').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#charactersCompetitor').fadeIn();
+      });
+
+      $('.propertyListing').on("click", ".propertyButtonClosed", function() {
+        $('.propertyDetailsOpen').removeClass('propertyDetailsOpen').addClass('propertyDetailsClosed');
+        $('.propertyDetailsHalfOpen').removeClass('propertyDetailsHalfOpen').addClass('propertyDetailsClosed');
+        $('.propertyButtonOpen').removeClass('propertyButtonOpen').addClass('propertyButtonClosed');
+        $('.propertyDetails').fadeOut(5);
+        $('.propertyInformation').hide();
+        $(event.target).removeClass('propertyButtonClosed').addClass('propertyButtonOpen');
+        $(event.target).find('.propertyDetails').removeClass('propertyDetailsClosed').addClass('propertyDetailsHalfOpen').fadeIn();
+      });
+
+      $('#iconProp1').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#props1').fadeIn();
+        $('#prop-1-original').fadeIn();
+      });
+
+      $('#prop-1-config').on("click", flipProp);
+      $('#prop-1-info').on("click", flipPropBack);
+
+      $('#iconProp2').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#props2').fadeIn();
+        $('#prop-2-original').fadeIn();
+      });
+
+      $('#prop-2-config').on("click", flipProp);
+      $('#prop-2-info').on("click", flipPropBack);
+
+      $('#iconProp3').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#props3').fadeIn();
+        $('#prop-3-original').fadeIn();
+      });
+
+      $('#prop-3-config').on("click", flipProp);
+      $('#prop-3-info').on("click", flipPropBack);
+
+      $('#iconCustomer1').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#customer-1').fadeIn();
+        $('#customer-1-original').fadeIn();
+      });
+
+      $('#customer-1-config').on("click", flipCustomer);
+      $('#customer-1-info').on("click", flipPropBack);
+
+      $('#iconCustomer2').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#customer-2').fadeIn();
+        $('#customer-2-original').fadeIn();
+      });
+
+      $('#customer-2-config').on("click", flipCustomer);
+      $('#customer-2-info').on("click", flipPropBack);
+
+      $('#iconCustomer3').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#customer-3').fadeIn();
+        $('#customer-3-original').fadeIn();
+      });
+
+      $('#customer-3-config').on("click", flipCustomer);
+      $('#customer-3-info').on("click", flipPropBack);
+
+      $('#iconSpell1').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#spells1').fadeIn();
+        $('#spells1 > div').children().fadeIn();
+      });
+
+      $('#iconSpell2').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#spells2').fadeIn();
+        $('#spells2 > div').children().fadeIn();
+      });
+
+      $('#iconSpell3').on("click", function() {
+        $('.propertyInformation').fadeOut(5);
+        $('.screen-product').hide();
+        $('.screen-customer').hide();
+        $('.screen-overlay').hide();
+        $(event.target).closest(".propertyDetails").removeClass("propertyDetailsHalfOpen").addClass("propertyDetailsOpen");
+        $('#spells3').fadeIn();
+        $('#spells3 > div').children().fadeIn();
+      });
+
+      function flipProp() {
+        $(event.target).parent().fadeOut(5);
+        $(event.target).parent().eq(1).fadeIn();
+        $('.screen-product').show();
+        $('.screen-overlay').show();
+        var id = event.target.id.substring(5);
+        id = id.slice(0,-7);
+        if ($('#prop-'+id+'-name').val()!=="") {
+          var tmp = '<span>'+$('#prop-'+id+'-name').val()+'</span>';
+          $('#product-name').empty().append(tmp);
+          $('#product-name').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-description').val()!=="") {
+          var tmp = '<span>'+$('#prop-'+id+'-description').val()+'</span>';
+          $('#product-description').empty().append(tmp);
+          $('#product-description').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-icon').val()!==null) {
+          var url = "url(../image/editor/products/" + $('#prop-'+id+'-icon').val() + ".png)"
+          $('#product-image').css({"background-image":url});
+        }
+        if ($('#prop-'+id+'-market').val()!=="") {
+          var tmp = '<span>Market Price: $'+$('#prop-'+id+'-market').val()+'</span>';
+          $('#market-price').empty().append(tmp);
+          $('#market-price').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-material').val()!=="") {
+          var tmp = '<span>Material Cost: $'+$('#prop-'+id+'-material').val()+'/unit</span>';
+          $('#material-cost').empty().append(tmp);
+          $('#material-cost').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-inventory').val()!=="") {
+          var tmp = '<span>Inventory Cost: $'+$('#prop-'+id+'-inventory').val()+'/unit</span>';
+          $('#inventory-cost').empty().append(tmp);
+          $('#inventory-cost').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-defect').val()!=="") {
+          var tmp = '<span>Defect Rate: '+$('#prop-'+id+'-defect').val()+'%</span>';
+          $('#defect-rate').empty().append(tmp);
+          $('#defect-rate').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+id+'-elasticity').val()!=="") {
+          var tmp = '<span>Price Elasticity: '+$('#prop-'+id+'-elasticity').val()+'</span>';
+          $('#price-elasticity').empty().append(tmp);
+          $('#price-elasticity').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+      }
+
+      function flipPropBack() {
+        $(event.target).parent().fadeOut(5);
+        $(event.target).parent().prev().fadeIn();
+        $('.screen-product').hide();
+        $('.screen-overlay').hide();
+        $('.screen-customer').hide();
+      }
+
+      function flipCustomer() {
+        $(event.target).parent().fadeOut(5);
+        $(event.target).parent().next().fadeIn();
+        var cid = event.target.id.substring(9);
+        cid = cid.slice(0,-7);
+        $('.screen-customer').show();
+        $('.screen-overlay').show();
+        //Get existing information
+        if ($('#customer-'+cid+'-label1').val()!=="") {
+          $('#customer-reached-1').text($('#customer-'+cid+'-label1').val()+':');
+          $('#customer-reached').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-reached').val()!=="") {
+          $('#customer-reached-2').text($('#customer-'+cid+'-reached').val());
+          $('#customer-reached').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-label2').val()!=="") {
+          $('#customer-visiting-1').text($('#customer-'+cid+'-label2').val()+':');
+          $('#customer-reached').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-visiting').val()!=="") {
+          $('#customer-visiting-2').text($('#customer-'+cid+'-visiting').val());
+          $('#customer-visiting').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-label3').val()!=="") {
+          $('#customer-awareness-1').text($('#customer-'+cid+'-label3').val()+':');
+          $('#customer-awareness').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-awareness').val()!=="") {
+          $('#customer-awareness-2').text($('#customer-'+cid+'-awareness').val());
+          $('#customer-awareness').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-label4').val()!=="") {
+          $('#customer-payment-1').text($('#customer-'+cid+'-label4').val()+':');
+          $('#customer-payment').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-payment').val()!=="") {
+          $('#customer-elasticity-2').text($('#customer-'+cid+'-elasticity').val());
+          $('#customer-elasticity').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-label5').val()!=="") {
+          $('#customer-elasticity-1').text($('#customer-'+cid+'-label5').val()+':');
+          $('#customer-elasticity').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-elasticity').val()!=="") {
+          $('#customer-elasticity-2').text($('#customer-'+cid+'-elasticity').val());
+          $('#customer-elasticity').adaptText({
+            minFontSize: 10,
+            maxFontSize: 30,
+            tollerance: 2
+          });
+        }
+        if ($('#customer-'+cid+'-image').val()!==null) {
+          var url = "url(../image/editor/customers/" + $('#customer-'+cid+'-image').val() + ".png)"
+          $('#customer-image').css({"background-image":url});
+        }
+        if ($('#prop-'+cid+'-market').val()!=="") {
+          var tmp = '<span>Market Price: $'+$('#prop-'+cid+'-market').val()+'</span>';
+          $('#market-price').empty().append(tmp);
+          $('#market-price').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+cid+'-material').val()!=="") {
+          var tmp = '<span>Material Cost: $'+$('#prop-'+cid+'-material').val()+'/unit</span>';
+          $('#material-cost').empty().append(tmp);
+          $('#material-cost').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+cid+'-inventory').val()!=="") {
+          var tmp = '<span>Inventory Cost: $'+$('#prop-'+cid+'-inventory').val()+'/unit</span>';
+          $('#inventory-cost').empty().append(tmp);
+          $('#inventory-cost').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+cid+'-defect').val()!=="") {
+          var tmp = '<span>Defect Rate: '+$('#prop-'+cid+'-defect').val()+'%</span>';
+          $('#defect-rate').empty().append(tmp);
+          $('#defect-rate').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+        if ($('#prop-'+cid+'-elasticity').val()!=="") {
+          var tmp = '<span>Price Elasticity: '+$('#prop-'+cid+'-elasticity').val()+'</span>';
+          $('#price-elasticity').empty().append(tmp);
+          $('#price-elasticity').adaptText({
+            minFontSize: 10,
+            maxFontSize: 15,
+            tollerance: 2
+          });
+        }
+
+      }
+
+      $("#customer-1-image").on("change", function(){
+        var id = 1;
+        var value = $("#customer-1-image").val();
+        if (value == "knight") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/knight.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/knight.png)"});
+        } else if (value == "paladin") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/paladin.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/paladin.png)"});
+        } else if (value == "goblin-old") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+        } else if (value == "goblin-young") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+        } else if (value == "orc-family") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+        } else if (value == "orc") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc.png)"});
+        }
+      });
+
+      $("#customer-3-image").on("change", function(){
+        var id = 3;
+        var value = $("#customer-3-image").val();
+        if (value == "knight") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/knight.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/knight.png)"});
+        } else if (value == "paladin") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/paladin.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/paladin.png)"});
+        } else if (value == "goblin-old") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+        } else if (value == "goblin-young") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+        } else if (value == "orc-family") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+        } else if (value == "orc") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc.png)"});
+        }
+      });
+
+      $("#customer-2-image").on("change", function(){
+        var id = 2;
+        var value = $("#customer-2-image").val();
+        if (value == "knight") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/knight.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/knight.png)"});
+        } else if (value == "paladin") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/paladin.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/paladin.png)"});
+        } else if (value == "goblin-old") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-old.png)"});
+        } else if (value == "goblin-young") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/goblin-young.png)"});
+        } else if (value == "orc-family") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc-family.png)"});
+        } else if (value == "orc") {
+          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc.png)"});
+          $('#iconCustomer'+id).css({"background-image":"url(../image/editor/customers/orc.png)"});
+        }
+      });
+
+      function sendForm () {
+        document.getElementById("send-spell").submit();
+      }
+      document.getElementById("send-spell-button").onclick = sendForm;
+
       $('#currencySave').click(function(){
         $('#currencyContainer').foundation('up', $('#currencyContent'));
         setTimeout(function(){ $('#characterContainer').foundation('down', $('#characterContent')); }, 300);
@@ -593,15 +1167,19 @@
         if (this.value == "mage") {
           var mage = '<img src="../image/editor/heroes/mage.png" class="selection-hero-image">';
           $('#hero-area').empty().append(mage);
+          $('#iconHero').css({"background-image":"url(../image/editor/heroes/mage.png)"});
         } else if (this.value == "wizard") {
           var wizard = '<img src="../image/editor/heroes/wizard.png" class="selection-hero-image">';
           $('#hero-area').empty().append(wizard);
+          $('#iconHero').css({"background-image":"url(../image/editor/heroes/wizard.png)"});
         } else if (this.value == "goblin") {
           var goblin = '<img src="../image/editor/heroes/goblin.png" class="selection-hero-image">';
           $('#hero-area').empty().append(goblin);
+          $('#iconHero').css({"background-image":"url(../image/editor/heroes/goblin.png)"});
         } else if (this.value == "builder") {
           var builder = '<img src="../image/editor/heroes/builder.png" class="selection-hero-image">';
           $('#hero-area').empty().append(builder);
+          $('#iconHero').css({"background-image":"url(../image/editor/heroes/builder.png)"});
         }
       });
 
@@ -609,39 +1187,48 @@
         if (this.value == "gray-robot") {
           var robotgray = '<img src="../image/editor/competitor/robot-gray.png" class="selection-hero-image">';
           $('#competitor-area').empty().append(robotgray);
+          $('#iconCompetitor').css({"background-image":"url(../image/editor/competitor/robot-gray.png)"});
         } else if (this.value == "robot-blue") {
           var robotblue = '<img src="../image/editor/competitor/robot-blue.png" class="selection-hero-image">';
           $('#competitor-area').empty().append(robotblue);
+          $('#iconCompetitor').css({"background-image":"url(../image/editor/competitor/robot-blue.png)"});
         } else if (this.value == "robot-white") {
           var robotwhite = '<img src="../image/editor/competitor/robot-white.png" class="selection-hero-image">';
           $('#competitor-area').empty().append(robotwhite);
+          $('#iconCompetitor').css({"background-image":"url(../image/editor/competitor/robot-white.png)"});
         } else if (this.value == "robot-red") {
           var robotred = '<img src="../image/editor/competitor/robot-red.png" class="selection-hero-image">';
           $('#competitor-area').empty().append(robotred);
+          $('#iconCompetitor').css({"background-image":"url(../image/editor/competitor/robot-red.png)"});
         } else if (this.value == "ninja") {
           var ninja = '<img src="../image/editor/competitor/ninja.png" class="selection-hero-image">';
           $('#competitor-area').empty().append(ninja);
+          $('#iconCompetitor').css({"background-image":"url(../image/editor/competitor/ninja.png)"});
         }
       });
 
       $("#prop-1-icon").change(function(){
-        var url = "url(../image/editor/products/" + this.value + ".png)"
-        $('.prop-1-icon').css({"background-image":url})
+        var url = "url(../image/editor/products/" + this.value + ".png)";
+        $('.prop-1-icon').css({"background-image":url});
+        $('#iconProp1').css({"background-image":url});
       });
 
       $("#prop-2-icon").change(function(){
         var url = "url(../image/editor/products/" + this.value + ".png)"
-        $('.prop-2-icon').css({"background-image":url})
+        $('.prop-2-icon').css({"background-image":url});
+        $('#iconProp2').css({"background-image":url});
       });
 
       $("#prop-3-icon").change(function(){
         var url = "url(../image/editor/products/" + this.value + ".png)"
-        $('.prop-3-icon').css({"background-image":url})
+        $('.prop-3-icon').css({"background-image":url});
+        $('#iconProp3').css({"background-image":url});
       });
 
       $("#tactic-1-icon").change(function(){
         var url = "url(../image/editor/tactics/" + this.value + ".png)"
-        $('.tactic-1-icon').css({"background-image":url})
+        $('.tactic-1-icon').css({"background-image":url});
+        $('#iconProp1').css({"background-image":url});
       });
 
       $("#tactic-2-icon").change(function(){
@@ -652,23 +1239,6 @@
       $("#tactic-3-icon").change(function(){
         var url = "url(../image/editor/tactics/" + this.value + ".png)"
         $('.tactic-3-icon').css({"background-image":url})
-      });
-
-
-      $("[class^='customer-'][class$='-image']").change(function(){
-        if (this.value == "knight") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/knight.png)"})
-        } else if (this.value == "paladin") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/paladin.png)"})
-        } else if (this.value == "goblin-old") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-old.png)"})
-        } else if (this.value == "goblin-young") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/goblin-young.png)"})
-        } else if (this.value == "orc-family") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc-family.png)"})
-        } else if (this.value == "orc") {
-          $('.topbar-spell').css({"background-image":"url(../image/editor/customers/orc.png)"})
-        }
       });
 
     });
@@ -771,20 +1341,15 @@
                           <a class="alert button" id="prop-remove">Remove</a>\
                         </div>\
                       </div>\
-                      <div id="prop-'+ id +'-flipped">\
-                        <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-'+ id +'-material" /></label>\
-                        <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-'+ id +'-inventory" /></label>\
-                        <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-'+ id +'-defect" /></label>\
-                        <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-'+ id +'-elasticity" /></label>\
-                      </div>\
+                      <div id="prop-'+ id +'-flipped">\</div>\
                     </div>';
         if (current < 7) {
           $(prop1).appendTo('#prop-listing');
           $('#prop-'+id+'-flipped').hide();
           $('[id ^=prop-][id $=-flipped]').slideUp();
           $('[id ^=prop-][id $=-config]').text("Configure pricing information");
-          $('.screen-product').hide();
-          $('.screen-overlay').hide();
+          //$('.screen-product').hide();
+          //$('.screen-overlay').hide();
           current++;
           id++;
           return false;
@@ -801,7 +1366,7 @@
                         <select id="customer-'+ cid +'-image">\
                           <option selected disabled></option>\
                           <option value="knight">Knight</option>\
-                          <option value="paladin">Paldin</option>\
+                          <option value="paladin">Paladin</option>\
                           <option value="goblin-old">Old Goblin</option>\
                           <option value="goblin-young">Young Goblin</option>\
                           <option value="orc-family">Orc Family</option>\
@@ -833,7 +1398,7 @@
                           <select id="customer-'+ cid +'-image">\
                             <option selected disabled></option>\
                             <option value="knight">Knight</option>\
-                            <option value="paladin">Paldin</option>\
+                            <option value="paladin">Paladin</option>\
                             <option value="goblin-old">Old Goblin</option>\
                             <option value="goblin-young">Young Goblin</option>\
                             <option value="orc-family">Orc Family</option>\
@@ -858,8 +1423,8 @@
           $('#customer-'+cid+'-flipped').hide();
           $('[id ^=prop-][id $=-flipped]').slideUp();
           $('[id ^=prop-][id $=-config]').text("Configure pricing information");
-          $('.screen-product').hide();
-          $('.screen-overlay').hide();
+          //$('.screen-product').hide();
+          //$('.screen-overlay').hide();
           $('.screen-customer').hide();
           $('#customer-image').css("background-image","");
           currentCid++;
@@ -983,7 +1548,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-label1]', function() {
+      $(document).on('input','[id ^=customer-][id $=-label1]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         var tmp = $('#customer-'+cid+'-label1').val()+":";
@@ -995,7 +1560,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-reached]', function() {
+      $(document).on('input','[id ^=customer-][id $=-reached]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-8);
         var tmp = $('#customer-'+cid+'-reached').val();
@@ -1007,7 +1572,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-label2]', function() {
+      $(document).on('input','[id ^=customer-][id $=-label2]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         var tmp = $('#customer-'+cid+'-label2').val()+":";
@@ -1019,7 +1584,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-visiting]', function() {
+      $(document).on('input','[id ^=customer-][id $=-visiting]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-9);
         var tmp = $('#customer-'+cid+'-visiting').val();
@@ -1031,7 +1596,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-label3]', function() {
+      $(document).on('input','[id ^=customer-][id $=-label3]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         var tmp = $('#customer-'+cid+'-label3').val()+":";
@@ -1043,7 +1608,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-awareness]', function() {
+      $(document).on('input','[id ^=customer-][id $=-awareness]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-10);
         var tmp = $('#customer-'+cid+'-awareness').val();
@@ -1055,7 +1620,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-label4]', function() {
+      $(document).on('input','[id ^=customer-][id $=-label4]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         var tmp = $('#customer-'+cid+'-label4').val()+":";
@@ -1067,7 +1632,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-payment]', function() {
+      $(document).on('input','[id ^=customer-][id $=-payment]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-8);
         var tmp = $('#customer-'+cid+'-payment').val();
@@ -1079,7 +1644,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-label5]', function() {
+      $(document).on('input','[id ^=customer-][id $=-label5]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         var tmp = $('#customer-'+cid+'-label5').val()+":";
@@ -1091,7 +1656,7 @@
         });
       });
 
-      $('#customer-listing').on('input','[id ^=customer-][id $=-elasticity]', function() {
+      $(document).on('input','[id ^=customer-][id $=-elasticity]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-11);
         var tmp = $('#customer-'+cid+'-elasticity').val();
@@ -1108,7 +1673,7 @@
         id = id.slice(0,-7);
         $('#prop-'+id+'-flipped').slideToggle();
         this.toggle = !this.toggle;
-        $(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
+        //$(this).text(this.toggle ? "Hide pricing information" : "Configure pricing information");
         if ($('#prop-'+id+'-config').text()=="Hide pricing information") {
           $('.screen-product').show();
           $('.screen-overlay').show();
@@ -1182,18 +1747,18 @@
             });
           }
         } else {
-          $('.screen-product').hide();
-          $('.screen-overlay').hide();
+          //$('.screen-product').hide();
+          //$('.screen-overlay').hide();
         }
         return false;
       });
-
+/*
       $(document).on('click','[id ^=customer-][id $=-config]', function() {
         var cid = event.target.id.substring(9);
         cid = cid.slice(0,-7);
         $('#customer-'+cid+'-flipped').slideToggle();
         this.toggle = !this.toggle;
-        $(this).text(this.toggle ? "Hide customer information" : "Configure customer information");
+        //$(this).text(this.toggle ? "Hide customer information" : "Configure customer information");
         if ($('#customer-'+cid+'-config').text()=="Hide customer information") {
           $('.screen-customer').show();
           $('.screen-overlay').show();
@@ -1290,7 +1855,7 @@
         }
         return false;
       });
-
+*/
 
       function position1image () {
         var id = event.target.id.substring(5);
@@ -1521,247 +2086,395 @@
       });
     });
   </script>
-  <div class="medium-12">
+  <div class="medium-10 medium-offset-2">
     <h2 class="wrainbo-cms-title">Element Editor</h2>
   </div>
-  <div class="medium-3 left-margin columns">
-    <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="currencyContainer">
-        <li class="accordion-item" data-accordion-item>
-          <a href="#currencyContent" class="accordion-title">Currency</a>
-          <div class="accordion-content" data-tab-content id="currencyContent">
-            <div class="row">
-              <div class="panel">
-                <h4>Money</h4>
-                <form>
-                  <label>Currency Name: <input type="text" placeholder="Name" /></label>
-                  <label>Icon
-                    <select id="money-icon">
-                      <option value="dollar">Dollar Coin</option>
-                      <option value="euro">Euro Coin</option>
-                    </select>
-                  </label>
-              </div>
-              <div class="panel">
-                <h4>Spell</h4>
-                <label>Spell Power Name: <input type="text" placeholder="Spell Power" /></label>
-                <label>Icon
-                  <select id="spell-icon">
-                    <option value="blue">Blue Orb</option>
-                    <option value="red">Red Orb</option>
-                    <option value="yellow">Yellow Orb</option>
-                  </select>
-                </label>
-              </div>
-              <div class="panel">
-                <h4>Supply</h4>
-                <label>Supply Name: <input type="text" placeholder="Supply" /></label>
-                <label>Icon
-                  <select id="supply-icon">
-                    <option value="boxes">Boxes</option>
-                    <option value="truck">Truck</option>
-                  </select>
-                </label>
-              </div>
-              <div class="medium-3 medium-centered">
-                <button type="button" id="currencySave" class="button saveButton">Save Changes</button>
-              </div>
-            </div>
+  <div class="medium-10 medium-offset-2 propertyListing">
+    <div class="propertyButton propertyButtonClosed" id="propertyCharacters">
+      <span>Characters</span>
+      <div class="propertyDetails propertyDetailsClosed">
+        <div class="propertyIconListing">
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Hero</div>
+            <div class="propertyIconImage" id="iconHero"></div>
           </div>
-        </li>
-      </ul>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Competitor</div>
+            <div class="propertyIconImage" id="iconCompetitor"></div>
+          </div>
+        </div>
+        <div class="propertyInformation" id="charactersHero">
+          <h5>Hero</h5>
+          <div class="propertyInformationInputs">
+            <label>Hero Name: <input type="text" placeholder="Name" /></label>
+            <label>Hero Description: <input type="text" placeholder="Description" /></label>
+            <label>Hero Icon:
+              <select id="hero-icon">
+                <option value="mage">Mage</option>
+                <option value="goblin">Goblin</option>
+                <option value="wizard">Wizard</option>
+                <option value="builder">Builder</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="propertyInformation" id="charactersCompetitor">
+          <h5>Competitor</h5>
+          <div class="propertyInformationInputs">
+            <label>Competitor Name: <input type="text" placeholder="Name" /></label>
+            <label>Competitor Description: <input type="text" placeholder="Description" /></label>
+            <label>Competitor Icon:
+              <select id="competitor-icon">
+                <option value="robot-gray">Gray Robot</option>
+                <option value="robot-blue">Blue Robot</option>
+                <option value="robot-red">Red Robot</option>
+                <option value="robot-white">White Robot</option>
+                <option value="ninja">Ninja</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="characterContainer">
-        <li class="accordion-item" data-accordion-item>
-          <a href="#characterContent" class="accordion-title">Characters</a>
-          <div class="accordion-content" data-tab-content id="characterContent">
-          <div class="row">
-            <div class="panel">
-              <h4>Hero</h4>
-              <label>Hero Name: <input type="text" placeholder="Name" /></label>
-              <label>Hero Description: <input type="text" placeholder="Description" /></label>
-              <label>Hero Icon:
-                <select id="hero-icon">
-                  <option value="mage">Mage</option>
-                  <option value="goblin">Goblin</option>
-                  <option value="wizard">Wizard</option>
-                  <option value="builder">Builder</option>
+    <div class="propertyButton propertyButtonClosed" id="propertyProps">
+      <span>Props</span>
+      <div class="propertyDetails propertyDetailsClosed">
+        <div class="propertyIconListing">
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Prop 1</div>
+            <div class="propertyIconImage" id="iconProp1"></div>
+          </div>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Prop 2</div>
+            <div class="propertyIconImage" id="iconProp2"></div>
+          </div>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Prop 3</div>
+            <div class="propertyIconImage" id="iconProp3"></div>
+          </div>
+        </div>
+        <div class="propertyInformation" id="props1">
+          <h5>Prop 1</h5>
+          <div class="propertyInformationInputs">
+            <div id="prop-1-original">
+              <label>Prop Name: <input type="text" placeholder="Name" id="prop-1-name" /></label>
+              <label>Prop Description: <input type="text" placeholder="Description" id="prop-1-description" /></label>
+              <label>Prop Icon:
+                <select id="prop-1-icon">
+                  <option selected disabled></option>
+                  <option value="bag-blue">Blue Bag</option>
+                  <option value="bag-brown">Brown Bag</option>
+                  <option value="bag-red">Red Bag</option>
+                  <option value="cloak-blue">Blue Cloak</option>
+                  <option value="cloak-brown">Brown Cloak</option>
+                  <option value="cloak-red">Red Cloak</option>
+                  <option value="hat-blue">Blue Hat</option>
+                  <option value="hat-brown">Brown Hat</option>
+                  <option value="hat-red">Red Hat</option>
+                  <option value="ring-blue">Blue Ring</option>
+                  <option value="ring-brown">Brown Ring</option>
+                  <option value="ring-red">Red Ring</option>
+                  <option value="shoes-blue">Blue Shoes</option>
+                  <option value="shoes-brown">Brown Shoes</option>
+                  <option value="shoes-red">Red Shoes</option>
+                  <option value="watch-blue">Blue Watch</option>
+                  <option value="watch-brown">Brown Watch</option>
+                  <option value="watch-red">Red Watch</option>
                 </select>
               </label>
+              <a class="secondary button" id="prop-1-config">Configure pricing information</a>
             </div>
-            <div class="panel">
-              <h4>Competitor</h4>
-              <label>Competitor Name: <input type="text" placeholder="Name" /></label>
-              <label>Competitor Description: <input type="text" placeholder="Description" /></label>
-              <label>Competitor Icon:
-                <select id="competitor-icon">
-                  <option value="robot-gray">Gray Robot</option>
-                  <option value="robot-blue">Blue Robot</option>
-                  <option value="robot-red">Red Robot</option>
-                  <option value="robot-white">White Robot</option>
-                  <option value="ninja">Ninja</option>
+            <div id="prop-1-flipped">
+              <label>Market Price: <input type="number" placeholder="Market Price" id="prop-1-market" /></label>
+              <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-1-material" /></label>
+              <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-1-inventory" /></label>
+              <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-1-defect" /></label>
+              <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-1-elasticity" /></label>
+              <a class="secondary button" id="prop-1-info">Configure basic information</a>
+            </div>
+          </div>
+        </div>
+        <div class="propertyInformation" id="props2">
+          <h5>Prop 2</h5>
+          <div class="propertyInformationInputs">
+            <div id="prop-2-original">
+              <label>Prop Name: <input type="text" placeholder="Name" id="prop-2-name" /></label>
+              <label>Prop Description: <input type="text" placeholder="Description" id="prop-2-description" /></label>
+              <label>Prop Icon:
+                <select id="prop-2-icon">
+                  <option selected disabled></option>
+                  <option value="bag-blue">Blue Bag</option>
+                  <option value="bag-brown">Brown Bag</option>
+                  <option value="bag-red">Red Bag</option>
+                  <option value="cloak-blue">Blue Cloak</option>
+                  <option value="cloak-brown">Brown Cloak</option>
+                  <option value="cloak-red">Red Cloak</option>
+                  <option value="hat-blue">Blue Hat</option>
+                  <option value="hat-brown">Brown Hat</option>
+                  <option value="hat-red">Red Hat</option>
+                  <option value="ring-blue">Blue Ring</option>
+                  <option value="ring-brown">Brown Ring</option>
+                  <option value="ring-red">Red Ring</option>
+                  <option value="shoes-blue">Blue Shoes</option>
+                  <option value="shoes-brown">Brown Shoes</option>
+                  <option value="shoes-red">Red Shoes</option>
+                  <option value="watch-blue">Blue Watch</option>
+                  <option value="watch-brown">Brown Watch</option>
+                  <option value="watch-red">Red Watch</option>
                 </select>
               </label>
+              <a class="secondary button" id="prop-2-config">Configure pricing information</a>
             </div>
-            <div class="medium-3 medium-centered">
-              <button type="button" id="characterSave" class="button saveButton">Save Changes</button>
+            <div id="prop-2-flipped">
+              <label>Market Price: <input type="number" placeholder="Market Price" id="prop-2-market" /></label>
+              <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-2-material" /></label>
+              <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-2-inventory" /></label>
+              <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-2-defect" /></label>
+              <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-2-elasticity" /></label>
+              <a class="secondary button" id="prop-2-info">Configure basic information</a>
             </div>
           </div>
+        </div>
+        <div class="propertyInformation" id="props3">
+          <h5>Prop 3</h5>
+          <div class="propertyInformationInputs">
+            <div id="prop-3-original">
+              <label>Prop Name: <input type="text" placeholder="Name" id="prop-3-name" /></label>
+              <label>Prop Description: <input type="text" placeholder="Description" id="prop-3-description" /></label>
+              <label>Prop Icon:
+                <select id="prop-3-icon">
+                  <option selected disabled></option>
+                  <option value="bag-blue">Blue Bag</option>
+                  <option value="bag-brown">Brown Bag</option>
+                  <option value="bag-red">Red Bag</option>
+                  <option value="cloak-blue">Blue Cloak</option>
+                  <option value="cloak-brown">Brown Cloak</option>
+                  <option value="cloak-red">Red Cloak</option>
+                  <option value="hat-blue">Blue Hat</option>
+                  <option value="hat-brown">Brown Hat</option>
+                  <option value="hat-red">Red Hat</option>
+                  <option value="ring-blue">Blue Ring</option>
+                  <option value="ring-brown">Brown Ring</option>
+                  <option value="ring-red">Red Ring</option>
+                  <option value="shoes-blue">Blue Shoes</option>
+                  <option value="shoes-brown">Brown Shoes</option>
+                  <option value="shoes-red">Red Shoes</option>
+                  <option value="watch-blue">Blue Watch</option>
+                  <option value="watch-brown">Brown Watch</option>
+                  <option value="watch-red">Red Watch</option>
+                </select>
+              </label>
+              <a class="secondary button" id="prop-3-config">Configure pricing information</a>
+            </div>
+            <div id="prop-3-flipped">
+              <label>Market Price: <input type="number" placeholder="Market Price" id="prop-3-market" /></label>
+              <label>Material Cost: <input type="number" placeholder="Material Cost" id="prop-3-material" /></label>
+              <label>Inventory Cost: <input type="number" placeholder="Inventory Cost" id="prop-3-inventory" /></label>
+              <label>Defect Rate: <input type="number" placeholder="Defect Rate" id="prop-3-defect" /></label>
+              <label>Price Elasticity: <input type="number" placeholder="Price Elasticity" id="prop-3-elasticity" /></label>
+              <a class="secondary button" id="prop-3-info">Configure basic information</a>
+            </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
-    <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="propContainer">
-        <li class="accordion-item" data-accordion-item>
-          <a href="#propContent" class="accordion-title">Props</a>
-          <div class="accordion-content" data-tab-content id="propContent">
-          <div class="row" id="prop-listing">
+    <div class="propertyButton propertyButtonClosed" id="propertyCustomers">
+      <span>Customers</span>
+      <div class="propertyDetails propertyDetailsLeft propertyDetailsClosed">
+        <div class="propertyIconListing">
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Customer 1</div>
+            <div class="propertyIconImage" id="iconCustomer1"></div>
           </div>
-          <div class="medium-12 medium-centered" id="propAdding">
-            <button type="button" id="propSave" class="button saveButton">Save Changes</button>
-            <button class="success button" id="prop-add">Add</button>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Customer 2</div>
+            <div class="propertyIconImage" id="iconCustomer2"></div>
           </div>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Customer 3</div>
+            <div class="propertyIconImage" id="iconCustomer3"></div>
           </div>
-        </li>
-      </ul>
+        </div>
+        <div class="propertyInformation" id="customer-1">
+          <h5>Customer 1</h5>
+          <div class="propertyInformationInputs">
+            <div id="customer-1-original">
+              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-1-name" /></label>
+              <label>Customer Image:
+                <select id="customer-1-image">
+                  <option selected disabled></option>
+                  <option value="knight">Knight</option>
+                  <option value="paladin">Paladin</option>
+                  <option value="goblin-old">Old Goblin</option>
+                  <option value="goblin-young">Young Goblin</option>
+                  <option value="orc-family">Orc Family</option>
+                  <option value="orc">Orc</option>
+                </select>
+              </label>
+              <a class="secondary button" id="customer-1-config">Configure attributes information</a>
+            </div>
+            <div id="customer-1-flipped">
+              <input type="text" id="customer-1-label1" placeholder="Attribute 1" /><input type="text" placeholder="Attribute 1 Value" id="customer-1-reached" />
+              <input type="text" id="customer-1-label2" placeholder="Attribute 2" /><input type="text" placeholder="Attribute 2 Value" id="customer-1-visiting" />
+              <input type="text" id="customer-1-label3" placeholder="Attribute 3" /><input type="text" placeholder="Attribute 3 Value" id="customer-1-awareness" />
+              <input type="text" id="customer-1-label4" placeholder="Attribute 4" /><input type="text" placeholder="Attribute 4 Value" id="customer-1-payment" />
+              <input type="text" id="customer-1-label5" placeholder="Attribute 5" /><input type="text" placeholder="Attribute 5 Value" id="customer-1-elasticity" />
+              <a class="secondary button" id="customer-1-info">Configure basic information</a>
+            </div>
+          </div>
+        </div>
+        <div class="propertyInformation" id="customer-2">
+          <h5>Customer 2</h5>
+          <div class="propertyInformationInputs">
+            <div id="customer-2-original">
+              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-2-name" /></label>
+              <label>Customer Image:
+                <select id="customer-2-image">
+                  <option selected disabled></option>
+                  <option value="knight">Knight</option>
+                  <option value="paladin">Paladin</option>
+                  <option value="goblin-old">Old Goblin</option>
+                  <option value="goblin-young">Young Goblin</option>
+                  <option value="orc-family">Orc Family</option>
+                  <option value="orc">Orc</option>
+                </select>
+              </label>
+              <a class="secondary button" id="customer-2-config">Configure attributes information</a>
+            </div>
+            <div id="customer-2-flipped">
+              <input type="text" id="customer-2-label1" placeholder="Attribute 1" /><input type="text" placeholder="Attribute 1 Value" id="customer-2-reached" />
+              <input type="text" id="customer-2-label2" placeholder="Attribute 2" /><input type="text" placeholder="Attribute 2 Value" id="customer-2-visiting" />
+              <input type="text" id="customer-2-label3" placeholder="Attribute 3" /><input type="text" placeholder="Attribute 3 Value" id="customer-2-awareness" />
+              <input type="text" id="customer-2-label4" placeholder="Attribute 4" /><input type="text" placeholder="Attribute 4 Value" id="customer-2-payment" />
+              <input type="text" id="customer-2-label5" placeholder="Attribute 5" /><input type="text" placeholder="Attribute 5 Value" id="customer-2-elasticity" />
+              <a class="secondary button" id="customer-2-info">Configure basic information</a>
+            </div>
+          </div>
+        </div>
+        <div class="propertyInformation" id="customer-3">
+          <h5>Customer 3</h5>
+          <div class="propertyInformationInputs">
+            <div id="customer-3-original">
+              <label>Customer Name: <input type="text" placeholder="Customer Name" id="customer-3-name" /></label>
+              <label>Customer Image:
+                <select id="customer-3-image">
+                  <option selected disabled></option>
+                  <option value="knight">Knight</option>
+                  <option value="paladin">Paladin</option>
+                  <option value="goblin-old">Old Goblin</option>
+                  <option value="goblin-young">Young Goblin</option>
+                  <option value="orc-family">Orc Family</option>
+                  <option value="orc">Orc</option>
+                </select>
+              </label>
+              <a class="secondary button" id="customer-3-config">Configure attributes information</a>
+            </div>
+            <div id="customer-3-flipped">
+              <input type="text" id="customer-3-label1" placeholder="Attribute 1" /><input type="text" placeholder="Attribute 1 Value" id="customer-3-reached" />
+              <input type="text" id="customer-3-label2" placeholder="Attribute 2" /><input type="text" placeholder="Attribute 2 Value" id="customer-3-visiting" />
+              <input type="text" id="customer-3-label3" placeholder="Attribute 3" /><input type="text" placeholder="Attribute 3 Value" id="customer-3-awareness" />
+              <input type="text" id="customer-3-label4" placeholder="Attribute 4" /><input type="text" placeholder="Attribute 4 Value" id="customer-3-payment" />
+              <input type="text" id="customer-3-label5" placeholder="Attribute 5" /><input type="text" placeholder="Attribute 5 Value" id="customer-3-elasticity" />
+              <a class="secondary button" id="customer-3-info">Configure basic information</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="customerContainer">
-        <li class="accordion-item" data-accordion-item>
-          <a href="#customerContent" class="accordion-title">Customers</a>
-          <div class="accordion-content" data-tab-content id="customerContent">
-          <div class="row" id="customer-listing">
+    <div class="propertyButton propertyButtonClosed" id="propertySpells">
+      <span>Spells</span>
+      <div class="propertyDetails propertyDetailsLeft propertyDetailsClosed">
+        <div class="propertyIconListing">
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Spell 1</div>
+            <div class="propertyIconImage" id="iconSpell1"></div>
           </div>
-          <div class="medium-12 medium-centered" id="customerAdding">
-            <button type="button" id="customerSave" class="button saveButton">Save Changes</button>
-            <button class="success button" id="customer-add">Add</button>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Spell 2</div>
+            <div class="propertyIconImage" id="iconSpell2"></div>
           </div>
+          <div class="propertyIcon">
+            <div class="propertyIconLabel">Spell 3</div>
+            <div class="propertyIconImage" id="iconSpell3"></div>
           </div>
-        </li>
-      </ul>
-    </div>
-  </form>
-  <form action="sendSpell" method="POST" name="send-spell">
-    <div class="medium-12 columns">
-      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" id="spellContainer">
-        <li class="accordion-item" data-accordion-item>
-          <a href="#spellContent" class="accordion-title">Spells</a>
-          <div class="accordion-content" data-tab-content id="spellContent">
-          <div class="row">
-            <div class="panel">
-              <h4>Spell 1</h4>
-              <label>Spell Name: <input type="text" placeholder="Name" name="spell-name" /></label>
-              <label>Spell Description: <input type="text" placeholder="Description" name="spell-description" /></label>
-              <label>Spell Icon:
-                <select id="tactic-1-icon"  name="spell-icon">
-                  <option value="loan">Loan</option>
-                  <option value="megaphone">Megaphone</option>
-                  <option value="insurance">Insurance</option>
-                  <option value="group">Group</option>
-                  <option value="cycle">Cycle</option>
-                  <option value="money-tree">Money Tree</option>
-                  <option value="research">Research</option>
-                  <option value="spell-blue">Blue Spell</option>
-                  <option value="spell-red">Red Spell</option>
-                  <option value="star">Star</option>
-                  <option value="supply">Supply</option>
-                </select>
-              </label>
-              <input type="submit" class="secondary button" value="Click to configure spell actions">
-              <div class="reveal" id="spell1Config" data-reveal>
-                <h3>Spell Configuration</h3>
-                <h4>Primary Action 1</h4>
-                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                <h4>Primary Action 2</h4>
-                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-              </div>
-            </div>
-            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-          </form>
-          <form>
-            <!--
-            <div class="panel">
-              <h4>Spell 2</h4>
-              <label>Spell Name: <input type="text" placeholder="Name" /></label>
-              <label>Spell Description: <input type="text" placeholder="Description" /></label>
-              <label>Spell Icon:
-                <select id="tactic-2-icon">
-                  <option value="loan">Loan</option>
-                  <option value="megaphone">Megaphone</option>
-                  <option value="insurance">Insurance</option>
-                  <option value="group">Group</option>
-                  <option value="cycle">Cycle</option>
-                  <option value="money-tree">Money Tree</option>
-                  <option value="research">Research</option>
-                  <option value="spell-blue">Blue Spell</option>
-                  <option value="spell-red">Red Spell</option>
-                  <option value="star">Star</option>
-                  <option value="supply">Supply</option>
-                </select>
-              </label>
-              <a class="secondary button" data-open="spell2Config">Click to configure spell actions</a>
-              <div class="reveal" id="spell2Config" data-reveal>
-                <h3>Spell Configuration</h3>
-                <h4>Primary Action 1</h4>
-                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                <h4>Primary Action 2</h4>
-                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-              </div>
-            </div>
-            <div class="panel">
-              <h4>Spell 3</h4>
-              <label>Spell Name: <input type="text" placeholder="Name" /></label>
-              <label>Spell Description: <input type="text" placeholder="Description" /></label>
-              <label>Spell Icon:
-                <select id="tactic-3-icon">
-                  <option value="loan">Loan</option>
-                  <option value="megaphone">Megaphone</option>
-                  <option value="insurance">Insurance</option>
-                  <option value="group">Group</option>
-                  <option value="cycle">Cycle</option>
-                  <option value="money-tree">Money Tree</option>
-                  <option value="research">Research</option>
-                  <option value="spell-blue">Blue Spell</option>
-                  <option value="spell-red">Red Spell</option>
-                  <option value="star">Star</option>
-                  <option value="supply">Supply</option>
-                </select>
-              </label>
-              <a class="secondary button" data-open="spell3Config">Click to configure spell actions</a>
-              <div class="reveal" id="spell3Config" data-reveal>
-                <h3>Spell Configuration</h3>
-                <h4>Primary Action 1</h4>
-                <label>Name: <input type="text" placeholder="Primary Action 1 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-                <h4>Primary Action 2</h4>
-                <label>Primary Action 2 Name: <input type="text" placeholder="Primary Action 2 Name" /></label>
-                <label>Currency Cost: <input type="number" placeholder="Currency Cost" /></label>
-                <label>Spell Power Cost: <input type="number" placeholder="Spell Power Cost" /></label>
-              </div>
-            </div>
-            --->
-            <div class="medium-3 medium-centered">
-              <button type="button" id="spellSave" class="button saveButton">Save Changes</button>
-            </div>
+        </div>
+        <form id="send-spell" action="sendSpell" method="POST" name="send-spell">
+        <div class="propertyInformation" id="spells1">
+          <h5>Spell 1</h5>
+          <div class="propertyInformationInputs">
+            <label>Spell Name: <input type="text" placeholder="Name" name="spell-name" /></label>
+            <label>Spell Description: <input type="text" placeholder="Description" name="spell-description" /></label>
+            <label>Spell Icon:
+              <select id="tactic-1-icon"  name="spell-icon">
+                <option value="loan">Loan</option>
+                <option value="megaphone">Megaphone</option>
+                <option value="insurance">Insurance</option>
+                <option value="group">Group</option>
+                <option value="cycle">Cycle</option>
+                <option value="money-tree">Money Tree</option>
+                <option value="research">Research</option>
+                <option value="spell-blue">Blue Spell</option>
+                <option value="spell-red">Red Spell</option>
+                <option value="star">Star</option>
+                <option value="supply">Supply</option>
+              </select>
+            </label>
+            <label>
+              <button type="submit" class="button" id="send-spell-button" form="send-spell">Click to configure spell actions</button>
+              <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            </label>
           </div>
+        </div>
+        </form>
+        <div class="propertyInformation" id="spells2">
+          <h5>Spell 2</h5>
+          <div class="propertyInformationInputs">
+            <label>Spell Name: <input type="text" placeholder="Name" name="spell-name" /></label>
+            <label>Spell Description: <input type="text" placeholder="Description" name="spell-description" /></label>
+            <label>Spell Icon:
+              <select id="tactic-2-icon"  name="spell-icon">
+                <option value="loan">Loan</option>
+                <option value="megaphone">Megaphone</option>
+                <option value="insurance">Insurance</option>
+                <option value="group">Group</option>
+                <option value="cycle">Cycle</option>
+                <option value="money-tree">Money Tree</option>
+                <option value="research">Research</option>
+                <option value="spell-blue">Blue Spell</option>
+                <option value="spell-red">Red Spell</option>
+                <option value="star">Star</option>
+                <option value="supply">Supply</option>
+              </select>
+            </label>
           </div>
-        </li>
-      </ul>
+        </div>
+        <div class="propertyInformation" id="spells3">
+          <h5>Spell 3</h5>
+          <div class="propertyInformationInputs">
+            <label>Spell Name: <input type="text" placeholder="Name" name="spell-name" /></label>
+            <label>Spell Description: <input type="text" placeholder="Description" name="spell-description" /></label>
+            <label>Spell Icon:
+              <select id="tactic-3-icon"  name="spell-icon">
+                <option value="loan">Loan</option>
+                <option value="megaphone">Megaphone</option>
+                <option value="insurance">Insurance</option>
+                <option value="group">Group</option>
+                <option value="cycle">Cycle</option>
+                <option value="money-tree">Money Tree</option>
+                <option value="research">Research</option>
+                <option value="spell-blue">Blue Spell</option>
+                <option value="spell-red">Red Spell</option>
+                <option value="star">Star</option>
+                <option value="supply">Supply</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="medium-6 medium-centered left-margin columns" id="phone-container">
+  <div class="medium-9 medium-centered left-margin columns" id="phone-container">
     <div class="phoneArea">
       <div class="view">
         <div class="phoneBackground"></div>
