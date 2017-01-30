@@ -9,7 +9,7 @@
             data-driven problem solving through simulation and embedded library.</p>
 
           <a href="demo" class="theme_yellow">
-              GET DEMO<img src="image/icon/ic-arrow.png" />
+              GET DEMO<img alt="arrow" src="image/icon/ic-arrow.png" />
           </a>
     </div>
     @include('pages.learning.learning_detail')

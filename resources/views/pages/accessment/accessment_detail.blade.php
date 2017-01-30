@@ -11,7 +11,7 @@
             </div>
 
             <div class="medium-6 columns">
-              <img src="image/accessment/img-data1.png" />
+              <img alt="Data-driven insights" src="image/accessment/img-data1.png" />
             </div>
 
           </section>
@@ -21,7 +21,7 @@
 
           <section class="row">
             <div class="medium-6 columns">
-              <img src="image/accessment/img-data2.png" />
+              <img alt="Web-based dashboard" src="image/accessment/img-data2.png" />
             </div>
             <div class="detailRow medium-6 columns">
                 <h1>Web-based dashboard</h1>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="medium-6 columns">
-              <img src="image/accessment/img-data3.png" />
+              <img alt="Personalized assessment report" src="image/home/img-data_driven.png" />
             </div>
 
           </section>

@@ -10,7 +10,7 @@
               </p>
             </div>
             <div class="medium-6 columns">
-              <img class="learning1-img" src="image/learning/img-learning1.png" />
+              <img class="learning1-img" alt="simulation" src="image/learning/img-learning1.png" />
             </div>
           </section>
         </div>
@@ -19,7 +19,7 @@
 
           <section class="row">
             <div class="medium-6 columns">
-              <img src="image/learning/img-learning2.png" />
+              <img alt="problem solving" src="image/learning/img-learning2.png" />
             </div>
 
             <div class="detailRow medium-6 columns">
@@ -44,7 +44,7 @@
              </p>
             </div>
             <div class="medium-6 columns">
-              <img src="image/learning/img-learning3.png" />
+              <img alt="concept and cases" src="image/learning/img-learning3.png" />
             </div>
 
           </section>

@@ -6,7 +6,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="Wrainbo is a learning platform that combines mobile gaming and big data assessment. We help organizations improve learning engagement and retention in critical subjects, ranging from business analytics to leadership.">
+    @if (isset($metaDesc))
+      <meta name="description" content="{{$metaDesc}}">
+    @else
+      <meta name="description" content="Wrainbo is a learning platform that combines mobile gaming and big data assessment. We help organizations improve learning engagement and retention in critical subjects, ranging from business analytics to leadership.">
+    @endif
+
+
 
     <link rel="stylesheet" href="{{ url('css/foundation/foundation.css') }}" />
     <link rel="stylesheet" href="{{ url('css/foundation/motion-ui.min.css') }}" />
@@ -37,13 +43,13 @@
           <ul class="off-canvas-list">
               <li><label>Menu</label></li>
               <li><a href="http://wrainbo.com/">Home</a></li>
-              <li><a href="http://wrainbo.com/gameplay">GAME-BASED LEARNING</a></li>
+              <li><a href="http://wrainbo.com/gameplay">Game-Based Learning</a></li>
               <!-- <li><a href="http://wrainbo.com/learning">LEARNING</a></li> -->
-              <li><a href="http://wrainbo.com/assessment">DATA DRIVEN ASSESSMENT</a></li>
-              <li><a href="http://wrainbo.com/platform">CUSTOMIZABLE PLATFORM</a></li>
-              <li><a href="http://wrainbo.com/games">GAMES</a></li>
+              <li><a href="http://wrainbo.com/assessment">Data-Driven Assessment</a></li>
+              <li><a href="http://wrainbo.com/platform">Customizable Platform</a></li>
+              <li><a href="http://wrainbo.com/games">Games</a></li>
               <!-- <li><a href="http://wrainbo.com/package">PACKAGE</a></li> -->
-              <li><a href="http://wrainbo.com/aboutUs">ABOUT US</a></li>
+              <li><a href="http://wrainbo.com/aboutUs">About Us</a></li>
           </ul>
 
         </div>

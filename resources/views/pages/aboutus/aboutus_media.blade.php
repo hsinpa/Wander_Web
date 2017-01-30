@@ -10,14 +10,14 @@
 
     <section link="http://www.ign.com/blogs/nerdexp/2016/06/27/magitech-qa-with-duke-wong-solving-the-skill-gap">
         <p>
-            Magitech Q&A with Duke Wong: Solving the Skill Gap
+            Business Battle Q&amp;A with Duke Wong: Solving the Skill Gap
         </p>
         <h6>IGN Blog</h6>
     </section>
 
     <section link="https://www.youtube.com/watch?v=vgYasaaYLX4">
         <p>
-            Magitech- Learn Business Analytics with Mobile Game
+            Business Battle - Learn Business Analytics with Mobile Game
         </p>
         <h6>VOG Network</h6>
     </section>

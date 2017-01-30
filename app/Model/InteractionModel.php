@@ -10,9 +10,9 @@ class InteractionModel extends Eloquent {
 
   public function SaveRecord($data, $level_id) {
       foreach ($data as $value) {
-        $q = "INSERT INTO $this->table (name, click_time, level_id)
-              VALUES (?, ?, ?)";
-        DB::insert($q, array($value["action"], $value["time"], $level_id));
+        $q = "INSERT INTO $this->table (name, click_time, `round`, level_id)
+              VALUES (?, ?, ?, ?)";
+        DB::insert($q, array($value["action"], $value["time"], $value["round"], $level_id));
       }
     }
 }

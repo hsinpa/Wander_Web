@@ -19,6 +19,18 @@
       <li class="tabs-title "><a href="#p_function">Functional Skills</a></li>
       <li class="tabs-title"><a href="#p_competency">Core Competency</a></li>
       <li class="tabs-title"><a href="#p_style">Learning Style</a></li>
+      <li><input type="text" list="suggest_organization" placeholder="Organization">
+        <datalist id="suggest_organization">
+          <!-- <option value="Internet Explorer"> -->
+        </datalist>
+          </input>
+      </li>
+      <li><input type="text" list="suggest_name" placeholder="Name">
+        <datalist id="suggest_name">
+          <!-- <option value="Internet Explorer"> -->
+        </datalist>
+          </input>
+      </li>
     </ul>
 
 

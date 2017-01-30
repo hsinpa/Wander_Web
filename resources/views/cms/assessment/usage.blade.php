@@ -4,7 +4,7 @@
       <div class="graph_box" data-equalizer-watch>
         <h5>Total Played Levels</h5>
         <svg class="lineChart-holder">
-        <img class="swap" src="{{url('image/icon/swap.png') }}" />
+        <img class="swap" alt="swap" src="{{url('image/icon/swap.png') }}" />
       </div>
     </div>
 
@@ -31,7 +31,7 @@
           </div>
           <br />
           <div>
-            <h5>69%</h5>
+            <h5 data="complete_rate">%</h5>
             <p class="changeValue">+44.2%</p>
             <p class="pushDown" title="some description">Completion</p>
           </div>
@@ -49,7 +49,7 @@
           </div>
           <br />
           <div>
-            <h5>2.3</h5>
+            <h5 data="avg_star"></h5>
             <p class="changeValue">+1.2%</p>
             <p class="pushDown">Average star per level</p>
           </div>
@@ -61,13 +61,13 @@
         <h4>Gameplay</h4>
         <section class="key-meticsBox">
           <div>
-            <h5>58m 29s</h5>
+            <h5 data="avg_time"></h5>
             <p class="changeValue">+2.2%</p>
             <p>Average time per player</p>
           </div>
           <br />
           <div>
-            <h5>3.1</h5>
+            <h5 data="avg_play"></h5>
             <p class="changeValue">+5.7%</p>
             <p class="pushDown">Average plays per level</p>
           </div>

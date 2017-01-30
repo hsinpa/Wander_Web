@@ -12,10 +12,11 @@
 
             <div class="rslides_container medium-6 columns">
               <ul class="rslides">
-                <li><img src="image/games/modern/img-modern-1.jpg" /></li>
-                <li><img src="image/games/modern/img-modern-2.jpg" /></li>
-                <li><img src="image/games/modern/img-modern-3.jpg" /></li>
-                <li><img src="image/games/modern/img-modern-4.jpg" /></li>              </ul>
+                <li><img alt="main-screen" src="image/games/modern/img-modern-1.jpg" /></li>
+                <li><img alt="level-map" src="image/games/modern/img-modern-2.jpg" /></li>
+                <li><img alt="production-window" src="image/games/modern/img-modern-3.jpg" /></li>
+                <li><img alt="spell-window" src="image/games/modern/img-modern-4.jpg" /></li>
+               </ul>
             </div>
           </section>
         </div>
@@ -25,17 +26,17 @@
             <div class="rslides_container medium-6 columns">
               <ul class="rslides">
 
-                <li><img src="image/games/magitech/img-magitech-1.jpg" /></li>
-                <li><img src="image/games/magitech/img-magitech-2.jpg" /></li>
-                <li><img src="image/games/magitech/img-magitech-3.jpg" /></li>
-                <li><img src="image/games/magitech/img-magitech-4.jpg" /></li>
+                <li><img alt="main-screen" src="image/games/magitech/img-magitech-1.jpg" /></li>
+                <li><img alt="level-map" src="image/games/magitech/img-magitech-2.jpg" /></li>
+                <li><img alt="production-window" src="image/games/magitech/img-magitech-3.jpg" /></li>
+                <li><img alt="spell-window" src="image/games/magitech/img-magitech-4.jpg" /></li>
 
               </ul>
             </div>
 
             <div class="detailRow medium-6 columns">
-                <h5>Magitech</h5>
-                <p>Magitech is the fantasy variant of Business Venture. Players will face customers from Orcs to goblin and cast a wide variety of management spells to learn how to apply cross-functional business concepts in competition.
+                <h5>Business Battle</h5>
+                <p>Business Battle is the fantasy variant of Business Venture. Players will face customers from Orcs to goblin and cast a wide variety of management spells to learn how to apply cross-functional business concepts in competition.
                 </p>
             </div>
 
@@ -52,10 +53,10 @@
 
             <div class="rslides_container medium-6 columns">
               <ul class="rslides">
-                <li><img src="image/games/leadership/img-leader-1.jpg" /></li>
-                <li><img src="image/games/leadership/img-leader-2.jpg" /></li>
-                <li><img src="image/games/leadership/img-leader-3.jpg" /></li>
-                <li><img src="image/games/leadership/img-leader-4.jpg" /></li>
+                <li><img alt="main-screen"src="image/games/leadership/img-leader-1.jpg" /></li>
+                <li><img alt="level-map" src="image/games/leadership/img-leader-2.jpg" /></li>
+                <li><img alt="production-window" src="image/games/leadership/img-leader-3.jpg" /></li>
+                <li><img alt="spell-window" src="image/games/leadership/img-leader-4.jpg" /></li>
               </ul>
           </div>
           </section>

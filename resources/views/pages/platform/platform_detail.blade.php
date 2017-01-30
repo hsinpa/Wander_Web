@@ -16,7 +16,7 @@
               </span> -->
               <ul class="rslides">
                 <li><img src="image/platform/A Probliem active.png" />
-                  <img class="rslide_arrow_l" src="image/platform/L.png"/>
+                  <img alt="focus" class="rslide_arrow_l" src="image/platform/L.png"/>
                   <div class="rslide_desc">
                     <h6>Focus</h6>
                     <p>
@@ -25,7 +25,7 @@
                     <img class="rslide_arrow_r" src="image/platform/R.png"/>
                   </li>
                 <li><img src="image/platform/B tool active.png" />
-                  <img class="rslide_arrow_l" src="image/platform/L.png"/>
+                  <img alt="tool" class="rslide_arrow_l" src="image/platform/L.png"/>
                   <div class="rslide_desc">
                     <h6>Tools</h6>
                     <p>
@@ -35,7 +35,7 @@
                 <img class="rslide_arrow_r" src="image/platform/R.png"/>
                 </li>
                 <li><img src="image/platform/C Dynamic active.png" />
-                  <img class="rslide_arrow_l" src="image/platform/L.png"/>
+                  <img alt="data" class="rslide_arrow_l" src="image/platform/L.png"/>
                   <div class="rslide_desc">
                     <h6>Data</h6>
                     <p>
@@ -45,7 +45,7 @@
                   <img class="rslide_arrow_r" src="image/platform/R.png"/>
                 </li>
                 <li><img src="image/platform/D character active.png" />
-                  <img class="rslide_arrow_l" src="image/platform/L.png"/>
+                  <img alt="Avatar" class="rslide_arrow_l" src="image/platform/L.png"/>
                   <div class="rslide_desc">
                     <h6>Avatar</h6>
                     <p>
@@ -63,7 +63,7 @@
         <div class="platformDetailPanel-2">
           <section class="row">
               <div class="medium-6 columns">
-                <img src="image/platform/img-spelleditor.png" />
+                <img alt="spelleditor" src="image/platform/img-spelleditor.png" />
               </div>
 
             <div class="detailRow medium-6 columns">
@@ -84,9 +84,9 @@
 
             <div class="rslides_container medium-6 columns">
               <ul class="rslides">
-                <li><img src="image/games/magitech/img-magitech-1.jpg" /></li>
-                <li><img src="image/games/modern/img-modern-1.jpg" /></li>
-                <li><img src="image/games/leadership/img-leader-1.jpg" /></li>
+                <li><img alt="magitech-main" src="image/games/magitech/img-magitech-1.jpg" /></li>
+                <li><img alt="businss venture-main" src="image/games/modern/img-modern-1.jpg" /></li>
+                <li><img alt="dentist-main" src="image/games/leadership/img-leader-1.jpg" /></li>
               </ul>
           </div>
           </section>

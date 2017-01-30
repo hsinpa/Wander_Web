@@ -1,7 +1,7 @@
 <div id="wrainbo-aboutus-contact">
   <div class="row">
     <div class="medium-6 columns">
-        <img class="worker-avatar" src="image/aboutus/ic-worker.png"></img>
+        <img class="worker-avatar" alt="worker-avatar" src="image/aboutus/ic-worker.png"></img>
 
     </div>
     <div class="medium-6 columns">

@@ -10,7 +10,7 @@
             </div>
 
             <div class="medium-6 columns">
-              <img src="image/gameplay/GAMEPLAY1.png" />
+              <img alt="Simulation" src="image/gameplay/GAMEPLAY1.png" />
             </div>
 
           </section>
@@ -20,14 +20,14 @@
 
           <section class="row">
             <div class="medium-6 columns">
-              <img src="image/gameplay/GAMEPLAY2.png" />
+              <img alt="Bite-sized mobile learning" src="image/gameplay/GAMEPLAY2.png" />
             </div>
 
             <div class="detailRow medium-6 columns">
                 <h1>Bite-sized mobile learning</h1>
 
               <p>
-                Our games are designed for mobile devices and feature bite-sized levels that allow players to learn at their own pace, anytime an anywhere. Each business concept is introduced as a chop so it is effortless to digest.
+                Our games are designed for mobile devices and feature bite-sized levels that allow players to learn at their own pace, anytime and anywhere. Each business concept is introduced as a chop so it is effortless to digest.
               </p>
             </div>
           </section>
@@ -44,7 +44,7 @@
               </p>
             </div>
             <div class="medium-6 columns">
-              <img src="image/gameplay/GAMEPLAY3.png" />
+              <img alt="learning tools" src="image/gameplay/GAMEPLAY3.jpg" />
             </div>
 
           </section>

@@ -12,10 +12,10 @@
     <div class="row">
       <div class="rslides_container medium-12 columns">
       <ul class="rslides">
-        <li><img src="image/gameplay/demo-mainUI.jpg" /></li>
-        <li><img src="image/gameplay/demo-spellsystem.jpg" /></li>
-        <li><img src="image/learning/demo-chart.jpg" /></li>
-        <li><img src="image/learning/demo-library.jpg" /></li>
+        <li><img alt="mainUI" src="image/gameplay/demo-mainUI.jpg" /></li>
+        <li><img alt="spell-system" src="image/gameplay/demo-spellsystem.jpg" /></li>
+        <li><img alt="chart" src="image/learning/demo-chart.jpg" /></li>
+        <li><img alt="library" src="image/learning/demo-library.jpg" /></li>
       </ul>
     </div>
   </div>

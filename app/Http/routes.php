@@ -13,17 +13,21 @@
 
 Route::get('/', function () {
   return view('pages.home.home',
-    ['title' => 'Wrainbo: Mobile game platform for business learning']);
+    ['title' => 'Wrainbo - Custom mobile games for corporate training and higher ed',
+      'metaDesc' => 'Wrainbo helps organizations unlock learning ROI through
+                      an adult learning game platform with better engagement, retention, and personalization.']);
 });
 
 Route::get('platform', function () {
     return view('pages.platform.platform',
-      ['title' => 'Platform | Wrainbo']);
+      ['title' => ' Wrainbo’s Platform',
+      'metaDesc' => 'Wrainbo’s customizable game-based learning platform provoides hands-on simulation, bite-sized lessons, and on-demand learning tools.']);
 });
 
 Route::get('games', function () {
     return view('pages.games.games',
-      ['title' => 'Games | Wrainbo']);
+      ['title' => 'Wrainbo - Games ',
+      'metaDesc' => 'Download Wrainbo’s first e-learning titles to learn a variety of real world business skills like business operations, finance, and a variety of leadership skills.']);
 });
 
 Route::get('package', function () {
@@ -43,7 +47,8 @@ Route::get('learning', function () {
 
 Route::get('demo', function () {
     return view('pages.home.demo',
-      ['title' => 'Get Demo | Wrainbo']);
+      ['title' => 'Wrainbo - Get a Demo',
+      'metaDesc' => 'Sign up to get a free demo of the Wrainbo’s platform and see how you can turn your corporate training or higher ed lessons into fun, engaging mobile games.']);
 });
 
 Route::get('assessment', function () {
@@ -53,7 +58,8 @@ Route::get('assessment', function () {
 
 Route::get('aboutUs', function () {
     return view('pages.aboutus.aboutus',
-      ['title' => 'About Us | Wrainbo']);
+      ['title' => 'Wrainbo - About Us',
+        'metaDesc' => "Wrainbo's vision is to make learning engaging, effective, and economical for the global community. We’d love to hear your goals and provide a free demo!"]);
 });
 
 
@@ -68,7 +74,10 @@ Route::group(['prefix' => 'cms'], function () {
     Route::get('logout', "CMS\CMSUserCtrl@logout");
     Route::post('register', "CMS\CMSUserCtrl@register");
 
-    Route::get('getUsageData', "CMS\CMSAssessmentCtrl@GetUsageData");
+    Route::get('getUsageData/{organization_id}', "CMS\CMSAssessmentCtrl@GetUsageData");
+    Route::get('getUserUsageData/{user_id}', "CMS\CMSAssessmentCtrl@GetUsageByUserData");
+    Route::get('CreateDummyUser/{level}/{num}', "CMS\CMSUserCtrl@CreateDummyUser");
+    // Route::get('CreateYunusUser/', "CMS\CMSUserCtrl@CreateYunusUser");
 
       //Access once user is login
       Route::group(['middleware' => 'session'], function () {
@@ -111,23 +120,46 @@ Route::group(['prefix' => 'cms'], function () {
 
 Route::group(['prefix' => 'analytics'], function () {
     header("Access-Control-Allow-Origin: *");
-    header('Content-Type: text/html; charset=UTF-8');
+    // header('Content-Type: text/html; charset=UTF-8');
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Allow-Methods:  GET, POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+    // header("Content-Type: application/json; charset=utf-8");
 
     Route::get('/', function () {
         return view('analytics',
           ['title' => 'Analytics Demo']);
     });
+    //Send Reminding Email
+    Route::post('sendEmailReminder', "CMS\CMSUserCtrl@SendEmailReminder");
+
+
     //For Unity
     Route::get("level/{user_id}", "CMS\CMSLevelCtrl@GetLevel");
     Route::get("ranking/{guid}/{level}", "Analytics\UserCtrl@GetRanking");
     Route::get("trophy/{guid}/{level}", "Analytics\UserCtrl@GetTrophyRanking");
-    Route::get("getShadowPlayer/{level}/{isMulti}", "Analytics\UserCtrl@GetShadowPlayerData");
+    Route::get("getShadowPlayer/{level}/{guid}/{isMulti}", "Analytics\UserCtrl@GetShadowPlayerData");
     Route::get("getAllShadowPlayer/", "Analytics\UserCtrl@GetAllShadowPlayer");
 
-    Route::get("getUnityVersion", "Analytics\UserCtrl@CheckUnityVersion");
+    Route::get("getUnityVersion/{platform}", "Analytics\UserCtrl@CheckUnityVersion");
+    Route::post("activatePromoCode", "Analytics\LicenseCtrl@ActivatePromoCode");
+    Route::post("updateSocialMedia", "Analytics\DataReceiverCtrl@SocialMediaUpdate");
+
+    //Push NotificationCtrl
+    Route::get("pushNotification/UnplayUser", "Analytics\NotificationCtrl@PushUnplayUser");
+    Route::get("pushNotification/UnupdateUser/{game}", "Analytics\NotificationCtrl@PushUnupdateUser");
+
+    Route::get("pushNotification/{title}/{message}", "Analytics\NotificationCtrl@CheckNotification");
+    Route::post("UpdateRecord/", "Analytics\NotificationCtrl@ReceiveRegistrationID");
 
     //For Assessment
     Route::post('login', "Analytics\UserCtrl@PrimeLogin");
+
+    Route::post('logout', "Analytics\UserCtrl@Logout");
+    Route::post('guestLogin', "Analytics\UserCtrl@LoginAsGuest");
+
+    Route::post('editPassword', "Analytics\UserCtrl@EditorPassword");
+    Route::post('forgetPassword', "Analytics\UserCtrl@ForgetPassword");
 
     Route::post('save', "Analytics\UserCtrl@SaveGameRecord");
     Route::post('import', "Analytics\UserCtrl@ImportUnityAnalyticsData");

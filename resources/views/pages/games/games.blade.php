@@ -4,7 +4,7 @@
     <div id="wrainbo-intro-main" class="games-bg">
           <h1>Games</h1>
 
-          <p>Business Venture &#183; Magitech &#183; 21st Century Mentor</p>
+          <p>Business Venture &#183; Business Battle &#183; 21st Century Mentor</p>
 
           <!-- <img class="breakline" src="image/icon/breakline_yellow.png"></img> -->
             <!-- <div class="detail-bt">

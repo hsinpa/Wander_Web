@@ -5,7 +5,7 @@
       <div class="large-12 columns">
         <h5>Get a demo of Wrainbo Platform</h5>
         <form>
-          <img class="contactus-goblin" src="{{ url('image/home/img-magitech_theme.png')}}" />
+          <img alt="goblin"  class="contactus-goblin" src="{{ url('image/home/img-magitech_theme.png')}}" />
 
           <input name="organization" type="text"  placeholder="Organization"></input>
           <input name="job" type="text"  placeholder="Job Position"></input>
@@ -19,7 +19,7 @@
             Already have an account? <a href="{{ url('cms') }}">Click here to Log in</a>
           </p>
 
-          <img class="contactus-alvina" src="{{ url('image/home/img-modern_theme.png')}}" />
+          <img alt="alvina" class="contactus-alvina" src="{{ url('image/home/img-modern_theme.png')}}" />
         </form>
         </div>
   </div>
@@ -53,9 +53,19 @@
                   "entry.1708932502" : phone.val(),
                 },
           type: "POST",
-          dataType: "xml"})
-          .done(function() {
-         });
+          dataType: "xml"});
+
+          $.ajax({
+            url: "analytics/sendEmailReminder",
+            data: {"email": email.val(),
+                    "name" : name.val(),
+                    "organization" : organization.val(),
+                    "job" : job.val(),
+                    "phone" : phone.val(),
+                  },
+            type: "POST",
+            dataType: "json"}).done(function(data) {console.log(data)});
+
          alert("Thank you for your interest. We will be in touch shortly");
          email.val("");
          name.val("");

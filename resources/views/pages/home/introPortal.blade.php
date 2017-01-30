@@ -7,21 +7,21 @@
 
       <div class="row">
         <section>
-          <img src="image/icon/ic-gameplay.png"/>
+          <img alt="game-based learning" src="image/icon/ic-gameplay.png"/>
             <h6>
               Immersive game-based learning
             </h6>
         </section>
 
         <section>
-          <img src="image/icon/ic-data.png"/>
+          <img alt="assessment" src="image/icon/ic-data.png"/>
             <h6>
                 Data-driven assessment
             </h6>
         </section>
 
         <section>
-          <img src="image/icon/ic-customize.png"/>
+          <img alt="Customizable platform" src="image/icon/ic-customize.png"/>
             <h6>
                 Customizable platform
             </h6>
@@ -40,7 +40,7 @@
         <a href="gameplay">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
-        <img src="image/home/img-immersive-gamplay.png" />
+        <img alt="immersive-gamplay" src="image/home/img-immersive-gamplay.png" />
       </div>
     </section>
   </div>
@@ -48,7 +48,7 @@
   <div class="homeDetailPanel-1">
     <section class="row">
       <div class="medium-6 columns">
-        <img src="image/home/img-data_driven.png" />
+        <img alt="data_driven" src="image/home/img-data_driven.png" />
       </div>
       <div class="detailRow medium-6 columns">
         <h1>Data-driven assessment</h1>
@@ -73,7 +73,7 @@
         <a href="http://wrainbo.com/platform">LEARN MORE</a>
       </div>
       <div class="medium-6 columns">
-        <img src="image/platform/img-spelleditor.png" />
+        <img alt="spelleditor" src="image/platform/img-spelleditor.png" />
       </div>
     </section>
   </div>

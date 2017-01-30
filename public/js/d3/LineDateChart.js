@@ -5,10 +5,9 @@ var LineDateChart = (function () {
       if (jsonData.length <= 0) return;
 
       var formatDate = d3.timeFormat("%b-%d"),
-          yMax = _.max(jsonData , function(g) {return parseInt(g.y) } ),
-          xMax = new Date(jsonData[jsonData.length - 1].x),
-          xMin = new Date(jsonData[0].x),
-
+          yMax = _.max(jsonData , function(g) {return g.y } ),
+          xMax = new Date( jsonData[jsonData.length - 1].x.replace(/-/g, '\/') ),
+          xMin = new Date(jsonData[0].x.replace(/-/g, '\/')),
           vis = d3.select(DOMTarget),
           WIDTH = $(DOMTarget).width(),
           HEIGHT =  $(DOMTarget).height(),
@@ -22,7 +21,7 @@ var LineDateChart = (function () {
         yScale = d3.scaleLinear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0, yMax.y]),
         xAxis = d3.axisBottom(xScale).ticks( 4 ).tickFormat(formatDate),
         yAxis = d3.axisLeft(yScale);
-
+        console.log(jsonData.length);
         vis.append("svg:g")
             .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
             .call(xAxis);
@@ -46,7 +45,7 @@ var LineDateChart = (function () {
         //Line
         var lineGen = d3.line()
             .x(function(d) {
-              return xScale(  new Date(d.x ));
+              return xScale(  new Date(d.x.replace(/-/g, '\/') ));
             })
             .y(function(d) {
               return yScale(d.y);

@@ -10,12 +10,13 @@
             Data-driven assessment          </p>
         </div>
         <div class="breakline"></div>
-            <a class="various fancybox.iframe theme_black" href="https://www.youtube.com/embed/g0VpDmJvGAU?autoplay=1">
-                WATCH TRAILER<img src="image/icon/bt_play.png" />
+            <!-- https://www.youtube.com/embed/fkFbuAMcFXE?autoplay=1 -->
+            <a class="various fancybox.iframe theme_black" href="https://www.youtube.com/embed/WoOV3RA0JVA/autoplay=1">
+                WATCH VIDEO<img alt="play-video" src="image/icon/bt_play.png" />
             </a>
             <div class="breakline"></div>
             <a href="demo" class="theme_yellow">
-              GET DEMO<img src="image/icon/ic-arrow.png" />
+              GET DEMO<img alt="arrow" src="image/icon/ic-arrow.png" />
           </a>
       </div>
   </section>

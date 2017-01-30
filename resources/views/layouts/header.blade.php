@@ -2,7 +2,7 @@
   <div class="title-bar-left show-for-small-only">
     <button class="menu-icon" type="button" data-open="offCanvas"></button>
     <span class="title-bar-title">
-      <a href="/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
+      <a href="/" ><img alt="wrainbo_logo" src="{{ url('image/icon/logo.png')}}" /></a>
     </span>
   </div>
 
@@ -11,7 +11,7 @@
     <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <span class="menu-icon dark" data-toggle></span>
     </span> -->
-    <a href="/" ><img src="{{ url('image/icon/logo.png')}}" /></a>
+    <a href="/" ><img alt="wrainbo_logo" src="{{ url('image/icon/logo.png')}}" /></a>
   </div>
 
     <div id="responsive-menu">
@@ -23,7 +23,7 @@
             <ul>
             <li class="nav3"><a href="/gameplay">GAME-BASED LEARNING</a></li>
             <!-- <li class="nav3"><a href="/learning">Practical Learning</a></li> -->
-            <li class="nav3"><a href="/assessment">DATA DRIVEN ASSESSMENT</a></li>
+            <li class="nav3"><a href="/assessment">DATA-DRIVEN ASSESSMENT</a></li>
             <li class="nav3"><a href="/platform">CUSTOMIZABLE PLATFORM</a></li>
             <!-- <li class="nav3"><a href="/package">Package</a></li> -->
             </ul>

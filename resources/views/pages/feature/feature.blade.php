@@ -12,7 +12,7 @@
           <div class="detail-bt">
             <a href="#wrainbo-intro-detail">
 
-            <img src="image/icon/icon-detail.png"></img>
+            <img alt="arrow" src="image/icon/icon-detail.png"></img>
             <span>Detail</span>
           </a>
 

@@ -9,7 +9,7 @@
       </p>
     </div>
     <div class="medium-6 columns">
-      <img src="image/aboutus/ic-aboutus.png"></img>
+      <img src="image/aboutus/ic-aboutus.png" alt="vision"></img>
     </div>
   </div>
 </div>

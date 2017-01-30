@@ -1,31 +1,31 @@
 <div id="wrainbo-home-quote">
     <h4>What are people saying about Wrainbo?</h4>
-    <p>70+ corporate customers and -85% of alpha users have signed up for beata testing!! </p>
+    <p>85% of our users have reported strong satisfaction in gameplay and learning experience!</p>
 
   <section class="row quote-panel" data-equalizer data-equalize-on="medium">
     <h5>Featured Quotes</h5>
     <div class="medium-4 columns" data-equalizer-watch>
       <div class="quote">
         <p>
-          “This is my biggest learning in ATD 2016 conference.”
+          “This is better than other gamification solutionsI have seen before!”
         </p>
-        <h6>─Petra Verheijen, Global Head of LMS at Astellas Pharma</h6>
+        <h6>─ VP of Learning	&amp; Development<br>Forturne 500 company</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          “Potential to be the 21st century version of Monopoly.”
+          “This is what I've been looking for to help engage our people.”
         </p>
-        <h6>─Pino Lopomo, Economics Professor at Duke University</h6>
+        <h6>─ Director of Talent Development<br>Fortune 500 company</h6>
       </div>
     </div>
     <div  class="medium-4 columns"  data-equalizer-watch>
       <div class="quote">
         <p>
-          “The mission of Magitech is refreshing…I am impressed.”
+          “The game is great, but your assessment report is amazing!”
         </p>
-        <h6>─Christopher Peterson, Blog writer at IGN</h6>
+        <h6>─ Senior Manager of Learning<br>Non-profit organization</h6>
       </div>
     </div>
   </section>

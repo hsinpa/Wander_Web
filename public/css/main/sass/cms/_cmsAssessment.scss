@@ -4,6 +4,27 @@
     border: none;
   }
 
+  #wrainbo-cms-assessment-tabs {
+    position: relative;
+
+    li {
+      input[list="suggest_name"] {
+        // margin: 0.4em 0em 0em 5em;
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        width: 10em;
+      }
+      input[list="suggest_organization"] {
+        // margin: 0.4em 0em 0em 5em;
+        position: absolute;
+        right: 180px;
+        top: 7px;
+        width: 10em;
+      }
+    }
+  }
+
   //Usage Page
   #wrainbo-cms-assessment-usage {
 

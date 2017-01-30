@@ -38,9 +38,9 @@ var BarChart = (function () {
         .enter()
         .append("rect")
         .attr("width", 20)
-        .attr("height", function(d) { return GetValue( (sHeight -space)- yScale(d[axisSelect.y])) ;})
-        .attr("x", function(d,i) {return (xScale(d[axisSelect.x]) )  ;})
-        .attr("y", function(d) {  return  yScale(d[axisSelect.y]) ; } );
+        .attr("height", function(d) { return GetValue( (sHeight-(space/2))- yScale(d[axisSelect.y])) ;})
+        .attr("x", function(d,i) {return (xScale(d[axisSelect.x])); })
+        .attr("y", function(d) { return  (yScale(d[axisSelect.y])-(space/2)); });
 
         var xAxis = d3.axisBottom(xScale).ticks(jsonData.length);
         var yAxis = d3.axisLeft(yScale);

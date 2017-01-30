@@ -7,32 +7,44 @@ use App\Model\RecordModel;
 use App\Model\InteractionModel;
 use App\Model\UserModel;
 use App\Model\ShadowDataModel;
+use App\Model\LicenseModel;
+use App\Model\NotificationModel;
 
 use App\Model\Utility;
 use Illuminate\Http\Request;
+use Mail;
 
 class UserCtrl extends Controller {
 
   function __construct(LevelModel $level, SaleModel $sale, RecordModel $record,
-    InteractionModel $interaction, UserModel $user, ShadowDataModel $shadow) {
+    InteractionModel $interaction, UserModel $user, ShadowDataModel $shadow,
+    LicenseModel $license, NotificationModel $notification) {
     $this->_user = $user;
     $this->_interaction = $interaction;
     $this->_record = $record;
     $this->_sale = $sale;
     $this->_level = $level;
     $this->_shadow = $shadow;
+    $this->_license = $license;
+    $this->_notification = $notification;
   }
 
 //================== MULTIPLAYER GROUP ==================
-  public function GetShadowPlayerData($level, $isMulti) {
-    $allLevelData = ($isMulti == "true") ? $this->_level->GetAverageUserData($level)
+  public function GetShadowPlayerData($level, $guid, $isMulti) {
+    $allLevelData = ($isMulti == "true") ? $this->_level->FindNearestMatch($level, $guid)
                                : $this->_shadow->GetShadowData($level);
-    //Get data from top # player
-    $getIndex = Utility::Clamp(count($allLevelData)-1, 0, 5);
-    $getIndex = rand(0, $getIndex);
+    $r_name = $this->_user->GetRandomName();
+
+    //Get data from top 20 to 50% players
+    $minIndex = round(count($allLevelData) * 0.1);
+    $maxIndex = round(count($allLevelData) * 0.3);
+    // $getIndex = Utility::Clamp(count($allLevelData)-1, 0, 5);
+    $getIndex = rand($minIndex, $maxIndex-1);
 
     if (count($allLevelData) > 0) {
       $wantedData = $allLevelData[$getIndex];
+      $wantedData->name=$r_name->name;
+
       //Get Preparation
       $prepareData = $this->_record->GetUserPreparationByLevelID($wantedData->_id);
 
@@ -51,9 +63,9 @@ class UserCtrl extends Controller {
     $maxLevel = $this->_level->GetMaxLevel()[0];
     $allRecord = [];
     for ($i = 1; $i <= $maxLevel->level; $i++ ) {
-      $s_data = json_decode( $this->GetShadowPlayerData( $i, "false"));
+      $s_data = json_decode( $this->GetShadowPlayerData( $i, "dsd", "false"));
       if ($s_data->error_status == false) {
-        array_push($allRecord, json_decode( $this->GetShadowPlayerData( $i, "false") ) );  
+        array_push($allRecord, json_decode( $this->GetShadowPlayerData( $i, "fdf", "false") ) );
       }
     }
 
@@ -62,8 +74,22 @@ class UserCtrl extends Controller {
 //================== END MULTIPLAYER GROUP ==================
 
 //================== LOGIN GROUP ==================
-  public function CheckUnityVersion() {
-    return json_encode(array("device_version" => $this->_user->GetCurrentVersion() ));
+  public function LoginAsGuest(Request $request) {
+    $dataArray = (object) $request->json()->all();
+    $this->_user->InsertUser($dataArray);
+
+    $this->_user->DeleteExistingNotification($dataArray->notification_id);
+    $this->_notification->UpdateNotification( $dataArray->notification_id );
+    $this->_user->EditUser(array("notification_id", "notification_provider"),
+                          array($dataArray->notification_id,
+                                $dataArray->notification_provider,
+                                $dataArray->id));
+  }
+
+  public function CheckUnityVersion($platform) {
+    $data =  $this->_user->GetCurrentVersion($platform);
+
+    return json_encode(array("device_version" => sprintf("%.1f",$data) ));
   }
 
   //Syn Data everytime user login / go online
@@ -73,30 +99,88 @@ class UserCtrl extends Controller {
   }
 
   public function SynData($dataArray) {
+
     $userData = $this->_user->GetUserByGuid($dataArray->id)[0];
     $gameRecords = $this->_level->GetUserDataByGUID($dataArray->id);
+    $licenseRecord  = $this->_license->GetLicenseByEmail($userData->email);
+
+    if (isset($dataArray->notification_id)) {
+      if (!isset($dataArray->game_type)) $dataArray->game_type = "BizVenture";
+      $this->_user->DeleteExistingNotification($dataArray->notification_id);
+      $this->_user->EditUser(array("notification_id", "notification_provider", "game_type"),
+                            array($dataArray->notification_id,
+                                  $dataArray->notification_provider,
+                                  $dataArray->game_type,
+                                  $userData->guid));
+    }
 
     return json_encode(array("error_status"=>false, "fb_id"=> $userData->fb_id, "email"=>$userData->email,
               "guid"=>$userData->guid, "name"=>$userData->name,
-              "unlocks"=>$userData->unlocks, "game_records"=>$gameRecords),
+              "privilege" => $userData->privilege,
+              "donateAmount" => $userData->donateAmount,
+              "unlocks"=>$userData->unlocks, "game_records"=>$gameRecords,
+              "license" => $licenseRecord),
             JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+  }
+
+  public function EditorPassword(Request $request) {
+    $data = (object) $request->json()->all();
+    $l_result = json_decode( $this->PrimeLogin($request) );
+    $p_result = array();
+
+    if (!$l_result->error_status) {
+      $this->_user->EditPassword($data->password_new, $data->id);
+      $p_result["error_status"] = false;
+    } else {
+      $p_result["error_status"] = true;
+    }
+    return $p_result;
+  }
+
+  public function ForgetPassword(Request $request) {
+    $data = (object) $request->json()->all();
+    $userInfo = $this->_user->GetEmailUser($data->email);
+
+    if (count($userInfo) > 0) {
+      $userInfo = $userInfo[0];
+      $newPassword = substr(sha1(rand()), 0, 8);
+      $userInfo->newPassword = $newPassword;
+
+      $this->_user->EditPassword($newPassword, $userInfo->guid);
+
+      Mail::send('email.forget_password', ['user' => $userInfo],
+          function ($m) use ($userInfo) {
+            $m->from('wrainbolearning@gmail.com', 'Wrainbo');
+            $m->to($userInfo->email, $userInfo->name)->subject('Wrainbo : Change Password');
+      });
+      return json_encode( array("error_code" => 0),JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK );
+    }
+
+    return json_encode( array("error_code" => 1), JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK );
   }
 
   //For Email / FB login only
   public function PrimeLogin(Request $request) {
     $data = (object) $request->json()->all();
 
-
-    $errorMessage = json_encode(array("error_status" =>true ));
+    $errorMessage = array("error_status" =>true, "error_code" => 0);
     //Email
     if ($data->login_type == "Email") {
         $isNewUser = $this->_user->IsNewEmailUser( $data->email );
         //If no user and not registering
         if ($isNewUser && !isset($data->passwordCF)) {
-          return $errorMessage;
+          return json_encode($errorMessage);
         }
+
+        //if player type exist email to server
+        if (!$isNewUser && isset($data->purpose)) {
+          $errorMessage["error_code"] = 1;
+          return json_encode($errorMessage);
+        }
+
         //User Register
-        if ($isNewUser && count($this->_user->CheckUserAvilability($data->email))<=0) {
+        if (isset($data->passwordCF) && $isNewUser &&
+            count($this->_user->CheckUserAvilability($data->email))<=0) {
           //if email not exist but guid exist
           $userArray = $this->_user->GetUserByGuid($data->id);
           if (count($userArray) > 0) {
@@ -106,15 +190,16 @@ class UserCtrl extends Controller {
             //True Register
             $this->_user->EmailUserInsert($data);
           }
-        } else if ($isNewUser) {
-          return $errorMessage;
+        } else if (isset($data->passwordCF) && !$isNewUser) {
+          return json_encode($errorMessage);
         }
+
         //User Login
         if (!$isNewUser) {
           $emailResult = $this->_user->EmailValidation($data->email,
                                       Utility::GetHashString($data->password));
           if (count($emailResult) <= 0 ) {
-            return $errorMessage;
+            return json_encode($errorMessage);
           } else {
             $data->id = $emailResult[0]->guid;
           }
@@ -138,7 +223,7 @@ class UserCtrl extends Controller {
 
       $fbResult = $this->_user->FBUserValidation($data->fb_id);
       if ( count( $fbResult ) <= 0) {
-        return $errorMessage;
+        return json_encode($errorMessage);
       }  else {
         $data->id = $fbResult[0]->guid;
       }
@@ -146,6 +231,12 @@ class UserCtrl extends Controller {
 
     //Return the syndata info
     return $this->SynData($data);
+  }
+
+  public function Logout(Request $request) {
+    $data = (object) $request->json()->all();
+    $this->_notification->DeleteNotification( $data->notification_id);
+    $this->_user->EditUser(array("notification_id"), array("", $data->guid));
   }
 
   //================== END LOGIN GROUP ==================
@@ -161,7 +252,6 @@ class UserCtrl extends Controller {
     $record = $this->_user->GetAllUserByTrophy();
     return Utility::SortRanking($record, $guid);
   }
-
   //================== END RANK GROUP ==================
 
 
@@ -175,7 +265,6 @@ class UserCtrl extends Controller {
 
       $user_id=(count($userData)<=0) ? $this->_user->InsertUser($data) : $userData[0]->_id;
       $userData = $this->_user->GetUserByID($user_id)[0];
-
 
       //If no record then save
       // if (count($gameData) <= 0) {
@@ -202,7 +291,14 @@ class UserCtrl extends Controller {
         $userData->trophy = Utility::Clamp($userData->trophy, 0, $userData->trophy);
       }
 
-      $this->_user->UpdateUser($data->id, json_encode( $data->unlocks ), $userData->trophy);
+      $this->_user->DeleteExistingNotification($userData->notification_id);
+      $this->_notification->UpdateNotification( $userData->notification_id);
+      $this->_user->EditUser(array("unlocks", "trophy", "name"),
+                            array(json_encode( $data->unlocks ),
+                                  $userData->trophy,
+                                  $data->username,
+                                  $data->id
+                          ));
     }
   }
 }
