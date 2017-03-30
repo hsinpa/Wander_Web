@@ -72,6 +72,7 @@
             <p class="pushDown">Average plays per level</p>
           </div>
         </section>
+
       </div>
     </div>
   </div>

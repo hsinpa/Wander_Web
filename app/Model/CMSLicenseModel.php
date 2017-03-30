@@ -25,6 +25,12 @@ class CMSLicenseModel extends Eloquent {
     $r = self::GetLicenseCount($_id)-self::GetActiveLicenses($_id);
     return $r;
   }
+
+  public function AddMoreLicenses($_id, $count) {
+    $r = self::GetLicenseCount($_id)+$count;
+    DB::table($this->userTable)->where('_id', $_id)->update(['license_count' => $r]);
+    return $r;
+  }
   //Register new license
   public function RegisterEmail($id, $email, $department) {
     $totalLicenses = self::GetAvailableLicenses($id);

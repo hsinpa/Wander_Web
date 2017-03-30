@@ -2,13 +2,28 @@
 @section('content')
 
 @include('cms.header')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <div id="wrainbo-cms-license" class="wrainbo-cms-globalSetting">
   <div class="medium-2 columns">
     @include('cms.menu')
   </div>
 
   <div class="medium-10 columns">
+    @if (count($errors) > 0)
+      <div data-alert class="alert alert-box panel callout">
+              @foreach ($errors->all() as $error)
+                  {{ $error }}
+              @endforeach
+      </div>
+    @endif
+    @if (session('success'))
+    <div class="callout success">
+      <h5>Additional licenses purchased</h5>
+      <p>Register users below by associating their email with a license key.</p>
+    </div>
+    @endif
     <h2 class="wrainbo-cms-title">Manage License</h2>
 
     <div class="row license-holder" >

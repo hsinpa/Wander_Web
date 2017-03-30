@@ -2,10 +2,12 @@
   <ul>
     <a href="assessment"><li class="{{ $page=='assessment' ? 'menu-hightlight' : '' }}">Assessment</li></a>
     <a href="editor"><li class="{{ $page=='editor' ? 'menu-hightlight' : '' }}">Game Editor</li></a>
-    <a href="#"><li class="{{ $page=='element-editor' ? 'menu-hightlight' : '' }}">Element Editor</li></a>
-    <a href="#"><li class="{{ $page=='spell-editor' ? 'menu-hightlight' : '' }}">Spell Editor</li></a>
+
+    <a href="elementEditor"><li class="{{ $page=='element-editor' ? 'menu-hightlight' : '' }}">Element Editor</li></a>
+    <a href="spellEditor"><li class="{{ $page=='spell-editor' ? 'menu-hightlight' : '' }}">Tool Editor</li></a>
     <a href="level"><li class="{{ $page=='level' ? 'menu-hightlight' : '' }}">Level Editor</li></a>
     <a href="#"><li class="{{ $page=='license' ? 'menu-hightlight' : '' }}">Manage License</li></a>
+    
     <!-- <li><a href="spell">Spell</a></li> -->
     <a href="logout"><li>Logout</li></a>
   </ul>
