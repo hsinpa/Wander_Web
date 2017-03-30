@@ -34,7 +34,9 @@ var UsageManager = (function() {
   LoadChart = function(p_organizationId) {
     $.get( "getUsageData/"+p_organizationId, function( data ) {
         data = JSON.parse( data);
+
         console.log(data);
+
         totalTime = data.totalPlay;
         totalCompletion = data.totalLevel;
         totalUserLevel = data.userLevel;

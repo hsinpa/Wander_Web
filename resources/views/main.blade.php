@@ -57,7 +57,6 @@
           @include('layouts.header')
 
           @yield('content')
-
         </div>
       </div>
     </div>

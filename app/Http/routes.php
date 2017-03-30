@@ -40,6 +40,12 @@ Route::get('gameplay', function () {
       ['title' => 'Game-Based Learning | Wrainbo']);
 });
 
+Route::get('bizbattlegame', function () {
+    return view('pages.bizbattle.home',
+      ['title' => 'Wrainbo - Business Battle',
+        'metaDesc' => "Business Battle is a fantasy business strategy game. Players will face customers from Orcs to goblins and cast a wide variety of management spells to learn how to apply cross-functional business concepts in competition."]);
+});
+
 Route::get('learning', function () {
     return view('pages.learning.learning',
       ['title' => 'Practical Learning | Wrainbo']);

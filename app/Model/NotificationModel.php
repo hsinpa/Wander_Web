@@ -19,20 +19,33 @@ class NotificationModel {
     array("Your store is doing well. Invest in a budding business.", "A loan can help you boost your sales.", "Decision trees can help calculate investment returns. " ,"A loan can help you produce bags and earn more cash."),
     array("You have unlocked the multiplayer game. Try it out!", "Investments are have some good returns but may be risky.", "Your competitors are missing the challenge." ,"Did you consider downsizing your labor?")
   );
-
+  //
   public $BBMessageArray = array(
-    array("Your guide, Hobin, is waiting to help you set your shop up.", "Welcome to Business Battle. Tap to play.", "Hobin hopes all is well and you still want to set your shop up.", "An inheritance is awaiting your acceptance. Tap to accept.", "Hobin is worried. Competitors might take advantage of your absence.", "An inheritance is awaiting your acceptance. Tap to accept."),
-    array("Alvina says Hi to you!", "Check out the tips in Level1.", "A new bot is now in your market. Let's fight back.", "The tips are really helpful in building your business.", "A new bot is now in your market. Let's fight back.", "The tips are really helpful in building your business."),
-    array("A new customer has arrived at your store.", "Your competitor bot is challenging you. Let's fight back.", "Winter is coming, demand will rise. Let's sell more.", "Don't you want to fight back to Trends Inc.?", "Winter is coming, demand will rise. Let's sell more.", "Don't you want to fight back to Trends Inc.?"),
-    array("Your store is a hit. Another new customer is here.", "Promotion spell can help you.", "Learn about the marketing funnel.", "Let's check out the customer card this time.", "Learn about the marketing funnel.", "Let's check out the customer card this time."),
-    array("Edmond wants to hire some labor. ", "Check out the Crystal Ball to choose the right channel.", "Your store is superhit. Another new customer is here.", "Understand the marketing funnel for maximum outreach.", "Your store is superhit. Another new customer is here.", "Understand the marketing funnel for maximum outreach."),
-    array("Old customer in new boots. Yes, now we have boots to sell.", "Do you want to recruit more labor?", "Oh no! The boots have defects.", "Hiring labor is worth the additional cost.", "Oh no! The boots have defects.", "Hiring labor is worth the additional cost."),
-    array("Bags make good money. You should sell them in your store.", "Defects in production is the hidden cost.", "Vendors are asking for contracts.", "Quality control spell can reduce your costs.", "Vendors are asking for contracts.", "Quality control spell can reduce your costs."),
-    array("Rich has got some gold for you.", "Check out tips on vendors.", "Rich has some good suggestions on managing gold.", "Selling bags can be lucrative.", "Rich has some good suggestions on managing gold.", "Selling bags can be lucrative."),
-    array("Now you can take a loan to grow your business.", "These customers don't pay in this round. Watch your sale.", "There is a godl crisis. Let's take the loan.", "Gold collection is taking time. Manage your gold wisely.", "There is a godl crisis. Let's take the loan.", "Gold collection is taking time. Manage your gold wisely."),
-    array("Your store is doing well. Invest in a budding business.", "A loan can help you boost your sales.", "Decision trees can help calculate investment returns. ", "A loan can help you produce bags and earn more gold.", "Decision trees can help calculate investment returns. ", "A loan can help you produce bags and earn more gold."),
-    array("You have unlocked the multiplayer game. Try it out!", "Investments are have some good returns but may be risky. ", "Your competitors are missing the challenge. ", "Did you consider downsizing your labor?", "Your competitors are missing the challenge. ", "Did you consider downsizing your labor?")
+    array("Your guide, Hobin, is waiting to help you set your shop up.", "Welcome to Business Battle. Tap to play.", "Hobin hopes all is well and you still want to set your shop up.", "An inheritance is awaiting your acceptance. Tap to accept."),
+    array("Alvina says Hi to you!", "Check out the tips in Level1.", "A new bot is now in your market. Let's fight back.", "The tips are really helpful in building your business."),
+    array("A new customer has arrived at your store.", "Your competitor bot is challenging you. Let's fight back.", "Winter is coming, demand will rise. Let's sell more.", "Don't you want to fight back to Trends Inc.?"),
+    array("Your store is a hit. Another new customer is here.", "Promotion spell can help you.", "Learn about the marketing funnel.", "Let's check out the customer card this time."),
+    array("Edmond wants to hire some labor. ", "Check out the Crystal Ball to choose the right channel.", "Your store is superhit. Another new customer is here.", "Understand the marketing funnel for maximum outreach."),
+    array("Old customer in new boots. Yes, now we have boots to sell.", "Do you want to recruit more labor?", "Oh no! The boots have defects.", "Hiring labor is worth the additional cost."),
+    array("Bags make good money. You should sell them in your store.", "Defects in production is the hidden cost.", "Vendors are asking for contracts.", "Quality control spell can reduce your costs."),
+    array("Rich has got some gold for you.", "Check out tips on vendors.", "Rich has some good suggestions on managing gold.", "Selling bags can be lucrative."),
+    array("Now you can take a loan to grow your business.", "These customers don't pay in this round. Watch your sale.", "There is a godl crisis. Let's take the loan.", "Gold collection is taking time. Manage your gold wisely."),
+    array("Your store is doing well. Invest in a budding business.", "A loan can help you boost your sales.", "Decision trees can help calculate investment returns. ", "A loan can help you produce bags and earn more gold."),
+    array("You have unlocked the multiplayer game. Try it out!", "Investments are have some good returns but may be risky. ", "Your competitors are missing the challenge. ", "Did you consider downsizing your labor?")
   );
+  // public $BBMessageArray = array(
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  //   array("New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!","New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!", "New business challenges await you. Tap to explore!"),
+  // );
 
     public function GetNotifcation() {
       $q = "SELECT User.*, last_login_date, push_num FROM User
@@ -114,7 +127,8 @@ class NotificationModel {
 
     public function APNPush($title, $message, $register_id, $game_type) {
       // $t_iosID = "cd27fe3d1513d55bab7a9e497eb26ae78a150d479460d00937b86df61c513271";
-      $tHost = 'gateway.sandbox.push.apple.com';
+      //gateway.push.apple.com
+      $tHost = 'gateway.push.apple.com';
 
       $tPort = 2195;
 

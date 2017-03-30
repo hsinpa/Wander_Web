@@ -28,7 +28,11 @@
             <!-- <li class="nav3"><a href="/package">Package</a></li> -->
             </ul>
           </li>
-          <li><a href="/games">GAMES</a></li>
+          <li><a href="/games">GAMES</a>
+            <ul>
+            <li class="nav3"><a href="/bizbattlegame">BUSINESS BATTLE</a></li>
+            </ul>
+          </li>
           <li><a href="/aboutUs" >ABOUT US</a></li>
           <li><a class="demo-button" href="/demo" >GET DEMO</a></li>
           <li class="web-topbar-seperateLine"> | </li>

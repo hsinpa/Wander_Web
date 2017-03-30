@@ -89,7 +89,8 @@ class UserCtrl extends Controller {
   public function CheckUnityVersion($platform) {
     $data =  $this->_user->GetCurrentVersion($platform);
 
-    return json_encode(array("device_version" => sprintf("%.1f",$data) ));
+    return json_encode(array("device_version" => $data->device_version,
+                             "bundle_version" => $data->bundle_version ));
   }
 
   //Syn Data everytime user login / go online

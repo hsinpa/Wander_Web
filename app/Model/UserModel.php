@@ -16,6 +16,11 @@ class UserModel extends Eloquent {
     return $result[$rIndex];
   }
 
+  public function GetAllOrganization() {
+    $q ="SELECT * FROM Organization";
+    return DB::select($q);
+  }
+
   public function GetAllByOrganization($organization_id) {
     $q ="SELECT * FROM $this->table WHERE organization_id = ?";
     return DB::select($q, array($organization_id));
@@ -23,9 +28,7 @@ class UserModel extends Eloquent {
 
   public function GetCurrentVersion($platform) {
     $q ="SELECT * FROM Setting WHERE os = ?";
-    $r = DB::select($q, array( $platform ))[0];
-
-    return $r->device_version;
+    return DB::select($q, array( $platform ))[0];
   }
 
   public function IsNewFBUser($fb_id) {
@@ -204,12 +207,11 @@ class UserModel extends Eloquent {
   }
 
   public function DeleteExistingNotification($notification_id) {
-    $q = "SELECT * FROM User WHERE notification_id = ?";
-    $array = DB::select($q, array($notification_id));
-    foreach ($array as $r) {
-      $this->EditUser( array("notification_id"),
-                       array($r->notification_id, $r->guid));
-    }
+    $q = "UPDATE $this->table
+          SET notification_id = ''
+          WHERE notification_id = ?";
+    $array = DB::update($q, array($notification_id));
+
   }
 
   //Always add guid at button of valueArray

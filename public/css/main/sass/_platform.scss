@@ -25,6 +25,17 @@
           margin-top: 4em;
        }
     }
+    .learnMore {
+      display: inline-block;
+      border: 2px solid $blue;
+      border-radius: 10px;
+      padding: 1em 3em;
+      color : $blue;
+      background: transparent;
+      position: relative;
+      top:1.5em;
+      font-family: 'LatoWebSemibold';
+    }
   }
 
     .rslides_container {

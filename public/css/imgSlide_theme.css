@@ -96,6 +96,8 @@
   text-align: center;
   margin: 0 auto;
   clear: both;
+  position: relative;
+  top:1em;
   }
 
 .centered-btns_tabs li,

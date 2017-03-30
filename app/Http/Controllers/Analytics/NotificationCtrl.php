@@ -40,7 +40,6 @@ class NotificationCtrl extends Controller {
     $maxLevel = $this->_level->GetMaxLevel()[0]->level;
 
     //0=>24Pass,1=> 24Fail, 2=> 72Pass,3=> 72 Fail
-
     $allAvailableUser = $this->_notification->GetNotifcation();
     foreach ($allAvailableUser as $data) {
 
@@ -64,7 +63,7 @@ class NotificationCtrl extends Controller {
           $diff=date_diff($today, $p_last_date);
           $minDiff = $diff->i;
           $dayDiff = $diff->d;
-          $selectDiff = ($data->game_type == "BizVenture") ? $dayDiff: $minDiff;
+          $selectDiff = ($data->game_type == "BizVenture") ? $dayDiff: $dayDiff;
           $messageArray =($data->game_type == "BizVenture") ? $this->_notification->BVMessageArray: $this->_notification->BBMessageArray;
 
           if (count($levelInfo) > 0 && $levelInfo[0]->level <= $maxLevel) {
@@ -96,9 +95,9 @@ class NotificationCtrl extends Controller {
                   $message = $messageArray[0][3];
                 }
             }
-
           //Send Notificaiton and update notifiaciotn table
           if ($message != "" && $data->push_num < 2) {
+            echo $message;
             $this->_notification->SendNotification($data->notification_provider,
               Utility::GetFullAppName($data->game_type), $message, $data->notification_id, $data->game_type);
 

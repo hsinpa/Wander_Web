@@ -38,6 +38,7 @@
                 <h5>Business Battle</h5>
                 <p>Business Battle is the fantasy variant of Business Venture. Players will face customers from Orcs to goblin and cast a wide variety of management spells to learn how to apply cross-functional business concepts in competition.
                 </p>
+                <a class="learnMore" href="/bizbattlegame">LEARN MORE</a>
             </div>
 
           </section>
